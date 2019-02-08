@@ -387,12 +387,12 @@ public:
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60 * 60; // Peony 1 hours
-        nTargetSpacing = 1 * 90;  // Peony Block Time
+        nTargetSpacing = 1 * 60;  // Peony Block Time
         nLastPOWBlock = 400;   //Last Pow Block
         nMaturity = 30;
         nMasternodeCountDrift = 20;
-        nModifierUpgradeBlock = 1;  // update to fork block - approx 1PM GMT+1 27th of December, 2018
-        nRewardUpdateBlock = 2; // start of new rewards only used to disconnect old protocol so may be removed after fork block
+        nModifierUpgradeBlock = 0;  // update to fork block - approx 1PM GMT+1 27th of December, 2018
+        nRewardUpdateBlock = 0; // start of new rewards only used to disconnect old protocol so may be removed after fork block
         nMaxMoneyOut = 50000000 * COIN;
 
         const char* pszTimestamp = "Brexit: MPs voting on changes to May's plan // From BBC 29st of January, 2019";

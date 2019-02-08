@@ -1624,18 +1624,49 @@ int64_t GetBlockValue(int nHeight)
 
     if (nHeight <= 1) {
         nSubsidy = 350000 * COIN;
-    }
-    else if (nHeight > 2 && nHeight <= 30000 ) { // Last POW Block 400
-        nSubsidy = 50 * COIN;
-    } else if (nHeight > 30001 && nHeight <= 500000 ) {
-        nSubsidy = 30 * COIN;
-    } else if (nHeight > 500001 && nHeight <= 1500000 ) {
-        nSubsidy = 20 * COIN;
-    } else if (nHeight > 1500001 && nHeight <= 2500000 ) { // Last block for fork height to new block reward - Approx 27.12.2018 1PM GMT +1
-        nSubsidy = 10 * COIN;
-    } else if (nHeight > 2500001 && nHeight <= 3310033 ) {
+    } else if (nHeight > 2 && nHeight <= 999 ) {
+        nSubsidy = 0.5 * COIN;
+    } else if (nHeight > 1000 && nHeight <= 45000 ) { // Last POW Block 400
+        nSubsidy = 1 * COIN;
+    } else if (nHeight > 45001 && nHeight <= 90000 ) {
+        nSubsidy = 1.5 * COIN;
+    } else if (nHeight > 90001 && nHeight <= 135000) {
+        nSubsidy = 2 * COIN;
+    } else if (nHeight > 135001 && nHeight <= 180000 ) { // Last block for fork height to new block reward - Approx 27.12.2018 1PM GMT +1
+        nSubsidy = 2.5 * COIN;
+    } else if (nHeight > 180001 && nHeight <= 225000 ) {
+        nSubsidy = 3 * COIN;
+    } else if (nHeight > 225001 && nHeight <= 270000 ) {
+        nSubsidy = 3.5 * COIN;
+    } else if (nHeight > 270001 && nHeight <= 315000 ) {
+        nSubsidy = 4 * COIN;
+    } else if (nHeight > 315001 && nHeight <= 360000 ) {
+        nSubsidy = 4.5 * COIN;
+    } else if (nHeight > 360001 && nHeight <= 405000 ) {
         nSubsidy = 5 * COIN;
-    } else if (nHeight > 3310034) {
+    } else if (nHeight > 405001 && nHeight <= 450000 ) {
+        nSubsidy = 5.5 * COIN;
+    } else if (nHeight > 450001 && nHeight <= 495000 ) {
+        nSubsidy = 6 * COIN;
+    } else if (nHeight > 495001 && nHeight <= 540000 ) {
+        nSubsidy = 6.5 * COIN;
+    } else if (nHeight > 540001 && nHeight <= 585000 ) {
+        nSubsidy = 7 * COIN;
+    } else if (nHeight > 585001 && nHeight <= 630000 ) {
+        nSubsidy = 7.5 * COIN;
+    } else if (nHeight > 630001 && nHeight <= 675000 ) {
+        nSubsidy = 8 * COIN;
+    } else if (nHeight > 675001 && nHeight <= 720000 ) {
+        nSubsidy = 8.5 * COIN;
+    } else if (nHeight > 720001 && nHeight <= 765000 ) {
+        nSubsidy = 9 * COIN;
+    } else if (nHeight > 765001 && nHeight <= 810000 ) {
+        nSubsidy = 9.5 * COIN;
+    } else if (nHeight > 810001 && nHeight <= 855000 ) {
+        nSubsidy = 10 * COIN;
+    } else if (nHeight > 855001 && nHeight <= 4044522 ) {
+        nSubsidy = 5 * COIN;
+    } else if (nHeight > c) {
         nSubsidy = 0 * COIN;
     }
 return nSubsidy;
@@ -1646,7 +1677,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 {
     int64_t ret = 0;
 
-    if (nHeight <= 3310033) {
+    if (nHeight <= 4044523) {
         ret = blockValue / 100 * 80; // Under that block_height MN get 80% of block reward
     } else if (nHeight > Params().LAST_POW_BLOCK()) {
         int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
