@@ -334,12 +334,13 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
       boost::assign::map_list_of
       (0, uint256("0x00000d7547bc34273b08721bea1230f5c4aad3e134d40a10de51b80c78876209"))
+      (2660, uint256("0x7ec1d827b095ed22c9247db2323a213d02c51c848f03b9dcbdc122e8f2a99490"))
       ;
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1549653940, // * UNIX timestamp of last checkpoint block
-    0, // * total number of transactions between genesis and last checkpoint
+    4887, // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
             // * estimated number of transactions per day after checkpoint
 };
@@ -391,9 +392,11 @@ public:
         nLastPOWBlock = 400;   //Last Pow Block
         nMaturity = 30;
         nMasternodeCountDrift = 20;
-        nModifierUpgradeBlock = 0;  // update to fork block - approx 1PM GMT+1 27th of December, 2018
-        nRewardUpdateBlock = 0; // start of new rewards only used to disconnect old protocol so may be removed after fork block
-        nMaxMoneyOut = 50000000 * COIN;
+
+        nModifierUpgradeBlock = 0;
+        nRewardUpdateBlock = 0;
+        nMaxMoneyOut = 21000001 * COIN;
+
 
         const char* pszTimestamp = "Apple to pay teenager who found FaceTime bug // From BBC 8th of February, 2019";
         CMutableTransaction txNew;
