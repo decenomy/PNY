@@ -41,11 +41,11 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case peony:
-        return QString("PNY");
+        return QString("peony");
     case mpeony:
-        return QString("mPNY");
+        return QString("mpeony");
     case upeony:
-        return QString::fromUtf8("uPNY");
+        return QString::fromUtf8("upeony");
     default:
         return QString("???");
     }
