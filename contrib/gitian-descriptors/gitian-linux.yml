@@ -1,9 +1,8 @@
 ---
-name: "peony-linux-2.18"
+name: "peony-linux-0.18"
 enable_cache: true
-distro: "ubuntu"
 suites:
-- "xenial"
+- "bionic"
 architectures:
 - "amd64"
 packages:
