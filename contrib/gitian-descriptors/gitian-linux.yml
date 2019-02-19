@@ -1,27 +1,26 @@
 ---
-name: "peony-linux-0.18"
+name: "peony-linux-3.2"
 enable_cache: true
 suites:
-- "xenial"
-architectures:
+- "bionic"
+architectures:-project
 - "amd64"
 packages:
-- "libcurl3"
-- "libcurl4-openssl-dev"
-- "ruby"
-- "ruby-dev"
-- "build-essential"
 - "curl"
 - "g++-aarch64-linux-gnu"
-- "g++-5-aarch64-linux-gnu"
-- "gcc-5-aarch64-linux-gnu"
+- "g++-8-aarch64-linux-gnu"
+- "gcc-8-aarch64-linux-gnu"
 - "binutils-aarch64-linux-gnu"
 - "g++-arm-linux-gnueabihf"
-- "g++-5-arm-linux-gnueabihf"
-- "gcc-5-arm-linux-gnueabihf"
+- "g++-8-arm-linux-gnueabihf"
+- "gcc-8-arm-linux-gnueabihf"
 - "binutils-arm-linux-gnueabihf"
-- "g++-5-multilib"
-- "gcc-5-multilib"
+- "g++-riscv64-linux-gnu"
+- "g++-8-riscv64-linux-gnu"
+- "gcc-8-riscv64-linux-gnu"
+- "binutils-riscv64-linux-gnu"
+- "g++-8-multilib"
+- "gcc-8-multilib"
 - "binutils-gold"
 - "git"
 - "pkg-config"
@@ -43,8 +42,8 @@ script: |
   CONFIGFLAGS="--enable-glibc-back-compat --enable-reduce-exports --disable-bench --disable-gui-tests"
   FAKETIME_HOST_PROGS="gcc g++"
   FAKETIME_PROGS="date ar ranlib nm"
-  HOST_CFLAGS="-O3 -g"
-  HOST_CXXFLAGS="-O3 -g"
+  HOST_CFLAGS="-O2 -g"
+  HOST_CXXFLAGS="-O2 -g"
   HOST_LDFLAGS=-static-libstdc++
 
   export QT_RCC_TEST=1
@@ -123,7 +122,6 @@ script: |
   done
 
   cd peony
-  ls depends
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
@@ -133,7 +131,6 @@ script: |
     fi
     make ${MAKEOPTS} -C ${BASEPREFIX} HOST="${i}"
     unset HOST_ID_SALT
-    cat config.log
   done
 
   # Faketime for binaries
@@ -183,8 +180,7 @@ script: |
     find . -name "lib*.a" -delete
     rm -rf ${DISTNAME}/lib/pkgconfig
     find ${DISTNAME}/bin -type f -executable -exec ../contrib/devtools/split-debug.sh {} {} {}.dbg \;
-    find ${DISTNAME}/lib -type f -exec ../contrib/devtools/split-debug.sh {} {} {}.dbg \;
-    cp ../doc/README.md ${DISTNAME}/
+    # find ${DISTNAME}/lib -type f -exec ../contrib/devtools/split-debug.sh {} {} {}.dbg \;
     find ${DISTNAME} -not -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ${OUTDIR}/${DISTNAME}-${i}.tar.gz
     find ${DISTNAME} -name "*.dbg" | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ${OUTDIR}/${DISTNAME}-${i}-debug.tar.gz
     cd ../../
