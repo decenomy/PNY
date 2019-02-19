@@ -25,7 +25,7 @@ def setup():
     if not os.path.isdir('gitian.sigs'):
         subprocess.check_call(['git', 'clone', 'https://github.com/peonyteam/gitian.sigs.git'])
     if not os.path.isdir('peony-detached-sigs'):
-        subprocess.check_call(['git', 'clone', 'https://github.com/peonyteam-Project/peony-detached-sigs.git'])
+        subprocess.check_call(['git', 'clone', 'https://github.com/peonyteam/peony-detached-sigs.git'])
     if not os.path.isdir('gitian-builder'):
         subprocess.check_call(['git', 'clone', 'https://github.com/devrandom/gitian-builder.git'])
     if not os.path.isdir('peony'):
