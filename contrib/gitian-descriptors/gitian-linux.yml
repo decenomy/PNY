@@ -1,9 +1,9 @@
 ---
-name: "peony-linux-3.2"
+name: "peony-linux-2.2"
 enable_cache: true
 suites:
 - "bionic"
-architectures:-project
+architectures:
 - "amd64"
 packages:
 - "curl"
