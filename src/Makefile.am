@@ -66,15 +66,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += peony
+  bin_PROGRAMS += peonyd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += pivx-cli pivx-tx
+  bin_PROGRAMS += peony-cli peony-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# pivx core #
+# peony core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   accumulators.h \
