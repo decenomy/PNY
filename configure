@@ -22993,7 +22993,7 @@ else
 $as_echo "yes" >&6; }
 	QT_INCLUDES="$QT_CFLAGS"; have_qt=yes
 fi
-      elif test x$bitcoin_qt_want_version = xqt4 || ( test x$bitcoin_qt_want_version = xauto && test x$auto_priority_version = xqt4 ); then
+      elif test x$bitcoin_qt_want_version = xqt5 || ( test x$bitcoin_qt_want_version = xauto && test x$auto_priority_version = xqt5 ); then
 
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for QT" >&5
@@ -23003,12 +23003,12 @@ if test -n "$QT_CFLAGS"; then
     pkg_cv_QT_CFLAGS="$QT_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt4_modules\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "$qt4_modules") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt5_modules\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "$qt5_modules") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_QT_CFLAGS=`$PKG_CONFIG --cflags "$qt4_modules" 2>/dev/null`
+  pkg_cv_QT_CFLAGS=`$PKG_CONFIG --cflags "$qt5_modules" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -23020,12 +23020,12 @@ if test -n "$QT_LIBS"; then
     pkg_cv_QT_LIBS="$QT_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt4_modules\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "$qt4_modules") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt5_modules\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "$qt5_modules") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_QT_LIBS=`$PKG_CONFIG --libs "$qt4_modules" 2>/dev/null`
+  pkg_cv_QT_LIBS=`$PKG_CONFIG --libs "$qt5_modules" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -23046,9 +23046,9 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        QT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "$qt4_modules" 2>&1`
+	        QT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "$qt5_modules" 2>&1`
         else
-	        QT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "$qt4_modules" 2>&1`
+	        QT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "$qt5_modules" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$QT_PKG_ERRORS" >&5
@@ -23078,12 +23078,12 @@ if test -n "$QT_CFLAGS"; then
     pkg_cv_QT_CFLAGS="$QT_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt4_modules\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "$qt4_modules") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt5_modules\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "$qt5_modules") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_QT_CFLAGS=`$PKG_CONFIG --cflags "$qt4_modules" 2>/dev/null`
+  pkg_cv_QT_CFLAGS=`$PKG_CONFIG --cflags "$qt5_modules" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -23095,12 +23095,12 @@ if test -n "$QT_LIBS"; then
     pkg_cv_QT_LIBS="$QT_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt4_modules\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "$qt4_modules") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"\$qt5_modules\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "$qt5_modules") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_QT_LIBS=`$PKG_CONFIG --libs "$qt4_modules" 2>/dev/null`
+  pkg_cv_QT_LIBS=`$PKG_CONFIG --libs "$qt5_modules" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes
 else
   pkg_failed=yes
@@ -23121,9 +23121,9 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        QT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "$qt4_modules" 2>&1`
+	        QT_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "$qt5_modules" 2>&1`
         else
-	        QT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "$qt4_modules" 2>&1`
+	        QT_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "$qt5_modules" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$QT_PKG_ERRORS" >&5
