@@ -111,6 +111,16 @@ AC_ARG_WITH([miniupnpc],
   [enable UPNP (default is yes if libminiupnpc is found)])],
   [use_upnp=$withval],
   [use_upnp=auto])
+  
+AC_ARG_WITH([comparison-tool],
+    AS_HELP_STRING([--with-comparison-tool],[path to java comparison tool (requires --enable-tests)]),
+    [use_comparison_tool=$withval],
+    [use_comparison_tool=no])
+
+AC_ARG_ENABLE([comparison-tool-reorg-tests],
+    AS_HELP_STRING([--enable-comparison-tool-reorg-tests],[enable expensive reorg tests in the comparison tool (default no)]),
+    [use_comparison_tool_reorg_tests=$enableval],
+    [use_comparison_tool_reorg_tests=no])
 
 AC_ARG_ENABLE([upnp-default],
   [AS_HELP_STRING([--enable-upnp-default],
