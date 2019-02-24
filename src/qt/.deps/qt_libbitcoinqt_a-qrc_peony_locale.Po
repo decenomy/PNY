@@ -1,1 +1,0 @@
-qt/qt_libbitcoinqt_a-qrc_peony_locale.o: qt/qrc_peony_locale.cpp

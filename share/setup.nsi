@@ -1,4 +1,4 @@
-Name "Peony Client (32-bit)"
+Name "Peony Client (64-bit)"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -10,11 +10,11 @@ SetCompressor /SOLID lzma
 !define URL https://www.peony.org
 
 # MUI Symbol Definitions
-!define MUI_ICON "/home/av/Projects/peony-linux/share/pixmaps/bitcoin.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/av/Projects/peony-linux/share/pixmaps/nsis-wizard.bmp"
+!define MUI_ICON "/home/avathar/Projects/peony/share/pixmaps/bitcoin.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "/home/avathar/Projects/peony/share/pixmaps/nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP "/home/av/Projects/peony-linux/share/pixmaps/nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "/home/avathar/Projects/peony/share/pixmaps/nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -22,13 +22,13 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER "Peony Client"
 !define MUI_FINISHPAGE_RUN $INSTDIR\peony-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/av/Projects/peony-linux/share/pixmaps/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "/home/avathar/Projects/peony/share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
 !include Sections.nsh
 !include MUI2.nsh
-!if "32" == "64"
+!if "64" == "64"
 !include x64.nsh
 !endif
 
@@ -48,8 +48,8 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile /home/av/Projects/peony-linux/peony-${VERSION}-win32-setup.exe
-!if "32" == "64"
+OutFile /home/avathar/Projects/peony/peony-${VERSION}-win64-setup.exe
+!if "64" == "64"
 InstallDir $PROGRAMFILES64\peony
 !else
 InstallDir $PROGRAMFILES\peony
@@ -73,14 +73,14 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    File /home/av/Projects/peony-linux/release/peony-qt.exe
-    File /oname=COPYING.txt /home/av/Projects/peony-linux/COPYING
-    File /oname=readme.txt /home/av/Projects/peony-linux/doc/README_windows.txt
+    File /home/avathar/Projects/peony/release/peony-qt.exe
+    File /oname=COPYING.txt /home/avathar/Projects/peony/COPYING
+    File /oname=readme.txt /home/avathar/Projects/peony/doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File /home/av/Projects/peony-linux/release/peonyd.exe
-    File /home/av/Projects/peony-linux/release/peony-cli.exe
+    File /home/avathar/Projects/peony/release/peonyd.exe
+    File /home/avathar/Projects/peony/release/peony-cli.exe
     SetOutPath $INSTDIR\doc
-    File /r /home/av/Projects/peony-linux/doc\*.*
+    File /r /home/avathar/Projects/peony/doc\*.*
     SetOutPath $INSTDIR
     WriteRegStr HKCU "${REGKEY}\Components" Main 1
 
@@ -160,7 +160,7 @@ SectionEnd
 # Installer functions
 Function .onInit
     InitPluginsDir
-!if "32" == "64"
+!if "64" == "64"
     ${If} ${RunningX64}
       ; disable registry redirection (enable access to 64-bit portion of registry)
       SetRegView 64

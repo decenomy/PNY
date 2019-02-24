@@ -121,7 +121,7 @@
 /* #undef HAVE_GETADDRINFO_A */
 
 /* Define this symbol if you have inet_pton */
-/* #undef HAVE_INET_PTON */
+#define HAVE_INET_PTON 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1
@@ -199,7 +199,7 @@
 #define HAVE_LIBWS2_32 1
 
 /* Define to 1 if you have the `z ' library (-lz ). */
-/* #undef HAVE_LIBZ_ */
+#define HAVE_LIBZ_ 1
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -226,7 +226,7 @@
 #define HAVE_PTHREAD_PRIO_INHERIT 1
 
 /* Define to 1 to enable trading dialog */
-#define HAVE_QT5 1
+/* #undef HAVE_QT5 */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -317,7 +317,7 @@
 /* #undef USE_DBUS */
 
 /* Define if QR support should be compiled in */
-#define USE_QRCODE 1
+/* #undef USE_QRCODE */
 
 /* UPnP support not compiled if undefined, otherwise value (0 or 1) determines
    default state */
