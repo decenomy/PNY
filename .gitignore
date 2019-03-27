@@ -66,6 +66,7 @@ libconftest.dylib*
 *.pb.cc
 *.pb.h
 *.tmp
+*.a
 *.log
 *.trs
 *.dmg
