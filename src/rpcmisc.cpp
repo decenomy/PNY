@@ -153,6 +153,10 @@ Value mnsync(const Array& params, bool fHelp)
         masternodeSync.Reset();
         return "success";
     }
+     if (strMode == "next") {
+        masternodeSync.GetNextAsset();
+        return masternodeSync.GetSyncStatus();
+    }
     return "failure";
 }
 
