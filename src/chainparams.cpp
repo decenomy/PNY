@@ -482,8 +482,8 @@ public:
         strSporkKey = "02adf304ea83f5ef9fe03287309ec485796c4702c248ca9e51138721c768e1a7a5";
         strObfuscationPoolDummyAddress = "PLzBQLMnZ4KhtLZvzMqwFR98AcvhZnossB";
         nStartMasternodePayments = 1549653940; //
-        nEnforceNewSporkKey = 1535641764; //!> Sporks signed after Thursday, August 30, 2018 3:09:24 PM GMT must use the new spork key
-        nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Wednesday, August 29, 2018 3:09:24 PM GMT
+        nEnforceNewSporkKey = 1555938051; //!> Sporks signed after  Monday, April 22, 2019 1:00:51 PM GMT must use the new spork key
+        nRejectOldSporkKey = 1555920051; //!> Reject old spork key after Monday, April 22, 2019 8:00:51 AM GMT
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const
