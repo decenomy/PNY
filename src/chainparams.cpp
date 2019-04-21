@@ -478,9 +478,12 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04eadb211e767a0ef06d48f4e3a5a88f13d1759a1a8049aca53680070973984b90d456b3c8ee2c6a267e90bc7a76693e0eefb9580e810f1e86a2a69902a8ebffea";
+        strSporkKeyOld = "04eadb211e767a0ef06d48f4e3a5a88f13d1759a1a8049aca53680070973984b90d456b3c8ee2c6a267e90bc7a76693e0eefb9580e810f1e86a2a69902a8ebffea";
+        strSporkKey = "02adf304ea83f5ef9fe03287309ec485796c4702c248ca9e51138721c768e1a7a5";
         strObfuscationPoolDummyAddress = "PLzBQLMnZ4KhtLZvzMqwFR98AcvhZnossB";
         nStartMasternodePayments = 1549653940; //
+        nEnforceNewSporkKey = 1535641764; //!> Sporks signed after Thursday, August 30, 2018 3:09:24 PM GMT must use the new spork key
+        nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Wednesday, August 29, 2018 3:09:24 PM GMT
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const

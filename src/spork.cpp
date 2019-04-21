@@ -49,7 +49,13 @@ void ProcessSpork(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
         }
 
         LogPrintf("spork - new %s ID %d Time %d bestHeight %d\n", hash.ToString(), spork.nSporkID, spork.nValue, chainActive.Tip()->nHeight);
-
+ if (spork.nTimeSigned >= Params().NewSporkStart()) {
+            if (!sporkManager.CheckSignature(spork, true)) {
+                LogPrintf("%s : Invalid Signature\n", __func__);
+                Misbehaving(pfrom->GetId(), 100);
+                return;
+            }
+        }
         if (!sporkManager.CheckSignature(spork)) {
             LogPrintf("spork - invalid signature\n");
             Misbehaving(pfrom->GetId(), 100);
@@ -183,10 +189,29 @@ bool CSporkManager::CheckSignature(CSporkMessage& spork)
     CPubKey pubkey(ParseHex(Params().SporkKey()));
 
     std::string errorMessage = "";
-    if (!obfuScationSigner.VerifyMessage(pubkey, spork.vchSig, strMessage, errorMessage)) {
-        return false;
+  //accept both old and new sporkkeys until rejectoldsporkkey is active
+    if (GetAdjustedTime() < Params().RejectOldSporkKey()) {
+        CPubKey pubkeyold(ParseHex(Params().SporkKeyOld()));
+        if (obfuScationSigner.VerifyMessage(pubkey, spork.vchSig, strMessage, errorMessage) ||
+            obfuScationSigner.VerifyMessage(pubkeyold, spork.vchSig, strMessage, errorMessage)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
-
+    //Accept only new sporkkey after newsporkstart
+    else if (GetAdjustedTime() > Params().NewSporkStart()){
+        if (obfuScationSigner.VerifyMessage(pubkey, spork.vchSig, strMessage, errorMessage){
+            return true;
+          }
+        else {
+            return false;
+        }
+    }
+    else {
+      return false;
+    }
     return true;
 }
 
