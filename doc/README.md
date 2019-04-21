@@ -41,7 +41,7 @@ The following are developer notes on how to build peony on your native platform.
 
 Development
 ---------------------
-The peony repo's [root README](https://github.com/peony-Project/peony/blob/master/README.md) contains relevant information on the development process and automated testing.
+The peony repo's [root README](https://github.com/PeonyTeam/peony/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

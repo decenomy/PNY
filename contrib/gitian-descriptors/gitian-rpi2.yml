@@ -20,7 +20,7 @@ packages:
 - "python"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/peony-project/peony.git"
+- "url": "https://github.com/PeonyTeam/peony.git"
   "dir": "peony"
 files:
 - "raspberrypi-tools.tar.gz"

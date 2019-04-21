@@ -44,7 +44,7 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/peony-Project/peony.git
+        git clone https://github.com/PeonyTeam/peony.git
         cd peony
 
 2.  Build peonyd:
