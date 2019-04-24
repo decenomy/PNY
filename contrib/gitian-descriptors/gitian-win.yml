@@ -1,5 +1,5 @@
 ---
-name: "pny-win-2.0.0"
+name: "pny-win-2.0.1"
 enable_cache: true
 suites:
 - "bionic"
@@ -23,7 +23,7 @@ packages:
 - "python"
 - "rename"
 remotes:
-- "url": "https://github.com/CryptoDev-Project/peony.git"
+- "url": "https://github.com/PeonyTeam/peony.git"
   "dir": "peony"
 files: []
 script: |

@@ -1,5 +1,5 @@
 ---
-name: "pny-linux-2.0.0"
+name: "pny-linux-2.0.1"
 enable_cache: true
 suites:
 - "bionic"
@@ -121,7 +121,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd pny
+  cd peony
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
