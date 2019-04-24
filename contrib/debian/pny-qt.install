@@ -1,0 +1,6 @@
+usr/local/bin/pny-qt usr/bin
+share/pixmaps/pny32.xpm usr/share/pixmaps
+share/pixmaps/pny16.xpm usr/share/pixmaps
+share/pixmaps/pny128.png usr/share/pixmaps
+debian/pny-qt.desktop usr/share/applications
+debian/pny-qt.protocol usr/share/kde4/services/

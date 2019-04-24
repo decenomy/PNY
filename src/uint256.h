@@ -1,13 +1,14 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Peony Development Team
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UINT256_H
-#define BITCOIN_UINT256_H
+#ifndef PNY_UINT256_H
+#define PNY_UINT256_H
 
 #include <assert.h>
 #include <cstring>
@@ -278,6 +279,11 @@ public:
     {
         return pn[2 * n] | (uint64_t)pn[2 * n + 1] << 32;
     }
+
+    uint32_t Get32(int n = 0) const
+    {
+        return pn[2 * n];
+    }
     /**
      * Returns the position of the highest bit set plus one, or zero if the
      * value is zero.
@@ -406,4 +412,4 @@ inline uint512 uint512S(const std::string& str)
     return rv;
 }
 
-#endif // BITCOIN_UINT256_H
+#endif // PNY_UINT256_H

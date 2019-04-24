@@ -1,4 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
+// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -58,11 +61,15 @@ private:
     GUIUtil::TableViewLastColumnResizingFixer* columnResizingFixer;
     WalletModel* model;
     QMenu* contextMenu;
+    QString address;
+
+    QString getAddress(QString label = "");
     void copyColumnToClipboard(int column);
     virtual void resizeEvent(QResizeEvent* event);
 
 private slots:
     void on_receiveButton_clicked();
+    void on_receivingAddressesButton_clicked();
     void on_showRequestButton_clicked();
     void on_removeRequestButton_clicked();
     void on_recentRequestsView_doubleClicked(const QModelIndex& index);
@@ -72,6 +79,8 @@ private slots:
     void copyLabel();
     void copyMessage();
     void copyAmount();
+    void copyAddress();
+    void receiveAddressUsed();
 };
 
 #endif // BITCOIN_QT_RECEIVECOINSDIALOG_H

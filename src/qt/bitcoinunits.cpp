@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Peony Development Team
+// Copyright (c) 2015-2017 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(peony);
-    unitlist.append(mpeony);
-    unitlist.append(upeony);
+    unitlist.append(PNY);
+    unitlist.append(mPNY);
+    unitlist.append(uPNY);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case peony:
-    case mpeony:
-    case upeony:
+    case PNY:
+    case mPNY:
+    case uPNY:
         return true;
     default:
         return false;
@@ -40,12 +40,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case peony:
-        return QString("peony");
-    case mpeony:
-        return QString("mpeony");
-    case upeony:
-        return QString::fromUtf8("upeony");
+    case PNY:
+        return QString("pny");
+    case mPNY:
+        return QString("mpny");
+    case uPNY:
+        return QString::fromUtf8("upny");
     default:
         return QString("???");
     }
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case peony:
+        case PNY:
             return QString("PNY");
-        case mpeony:
+        case mPNY:
             return QString("mPNY");
-        case upeony:
-            return QString::fromUtf8("uPNY");
+        case uPNY:
+            return QString::fromUtf8("μPNY");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case peony:
+        case PNY:
             return QString("tPNY");
-        case mpeony:
+        case mPNY:
             return QString("mtPNY");
-        case upeony:
-            return QString::fromUtf8("utPNY");
+        case uPNY:
+            return QString::fromUtf8("μtPNY");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case peony:
-            return QString("peony");
-        case mpeony:
-            return QString("Milli-peony (1 / 1" THIN_SP_UTF8 "000)");
-        case upeony:
-            return QString("Micro-peony (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case PNY:
+            return QString("PNY");
+        case mPNY:
+            return QString("Milli-PNY (1 / 1" THIN_SP_UTF8 "000)");
+        case uPNY:
+            return QString("Micro-PNY (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case peony:
-            return QString("Testpeonys");
-        case mpeony:
-            return QString("Milli-Testpeony (1 / 1" THIN_SP_UTF8 "000)");
-        case upeony:
-            return QString("Micro-Testpeony (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case PNY:
+            return QString("TestPNYs");
+        case mPNY:
+            return QString("Milli-TestPNY (1 / 1" THIN_SP_UTF8 "000)");
+        case uPNY:
+            return QString("Micro-TestPNY (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case peony:
+    case PNY:
         return 100000000;
-    case mpeony:
+    case mPNY:
         return 100000;
-    case upeony:
+    case uPNY:
         return 100;
     default:
         return 100000000;
@@ -122,11 +122,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case peony:
+    case PNY:
         return 8;
-    case mpeony:
+    case mPNY:
         return 5;
-    case upeony:
+    case uPNY:
         return 2;
     default:
         return 0;

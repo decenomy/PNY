@@ -1,4 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
+// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,7 +56,7 @@ private:
     Qt::SortOrder order;
 };
 
-/** Model for list of recently generated payment requests / peony: URIs.
+/** Model for list of recently generated payment requests / pny: URIs.
  * Part of wallet model.
  */
 class RecentRequestsTableModel : public QAbstractTableModel
@@ -67,8 +70,9 @@ public:
     enum ColumnIndex {
         Date = 0,
         Label = 1,
-        Message = 2,
-        Amount = 3,
+        Address = 2,
+        Message = 3,
+        Amount = 4,
         NUMBER_OF_COLUMNS
     };
 

@@ -1,0 +1,81 @@
+policy_module(pny, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type pny_t;
+type pny_exec_t;
+init_daemon_domain(pny_t, pny_exec_t)
+
+permissive pny_t;
+
+type pny_initrc_exec_t;
+init_script_file(pny_initrc_exec_t)
+
+type pny_conf_t;
+files_type(pny_conf_t)
+
+type pny_var_lib_t;
+files_type(pny_var_lib_t)
+
+type pny_var_run_t;
+files_type(pny_var_run_t)
+
+type pny_port_t;
+corenet_port(pny_port_t)
+
+########################################
+#
+# pny local policy
+#
+allow pny_t self:process { fork };
+
+allow pny_t self:fifo_file rw_fifo_file_perms;
+allow pny_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(pny_t, pny_conf_t, pny_conf_t)
+manage_files_pattern(pny_t, pny_conf_t, pny_conf_t)
+
+manage_dirs_pattern(pny_t, pny_var_lib_t, pny_var_lib_t)
+manage_files_pattern(pny_t, pny_var_lib_t, pny_var_lib_t)
+files_var_lib_filetrans(pny_t, pny_var_lib_t, { dir file })
+
+manage_dirs_pattern(pny_t, pny_var_run_t, pny_var_run_t)
+manage_files_pattern(pny_t, pny_var_run_t, pny_var_run_t)
+
+sysnet_dns_name_resolve(pny_t)
+corenet_all_recvfrom_unlabeled(pny_t)
+
+allow pny_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(pny_t)
+corenet_tcp_sendrecv_generic_node(pny_t)
+corenet_tcp_sendrecv_all_ports(pny_t)
+corenet_tcp_bind_generic_node(pny_t)
+
+gen_require(`
+    type pny_port_t;
+')
+allow pny_t pny_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type pny_port_t;
+')
+allow pny_t pny_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(pny_t)
+
+files_read_etc_files(pny_t)
+
+miscfiles_read_localization(pny_t)
+
+sysnet_dns_name_resolve(pny_t)
+
+allow pny_t pny_exec_t:file execute_no_trans;
+allow pny_t self:process setsched;
+corecmd_exec_ls(pny_t)
+corenet_tcp_connect_http_port(pny_t)
+dev_read_urand(pny_t)
+fs_getattr_xattr_fs(pny_t)
+kernel_read_system_state(pny_t)

@@ -1,5 +1,7 @@
 // Copyright (c) 2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,8 +12,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between peony-cli and peonyd)
- * of a given instance of the peony system.
+ * CBaseChainParams defines the base parameters (shared between pny-cli and pnyd)
+ * of a given instance of the Pny system.
  */
 class CBaseChainParams
 {
