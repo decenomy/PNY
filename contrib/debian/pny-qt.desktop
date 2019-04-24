@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=PNY Core
+Comment=PNY P2P Cryptocurrency
+Comment[fr]=PNY, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=PNY, eşten eşe kriptografik sanal para birimi
+Exec=pny-qt %u
+Terminal=false
+Type=Application
+Icon=pny128
+MimeType=x-scheme-handler/pny;
+Categories=Office;Finance;
+StartupWMClass=Pny-qt

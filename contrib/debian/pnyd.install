@@ -1,0 +1,3 @@
+usr/local/bin/pnyd usr/bin
+usr/local/bin/pny-cli usr/bin
+debian/examples/pny.conf etc/pny

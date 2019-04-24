@@ -1,5 +1,7 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_QT_BIP38DIALOG_H
@@ -44,6 +46,7 @@ private slots:
     void on_copyKeyButton_ENC_clicked();
     void on_clearButton_ENC_clicked();
     /* decrypt key */
+    void on_pasteButton_DEC_clicked();
     void on_decryptKeyButton_DEC_clicked();
     void on_importAddressButton_DEC_clicked();
     void on_clearButton_DEC_clicked();

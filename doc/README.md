@@ -1,39 +1,40 @@
-Peony Client
+PNY Core
 =====================
 
 Setup
 ---------------------
-[Peony Client](http://peony.org/wallet) is the original peony client and it builds the backbone of the network. However, it downloads and stores the entire history of peony transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[PNY Core](http://pny.org/wallet) is the original PNY client and it builds the backbone of the network. However, it downloads and stores the entire history of PNY transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run peony on your native platform.
+The following are some helpful notes on how to run PNY on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/peony-qt (GUI, 32-bit) or bin/32/peonyd (headless, 32-bit)
-- bin/64/peony-qt (GUI, 64-bit) or bin/64/peonyd (headless, 64-bit)
+- bin/32/pny-qt (GUI, 32-bit) or bin/32/pnyd (headless, 32-bit)
+- bin/64/pny-qt (GUI, 64-bit) or bin/64/pnyd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run peony-qt.exe.
+Unpack the files into a directory, and then run pny-qt.exe.
 
 ### OSX
 
-Drag peony-Qt to your applications folder, and then run peony-Qt.
+Drag PNY-Qt to your applications folder, and then run PNY-Qt.
 
 ### Need Help?
 
-* See the documentation at the [peony Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [PNY Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [peony Forum](http://forum.peony.org/).
-* Join one of our Slack groups [peony Slack Groups](https://peony.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [PNY Forum](http://forum.pny.org/).
+* Join our Discord server [Discord Server](https://discord.pny.org)
+* Join one of our Slack groups [PNY Slack Groups](https://pny.org/slack-logins/) (Main community is replaced by Discord).
 
 Building
 ---------------------
-The following are developer notes on how to build peony on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build PNY on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +42,7 @@ The following are developer notes on how to build peony on your native platform.
 
 Development
 ---------------------
-The peony repo's [root README](https://github.com/peony-Project/peony/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Pny repo's [root README](https://github.com/PeonyTeam/PNY/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -55,8 +56,8 @@ The peony repo's [root README](https://github.com/peony-Project/peony/blob/maste
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [peony](http://forum.peony.org/) forum.
-* Join the [peony-Dev](https://peony-dev.slack.com/) Slack group ([Sign-Up](https://peony-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [PNY](http://forum.pny.org/) forum.
+* Join the [PNY-Dev](https://pny-dev.slack.com/) Slack group ([Sign-Up](https://pny-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

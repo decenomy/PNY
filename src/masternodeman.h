@@ -1,5 +1,7 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Peony Development Team
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -111,6 +113,8 @@ public:
 
     int CountEnabled(int protocolVersion = -1);
 
+    void CountNetworks(int protocolVersion, int& ipv4, int& ipv6, int& onion);
+
     void DsegUpdate(CNode* pnode);
 
     /// Find an entry
@@ -150,6 +154,8 @@ public:
     std::string ToString() const;
 
     void Remove(CTxIn vin);
+
+    int GetEstimatedMasternodes(int nBlock);
 
     /// Update masternode list and maps using provided CMasternodeBroadcast
     void UpdateMasternodeList(CMasternodeBroadcast mnb);

@@ -1,11 +1,13 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2017-2018 Peony Development Team
+// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/peony-config.h"
+#include "config/pny-config.h"
 #endif
 
 #include "optionsmodel.h"
@@ -18,11 +20,12 @@
 #include "main.h"
 #include "net.h"
 #include "txdb.h" // for -dbcache defaults
+#include "util.h"
 
 #ifdef ENABLE_WALLET
 #include "masternodeconfig.h"
-#include "wallet.h"
-#include "walletdb.h"
+#include "wallet/wallet.h"
+#include "wallet/walletdb.h"
 #endif
 
 #include <QNetworkProxy>
@@ -61,25 +64,45 @@ void OptionsModel::Init()
 
     // Display
     if (!settings.contains("nDisplayUnit"))
-        settings.setValue("nDisplayUnit", BitcoinUnits::peony);
+        settings.setValue("nDisplayUnit", BitcoinUnits::PNY);
     nDisplayUnit = settings.value("nDisplayUnit").toInt();
 
     if (!settings.contains("strThirdPartyTxUrls"))
         settings.setValue("strThirdPartyTxUrls", "");
     strThirdPartyTxUrls = settings.value("strThirdPartyTxUrls", "").toString();
 
+    if (!settings.contains("fHideZeroBalances"))
+        settings.setValue("fHideZeroBalances", true);
+    fHideZeroBalances = settings.value("fHideZeroBalances").toBool();
+
+    if (!settings.contains("fHideOrphans"))
+        settings.setValue("fHideOrphans", false);
+    fHideOrphans = settings.value("fHideOrphans").toBool();
+
     if (!settings.contains("fCoinControlFeatures"))
         settings.setValue("fCoinControlFeatures", false);
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
-    if (!settings.contains("nObfuscationRounds"))
-        settings.setValue("nObfuscationRounds", 2);
+    if (!settings.contains("fZeromintEnable"))
+        settings.setValue("fZeromintEnable", false);
+    fEnableZeromint = settings.value("fZeromintEnable").toBool();
 
-    if (!settings.contains("nAnonymizepeonyAmount"))
-        settings.setValue("nAnonymizepeonyAmount", 1000);
+    if (!settings.contains("fEnableAutoConvert"))
+        settings.setValue("fEnableAutoConvert", false);
+    fEnableAutoConvert = settings.value("fEnableAutoConvert").toBool();
 
-    nObfuscationRounds = settings.value("nObfuscationRounds").toLongLong();
-    nAnonymizepeonyAmount = settings.value("nAnonymizepeonyAmount").toLongLong();
+    if (!settings.contains("nZeromintPercentage"))
+        settings.setValue("nZeromintPercentage", 0);
+    nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
+
+    if (!settings.contains("nPreferredDenom"))
+        settings.setValue("nPreferredDenom", 0);
+    nPreferredDenom = settings.value("nPreferredDenom", "0").toLongLong();
+
+    if (!settings.contains("nAnonymizePnyAmount"))
+        settings.setValue("nAnonymizePnyAmount", 1000);
+
+    nAnonymizePnyAmount = settings.value("nAnonymizePnyAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -106,10 +129,13 @@ void OptionsModel::Init()
 // Wallet
 #ifdef ENABLE_WALLET
     if (!settings.contains("bSpendZeroConfChange"))
-        settings.setValue("bSpendZeroConfChange", true);
+        settings.setValue("bSpendZeroConfChange", false);
     if (!SoftSetBoolArg("-spendzeroconfchange", settings.value("bSpendZeroConfChange").toBool()))
         addOverriddenOption("-spendzeroconfchange");
 #endif
+    if (!settings.contains("nStakeSplitThreshold"))
+        settings.setValue("nStakeSplitThreshold", 1);
+
 
     // Network
     if (!settings.contains("fUseUPnP"))
@@ -144,10 +170,16 @@ void OptionsModel::Init()
     if (!SoftSetArg("-lang", settings.value("language").toString().toStdString()))
         addOverriddenOption("-lang");
 
-    if (settings.contains("nObfuscationRounds"))
-        SoftSetArg("-obfuscationrounds", settings.value("nObfuscationRounds").toString().toStdString());
-    if (settings.contains("nAnonymizepeonyAmount"))
-        SoftSetArg("-anonymizepeonyamount", settings.value("nAnonymizepeonyAmount").toString().toStdString());
+    if (settings.contains("fZeromintEnable"))
+        SoftSetBoolArg("-enablezeromint", settings.value("fZeromintEnable").toBool());
+    if (settings.contains("fEnableAutoConvert"))
+        SoftSetBoolArg("-enableautoconvertaddress", settings.value("fEnableAutoConvert").toBool());
+    if (settings.contains("nZeromintPercentage"))
+        SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
+    if (settings.contains("nPreferredDenom"))
+        SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
+    if (settings.contains("nAnonymizePnyAmount"))
+        SoftSetArg("-anonymizepnyamount", settings.value("nAnonymizePnyAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -158,7 +190,7 @@ void OptionsModel::Reset()
 
     // Remove all entries from our QSettings object
     settings.clear();
-    resetSettings = true; // Needed in peony.cpp during shotdown to also remove the window positions
+    resetSettings = true; // Needed in pny.cpp during shotdown to also remove the window positions
 
     // default setting for OptionsModel::StartAtStartup - disabled
     if (GUIUtil::GetStartOnSystemStartup())
@@ -209,7 +241,12 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
         case ShowMasternodesTab:
             return settings.value("fShowMasternodesTab");
 #endif
+        case StakeSplitThreshold:
+            if (pwalletMain)
+                return QVariant((int)pwalletMain->nStakeSplitThreshold);
+            return settings.value("nStakeSplitThreshold");
         case DisplayUnit:
+
             return nDisplayUnit;
         case ThirdPartyTxUrls:
             return strThirdPartyTxUrls;
@@ -225,10 +262,20 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nDatabaseCache");
         case ThreadsScriptVerif:
             return settings.value("nThreadsScriptVerif");
-        case ObfuscationRounds:
-            return QVariant(nObfuscationRounds);
-        case AnonymizepeonyAmount:
-            return QVariant(nAnonymizepeonyAmount);
+        case HideZeroBalances:
+            return settings.value("fHideZeroBalances");
+        case HideOrphans:
+            return settings.value("fHideOrphans");
+        case ZeromintEnable:
+            return QVariant(fEnableZeromint);
+        case ZeromintAddresses:
+            return QVariant(fEnableAutoConvert);
+        case ZeromintPercentage:
+            return QVariant(nZeromintPercentage);
+        case ZeromintPrefDenom:
+            return QVariant(nPreferredDenom);
+        case AnonymizePnyAmount:
+            return QVariant(nAnonymizePnyAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -304,6 +351,10 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             }
             break;
 #endif
+        case StakeSplitThreshold:
+            settings.setValue("nStakeSplitThreshold", value.toInt());
+            setStakeSplitThreshold(value.toInt());
+            break;
         case DisplayUnit:
             setDisplayUnit(value);
             break;
@@ -332,15 +383,39 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
                 setRestartRequired(true);
             }
             break;
-        case ObfuscationRounds:
-            nObfuscationRounds = value.toInt();
-            settings.setValue("nObfuscationRounds", nObfuscationRounds);
-            emit obfuscationRoundsChanged(nObfuscationRounds);
+        case ZeromintEnable:
+            fEnableZeromint = value.toBool();
+            settings.setValue("fZeromintEnable", fEnableZeromint);
+            emit zeromintEnableChanged(fEnableZeromint);
             break;
-        case AnonymizepeonyAmount:
-            nAnonymizepeonyAmount = value.toInt();
-            settings.setValue("nAnonymizepeonyAmount", nAnonymizepeonyAmount);
-            emit anonymizepeonyAmountChanged(nAnonymizepeonyAmount);
+        case ZeromintAddresses:
+            fEnableAutoConvert = value.toBool();
+            settings.setValue("fEnableAutoConvert", fEnableAutoConvert);
+            emit zeromintAddressesChanged(fEnableAutoConvert);
+        case ZeromintPercentage:
+            nZeromintPercentage = value.toInt();
+            settings.setValue("nZeromintPercentage", nZeromintPercentage);
+            emit zeromintPercentageChanged(nZeromintPercentage);
+            break;
+        case ZeromintPrefDenom:
+            nPreferredDenom = value.toInt();
+            settings.setValue("nPreferredDenom", nPreferredDenom);
+            emit preferredDenomChanged(nPreferredDenom);
+            break;
+        case HideZeroBalances:
+            fHideZeroBalances = value.toBool();
+            settings.setValue("fHideZeroBalances", fHideZeroBalances);
+            emit hideZeroBalancesChanged(fHideZeroBalances);
+            break;
+        case HideOrphans:
+            fHideOrphans = value.toBool();
+            settings.setValue("fHideOrphans", fHideOrphans);
+            emit hideOrphansChanged(fHideOrphans);
+            break;
+        case AnonymizePnyAmount:
+            nAnonymizePnyAmount = value.toInt();
+            settings.setValue("nAnonymizePnyAmount", nAnonymizePnyAmount);
+            emit anonymizePnyAmountChanged(nAnonymizePnyAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();
@@ -386,6 +461,25 @@ void OptionsModel::setDisplayUnit(const QVariant& value)
     }
 }
 
+/* Update StakeSplitThreshold's value in wallet */
+void OptionsModel::setStakeSplitThreshold(int value)
+{
+    // XXX: maybe it's worth to wrap related stuff with WALLET_ENABLE ?
+    uint64_t nStakeSplitThreshold;
+
+    nStakeSplitThreshold = value;
+    if (pwalletMain && pwalletMain->nStakeSplitThreshold != nStakeSplitThreshold) {
+        CWalletDB walletdb(pwalletMain->strWalletFile);
+        LOCK(pwalletMain->cs_wallet);
+        {
+            pwalletMain->nStakeSplitThreshold = nStakeSplitThreshold;
+            if (pwalletMain->fFileBacked)
+                walletdb.WriteStakeSplitThreshold(nStakeSplitThreshold);
+        }
+    }
+}
+
+
 bool OptionsModel::getProxySettings(QNetworkProxy& proxy) const
 {
     // Directly query current base proxy, because
@@ -393,8 +487,8 @@ bool OptionsModel::getProxySettings(QNetworkProxy& proxy) const
     proxyType curProxy;
     if (GetProxy(NET_IPV4, curProxy)) {
         proxy.setType(QNetworkProxy::Socks5Proxy);
-        proxy.setHostName(QString::fromStdString(curProxy.ToStringIP()));
-        proxy.setPort(curProxy.GetPort());
+        proxy.setHostName(QString::fromStdString(curProxy.proxy.ToStringIP()));
+        proxy.setPort(curProxy.proxy.GetPort());
 
         return true;
     } else

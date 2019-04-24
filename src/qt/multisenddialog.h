@@ -1,5 +1,11 @@
-#ifndef MULTISENDDIALOG_H
-#define MULTISENDDIALOG_H
+// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+#ifndef PNY_QT_MULTISENDDIALOG_H
+#define PNY_QT_MULTISENDDIALOG_H
 
 #include <QDialog>
 
@@ -16,7 +22,7 @@ class MultiSendDialog : public QDialog
     void updateCheckBoxes();
 
 public:
-    explicit MultiSendDialog(QWidget* parent = 0);
+    explicit MultiSendDialog(QWidget* parent = nullptr);
     ~MultiSendDialog();
     void setModel(WalletModel* model);
     void setAddress(const QString& address);
@@ -34,4 +40,4 @@ private:
     WalletModel* model;
 };
 
-#endif // MULTISENDDIALOG_H
+#endif // PNY_QT_MULTISENDDIALOG_H

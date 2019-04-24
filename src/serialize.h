@@ -1,11 +1,13 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_SERIALIZE_H
-#define BITCOIN_SERIALIZE_H
+#ifndef PNY_SERIALIZE_H
+#define PNY_SERIALIZE_H
 
 #include <algorithm>
 #include <assert.h>
@@ -18,6 +20,8 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include "libzerocoin/Denominations.h"
+#include "libzerocoin/SpendType.h"
 
 class CScript;
 
@@ -41,35 +45,6 @@ template <typename T>
 inline T* NCONST_PTR(const T* val)
 {
     return const_cast<T*>(val);
-}
-
-/** 
- * Get begin pointer of vector (non-const version).
- * @note These functions avoid the undefined case of indexing into an empty
- * vector, as well as that of indexing after the end of the vector.
- */
-template <class T, class TAl>
-inline T* begin_ptr(std::vector<T, TAl>& v)
-{
-    return v.empty() ? NULL : &v[0];
-}
-/** Get begin pointer of vector (const version) */
-template <class T, class TAl>
-inline const T* begin_ptr(const std::vector<T, TAl>& v)
-{
-    return v.empty() ? NULL : &v[0];
-}
-/** Get end pointer of vector (non-const version) */
-template <class T, class TAl>
-inline T* end_ptr(std::vector<T, TAl>& v)
-{
-    return v.empty() ? NULL : (&v[0] + v.size());
-}
-/** Get end pointer of vector (const version) */
-template <class T, class TAl>
-inline const T* end_ptr(const std::vector<T, TAl>& v)
-{
-    return v.empty() ? NULL : (&v[0] + v.size());
 }
 
 /////////////////////////////////////////////////////////////////
@@ -274,12 +249,47 @@ inline void Serialize(Stream& s, bool a, int, int = 0)
     char f = a;
     WRITEDATA(s, f);
 }
+
+
 template <typename Stream>
 inline void Unserialize(Stream& s, bool& a, int, int = 0)
 {
     char f;
     READDATA(s, f);
     a = f;
+}
+// Serializatin for libzerocoin::CoinDenomination
+inline unsigned int GetSerializeSize(libzerocoin::CoinDenomination a, int, int = 0) { return sizeof(libzerocoin::CoinDenomination); }
+template <typename Stream>
+inline void Serialize(Stream& s, libzerocoin::CoinDenomination a, int, int = 0)
+{
+    int f = libzerocoin::ZerocoinDenominationToInt(a);
+    WRITEDATA(s, f);
+}
+
+template <typename Stream>
+inline void Unserialize(Stream& s, libzerocoin::CoinDenomination& a, int, int = 0)
+{
+    int f=0;
+    READDATA(s, f);
+    a = libzerocoin::IntToZerocoinDenomination(f);
+}
+
+// Serialization for libzerocoin::SpendType
+inline unsigned int GetSerializedSize(libzerocoin::SpendType a, int, int = 0) { return sizeof(libzerocoin::SpendType); }
+template <typename Stream>
+inline void Serialize(Stream& s, libzerocoin::SpendType a, int, int = 0)
+{
+    uint8_t f = static_cast<uint8_t>(a);
+    WRITEDATA(s, f);
+}
+
+template <typename Stream>
+inline void Unserialize(Stream& s, libzerocoin::SpendType & a, int, int = 0)
+{
+    uint8_t f=0;
+    READDATA(s, f);
+    a = static_cast<libzerocoin::SpendType>(f);
 }
 
 
@@ -446,8 +456,8 @@ public:
     template <class T, class TAl>
     explicit CFlatData(std::vector<T, TAl>& v)
     {
-        pbegin = (char*)begin_ptr(v);
-        pend = (char*)end_ptr(v);
+        pbegin = (char*)v.data();
+        pend = (char*)(v.data() + v.size());
     }
     char* begin() { return pbegin; }
     const char* begin() const { return pbegin; }
@@ -909,6 +919,12 @@ public:
         return *this;
     }
 
+    /** Pretend _nSize bytes are written, without specifying them. */
+    void seek(size_t _nSize)
+    {
+        this->nSize += _nSize;
+    }
+
     template <typename T>
     CSizeComputer& operator<<(const T& obj)
     {
@@ -922,4 +938,4 @@ public:
     }
 };
 
-#endif // BITCOIN_SERIALIZE_H
+#endif // PNY_SERIALIZE_H
