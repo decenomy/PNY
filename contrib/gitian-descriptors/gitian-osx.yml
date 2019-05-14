@@ -1,5 +1,5 @@
 ---
-name: "pny-osx-2.0.1"
+name: "pny-osx-2.0.2"
 enable_cache: true
 suites:
 - "bionic"
