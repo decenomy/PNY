@@ -1,5 +1,4 @@
-//
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
@@ -38,11 +37,11 @@ void CLightWorker::ThreadLightZPNYSimplified() {
                     libzerocoin::Accumulator accumulator(params, genWit.getDen(), genWit.getAccWitValue());
                     libzerocoin::PublicCoin temp(params);
                     libzerocoin::AccumulatorWitness witness(params, accumulator, temp);
-                    string strFailReason = "";
+                    std::string strFailReason = "";
                     int nMintsAdded = 0;
                     CZerocoinSpendReceipt receipt;
 
-                    list<CBigNum> ret;
+                    std::list<CBigNum> ret;
                     int heightStop;
 
                     bool res;
@@ -62,7 +61,7 @@ void CLightWorker::ThreadLightZPNYSimplified() {
                                 heightStop
                         );
 
-                    } catch (NotEnoughMintsException e) {
+                    } catch (const NotEnoughMintsException& e) {
                         LogPrintStr(std::string("ThreadLightZPNYSimplified: ") + e.message + "\n");
                         rejectWork(genWit, blockHeight, NOT_ENOUGH_MINTS);
                         continue;
@@ -95,7 +94,7 @@ void CLightWorker::ThreadLightZPNYSimplified() {
                     rejectWork(genWit, blockHeight, NON_DETERMINED);
                 }
             }
-        } catch (std::exception& e) {
+        } catch (const std::exception& e) {
             //std::cout << "exception in light loop, closing it. " << e.what() << std::endl;
             PrintExceptionContinue(&e, "lightzpnythread");
             break;

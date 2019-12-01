@@ -658,3 +658,6 @@ TRANSLATIONS += src/qt/locale/pny_bg.ts \
                 src/qt/locale/pny_vi.ts \
                 src/qt/locale/pny_zh_CN.ts \
                 src/qt/locale/pny_zh_TW.ts
+
+DISTFILES += \
+    README.md

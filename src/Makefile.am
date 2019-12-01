@@ -99,10 +99,13 @@ BITCOIN_CORE_H = \
   compat/endian.h \
   compat/sanity.h \
   compressor.h \
+  consensus/merkle.h \
   primitives/block.h \
   primitives/transaction.h \
   core_io.h \
   crypter.h \
+  pairresult.h \
+  addressbook.h \
   denomination_functions.h \
   obfuscation.h \
   obfuscation-relay.h \
@@ -128,6 +131,7 @@ BITCOIN_CORE_H = \
   masternodeman.h \
   masternodeconfig.h \
   merkleblock.h \
+  messagesigner.h \
   miner.h \
   mruset.h \
   netbase.h \
@@ -152,6 +156,7 @@ BITCOIN_CORE_H = \
   serialize.h \
   spork.h \
   sporkdb.h \
+  sporkid.h \
   stakeinput.h \
   streams.h \
   support/cleanse.h \
@@ -162,7 +167,7 @@ BITCOIN_CORE_H = \
   torcontrol.h \
   txdb.h \
   txmempool.h \
-  ui_interface.h \
+  guiinterface.h \
   uint256.h \
   undo.h \
   util.h \
@@ -185,6 +190,7 @@ BITCOIN_CORE_H = \
   zpny/zerocoin.h \
   zpny/zpnytracker.h \
   zpny/zpnywallet.h \
+  zpny/zpnymodule.h \
   genwit.h \
   concurrentqueue.h \
   lightzpnythread.h \
@@ -258,6 +264,7 @@ libbitcoin_wallet_a_SOURCES = \
   obfuscation.cpp \
   obfuscation-relay.cpp \
   wallet/db.cpp \
+  addressbook.cpp \
   crypter.cpp \
   swifttx.cpp \
   masternode.cpp \
@@ -266,6 +273,7 @@ libbitcoin_wallet_a_SOURCES = \
   masternode-sync.cpp \
   masternodeconfig.cpp \
   masternodeman.cpp \
+  messagesigner.cpp \
   wallet/rpcdump.cpp \
   wallet/rpcwallet.cpp \
   kernel.cpp \
@@ -281,6 +289,7 @@ libbitcoin_wallet_a_SOURCES = \
   zpny/zpnytracker.cpp \
   stakeinput.cpp \
   genwit.cpp \
+  zpny/zpnymodule.cpp \
   lightzpnythread.cpp \
   $(BITCOIN_CORE_H)
 
@@ -291,6 +300,8 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha256.cpp \
   crypto/sha512.cpp \
+  crypto/chacha20.h \
+  crypto/chacha20.cpp \
   crypto/hmac_sha256.cpp \
   crypto/rfc6979_hmac_sha256.cpp \
   crypto/hmac_sha512.cpp \
@@ -328,6 +339,7 @@ libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
   libzerocoin/AccumulatorProofOfKnowledge.h \
   libzerocoin/bignum.h \
   libzerocoin/Coin.h \
+  libzerocoin/CoinRandomnessSchnorrSignature.h \
   libzerocoin/CoinSpend.h \
   libzerocoin/Commitment.h \
   libzerocoin/Denominations.h \
@@ -336,15 +348,23 @@ libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
   libzerocoin/SerialNumberSignatureOfKnowledge.h \
   libzerocoin/SpendType.h \
   libzerocoin/ZerocoinDefines.h \
+  libzerocoin/bignum.cpp \
   libzerocoin/Accumulator.cpp \
   libzerocoin/AccumulatorProofOfKnowledge.cpp \
   libzerocoin/Coin.cpp \
-  libzerocoin/Denominations.cpp \
+  libzerocoin/CoinRandomnessSchnorrSignature.cpp \
   libzerocoin/CoinSpend.cpp \
   libzerocoin/Commitment.cpp \
+  libzerocoin/Denominations.cpp \
   libzerocoin/ParamGeneration.cpp \
   libzerocoin/Params.cpp \
   libzerocoin/SerialNumberSignatureOfKnowledge.cpp
+if USE_NUM_GMP
+  libzerocoin_libbitcoin_zerocoin_a_SOURCES += libzerocoin/bignum_gmp.cpp
+endif
+if USE_NUM_OPENSSL
+  libzerocoin_libbitcoin_zerocoin_a_SOURCES += libzerocoin/bignum_openssl.cpp
+endif
 
 # common: shared between pnyd, and pny-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
@@ -360,6 +380,7 @@ libbitcoin_common_a_SOURCES = \
   chainparams.cpp \
   coins.cpp \
   compressor.cpp \
+  consensus/merkle.cpp \
   primitives/block.cpp \
   zpny/deterministicmint.cpp \
   primitives/transaction.cpp \
@@ -523,10 +544,16 @@ CLEANFILES = $(EXTRA_LIBRARIES)
 CLEANFILES += *.gcda *.gcno
 CLEANFILES += compat/*.gcda compat/*.gcno
 CLEANFILES += crypto/*.gcda crypto/*.gcno
+CLEANFILES += libzerocoin/*.gcda libzerocoin/*.gcno
 CLEANFILES += primitives/*.gcda primitives/*.gcno
+CLEANFILES += rpc/*.gcda rpc/*.gcno
 CLEANFILES += script/*.gcda script/*.gcno
+CLEANFILES += support/*.gcda support/*.gcno
 CLEANFILES += univalue/*.gcda univalue/*.gcno
+CLEANFILES += wallet/*.gcda wallet/*.gcno
+CLEANFILES += wallet/test/*.gcda wallet/test/*.gcno
 CLEANFILES += zmq/*.gcda zmq/*.gcno
+CLEANFILES += zpny/*.gcda zpny/*.gcno
 CLEANFILES += obj/build.h
 
 EXTRA_DIST =
@@ -554,13 +581,13 @@ clean-local:
 check-symbols: $(bin_PROGRAMS)
 if GLIBC_BACK_COMPAT
 	@echo "Checking glibc back compat..."
-	$(AM_V_at) READELF=$(READELF) CPPFILT=$(CPPFILT) $(top_srcdir)/contrib/devtools/symbol-check.py < $(bin_PROGRAMS)
+	$(AM_V_at) READELF=$(READELF) CPPFILT=$(CPPFILT) $(PYTHON) $(top_srcdir)/contrib/devtools/symbol-check.py < $(bin_PROGRAMS)
 endif
 
 check-security: $(bin_PROGRAMS)
 if HARDEN
 	@echo "Checking binary security..."
-	$(AM_V_at) READELF=$(READELF) OBJDUMP=$(OBJDUMP) $(top_srcdir)/contrib/devtools/security-check.py < $(bin_PROGRAMS)
+	$(AM_V_at) READELF=$(READELF) OBJDUMP=$(OBJDUMP) $(PYTHON) $(top_srcdir)/contrib/devtools/security-check.py < $(bin_PROGRAMS)
 endif
 
 %.pb.cc %.pb.h: %.proto

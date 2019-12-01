@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
@@ -10,7 +10,7 @@
 #include "rpc/client.h"
 
 #include "rpc/protocol.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 
 #include <set>
@@ -19,7 +19,6 @@
 #include <boost/algorithm/string/case_conv.hpp> // for to_lower()
 #include <univalue.h>
 
-using namespace std;
 
 class CRPCConvertParam
 {
@@ -38,11 +37,19 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"generate", 0},
         {"getnetworkhashps", 0},
         {"getnetworkhashps", 1},
+        {"delegatestake", 1},
+        {"delegatestake", 3},
+        {"delegatestake", 4},
+        {"delegatestake", 5},
+        {"rawdelegatestake", 1},
+        {"rawdelegatestake", 3},
+        {"rawdelegatestake", 4},
         {"sendtoaddress", 1},
         {"sendtoaddressix", 1},
         {"settxfee", 0},
         {"getreceivedbyaddress", 1},
         {"getreceivedbyaccount", 1},
+        {"listcoldutxos", 0},
         {"listreceivedbyaddress", 0},
         {"listreceivedbyaddress", 1},
         {"listreceivedbyaddress", 2},
@@ -65,6 +72,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"listtransactions", 1},
         {"listtransactions", 2},
         {"listtransactions", 3},
+        {"listtransactions", 4},
+        {"listtransactions", 5},
         {"listaccounts", 0},
         {"listaccounts", 1},
         {"walletpassphrase", 1},
@@ -110,10 +119,6 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"setban", 2},
         {"setban", 3},
         {"spork", 1},
-        {"mnbudget", 3},
-        {"mnbudget", 4},
-        {"mnbudget", 6},
-        {"mnbudget", 8},
         {"preparebudget", 2},
         {"preparebudget", 3},
         {"preparebudget", 5},
@@ -156,6 +161,9 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"getaccumulatorwitness",2},
         {"getmintsvalues", 2},
         {"enableautomintaddress", 0},
+        {"getblockindexstats", 0},
+        {"getblockindexstats", 1},
+        {"getblockindexstats", 2},
         {"getmintsinblocks", 0},
         {"getmintsinblocks", 1},
         {"getmintsinblocks", 2},
@@ -202,7 +210,7 @@ UniValue ParseNonRFCJSONValue(const std::string& strVal)
     UniValue jVal;
     if (!jVal.read(std::string("[")+strVal+std::string("]")) ||
         !jVal.isArray() || jVal.size()!=1)
-        throw runtime_error(string("Error parsing JSON:")+strVal);
+        throw std::runtime_error(std::string("Error parsing JSON:")+strVal);
     return jVal[0];
 }
 

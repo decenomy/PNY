@@ -1,11 +1,13 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2016 The Dash developers
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_WALLETMODEL_H
-#define BITCOIN_QT_WALLETMODEL_H
+#ifndef PNY_QT_WALLETMODEL_H
+#define PNY_QT_WALLETMODEL_H
 
 #include "askpassphrasedialog.h"
 #include "paymentrequestplus.h"
@@ -14,6 +16,7 @@
 #include "allocators.h" /* for SecureString */
 #include "swifttx.h"
 #include "wallet/wallet.h"
+#include "pairresult.h"
 
 #include <map>
 #include <vector>
@@ -52,7 +55,13 @@ public:
     QString address;
     QString label;
     AvailableCoinsType inputType;
-    bool useSwiftTX;
+    bool useSwiftTX = false;
+
+    // Cold staking.
+    bool isP2CS = false;
+    QString ownerAddress;
+
+    // Amount
     CAmount amount;
     // If from a payment request, this is used for storing the memo
     QString message;
@@ -98,7 +107,7 @@ public:
     }
 };
 
-/** Interface to Bitcoin wallet from Qt view code. */
+/** Interface to PNY wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -118,7 +127,8 @@ public:
         TransactionCreationFailed, // Error returned when wallet is still locked
         TransactionCommitFailed,
         AnonymizeOnlyUnlocked,
-        InsaneFee
+        InsaneFee,
+        CannotCreateInternalAddress
     };
 
     enum EncryptionStatus {
@@ -133,6 +143,10 @@ public:
     TransactionTableModel* getTransactionTableModel();
     RecentRequestsTableModel* getRecentRequestsTableModel();
 
+    bool isTestNetwork() const;
+    /** Whether cold staking is enabled or disabled in the network **/
+    bool isColdStakingNetworkelyEnabled() const;
+
     CAmount getBalance(const CCoinControl* coinControl = NULL) const;
     CAmount getUnconfirmedBalance() const;
     CAmount getImmatureBalance() const;
@@ -144,15 +158,26 @@ public:
     CAmount getWatchBalance() const;
     CAmount getWatchUnconfirmedBalance() const;
     CAmount getWatchImmatureBalance() const;
+
+    CAmount getDelegatedBalance() const;
+    CAmount getColdStakedBalance() const;
+
+    bool isColdStaking() const;
+
     EncryptionStatus getEncryptionStatus() const;
+    bool isWalletUnlocked() const;
     CKey generateNewKey() const; //for temporary paper wallet key generation
-    bool setAddressBook(const CTxDestination& address, const string& strName, const string& strPurpose);
+    bool setAddressBook(const CTxDestination& address, const std::string& strName, const std::string& strPurpose);
     void encryptKey(const CKey key, const std::string& pwd, const std::string& slt, std::vector<unsigned char>& crypted);
     void decryptKey(const std::vector<unsigned char>& crypted, const std::string& slt, const std::string& pwd, CKey& key);
     void emitBalanceChanged(); // Force update of UI-elements even when no values have changed
 
+    // return minted zPNY
+    bool getMint(const uint256& hashSerial, CZerocoinMint& mint);
+
     // Check address for validity
     bool validateAddress(const QString& address);
+    bool validateStakingAddress(const QString& address);
 
     // Return status record for SendCoins, contains error id + information
     struct SendCoinsReturn {
@@ -160,11 +185,56 @@ public:
         StatusCode status;
     };
 
+    void setWalletDefaultFee(CAmount fee = DEFAULT_TRANSACTION_FEE);
+
+    const CWalletTx* getTx(uint256 id);
+
     // prepare transaction for getting txfee before sending coins
     SendCoinsReturn prepareTransaction(WalletModelTransaction& transaction, const CCoinControl* coinControl = NULL);
 
     // Send coins to a list of recipients
     SendCoinsReturn sendCoins(WalletModelTransaction& transaction);
+    // Mint zPNY
+    bool mintCoins(CAmount value, CCoinControl* coinControl, std::string &strError);
+
+    bool createZpnySpend(
+            CWalletTx &wtxNew,
+            std::vector<CZerocoinMint> &vMintsSelected,
+            bool fMintChange,
+            bool fMinimizeChange,
+            CZerocoinSpendReceipt &receipt,
+            std::list<std::pair<CBitcoinAddress*, CAmount>> outputs,
+            std::string changeAddress = ""
+    );
+
+    bool sendZpny(
+            std::vector<CZerocoinMint> &vMintsSelected,
+            bool fMintChange,
+            bool fMinimizeChange,
+            CZerocoinSpendReceipt &receipt,
+            std::list<std::pair<CBitcoinAddress*, CAmount>> outputs,
+            std::string changeAddress = ""
+    );
+
+    bool convertBackZpny(
+            CAmount value,
+            std::vector<CZerocoinMint> &vMintsSelected,
+            bool fMintChange,
+            bool fMinimizeChange,
+            CZerocoinSpendReceipt &receipt
+    );
+
+    // ###################
+    // Cold Staking
+    // ###################
+
+
+
+    // ###################
+    // End Cold Staking
+    // ###################
+
+
 
     // Wallet encryption
     bool setWalletEncrypted(bool encrypted, const SecureString& passphrase);
@@ -203,7 +273,23 @@ public:
     UnlockContext requestUnlock(AskPassphraseDialog::Context context, bool relock = false);
 
     bool getPubKey(const CKeyID& address, CPubKey& vchPubKeyOut) const;
+    int64_t getCreationTime() const;
+    int64_t getKeyCreationTime(const CPubKey& key);
+    int64_t getKeyCreationTime(const CBitcoinAddress& address);
+    PairResult getNewAddress(CBitcoinAddress& ret, std::string label = "") const;
+    /**
+     * Return a new address used to receive for delegated cold stake purpose.
+     */
+    PairResult getNewStakingAddress(CBitcoinAddress& ret, std::string label = "") const;
+
+    bool whitelistAddressFromColdStaking(const QString &addressStr);
+    bool blacklistAddressFromColdStaking(const QString &address);
+    bool updateAddressBookPurpose(const QString &addressStr, const std::string& purpose);
+    std::string getLabelForAddress(const CBitcoinAddress& address);
+    bool getKeyId(const CBitcoinAddress& address, CKeyID& keyID);
+
     bool isMine(CBitcoinAddress address);
+    bool isMine(const QString& addressStr);
     bool isUsed(CBitcoinAddress address);
     void getOutputs(const std::vector<COutPoint>& vOutpoints, std::vector<COutput>& vOutputs);
     bool isSpent(const COutPoint& outpoint) const;
@@ -216,9 +302,12 @@ public:
 
     void listZerocoinMints(std::set<CMintMeta>& setMints, bool fUnusedOnly = false, bool fMaturedOnly = false, bool fUpdateStatus = false, bool fWrongSeed = false);
 
-    string GetUniqueWalletBackupName();
+    std::string GetUniqueWalletBackupName();
     void loadReceiveRequests(std::vector<std::string>& vReceiveRequests);
     bool saveReceiveRequest(const std::string& sAddress, const int64_t nId, const std::string& sRequest);
+
+    std::string resetMintZerocoin();
+    std::string resetSpentZerocoin();
 
 private:
     CWallet* wallet;
@@ -244,6 +333,9 @@ private:
     CAmount cachedWatchOnlyBalance;
     CAmount cachedWatchUnconfBalance;
     CAmount cachedWatchImmatureBalance;
+    CAmount cachedDelegatedBalance;
+    CAmount cachedColdStakedBalance;
+
     EncryptionStatus cachedEncryptionStatus;
     int cachedNumBlocks;
     int cachedTxLocks;
@@ -259,7 +351,8 @@ signals:
     // Signal that balance in wallet changed
     void balanceChanged(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance,
                         const CAmount& zerocoinBalance, const CAmount& unconfirmedZerocoinBalance, const CAmount& immatureZerocoinBalance,
-                        const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance);
+                        const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance,
+                        const CAmount& delegatedBalance, const CAmount& coldStakingBalance);
 
     // Encryption status of wallet changed
     void encryptionStatusChanged(int status);
@@ -303,7 +396,7 @@ public slots:
     /* Current, immature or unconfirmed balance might have changed - emit 'balanceChanged' if so */
     void pollBalanceChanged();
     /* Update address book labels in the database */
-    void updateAddressBookLabels(const CTxDestination& address, const string& strName, const string& strPurpose);
+    bool updateAddressBookLabels(const CTxDestination& address, const std::string& strName, const std::string& strPurpose);
 };
 
-#endif // BITCOIN_QT_WALLETMODEL_H
+#endif // PNY_QT_WALLETMODEL_H

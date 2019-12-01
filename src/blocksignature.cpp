@@ -1,4 +1,6 @@
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,8 +24,10 @@ bool GetKeyIDFromUTXO(const CTxOut& txout, CKeyID& keyID)
         return false;
     if (whichType == TX_PUBKEY) {
         keyID = CPubKey(vSolutions[0]).GetID();
-    } else if (whichType == TX_PUBKEYHASH) {
+    } else if (whichType == TX_PUBKEYHASH || whichType == TX_COLDSTAKE) {
         keyID = CKeyID(uint160(vSolutions[0]));
+    } else {
+        return false;
     }
 
     return true;
@@ -67,7 +71,7 @@ bool CheckBlockSignature(const CBlock& block)
      *  UTXO: The public key that signs must match the public key associated with the first utxo of the coinstake tx.
      */
     CPubKey pubkey;
-    bool fzPNYStake = block.vtx[1].IsZerocoinSpend();
+    bool fzPNYStake = block.vtx[1].vin[0].IsZerocoinSpend();
     if (fzPNYStake) {
         libzerocoin::CoinSpend spend = TxInToZerocoinSpend(block.vtx[1].vin[0]);
         pubkey = spend.getPubKey();
@@ -80,6 +84,12 @@ bool CheckBlockSignature(const CBlock& block)
         if (whichType == TX_PUBKEY || whichType == TX_PUBKEYHASH) {
             valtype& vchPubKey = vSolutions[0];
             pubkey = CPubKey(vchPubKey);
+        } else if (whichType == TX_COLDSTAKE) {
+            // pick the public key from the P2CS input
+            const CTxIn& txin = block.vtx[1].vin[0];
+            int start = 1 + (int) *txin.scriptSig.begin(); // skip sig
+            start += 1 + (int) *(txin.scriptSig.begin()+start); // skip flag
+            pubkey = CPubKey(txin.scriptSig.begin()+start+1, txin.scriptSig.end());
         }
     }
 

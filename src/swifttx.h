@@ -28,8 +28,6 @@
 #define SWIFTTX_SIGNATURES_REQUIRED 6
 #define SWIFTTX_SIGNATURES_TOTAL 10
 
-using namespace std;
-using namespace boost;
 
 class CConsensusVote;
 class CTransaction;
@@ -37,10 +35,10 @@ class CTransactionLock;
 
 static const int MIN_SWIFTTX_PROTO_VERSION = 70103;
 
-extern map<uint256, CTransaction> mapTxLockReq;
-extern map<uint256, CTransaction> mapTxLockReqRejected;
-extern map<uint256, CConsensusVote> mapTxLockVote;
-extern map<uint256, CTransactionLock> mapTxLocks;
+extern std::map<uint256, CTransaction> mapTxLockReq;
+extern std::map<uint256, CTransaction> mapTxLockReqRejected;
+extern std::map<uint256, CConsensusVote> mapTxLockVote;
+extern std::map<uint256, CTransactionLock> mapTxLocks;
 extern std::map<COutPoint, uint256> mapLockedInputs;
 extern int nCompleteTXLocks;
 
@@ -68,18 +66,26 @@ int GetTransactionLockSignatures(uint256 txHash);
 
 int64_t GetAverageVoteTime();
 
-class CConsensusVote
+class CConsensusVote : public CSignedMessage
 {
 public:
     CTxIn vinMasternode;
     uint256 txHash;
     int nBlockHeight;
-    std::vector<unsigned char> vchMasterNodeSignature;
+
+    CConsensusVote() :
+        CSignedMessage(),
+        vinMasternode(),
+        txHash(),
+        nBlockHeight(0)
+    {}
 
     uint256 GetHash() const;
 
-    bool SignatureValid();
-    bool Sign();
+    // override CSignedMessage functions
+    uint256 GetSignatureHash() const override;
+    std::string GetStrMessage() const override;
+    const CTxIn GetVin() const override { return vinMasternode; };
 
     ADD_SERIALIZE_METHODS;
 
@@ -88,8 +94,14 @@ public:
     {
         READWRITE(txHash);
         READWRITE(vinMasternode);
-        READWRITE(vchMasterNodeSignature);
+        READWRITE(vchSig);
         READWRITE(nBlockHeight);
+        try
+        {
+            READWRITE(nMessVersion);
+        } catch (...) {
+            nMessVersion = MessageVersion::MESS_VER_STRMESS;
+        }
     }
 };
 

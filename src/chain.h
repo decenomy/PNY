@@ -1,14 +1,21 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2011-2013 The PPCoin developers
+// Copyright (c) 2013-2014 The NovaCoin Developers
+// Copyright (c) 2014-2018 The BlackCoin Developers
+// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_CHAIN_H
 #define BITCOIN_CHAIN_H
 
+#include "chainparams.h"
 #include "pow.h"
 #include "primitives/block.h"
+#include "timedata.h"
 #include "tinyformat.h"
 #include "uint256.h"
 #include "util.h"
@@ -16,7 +23,6 @@
 
 #include <vector>
 
-#include <boost/foreach.hpp>
 
 struct CDiskBlockPos {
     int nFile;
@@ -156,6 +162,7 @@ public:
         BLOCK_STAKE_MODIFIER = (1 << 2), // regenerated stake modifier
     };
 
+
     // proof-of-stake specific fields
     uint256 GetBlockTrust() const;
     uint64_t nStakeModifier;             // hash modifier for proof-of-stake
@@ -165,6 +172,7 @@ public:
     uint256 hashProofOfStake;
     int64_t nMint;
     int64_t nMoneySupply;
+    uint256 nStakeModifierV2;
 
     //! block header
     int nVersion;
@@ -176,11 +184,11 @@ public:
 
     //! (memory only) Sequential id assigned to distinguish order in which blocks are received.
     uint32_t nSequenceId;
-    
+
     //! zerocoin specific fields
     std::map<libzerocoin::CoinDenomination, int64_t> mapZerocoinSupply;
     std::vector<libzerocoin::CoinDenomination> vMintDenominationsInBlock;
-    
+
     void SetNull()
     {
         phashBlock = NULL;
@@ -200,6 +208,7 @@ public:
         nMoneySupply = 0;
         nFlags = 0;
         nStakeModifier = 0;
+        nStakeModifierV2 = uint256();
         nStakeModifierChecksum = 0;
         prevoutStake.SetNull();
         nStakeTime = 0;
@@ -212,7 +221,7 @@ public:
         nAccumulatorCheckpoint = 0;
         // Start supply of each denomination with 0s
         for (auto& denom : libzerocoin::zerocoinDenomList) {
-            mapZerocoinSupply.insert(make_pair(denom, 0));
+            mapZerocoinSupply.insert(std::make_pair(denom, 0));
         }
         vMintDenominationsInBlock.clear();
     }
@@ -231,28 +240,16 @@ public:
         nTime = block.nTime;
         nBits = block.nBits;
         nNonce = block.nNonce;
-        if(block.nVersion > 3)
+        if(block.nVersion > 3 && block.nVersion < 7)
             nAccumulatorCheckpoint = block.nAccumulatorCheckpoint;
-
-        //Proof of Stake
-        bnChainTrust = uint256();
-        nMint = 0;
-        nMoneySupply = 0;
-        nFlags = 0;
-        nStakeModifier = 0;
-        nStakeModifierChecksum = 0;
-        hashProofOfStake = uint256();
 
         if (block.IsProofOfStake()) {
             SetProofOfStake();
             prevoutStake = block.vtx[1].vin[0].prevout;
             nStakeTime = block.nTime;
-        } else {
-            prevoutStake.SetNull();
-            nStakeTime = 0;
         }
     }
-    
+
 
     CDiskBlockPos GetBlockPos() const
     {
@@ -348,6 +345,27 @@ public:
         return pbegin[(pend - pbegin) / 2];
     }
 
+    int64_t MaxFutureBlockTime() const
+    {
+        return GetAdjustedTime() + Params().FutureBlockTimeDrift(nHeight+1);
+    }
+
+    int64_t MinPastBlockTime() const
+    {
+        // Time Protocol v1: pindexPrev->MedianTimePast + 1
+        if (!Params().IsTimeProtocolV2(nHeight+1))
+            return GetMedianTimePast();
+
+        // on the transition from Time Protocol v1 to v2
+        // pindexPrev->nTime might be in the future (up to the allowed drift)
+        // so we allow the nBlockTimeProtocolV2 to be at most (180-14) seconds earlier than previous block
+        if (nHeight + 1 == Params().BlockStartTimeProtocolV2())
+            return GetBlockTime() - Params().FutureBlockTimeDrift(nHeight) + Params().FutureBlockTimeDrift(nHeight + 1);
+
+        // Time Protocol v2: pindexPrev->nTime
+        return GetBlockTime();
+    }
+
     bool IsProofOfWork() const
     {
         return !(nFlags & BLOCK_PROOF_OF_STAKE);
@@ -394,7 +412,7 @@ public:
 
     /**
      * Returns true if there are nRequired or more blocks of minVersion or above
-     * in the last Params().ToCheckBlockUpgradeMajority() blocks, starting at pstart 
+     * in the last Params().ToCheckBlockUpgradeMajority() blocks, starting at pstart
      * and going backwards.
      */
     static bool IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRequired);
@@ -451,9 +469,9 @@ public:
         hashNext = uint256();
     }
 
-    explicit CDiskBlockIndex(CBlockIndex* pindex) : CBlockIndex(*pindex)
+    explicit CDiskBlockIndex(const CBlockIndex* pindex) : CBlockIndex(*pindex)
     {
-        hashPrev = (pprev ? pprev->GetBlockHash() : uint256());
+        hashPrev = (pprev ? pprev->GetBlockHash() : uint256(0));
     }
 
     ADD_SERIALIZE_METHODS;
@@ -478,7 +496,14 @@ public:
         READWRITE(nMint);
         READWRITE(nMoneySupply);
         READWRITE(nFlags);
-        READWRITE(nStakeModifier);
+
+        // v1/v2 modifier selection.
+        if (!Params().IsStakeModifierV2(nHeight)) {
+            READWRITE(nStakeModifier);
+        } else {
+            READWRITE(nStakeModifierV2);
+        }
+
         if (IsProofOfStake()) {
             READWRITE(prevoutStake);
             READWRITE(nStakeTime);
@@ -601,6 +626,9 @@ public:
 
     /** Find the last common block between this chain and a block index entry. */
     const CBlockIndex* FindFork(const CBlockIndex* pindex) const;
+
+    /** Check if new message signatures are active **/
+    bool NewSigsActive() { return Params().NewSigsActive(Height()); }
 };
 
 #endif // BITCOIN_CHAIN_H

@@ -9,7 +9,9 @@
  * @copyright  Copyright 2013 Ian Miers, Christina Garman and Matthew Green
  * @license    This project is released under the MIT license.
  **/
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 
 #include "CoinSpend.h"
 #include <iostream>
@@ -18,14 +20,15 @@
 namespace libzerocoin
 {
     CoinSpend::CoinSpend(const ZerocoinParams* paramsCoin, const ZerocoinParams* paramsAcc, const PrivateCoin& coin, Accumulator& a, const uint32_t& checksum,
-                     const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType) : accChecksum(checksum),
-                                                                                  ptxHash(ptxHash),
+                     const AccumulatorWitness& witness, const uint256& ptxHash, const SpendType& spendType) :
                                                                                   coinSerialNumber((coin.getSerialNumber())),
+                                                                                  spendType(spendType),
+                                                                                  ptxHash(ptxHash),
+                                                                                  accChecksum(checksum),
                                                                                   accumulatorPoK(&paramsAcc->accumulatorParams),
                                                                                   serialNumberSoK(paramsCoin),
                                                                                   commitmentPoK(&paramsCoin->serialNumberSoKCommitmentGroup,
-                                                                                                &paramsAcc->accumulatorParams.accumulatorPoKCommitmentGroup),
-                                                                                  spendType(spendType)
+                                                                                                &paramsAcc->accumulatorParams.accumulatorPoKCommitmentGroup)
 {
     denomination = coin.getPublicCoin().getDenomination();
     version = coin.getVersion();
@@ -131,8 +134,9 @@ bool CoinSpend::HasValidSerial(ZerocoinParams* params) const
 //Additional verification layer that requires the spend be signed by the private key associated with the serial
 bool CoinSpend::HasValidSignature() const
 {
+    const int coinVersion = getCoinVersion();
     //No private key for V1
-    if (version < PrivateCoin::PUBKEY_VERSION)
+    if (coinVersion < PrivateCoin::PUBKEY_VERSION)
         return true;
 
     try {
@@ -142,7 +146,7 @@ bool CoinSpend::HasValidSignature() const
             //cout << "CoinSpend::HasValidSignature() hashedpubkey is not equal to the serial!\n";
             return false;
         }
-    } catch(std::range_error &e) {
+    } catch (const std::range_error& e) {
         //std::cout << "HasValidSignature() error: " << e.what() << std::endl;
         throw InvalidSerialException("Serial longer than 256 bits");
     }
@@ -153,7 +157,7 @@ bool CoinSpend::HasValidSignature() const
 CBigNum CoinSpend::CalculateValidSerial(ZerocoinParams* params)
 {
     CBigNum bnSerial = coinSerialNumber;
-    bnSerial = bnSerial.mul_mod(CBigNum(1),params->coinCommitmentGroup.groupOrder);
+    bnSerial = bnSerial % params->coinCommitmentGroup.groupOrder;
     return bnSerial;
 }
 
@@ -165,6 +169,13 @@ std::vector<unsigned char> CoinSpend::ParseSerial(CDataStream& s) {
     CBigNum coinSerialNumber;
     s >> coinSerialNumber;
     return coinSerialNumber.getvch();
+}
+
+void CoinSpend::setPubKey(CPubKey pkey, bool fUpdateSerial) {
+    this->pubkey = pkey;
+    if (fUpdateSerial) {
+        this->coinSerialNumber = libzerocoin::ExtractSerialFromPubKey(this->pubkey);
+    }
 }
 
 } /* namespace libzerocoin */
