@@ -1,6 +1,8 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,13 +14,11 @@
 
 #include "base58.h"
 #include "chainparams.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #include "wallet/wallet.h"
 
 #include <cstdlib>
-
-#include <openssl/x509_vfy.h>
 
 #include <QApplication>
 #include <QByteArray>
@@ -42,8 +42,6 @@
 #include <QTextDocument>
 #include <QUrlQuery>
 
-using namespace boost;
-using namespace std;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
 const QString BITCOIN_IPC_PREFIX("pny:");
@@ -576,7 +574,7 @@ void PaymentServer::fetchPaymentACK(CWallet* wallet, SendCoinsRecipient recipien
     // Create a new refund address, or re-use:
     QString account = tr("Refund from %1").arg(recipient.authenticatedMerchant);
     std::string strAccount = account.toStdString();
-    set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
+    std::set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
     if (!refundAddresses.empty()) {
         CScript s = GetScriptForDestination(*refundAddresses.begin());
         payments::Output* refund_to = payment.add_refund_to();

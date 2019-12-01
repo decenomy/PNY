@@ -1269,8 +1269,8 @@ MultiSend: %1</translation>
         <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove PNY Core salverà i propri dati.</translation>
     </message>
     <message>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>PNY Core scaricherà e salverà una copia della blockchain PNY. Verranno salvati almeno %1GB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
+        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>PNY Core scaricherà e salverà una copia della blockchain PNY. Verranno salvati almeno %20MB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1613,29 +1613,6 @@ MultiSend non verrà attivato a meno che tu non prema su Attiva</translation>
     </message>
 </context>
 <context>
-    <name>ObfuscationConfig</name>
-    <message>
-        <source>Configure Obfuscation</source>
-        <translation>Configura Offuscamento</translation>
-    </message>
-    <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 PNY</source>
-        <translation>Usa 2 masternodi diversi per mescolare fino a 10000 PNY</translation>
-    </message>
-    <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 PNY</source>
-        <translation>Usa 8 masternodi diversi per mixare fino a 10000 PNY</translation>
-    </message>
-    <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>Usa 16 masternodi diversi</translation>
-    </message>
-    <message>
-        <source>Obfuscation Configuration</source>
-        <translation>Configurazione Offuscamento</translation>
-    </message>
-    </context>
-<context>
     <name>OpenURIDialog</name>
     <message>
         <source>Open URI</source>
@@ -1885,32 +1862,12 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>zPNY</translation>
     </message>
     <message>
-        <source>0.000 000 00 PNY</source>
-        <translation>0.000 000 00 PNY</translation>
-    </message>
-    <message>
         <source>Reset</source>
         <translation>Reset</translation>
     </message>
     <message>
-        <source>Coin Control...</source>
-        <translation>Controllo Monete...</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Quantità:</translation>
-    </message>
-    <message>
-        <source>Amount:</source>
-        <translation>Totale:</translation>
-    </message>
-    <message>
         <source>PRIVACY</source>
         <translation>PRIVACY</translation>
-    </message>
-    <message>
-        <source>Enter an amount of Pny to convert to zPNY</source>
-        <translation>Immetti un importo di PNY da convertire in zPNY</translation>
     </message>
     <message>
         <source>zPNY Control</source>
@@ -2151,14 +2108,6 @@ Per cambiare la percentuale (riavvio non necessario):
     <message>
         <source>Change:</source>
         <translation>Differenza:</translation>
-    </message>
-    <message>
-        <source>Copy quantity</source>
-        <translation>Copia importo</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>Copia ammontare</translation>
     </message>
     <message>
         <source>zPNY Mint</source>

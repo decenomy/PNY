@@ -1,6 +1,6 @@
 // Copyright (c) 2012 Pieter Wuille
 // Copyright (c) 2012-2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
@@ -21,11 +21,13 @@
 #include <stdint.h>
 #include <vector>
 
-/** 
- * Extended statistics about a CAddress 
+/**
+ * Extended statistics about a CAddress
  */
 class CAddrInfo : public CAddress
 {
+
+
 public:
     //! last try whatsoever by us (memory only)
     int64_t nLastTry;
@@ -132,13 +134,13 @@ public:
  */
 
 //! total number of buckets for tried addresses
-#define ADDRMAN_TRIED_BUCKET_COUNT 256
+#define ADDRMAN_TRIED_BUCKET_COUNT_LOG2 8
 
 //! total number of buckets for new addresses
-#define ADDRMAN_NEW_BUCKET_COUNT 1024
+#define ADDRMAN_NEW_BUCKET_COUNT_LOG2 10
 
 //! maximum allowed number of entries in buckets for new and tried addresses
-#define ADDRMAN_BUCKET_SIZE 64
+#define ADDRMAN_BUCKET_SIZE_LOG2 6
 
 //! over how many buckets entries with tried addresses from a single group (/16 for IPv4) are spread
 #define ADDRMAN_TRIED_BUCKETS_PER_GROUP 8
@@ -167,17 +169,19 @@ public:
 //! the maximum number of nodes to return in a getaddr call
 #define ADDRMAN_GETADDR_MAX 2500
 
-/** 
- * Stochastical (IP) address manager 
+//! Convenience
+#define ADDRMAN_TRIED_BUCKET_COUNT (1 << ADDRMAN_TRIED_BUCKET_COUNT_LOG2)
+#define ADDRMAN_NEW_BUCKET_COUNT (1 << ADDRMAN_NEW_BUCKET_COUNT_LOG2)
+#define ADDRMAN_BUCKET_SIZE (1 << ADDRMAN_BUCKET_SIZE_LOG2)
+
+/**
+ * Stochastical (IP) address manager
  */
 class CAddrMan
 {
 private:
     //! critical section to protect the inner data structures
     mutable CCriticalSection cs;
-
-    //! secret key to randomize bucket select with
-    uint256 nKey;
 
     //! last used nId
     int nIdCount;
@@ -204,6 +208,12 @@ private:
     int vvNew[ADDRMAN_NEW_BUCKET_COUNT][ADDRMAN_BUCKET_SIZE];
 
 protected:
+    //! secret key to randomize bucket select with
+    uint256 nKey;
+
+    //! Source of random numbers for randomization in inner loops
+    FastRandomContext insecure_rand;
+
     //! Find an entry.
     CAddrInfo* Find(const CNetAddr& addr, int* pnId = NULL);
 
@@ -232,9 +242,11 @@ protected:
     //! Mark an entry as attempted to connect.
     void Attempt_(const CService& addr, int64_t nTime);
 
-    //! Select an address to connect to.
-    //! nUnkBias determines how much to favor new addresses over tried ones (min=0, max=100)
-    CAddrInfo Select_();
+    //! Select an address to connect to, if newOnly is set to true, only the new table is selected from.
+    CAddrInfo Select_(bool newOnly);
+
+    //! Wraps GetRandInt to allow tests to override RandomInt and make it determinismistic.
+    virtual int RandomInt(int nMax);
 
 #ifdef DEBUG_ADDRMAN
     //! Perform consistency check. Returns an error code or zero.
@@ -536,13 +548,13 @@ public:
      * Choose an address to connect to.
      * nUnkBias determines how much "new" entries are favored over "tried" ones (0-100).
      */
-    CAddrInfo Select()
+    CAddrInfo Select(bool newOnly = false)
     {
         CAddrInfo addrRet;
         {
             LOCK(cs);
             Check();
-            addrRet = Select_();
+            addrRet = Select_(newOnly);
             Check();
         }
         return addrRet;

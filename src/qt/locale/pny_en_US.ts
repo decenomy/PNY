@@ -1247,8 +1247,8 @@ Address: %4
         <translation>As this is the first time the program is launched, you can choose where PNY Core will store its data.</translation>
     </message>
     <message>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>PNY Core will download and store a copy of the PNY block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
+        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1544,32 +1544,32 @@ Please check the address and try again.</translation>
         <translation>Please select a privacy level.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 PNY</source>
-        <translation>Use 2 separate masternodes to mix funds up to 10000 PNY</translation>
+        <source>Use 2 separate masternodes to mix funds up to 2000 PNY</source>
+        <translation>Use 2 separate masternodes to mix funds up to 2000 PNY</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 PNY</source>
-        <translation>Use 8 separate masternodes to mix funds up to 10000 PNY</translation>
+        <source>Use 8 separate masternodes to mix funds up to 2000 PNY</source>
+        <translation>Use 8 separate masternodes to mix funds up to 2000 PNY</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Use 16 separate masternodes</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 PNY to anonymize 10000 PNY</source>
-        <translation>This option is the quickest and will cost about ~0.025 PNY to anonymize 10000 PNY</translation>
+        <source>This option is the quickest and will cost about ~0.025 PNY to anonymize 2000 PNY</source>
+        <translation>This option is the quickest and will cost about ~0.025 PNY to anonymize 2000 PNY</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 PNY to anonymize 10000 PNY</source>
-        <translation>This option is moderately fast and will cost about 0.05 PNY to anonymize 10000 PNY</translation>
+        <source>This option is moderately fast and will cost about 0.05 PNY to anonymize 2000 PNY</source>
+        <translation>This option is moderately fast and will cost about 0.05 PNY to anonymize 2000 PNY</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>This is the slowest and most secure option. Using maximum anonymity will cost</translation>
     </message>
     <message>
-        <source>0.1 PNY per 10000 PNY you anonymize.</source>
-        <translation>0.1 PNY per 10000 PNY you anonymize.</translation>
+        <source>0.1 PNY per 2000 PNY you anonymize.</source>
+        <translation>0.1 PNY per 2000 PNY you anonymize.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>

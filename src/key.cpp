@@ -1,5 +1,7 @@
 // Copyright (c) 2009-2017 The Bitcoin developers
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -159,7 +161,7 @@ bool CKey::Check(const unsigned char* vch)
 void CKey::MakeNewKey(bool fCompressedIn)
 {
     do {
-        GetRandBytes(keydata.data(), keydata.size());
+        GetStrongRandBytes(keydata.data(), keydata.size());
     } while (!Check(keydata.data()));
     fValid = true;
     fCompressed = fCompressedIn;

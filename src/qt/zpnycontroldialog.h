@@ -1,4 +1,6 @@
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,7 +10,6 @@
 #include <QDialog>
 #include <QTreeWidgetItem>
 #include "zpny/zerocoin.h"
-#include "privacydialog.h"
 
 class CZerocoinMint;
 class WalletModel;
@@ -44,7 +45,6 @@ public:
 private:
     Ui::ZPnyControlDialog *ui;
     WalletModel* model;
-    PrivacyDialog* privacyDialog;
 
     void updateList();
     void updateLabels();

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright (c) 2019 The PIVX developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
 # -*- coding: utf-8 -*-
 
 from io import BytesIO
@@ -15,7 +18,7 @@ from test_framework.test_framework import BitcoinTestFramework
 from test_framework.script import CScript, OP_CHECKSIG
 from test_framework.util import hash256, bytes_to_hex_str, hex_str_to_bytes, connect_nodes_bi, p2p_port
 
-from .util import TestNode, create_transaction, utxo_to_stakingPrevOuts, dir_size
+from .util import TestNode, create_transaction, utxo_to_stakingPrevOuts, dir_size, nBlockStakeModifierlV2
 ''' -------------------------------------------------------------------------
 PNY_FakeStakeTest CLASS ----------------------------------------------------
 
@@ -48,7 +51,9 @@ class PNY_FakeStakeTest(BitcoinTestFramework):
         :param:
         :return:
         '''
-        self.log.info("\n\n*** Starting %s ***\n------------------------\n%s\n", self.__class__.__name__, self.description)
+        title = "*** Starting %s ***" % self.__class__.__name__
+        underline = "-" * len(title)
+        self.log.info("\n\n%s\n%s\n%s\n", title, underline, self.description)
         # Global Test parameters (override in run_test)
         self.DEFAULT_FEE = 0.1
         # Spam blocks to send in current test
@@ -92,8 +97,6 @@ class PNY_FakeStakeTest(BitcoinTestFramework):
         :return  block:              (CBlock) generated block
         '''
 
-        self.log.info("Creating Spam Block")
-
         # If not given inputs to create spam txes, use a copy of the staking inputs
         if len(spendingPrevOuts) == 0:
             spendingPrevOuts = dict(stakingPrevOuts)
@@ -114,10 +117,8 @@ class PNY_FakeStakeTest(BitcoinTestFramework):
         block = create_block(int(hashPrevBlock, 16), coinbase, nTime)
 
         # Find valid kernel hash - Create a new private key used for block signing.
-        if not block.solve_stake(stakingPrevOuts):
+        if not block.solve_stake(stakingPrevOuts, (height >= nBlockStakeModifierlV2)):
             raise Exception("Not able to solve for any prev_outpoint")
-
-        self.log.info("Stake found. Signing block...")
 
         # Sign coinstake TX and add it to the block
         signed_stake_tx = self.sign_stake_tx(block, stakingPrevOuts[block.prevoutStake][0], fZPoS)
@@ -130,10 +131,10 @@ class PNY_FakeStakeTest(BitcoinTestFramework):
 
         # remove a random prevout from the list
         # (to randomize block creation if the same height is picked two times)
-        del spendingPrevOuts[choice(list(spendingPrevOuts))]
+        if len(spendingPrevOuts) > 0:
+            del spendingPrevOuts[choice(list(spendingPrevOuts))]
 
         # Create spam for the block. Sign the spendingPrevouts
-        self.log.info("Creating spam TXes...")
         for outPoint in spendingPrevOuts:
             value_out = int(spendingPrevOuts[outPoint][0] - self.DEFAULT_FEE * COIN)
             tx = create_transaction(outPoint, b"", value_out, nTime, scriptPubKey=CScript([self.block_sig_key.get_pubkey(), OP_CHECKSIG]))
@@ -316,10 +317,8 @@ class PNY_FakeStakeTest(BitcoinTestFramework):
                 txBlocktime = utxo_tx['blocktime']
                 txBlockhash = utxo_tx['blockhash']
 
-            # get Stake Modifier
-            stakeModifier = int(self.node.getblock(txBlockhash)['modifier'], 16)
             # assemble prevout object
-            utxo_to_stakingPrevOuts(utxo, stakingPrevOuts, txBlocktime, stakeModifier, zpos)
+            utxo_to_stakingPrevOuts(utxo, stakingPrevOuts, txBlocktime, zpos)
 
         return stakingPrevOuts
 

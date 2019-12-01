@@ -173,7 +173,7 @@
     </message>
     <message>
         <source>PNY will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PNYs from being stolen by malware infecting your computer.</source>
-        <translation>PNY将关闭以完成加密过程。但是，仅仅加密您的钱包是不够的，因为它并不能阻止恶意软件从您的电脑里面偷取PIVs。</translation>
+        <translation>PNY将关闭以完成加密过程。但是，仅仅加密您的钱包是不够的，因为它并不能阻止恶意软件从您的电脑里面偷取PNYs。</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -181,7 +181,7 @@
     </message>
     <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PNY&lt;/b&gt;!</source>
-        <translation>注意：请妥善保管好你的密码，因为在加密后，没有密码将无法打开钱包。这将会让您&lt;b&gt;损失钱包中所有的PIV&lt;/b&gt;！</translation>
+        <translation>注意：请妥善保管好你的密码，因为在加密后，没有密码将无法打开钱包。这将会让您&lt;b&gt;损失钱包中所有的PNY&lt;/b&gt;！</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -681,6 +681,10 @@
         <translation>最新</translation>
     </message>
     <message>
+        <source>%1 and %2</source>
+        <translation>%1 和 %2</translation>
+    </message>
+    <message>
         <source>Catching up...</source>
         <translation>追赶…</translation>
     </message>
@@ -829,7 +833,7 @@ Address: %4
         <translation>由于这是该程序第一次启动，您可以选择存储PNY Core 数据的位置。</translation>
     </message>
     <message>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation>PNY Core将下载并存储PNY区块链副本。 至少 %1 GB的数据将存储在此目录中，并且会随着时间的推移而增长。 钱包也将存储在此目录中。</translation>
     </message>
     <message>
@@ -897,9 +901,6 @@ Address: %4
     </context>
 <context>
     <name>MultisigDialog</name>
-    </context>
-<context>
-    <name>ObfuscationConfig</name>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -989,10 +990,6 @@ Address: %4
     <message>
         <source>User Interface Theme:</source>
         <translation>界面主题（语言包）:</translation>
-    </message>
-    <message>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;单位显示金额</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
@@ -1590,14 +1587,6 @@ Address: %4
     <message>
         <source>Warning</source>
         <translation>注意</translation>
-    </message>
-    <message>
-        <source>Your entries added successfully.</source>
-        <translation>您的输入成功添加。</translation>
-    </message>
-    <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>您的交易被矿池接受！</translation>
     </message>
     </context>
 </TS>

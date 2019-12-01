@@ -2,6 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -142,7 +144,7 @@ bool CInv::IsKnownType() const
 }
 
 bool CInv::IsMasterNodeType() const{
- 	return (type >= 6);
+     return (type >= 6);
 }
 
 const char* CInv::GetCommand() const

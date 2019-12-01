@@ -1,4 +1,4 @@
-// Copyright (c) 2018 The PIVX developers
+// Copyright (c) 2018-2019 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
@@ -8,6 +8,8 @@
 
 #include "masternode-budget.h"
 #include "masternodeconfig.h"
+#include "main.h"
+#include "messagesigner.h"
 #include "utilmoneystr.h"
 
 #include <QLayout>
@@ -278,8 +280,8 @@ void ProposalFrame::SendVote(std::string strHash, int nVote)
         CPubKey pubKeyMasternode;
         CKey keyMasternode;
 
-        if (!obfuScationSigner.SetKey(mne.getPrivKey(), errorMessage, keyMasternode, pubKeyMasternode)) {
-            mnresult += mne.getAlias() + ": " + "Masternode signing error, could not set key correctly: " + errorMessage + "<br />";
+        if (!CMessageSigner::GetKeysFromSecret(mne.getPrivKey(), keyMasternode, pubKeyMasternode)) {
+            mnresult += mne.getAlias() + ": " + "Masternode signing error, could not set key correctly.<br />";
             failed++;
             continue;
         }
@@ -291,8 +293,13 @@ void ProposalFrame::SendVote(std::string strHash, int nVote)
             continue;
         }
 
+        bool fNewSigs = false;
+        {
+            LOCK(cs_main);
+            fNewSigs = chainActive.NewSigsActive();
+        }
         CBudgetVote vote(pmn->vin, hash, nVote);
-        if (!vote.Sign(keyMasternode, pubKeyMasternode)) {
+        if (!vote.Sign(keyMasternode, pubKeyMasternode, fNewSigs)) {
             mnresult += mne.getAlias() + ": " + "Failure to sign" + "<br />";
             failed++;
             continue;
@@ -300,7 +307,7 @@ void ProposalFrame::SendVote(std::string strHash, int nVote)
 
         std::string strError = "";
         if (budget.UpdateProposal(vote, NULL, strError)) {
-            budget.mapSeenMasternodeBudgetVotes.insert(make_pair(vote.GetHash(), vote));
+            budget.mapSeenMasternodeBudgetVotes.insert(std::make_pair(vote.GetHash(), vote));
             vote.Relay();
             mnresult += mne.getAlias() + ": " + "Success!" + "<br />";
             success++;

@@ -1,12 +1,13 @@
 dnl require autoconf 2.60 (AS_ECHO/AS_ECHO_N)
 AC_PREREQ([2.60])
-define(_CLIENT_VERSION_MAJOR, 2)
+define(_CLIENT_VERSION_MAJOR, 3)
 define(_CLIENT_VERSION_MINOR, 0)
-define(_CLIENT_VERSION_REVISION, 2)
+define(_CLIENT_VERSION_REVISION, 0)
 define(_CLIENT_VERSION_BUILD, 0)
+define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2019)
-AC_INIT([Pny Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[www.cryptodevs.co.uk],[pny])
+AC_INIT([PNY Core],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_REVISION, m4_if(_CLIENT_VERSION_BUILD, [0], [], _CLIENT_VERSION_BUILD))m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/PeonyTeam/pny/issues],[pny],[https://cryptodevs.co.uk/])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([src/config/pny-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -81,8 +82,8 @@ AC_PATH_TOOL(RANLIB, ranlib)
 AC_PATH_TOOL(STRIP, strip)
 AC_PATH_TOOL(GCOV, gcov)
 AC_PATH_PROG(LCOV, lcov)
-dnl Python 3.x is supported from 3.4 on (see https://github.com/bitcoin/bitcoin/issues/7893)
-AC_PATH_PROGS([PYTHON], [python3.7 python3.6 python3.5 python3.4 python3 python])
+dnl Python 3.5 is specified in .python-version and should be used if available, see doc/dependencies.md
+AC_PATH_PROGS([PYTHON], [python3.5 python3.6 python3.7 python3.8 python3 python])
 AC_PATH_PROG(GENHTML, genhtml)
 AC_PATH_PROG([GIT], [git])
 AC_PATH_PROG(CCACHE,ccache)
@@ -138,11 +139,11 @@ AC_ARG_ENABLE([extended-functional-tests],
     [use_extended_functional_tests=$enableval],
     [use_extended_functional_tests=no])
 
-AC_ARG_WITH([qrencode],
-  [AS_HELP_STRING([--with-qrencode],
-  [enable QR code support (default is yes if qt is enabled and libqrencode is found)])],
-  [use_qr=$withval],
-  [use_qr=auto])
+AC_ARG_WITH([qtcharts],
+  [AS_HELP_STRING([--with-qtcharts],
+  [enable qtcharts support (default is yes if qt is enabled and qtchartview is found)])],
+  [use_qtcharts=$withval],
+  [use_qtcharts=auto])
 
 AC_ARG_ENABLE([hardening],
   [AS_HELP_STRING([--disable-hardening],
@@ -750,6 +751,22 @@ AC_CHECK_DECLS([bswap_16, bswap_32, bswap_64],,,
 
 AC_CHECK_DECLS([__builtin_clz, __builtin_clzl, __builtin_clzll])
 
+dnl Check for MSG_NOSIGNAL
+AC_MSG_CHECKING(for MSG_NOSIGNAL)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/socket.h>]],
+ [[ int f = MSG_NOSIGNAL; ]])],
+ [ AC_MSG_RESULT(yes); AC_DEFINE(HAVE_MSG_NOSIGNAL, 1,[Define this symbol if you have MSG_NOSIGNAL]) ],
+ [ AC_MSG_RESULT(no)]
+)
+
+dnl Check for MSG_DONTWAIT
+AC_MSG_CHECKING(for MSG_DONTWAIT)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/socket.h>]],
+ [[ int f = MSG_DONTWAIT; ]])],
+ [ AC_MSG_RESULT(yes); AC_DEFINE(HAVE_MSG_DONTWAIT, 1,[Define this symbol if you have MSG_DONTWAIT]) ],
+ [ AC_MSG_RESULT(no)]
+)
+
 dnl Check for malloc_info (for memory statistics information in getmemoryinfo)
 AC_MSG_CHECKING(for getmemoryinfo)
 AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <malloc.h>]],
@@ -804,6 +821,40 @@ AC_LINK_IFELSE([AC_LANG_SOURCE([
   ]
 )
 LDFLAGS="$TEMP_LDFLAGS"
+
+# Check for different ways of gathering OS randomness
+AC_MSG_CHECKING(for Linux getrandom syscall)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unistd.h>
+  #include <sys/syscall.h>
+  #include <linux/random.h>]],
+ [[ syscall(SYS_getrandom, nullptr, 32, 0); ]])],
+ [ AC_MSG_RESULT(yes); AC_DEFINE(HAVE_SYS_GETRANDOM, 1,[Define this symbol if the Linux getrandom system call is available]) ],
+ [ AC_MSG_RESULT(no)]
+)
+
+AC_MSG_CHECKING(for getentropy)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unistd.h>]],
+ [[ getentropy(nullptr, 32) ]])],
+ [ AC_MSG_RESULT(yes); AC_DEFINE(HAVE_GETENTROPY, 1,[Define this symbol if the BSD getentropy system call is available]) ],
+ [ AC_MSG_RESULT(no)]
+)
+
+AC_MSG_CHECKING(for getentropy via random.h)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <unistd.h>
+ #include <sys/random.h>]],
+ [[ getentropy(nullptr, 32) ]])],
+ [ AC_MSG_RESULT(yes); AC_DEFINE(HAVE_GETENTROPY_RAND, 1,[Define this symbol if the BSD getentropy system call is available with sys/random.h]) ],
+ [ AC_MSG_RESULT(no)]
+)
+
+AC_MSG_CHECKING(for sysctl KERN_ARND)
+AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
+  #include <sys/sysctl.h>]],
+ [[ static const int name[2] = {CTL_KERN, KERN_ARND};
+    sysctl(name, 2, nullptr, nullptr, nullptr, 0); ]])],
+ [ AC_MSG_RESULT(yes); AC_DEFINE(HAVE_SYSCTL_ARND, 1,[Define this symbol if the BSD sysctl(KERN_ARND) is available]) ],
+ [ AC_MSG_RESULT(no)]
+)
 
 # Check for reduced exports
 if test x$use_reduce_exports = xyes; then
@@ -1024,9 +1075,11 @@ if test x$use_pkgconfig = xyes; then
       PKG_CHECK_MODULES([SSL], [libssl],, [AC_MSG_ERROR(openssl  not found.)])
       PKG_CHECK_MODULES([CRYPTO], [libcrypto],,[AC_MSG_ERROR(libcrypto  not found.)])
       BITCOIN_QT_CHECK([PKG_CHECK_MODULES([PROTOBUF], [protobuf], [have_protobuf=yes], [BITCOIN_QT_FAIL(libprotobuf not found)])])
-      if test x$use_qr != xno; then
-        BITCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode], [have_qrencode=yes], [have_qrencode=no])])
+      BITCOIN_QT_CHECK([PKG_CHECK_MODULES([QR], [libqrencode],,[BITCOIN_QT_FAIL(libqrencode not found)])])
+      if test x$use_qtcharts != xno; then
+        BITCOIN_QT_CHECK([PKG_CHECK_MODULES([CHARTS], [Qt5Charts],[have_qtcharts=yes], [have_qtcharts=no])])
       fi
+
       if test x$build_bitcoin_utils$build_bitcoind$bitcoin_enable_qt$use_tests != xnononono; then
         PKG_CHECK_MODULES([EVENT], [libevent],, [AC_MSG_ERROR(libevent not found.)])
         if test x$TARGET_OS != xwindows; then
@@ -1084,26 +1137,14 @@ else
   fi
 
   BITCOIN_QT_CHECK(AC_CHECK_LIB([protobuf] ,[main],[PROTOBUF_LIBS=-lprotobuf], BITCOIN_QT_FAIL(libprotobuf not found)))
-  if test x$use_qr != xno; then
-    BITCOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], [have_qrencode=no])])
-    BITCOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, have_qrencode=no)])
+
+  BITCOIN_QT_CHECK([AC_CHECK_LIB([qrencode], [main],[QR_LIBS=-lqrencode], BITCOIN_QT_FAIL(libqrencode not found))])
+  BITCOIN_QT_CHECK([AC_CHECK_HEADER([qrencode.h],, BITCOIN_QT_FAIL(libqrencode not found))])
+  if test x$use_qtcharts != xno; then
+    BITCOIN_QT_CHECK([AC_CHECK_LIB([Qt5Charts], [main],[CHARTS_LIBS=-lQt5Charts], [have_qtcharts=no])])
+    BITCOIN_QT_CHECK([AC_CHECK_HEADER([QtCharts/qchartview.h],, have_qtcharts=no)])
   fi
 fi
-
-save_CXXFLAGS="${CXXFLAGS}"
-CXXFLAGS="${CXXFLAGS} ${CRYPTO_CFLAGS} ${SSL_CFLAGS}"
-AC_CHECK_DECLS([EVP_MD_CTX_new],,,[AC_INCLUDES_DEFAULT
-#include <openssl/x509_vfy.h>
-])
-CXXFLAGS="${save_CXXFLAGS}"
-
-AC_CHECK_LIB([crypto],[RAND_egd],[],[
-  AC_ARG_WITH([unsupported-ssl],
-    [AS_HELP_STRING([--with-unsupported-ssl],[Build with system SSL (default is no; DANGEROUS; NOT SUPPORTED; You should use OpenSSL 1.0)])],
-    [AC_MSG_WARN([Detected unsupported SSL version: This is NOT supported, and may break consensus compatibility!])],
-    [AC_MSG_ERROR([Detected unsupported SSL version: This is NOT supported, and may break consensus compatibility!])]
-  )
-])
 
 dnl univalue check
 
@@ -1265,18 +1306,19 @@ if test x$bitcoin_enable_qt != xno; then
   fi
   AC_MSG_RESULT($bitcoin_enable_qt_dbus)
 
-  dnl enable qr support
-  AC_MSG_CHECKING([whether to build GUI with support for QR codes])
-  if test x$have_qrencode = xno; then
-    if test x$use_qr = xyes; then
-     AC_MSG_ERROR("QR support requested but cannot be built. use --without-qrencode")
+  dnl enable qtcharts support
+  AC_MSG_CHECKING([whether to build GUI with support for qtcharts])
+  if test x$have_qtcharts = xno; then
+    if test x$use_qtcharts = xyes; then
+     AC_MSG_ERROR("QTCharts support requested but cannot be built. use --without-qtcharts")
     fi
+    use_qtcharts=no
     AC_MSG_RESULT(no)
   else
-    if test x$use_qr != xno; then
+    if test x$use_qtcharts != xno; then
       AC_MSG_RESULT(yes)
-      AC_DEFINE([USE_QRCODE],[1],[Define if QR support should be compiled in])
-      use_qr=yes
+      AC_DEFINE([USE_QTCHARTS],[1],[Define if QTCHARTS support should be compiled in])
+      use_qtcharts=yes
     else
       AC_MSG_RESULT(no)
     fi
@@ -1310,6 +1352,9 @@ openssl)
   ;;
 esac
 
+AM_CONDITIONAL([USE_NUM_GMP], [test "x$set_bignum" = "xgmp"])
+AM_CONDITIONAL([USE_NUM_OPENSSL], [test "x$set_bignum" = "xopenssl"])
+
 AC_MSG_CHECKING([whether to build test_pny])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
@@ -1338,7 +1383,7 @@ AM_CONDITIONAL([ENABLE_TESTS],[test x$BUILD_TEST = xyes])
 AM_CONDITIONAL([ENABLE_QT],[test x$bitcoin_enable_qt = xyes])
 AM_CONDITIONAL([ENABLE_QT_TESTS],[test x$BUILD_TEST_QT = xyes])
 AM_CONDITIONAL([ENABLE_BENCH],[test x$use_bench = xyes])
-AM_CONDITIONAL([USE_QRCODE], [test x$use_qr = xyes])
+AM_CONDITIONAL([USE_QTCHARTS], [test x$use_qtcharts = xyes])
 AM_CONDITIONAL([USE_LCOV],[test x$use_lcov = xyes])
 AM_CONDITIONAL([GLIBC_BACK_COMPAT],[test x$use_glibc_compat = xyes])
 AM_CONDITIONAL([HARDEN],[test x$use_hardening = xyes])
@@ -1387,7 +1432,7 @@ AC_SUBST(AVX2_CXXFLAGS)
 AC_SUBST(SHANI_CXXFLAGS)
 AC_SUBST(LIBTOOL_APP_LDFLAGS)
 AC_SUBST(USE_UPNP)
-AC_SUBST(USE_QRCODE)
+AC_SUBST(USE_QTCHARTS)
 AC_SUBST(BOOST_LIBS)
 AC_SUBST(TESTDEFS)
 AC_SUBST(LEVELDB_TARGET_FLAGS)
@@ -1466,7 +1511,7 @@ echo "Options used to compile and link:"
 echo "  with wallet   = $enable_wallet"
 echo "  with gui / qt = $bitcoin_enable_qt"
 if test x$bitcoin_enable_qt != xno; then
-    echo "    with qr     = $use_qr"
+    echo "    with qtcharts     = $use_qtcharts"
 fi
 echo "  with zmq      = $use_zmq"
 echo "  with bignum   = $set_bignum"
@@ -1491,4 +1536,8 @@ echo "  LDFLAGS       = $PTHREAD_CFLAGS $HARDENED_LDFLAGS $GPROF_LDFLAGS $LDFLAG
 echo "  ARFLAGS       = $ARFLAGS"
 echo "  PIC_FLAGS     = $PIC_FLAGS"
 echo "  QT_PIE_FLAGS  = $QT_PIE_FLAGS"
+echo "  SVG_LIBS      = $QT_SVG_LIBS "
+echo "  SVG_CFLAGS    = $QT_SVG_INCLUDES "
+echo "  CHARTS_LIBS   = $CHARTS_LIBS "
+echo "  CHARTS_CFLAGS = $CHARTS_CFLAGS "
 echo

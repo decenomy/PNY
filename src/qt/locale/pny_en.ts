@@ -2,6 +2,94 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="en">
 <context>
+    <name>AddNewAddressDialog</name>
+    <message>
+        <location filename="../pny/forms/addnewaddressdialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>My Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AddNewContactDialog</name>
+    <message>
+        <location filename="../pny/forms/addnewcontactdialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+78"/>
+        <location line="+74"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-36"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+114"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/addnewcontactdialog.cpp" line="+20"/>
+        <source>Edit Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Set a label for the selected address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Enter a name for the address (e.g Exchange)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Edit label for the selected address:
+%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddressBookPage</name>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+67"/>
@@ -125,9 +213,27 @@
     </message>
 </context>
 <context>
+    <name>AddressLabelRow</name>
+    <message>
+        <location filename="../pny/forms/addresslabelrow.ui" line="+20"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>Bob Allen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+199"/>
+        <location filename="../addresstablemodel.cpp" line="+238"/>
         <source>Label</source>
         <translation>Label</translation>
     </message>
@@ -137,75 +243,208 @@
         <translation>Address</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+0"/>
+        <source>Date</source>
+        <translation type="unfinished">Date</translation>
+    </message>
+    <message>
+        <location line="+40"/>
         <source>(no label)</source>
         <translation>(no label)</translation>
     </message>
 </context>
 <context>
+    <name>AddressesWidget</name>
+    <message>
+        <location filename="../pny/forms/addresseswidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+151"/>
+        <source>No active Master Node yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+74"/>
+        <location filename="../pny/addresseswidget.cpp" line="+109"/>
+        <source>Contact name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Enter address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/addresseswidget.cpp" line="-28"/>
+        <source>Contacts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You can add a new one in the options menu to the side.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>No contacts yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>e.g. John Doe</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Enter a PNY address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>Invalid Contact Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Cannot store your own address as contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Address already stored, label: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>New Contact Stored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error Storing Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Contact edited</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Contact edit failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Delete Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>You are just about to remove the contact:
+
+%1
+
+Are you sure?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Contact Deleted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error deleting a contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Address copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AskPassphraseDialog</name>
     <message>
-        <location filename="../forms/askpassphrasedialog.ui" line="+26"/>
+        <location filename="../forms/askpassphrasedialog.ui" line="+32"/>
         <source>Passphrase Dialog</source>
         <translation>Passphrase Dialog</translation>
     </message>
     <message>
-        <location line="+30"/>
-        <source>Enter passphrase</source>
-        <translation>Enter passphrase</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>New passphrase</source>
-        <translation>New passphrase</translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Repeat new passphrase</source>
-        <translation>Repeat new passphrase</translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
-        <translation>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>For anonymization, automint, and staking only</source>
+        <location line="+41"/>
+        <location line="+78"/>
+        <location line="+56"/>
+        <location line="+57"/>
+        <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+48"/>
+        <location line="+77"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../askpassphrasedialog.cpp" line="+85"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Encrypt wallet</source>
         <translation>Encrypt wallet</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
+        <location line="+10"/>
         <source>This operation needs your wallet passphrase to unlock the wallet.</source>
         <translation>This operation needs your wallet passphrase to unlock the wallet.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-4"/>
+        <source>Unlock wallet
+for staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
         <source>Unlock wallet</source>
         <translation>Unlock wallet</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>This operation needs your wallet passphrase to decrypt the wallet.</source>
         <translation>This operation needs your wallet passphrase to decrypt the wallet.</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>Decrypt wallet</source>
         <translation>Decrypt wallet</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Change passphrase</source>
         <translation>Change passphrase</translation>
     </message>
@@ -215,17 +454,27 @@
         <translation>Enter the old and new passphrase to the wallet.</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+59"/>
         <source>Confirm wallet encryption</source>
         <translation>Confirm wallet encryption</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+2"/>
+        <source>ENCRYPT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+143"/>
         <source>PNY will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PNYs from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-8"/>
+        <location line="-144"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Are you sure you wish to encrypt your wallet?</translation>
     </message>
@@ -235,42 +484,49 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
-        <location line="+45"/>
+        <location line="+46"/>
+        <location line="+96"/>
         <source>Wallet encrypted</source>
         <translation>Wallet encrypted</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="+6"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <location line="+5"/>
-        <location line="+31"/>
+        <location line="-137"/>
+        <location line="+38"/>
         <location line="+4"/>
+        <location line="+106"/>
         <source>Wallet encryption failed</source>
         <translation>Wallet encryption failed</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-6"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
         <translation>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <location line="+35"/>
+        <location line="-148"/>
+        <location line="+42"/>
         <source>The supplied passphrases do not match.</source>
         <translation>The supplied passphrases do not match.</translation>
     </message>
     <message>
-        <location line="-26"/>
+        <location line="-34"/>
+        <location line="+8"/>
         <source>Wallet unlock failed</source>
         <translation>Wallet unlock failed</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-7"/>
+        <location line="+8"/>
         <location line="+8"/>
         <location line="+13"/>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
@@ -288,7 +544,7 @@
     </message>
     <message>
         <location line="+43"/>
-        <location line="+24"/>
+        <location line="+26"/>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>Warning: The Caps Lock key is on!</translation>
     </message>
@@ -1127,11 +1383,6 @@ Address: %4
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</translation>
     </message>
-    <message>
-        <location filename="../pny.cpp" line="+478"/>
-        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>BlockExplorer</name>
@@ -1174,12 +1425,12 @@ Address: %4
 <context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+81"/>
+        <location filename="../clientmodel.cpp" line="+82"/>
         <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+101"/>
+        <location line="+110"/>
         <source>Network Alert</source>
         <translation>Network Alert</translation>
     </message>
@@ -1187,62 +1438,37 @@ Address: %4
 <context>
     <name>CoinControlDialog</name>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+48"/>
+        <location filename="../forms/coincontroldialog.ui" line="+198"/>
         <source>Quantity:</source>
         <translation>Quantity:</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+336"/>
         <source>Bytes:</source>
         <translation>Bytes:</translation>
     </message>
     <message>
-        <location line="+45"/>
-        <source>Amount:</source>
-        <translation>Amount:</translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Priority:</source>
-        <translation>Priority:</translation>
-    </message>
-    <message>
-        <location line="+45"/>
+        <location line="-300"/>
         <source>Fee:</source>
         <translation>Fee:</translation>
     </message>
     <message>
-        <location line="-182"/>
+        <location line="-214"/>
         <source>Coin Selection</source>
         <translation>Coin Selection</translation>
     </message>
     <message>
-        <location line="+214"/>
+        <location line="+534"/>
         <source>Dust:</source>
         <translation>Dust:</translation>
     </message>
     <message>
-        <location line="+48"/>
-        <source>After Fee:</source>
-        <translation>After Fee:</translation>
-    </message>
-    <message>
-        <location line="+32"/>
+        <location line="+20"/>
         <source>Change:</source>
         <translation>Change:</translation>
     </message>
     <message>
-        <location line="+56"/>
-        <source>(un)select all</source>
-        <translation>(un)select all</translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>toggle lock state</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
+        <location line="-160"/>
         <source>Tree mode</source>
         <translation>Tree mode</translation>
     </message>
@@ -1252,17 +1478,54 @@ Address: %4
         <translation>List mode</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+13"/>
         <source>(1 locked)</source>
         <translation>(1 locked)</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="-278"/>
+        <location line="+325"/>
         <source>Amount</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-383"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <location line="+72"/>
+        <location line="+360"/>
+        <source>0.00 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-396"/>
+        <location line="+336"/>
+        <location line="+40"/>
+        <source>0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-270"/>
+        <location filename="../coincontroldialog.cpp" line="+164"/>
+        <location line="+93"/>
+        <source>Select all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>Toggle lock state</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+128"/>
         <source>Received with label</source>
         <translation>Received with label</translation>
     </message>
@@ -1272,12 +1535,17 @@ Address: %4
         <translation>Received with address</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Type</source>
-        <translation type="unfinished">Type</translation>
+        <location line="+97"/>
+        <source>After Fee: </source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+49"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-141"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
@@ -1292,12 +1560,7 @@ Address: %4
         <translation>Confirmed</translation>
     </message>
     <message>
-        <location line="+5"/>
-        <source>Priority</source>
-        <translation>Priority</translation>
-    </message>
-    <message>
-        <location filename="../coincontroldialog.cpp" line="+60"/>
+        <location filename="../coincontroldialog.cpp" line="-149"/>
         <source>Copy address</source>
         <translation>Copy address</translation>
     </message>
@@ -1363,12 +1626,18 @@ Address: %4
         <translation>Copy change</translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+20"/>
+        <location line="+97"/>
+        <source>Unselect all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
         <source>Please switch to &quot;List mode&quot; to use this function.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+216"/>
+        <location line="+210"/>
         <source>highest</source>
         <translation>highest</translation>
     </message>
@@ -1388,13 +1657,12 @@ Address: %4
         <translation>medium-high</translation>
     </message>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="-334"/>
-        <location filename="../coincontroldialog.cpp" line="+2"/>
+        <location line="+2"/>
         <source>medium</source>
         <translation>medium</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="+2"/>
+        <location line="+2"/>
         <source>low-medium</source>
         <translation>low-medium</translation>
     </message>
@@ -1424,18 +1692,18 @@ Address: %4
         <translation>none</translation>
     </message>
     <message>
-        <location line="+126"/>
+        <location line="+124"/>
         <source>yes</source>
         <translation>yes</translation>
     </message>
     <message>
-        <location filename="../forms/coincontroldialog.ui" line="+80"/>
+        <location filename="../forms/coincontroldialog.ui" line="+51"/>
         <location filename="../coincontroldialog.cpp" line="+0"/>
         <source>no</source>
         <translation>no</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="+15"/>
+        <location filename="../coincontroldialog.cpp" line="+14"/>
         <source>This label turns red, if the transaction size is greater than 1000 bytes.</source>
         <translation>This label turns red, if the transaction size is greater than 1000 bytes.</translation>
     </message>
@@ -1471,8 +1739,8 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+46"/>
-        <location line="+81"/>
+        <location line="+49"/>
+        <location line="+78"/>
         <source>(no label)</source>
         <translation>(no label)</translation>
     </message>
@@ -1485,6 +1753,425 @@ Address: %4
         <location line="+1"/>
         <source>(change)</source>
         <translation>(change)</translation>
+    </message>
+</context>
+<context>
+    <name>CoinControlPnyWidget</name>
+    <message>
+        <location filename="../pny/forms/coincontrolpnywidget.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+78"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>PNY:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+36"/>
+        <location line="+36"/>
+        <location line="+143"/>
+        <location line="+20"/>
+        <location line="+20"/>
+        <location line="+20"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-246"/>
+        <source>Quantity:</source>
+        <translation type="unfinished">Quantity:</translation>
+    </message>
+    <message>
+        <location line="+36"/>
+        <source>Fee:</source>
+        <translation type="unfinished">Fee:</translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Amount</source>
+        <translation type="unfinished">Amount</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Label</source>
+        <translation type="unfinished">Label</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Address</source>
+        <translation type="unfinished">Address</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Type</source>
+        <translation type="unfinished">Type</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Date</source>
+        <translation type="unfinished">Date</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Confirmations</source>
+        <translation type="unfinished">Confirmations</translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>CheckBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Bytes:</source>
+        <translation type="unfinished">Bytes:</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Dust:</source>
+        <translation type="unfinished">Dust:</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Change:</source>
+        <translation type="unfinished">Change:</translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>After Fee: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ContactDropdownRow</name>
+    <message>
+        <location filename="../pny/forms/contactdropdownrow.ui" line="+20"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <source>Bob Allen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DashboardWidget</name>
+    <message>
+        <location filename="../pny/forms/dashboardwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <source>Transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>You can see here the history of your account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+161"/>
+        <source>Warning</source>
+        <translation type="unfinished">Warning</translation>
+    </message>
+    <message>
+        <location line="+158"/>
+        <source>No transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+58"/>
+        <location filename="../pny/dashboardwidget.cpp" line="+49"/>
+        <source>Staking Rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+48"/>
+        <location line="+10"/>
+        <location line="+685"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-607"/>
+        <source>Staking statistics</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+42"/>
+        <source>zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+169"/>
+        <source>Sort by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>Days</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Months</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Years</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Filter by</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+211"/>
+        <source>LabelText</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/dashboardwidget.cpp" line="+5"/>
+        <source>You can view your account&apos;s history</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Amount of PNY staked.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <source>All</source>
+        <translation type="unfinished">All</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Received</source>
+        <translation type="unfinished">Received</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Sent</source>
+        <translation type="unfinished">Sent</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Mined</source>
+        <translation type="unfinished">Mined</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Minted</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>MN reward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>To yourself</source>
+        <translation type="unfinished">To yourself</translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Please wait until the wallet is fully synced to see your correct balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>No transactions yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>How to get PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>You can verify the staking activity in the status bar at the top right of the wallet.
+It will start automatically as soon as the wallet has enough confirmations on any unspent balances, and the wallet has synced.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <location line="+209"/>
+        <source>You have no staking rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-207"/>
+        <source>No charts library</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+207"/>
+        <source>Loading chart..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+115"/>
+        <location line="+200"/>
+        <location line="+41"/>
+        <source>Error loading chart, invalid show option</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>Error loading chart: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DefaultDialog</name>
+    <message>
+        <location filename="../pny/forms/defaultdialog.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <source>Text Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DenomGenerationDialog</name>
+    <message>
+        <location filename="../pny/forms/denomgenerationdialog.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>5000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>100</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>1000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>50</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>500</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Select All</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1556,9 +2243,17 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>ExpandableButton</name>
+    <message>
+        <location filename="../pny/forms/expandablebutton.ui" line="+26"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+</context>
+<context>
     <name>FreespaceChecker</name>
     <message>
-        <location filename="../intro.cpp" line="+70"/>
+        <location filename="../intro.cpp" line="+71"/>
         <source>A new data directory will be created.</source>
         <translation>A new data directory will be created.</translation>
     </message>
@@ -1591,12 +2286,12 @@ Address: %4
         <translation type="unfinished">Form</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+41"/>
         <source>GOVERNANCE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+168"/>
+        <location line="+141"/>
         <source>Update Proposals</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1644,7 +2339,7 @@ Address: %4
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <location filename="../utilitydialog.cpp" line="+37"/>
+        <location filename="../utilitydialog.cpp" line="+40"/>
         <source>version</source>
         <translation>version</translation>
     </message>
@@ -1660,7 +2355,7 @@ Address: %4
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+6"/>
         <source>About PNY Core</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1709,6 +2404,11 @@ Address: %4
         <source>Set SSL root certificates for payment request (default: -system-)</source>
         <translation>Set SSL root certificates for payment request (default: -system-)</translation>
     </message>
+    <message>
+        <location filename="../forms/helpmessagedialog.ui" line="+239"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Intro</name>
@@ -1718,32 +2418,42 @@ Address: %4
         <translation>Welcome</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+90"/>
         <source>Welcome to PNY Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
+        <location line="+35"/>
         <source>As this is the first time the program is launched, you can choose where PNY Core will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <location line="+18"/>
+        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+29"/>
         <source>Use the default data directory</source>
         <translation>Use the default data directory</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Use a custom data directory:</source>
-        <translation>Use a custom data directory:</translation>
+        <location line="+23"/>
+        <source>Use a custom data directory</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../intro.cpp" line="+77"/>
+        <location line="+251"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../intro.cpp" line="+101"/>
         <source>PNY Core</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1753,7 +2463,7 @@ Address: %4
         <translation>Error: Specified data directory &quot;%1&quot; cannot be created.</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+26"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -1769,6 +2479,416 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>LoadingDialog</name>
+    <message>
+        <location filename="../pny/forms/loadingdialog.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+69"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <location filename="../pny/loadingdialog.cpp" line="+35"/>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LockUnlock</name>
+    <message>
+        <location filename="../pny/forms/lockunlock.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location filename="../pny/lockunlock.cpp" line="+26"/>
+        <source>Unlock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Lock Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Staking Only</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MNRow</name>
+    <message>
+        <location filename="../pny/forms/mnrow.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+69"/>
+        <source>user_masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Address: 88.26.164.88:41121</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Jan. 19, 2019</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MasterNodeWizardDialog</name>
+    <message>
+        <location filename="../pny/forms/masternodewizarddialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+179"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+101"/>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+101"/>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+113"/>
+        <source>Intro</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Name</source>
+        <translation type="unfinished">Name</translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Address</source>
+        <translation type="unfinished">Address</translation>
+    </message>
+    <message>
+        <location line="+94"/>
+        <source>Create New Master Node Controller</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PNY Masternode you must dedicate 10.000 PNY (the unit of PNY) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Make sure you have this amount of coins.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <source>Set Master Node’s Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 2,000 PNY will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node&apos;s name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>Set Master Node’s IP and port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Address of the node that must always be online running the actual master node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Enter IP address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>Enter Port</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+86"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/masternodewizarddialog.cpp" line="+49"/>
+        <source>e.g user_masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>NEXT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>BACK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+76"/>
+        <source>address label cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>IP or port cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Invalid port number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Prepare master node failed..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Invalid masternode.conf file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Error parsing masternode.conf file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>Invalid collaterall output index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Master node created!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>masternode.conf file doesn&apos;t exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation type="unfinished">The recipient address is not valid, please recheck.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation type="unfinished">The amount to pay must be larger than 0.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The amount exceeds your balance.</source>
+        <translation type="unfinished">The amount exceeds your balance.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation type="unfinished">The total exceeds your balance when the %1 transaction fee is included.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation type="unfinished">Duplicate address found, can only send to each address once per send operation.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Transaction creation failed!</source>
+        <translation type="unfinished">Transaction creation failed!</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation type="unfinished">The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation type="unfinished">Error: The wallet was unlocked only to anonymize coins.</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation type="unfinished">A fee %1 times higher than %2 per kB is considered an insanely high fee.</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MasterNodesWidget</name>
+    <message>
+        <location filename="../pny/forms/masternodeswidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+147"/>
+        <source>No active Master Node yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/masternodeswidget.cpp" line="+90"/>
+        <source>Masternodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Full nodes that incentivize node operators to perform the core consensus functions
+and vote on the treasury system receiving a periodic reward.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Create Masternode Controller</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>No active Masternode yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Start Masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Are you sure you want to start masternode %1?
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Cannot start masternode, the collateral transaction has not been accepted by the network.
+Please wait few more minutes.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Remote Masternode Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You are just about to export the required data to run a Masternode
+on a remote server to your clipboard.
+
+
+You will only have to paste the data in the pny.conf file
+of your remote server and start it, then start the Masternode using
+this controller wallet (select the Masternode in the list and press &quot;start&quot;).
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Masternode exported!, check your clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Delete Masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>You are just about to delete Masternode:
+%1
+
+Are you sure?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Invalid masternode.conf file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Error parsing masternode.conf file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>masternode.conf file doesn&apos;t exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Not enough balance to create a masternode, 2,000 PNY required.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Error creating masternode</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MasternodeList</name>
     <message>
         <location filename="../forms/masternodelist.ui" line="+14"/>
@@ -1776,12 +2896,12 @@ Address: %4
         <translation type="unfinished">Form</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+41"/>
         <source>MASTERNODES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+101"/>
+        <location line="+83"/>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see &quot;MISSING&quot; in &quot;Status&quot; field.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1897,6 +3017,71 @@ Address: %4
     </message>
 </context>
 <context>
+    <name>MnInfoDialog</name>
+    <message>
+        <location filename="../pny/forms/mninfodialog.ui" line="+20"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+84"/>
+        <location filename="../pny/mninfodialog.cpp" line="+20"/>
+        <source>Master Node Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+163"/>
+        <source>Public Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+121"/>
+        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-52"/>
+        <source>Address: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>127.0.0.2:43223</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Collaterall tx id:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+73"/>
+        <source>Output index:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>1 Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Status:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>MISSING</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Export data to run the Master Node on a remote server</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MultiSendDialog</name>
     <message>
         <location filename="../forms/multisenddialog.ui" line="+17"/>
@@ -1904,7 +3089,7 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+96"/>
+        <location line="+87"/>
         <source>Enter whole numbers 1 - 100</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2337,87 +3522,43 @@ Please be patient after clicking import.</source>
     </message>
 </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MyAddressRow</name>
     <message>
-        <location filename="../forms/obfuscationconfig.ui" line="+14"/>
-        <source>Configure Obfuscation</source>
+        <location filename="../pny/forms/myaddressrow.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Savings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>Basic Privacy</source>
-        <translation type="unfinished">Basic Privacy</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>High Privacy</source>
-        <translation type="unfinished">High Privacy</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Maximum Privacy</source>
-        <translation type="unfinished">Maximum Privacy</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Please select a privacy level.</source>
-        <translation type="unfinished">Please select a privacy level.</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>Use 2 separate masternodes to mix funds up to 10000 PNY</source>
+        <location line="+20"/>
+        <source>Jan. 19, 2019</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
-        <source>Use 8 separate masternodes to mix funds up to 10000 PNY</source>
+        <location line="+9"/>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NavMenuWidget</name>
+    <message>
+        <location filename="../pny/forms/navmenuwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+248"/>
+        <source>V 1.0.0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
-        <source>Use 16 separate masternodes</source>
-        <translation type="unfinished">Use 16 separate masternodes</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>This option is the quickest and will cost about ~0.025 PNY to anonymize 10000 PNY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>This option is moderately fast and will cost about 0.05 PNY to anonymize 10000 PNY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation type="unfinished">This is the slowest and most secure option. Using maximum anonymity will cost</translation>
-    </message>
-    <message>
-        <location line="+13"/>
-        <source>0.1 PNY per 10000 PNY you anonymize.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../obfuscationconfig.cpp" line="+47"/>
-        <location line="+14"/>
-        <location line="+14"/>
-        <source>Obfuscation Configuration</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-27"/>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening PNY&apos;s configuration screen.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening PNY&apos;s configuration screen.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+14"/>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening PNY&apos;s configuration screen.</source>
+        <location filename="../pny/navmenuwidget.cpp" line="+22"/>
+        <source>v%1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2429,24 +3570,48 @@ Please be patient after clicking import.</source>
         <translation>Open URI</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+45"/>
         <source>Open payment request from URI or file</source>
         <translation>Open payment request from URI or file</translation>
     </message>
     <message>
-        <location line="+9"/>
-        <source>URI:</source>
-        <translation>URI:</translation>
+        <location line="+26"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+90"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-75"/>
         <source>Select payment request file</source>
         <translation>Select payment request file</translation>
     </message>
     <message>
-        <location filename="../openuridialog.cpp" line="+45"/>
+        <location filename="../openuridialog.cpp" line="+63"/>
         <source>Select payment request file to open</source>
         <translation>Select payment request file to open</translation>
+    </message>
+</context>
+<context>
+    <name>OptionButton</name>
+    <message>
+        <location filename="../pny/forms/optionbutton.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+101"/>
+        <location line="+9"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2482,7 +3647,7 @@ Please be patient after clicking import.</source>
         <translation>(0 = auto, &lt;0 = leave that many cores free)</translation>
     </message>
     <message>
-        <location line="+132"/>
+        <location line="+141"/>
         <source>W&amp;allet</source>
         <translation>W&amp;allet</translation>
     </message>
@@ -2517,7 +3682,7 @@ Please be patient after clicking import.</source>
         <translation>Expert</translation>
     </message>
     <message>
-        <location line="-227"/>
+        <location line="-236"/>
         <source>Automatically start PNY after logging in to the system.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2527,7 +3692,7 @@ Please be patient after clicking import.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+230"/>
+        <location line="+239"/>
         <source>Whether to show coin control features or not.</source>
         <translation>Whether to show coin control features or not.</translation>
     </message>
@@ -2573,7 +3738,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
         <translation>Map port using &amp;UPnP</translation>
     </message>
     <message>
-        <location line="-184"/>
+        <location line="-187"/>
         <source>Enable automatic minting of PNY units to zPNY</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2614,7 +3779,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+40"/>
         <source>Stake split threshold:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2684,12 +3849,12 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
         <translation>User Interface Theme:</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;Unit to show amounts in:</translation>
+        <location line="+27"/>
+        <source>Unit to show amounts in:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+10"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Choose the default subdivision unit to show in the interface and when sending coins.</translation>
     </message>
@@ -2716,12 +3881,12 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
     </message>
     <message>
         <location line="+24"/>
-        <location line="+13"/>
+        <location line="+10"/>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
         <translation>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</translation>
     </message>
     <message>
-        <location line="-10"/>
+        <location line="-7"/>
         <source>Third party transaction URLs</source>
         <translation>Third party transaction URLs</translation>
     </message>
@@ -2751,7 +3916,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
         <translation>&amp;Cancel</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+89"/>
+        <location filename="../optionsdialog.cpp" line="+92"/>
         <source>Any</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2772,17 +3937,17 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+30"/>
+        <location line="+29"/>
         <source>Client restart required to activate changes.</source>
         <translation>Client restart required to activate changes.</translation>
     </message>
     <message>
-        <location line="-30"/>
+        <location line="-29"/>
         <source>Client will be shutdown, do you want to proceed?</source>
         <translation>Client will be shutdown, do you want to proceed?</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+31"/>
         <source>This change would require a client restart.</source>
         <translation>This change would require a client restart.</translation>
     </message>
@@ -2810,7 +3975,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
         <translation>Form</translation>
     </message>
     <message>
-        <location line="+297"/>
+        <location line="+270"/>
         <location line="+192"/>
         <location line="+403"/>
         <source>Available:</source>
@@ -2892,12 +4057,12 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-999"/>
+        <location line="-990"/>
         <source>OVERVIEW</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+134"/>
+        <location line="+125"/>
         <source>Combined Balance (including unconfirmed and immature coins)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2971,7 +4136,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Recent transactions</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+132"/>
+        <location filename="../overviewpage.cpp" line="+131"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>out of sync</translation>
@@ -3001,9 +4166,115 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
 </context>
 <context>
+    <name>PNYGUI</name>
+    <message>
+        <location filename="../pny/pnygui.cpp" line="+42"/>
+        <location line="+299"/>
+        <location line="+68"/>
+        <source>PNY Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-358"/>
+        <source>Wallet</source>
+        <translation type="unfinished">Wallet</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Node</source>
+        <translation type="unfinished">Node</translation>
+    </message>
+    <message>
+        <location line="+107"/>
+        <source>&amp;Show / Hide</source>
+        <translation type="unfinished">&amp;Show / Hide</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Show or hide the main Window</source>
+        <translation type="unfinished">Show or hide the main Window</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">E&amp;xit</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Quit application</source>
+        <translation type="unfinished">Quit application</translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>PNY Core client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+154"/>
+        <source>Error</source>
+        <translation type="unfinished">Error</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning</source>
+        <translation type="unfinished">Warning</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Information</source>
+        <translation type="unfinished">Information</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>System Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+239"/>
+        <source>Sent MultiSend transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Sent transaction</source>
+        <translation type="unfinished">Sent transaction</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Incoming transaction</source>
+        <translation type="unfinished">Incoming transaction</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</source>
+        <translation type="unfinished">Date: %1
+Amount: %2
+Type: %3
+Address: %4
+</translation>
+    </message>
+    <message>
+        <location filename="../pny.cpp" line="+507"/>
+        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PWidget</name>
+    <message>
+        <location filename="../pny/pwidget.cpp" line="+92"/>
+        <source>Wallet locked, you need to unlock it to perform this action</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+291"/>
+        <location filename="../paymentserver.cpp" line="+287"/>
         <location line="+205"/>
         <location line="+33"/>
         <location line="+104"/>
@@ -3143,7 +4414,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <location filename="../forms/privacydialog.ui" line="+184"/>
+        <location filename="../forms/privacydialog.ui" line="+157"/>
         <source>Zerocoin Actions:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3153,42 +4424,23 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+190"/>
-        <location filename="../privacydialog.cpp" line="+163"/>
-        <location line="+112"/>
+        <location filename="../privacydialog.cpp" line="+280"/>
         <source>Mint Zerocoin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
-        <location line="+351"/>
+        <location filename="../forms/privacydialog.ui" line="+373"/>
         <location line="+30"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-371"/>
-        <location line="+600"/>
+        <location line="+229"/>
         <source>zPNY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-593"/>
-        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Available for Minting:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
-        <source>0.000&#x2009;000&#x2009;00 PNY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
+        <location line="-392"/>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3198,22 +4450,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation type="unfinished">Reset</translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>Coin Control...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+36"/>
-        <source>Quantity:</source>
-        <translation type="unfinished">Quantity:</translation>
-    </message>
-    <message>
-        <location line="+22"/>
-        <source>Amount:</source>
-        <translation type="unfinished">Amount:</translation>
-    </message>
-    <message>
-        <location line="+91"/>
+        <location line="-19"/>
         <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3223,23 +4460,17 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+30"/>
         <source>Status and/or Mesages from the last Mint Action.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-600"/>
+        <location line="-360"/>
         <source>PRIVACY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+308"/>
-        <location line="+52"/>
-        <source>Enter an amount of Pny to convert to zPNY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+301"/>
+        <location line="+462"/>
         <source>zPNY Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3255,17 +4486,16 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+37"/>
-        <location filename="../privacydialog.cpp" line="+542"/>
+        <location filename="../privacydialog.cpp" line="+547"/>
         <source>Spend Zerocoin. Without &apos;Pay To:&apos; address creates payments to yourself.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <location filename="../privacydialog.cpp" line="-493"/>
+        <location filename="../privacydialog.cpp" line="-498"/>
         <location line="+4"/>
         <location line="+12"/>
-        <location line="+106"/>
-        <location line="+4"/>
+        <location line="+113"/>
         <source>Spend Zerocoin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3287,9 +4517,9 @@ zPNY are mature when they have more than 20 confirmations AND more than 2 mints 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-548"/>
+        <location line="-367"/>
         <location line="+49"/>
-        <location line="+504"/>
+        <location line="+323"/>
         <location line="+370"/>
         <location line="+544"/>
         <location line="+31"/>
@@ -3374,16 +4604,16 @@ zPNY are mature when they have more than 20 confirmations AND more than 2 mints 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-842"/>
+        <location line="-661"/>
         <location line="+25"/>
-        <location line="+885"/>
+        <location line="+704"/>
         <location line="+38"/>
         <source>Total Balance including unconfirmed and immature zPNY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-945"/>
-        <location line="+910"/>
+        <location line="-764"/>
+        <location line="+729"/>
         <source>Total Zerocoin  Balance:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3430,8 +4660,8 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-1359"/>
-        <location line="+1408"/>
+        <location line="-1178"/>
+        <location line="+1227"/>
         <source>Global Supply:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3488,7 +4718,7 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-1273"/>
+        <location line="-1092"/>
         <source>Show zPNY denominations list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3498,7 +4728,17 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+916"/>
+        <location line="+29"/>
+        <source>zPNY minting is DISABLED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+131"/>
+        <source>zPNY spending is NOT private (links back to the mint transaction)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+575"/>
         <source>Denominations with value 5:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3573,7 +4813,7 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+138"/>
         <source>Priority:</source>
         <translation type="unfinished">Priority:</translation>
     </message>
@@ -3609,10 +4849,6 @@ To change the percentage (no restart required):
     </message>
     <message>
         <location line="+75"/>
-        <location filename="../privacydialog.cpp" line="-408"/>
-        <location line="+1"/>
-        <location line="+515"/>
-        <location line="+1"/>
         <source>Coins automatically selected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3622,12 +4858,12 @@ To change the percentage (no restart required):
         <translation type="unfinished">medium</translation>
     </message>
     <message>
-        <location line="+80"/>
+        <location line="+71"/>
         <source>Coin Control Features</source>
         <translation type="unfinished">Coin Control Features</translation>
     </message>
     <message>
-        <location line="+72"/>
+        <location line="+63"/>
         <source>If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</source>
         <translation type="unfinished">If this is activated, but the change address is empty or invalid, change will be sent to a newly generated address.</translation>
     </message>
@@ -3647,40 +4883,23 @@ To change the percentage (no restart required):
         <translation type="unfinished">Change:</translation>
     </message>
     <message>
-        <location filename="../privacydialog.cpp" line="-515"/>
+        <location filename="../privacydialog.cpp" line="-414"/>
         <source>out of sync</source>
         <translation type="unfinished">out of sync</translation>
     </message>
     <message>
         <location line="+6"/>
-        <location line="+120"/>
         <source>Mint Status: Okay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-114"/>
-        <source>Copy quantity</source>
-        <translation type="unfinished">Copy quantity</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Copy amount</source>
-        <translation type="unfinished">Copy amount</translation>
-    </message>
-    <message>
-        <location line="+183"/>
+        <location line="+195"/>
         <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware.
 Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+204"/>
-        <source>) needed.
-Maximum allowed: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+34"/>
+        <location line="+241"/>
         <source>zPNY Spend #: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3690,7 +4909,7 @@ Maximum allowed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+293"/>
+        <location line="+294"/>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3705,19 +4924,17 @@ Maximum allowed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <location line="+4"/>
+        <location line="+17"/>
         <source>zPNY is currently disabled due to maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-645"/>
-        <location line="+112"/>
+        <location line="-538"/>
         <source>zPNY is currently undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-212"/>
+        <location line="-215"/>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3758,12 +4975,12 @@ Maximum allowed: </source>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+710"/>
+        <location line="+717"/>
         <source>AutoMint Status:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-707"/>
+        <location line="-714"/>
         <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3803,53 +5020,22 @@ Maximum allowed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+94"/>
-        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
-        <source>Message: Enter an amount &gt; 0.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
-        <source>Minting </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Successfully minted </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source> zPNY in </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source> sec. Used denominations:
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+35"/>
+        <location line="+165"/>
         <location line="+15"/>
-        <location line="+239"/>
+        <location line="+242"/>
         <source>Duration: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-254"/>
+        <location line="-257"/>
         <location line="+15"/>
-        <location line="+239"/>
+        <location line="+242"/>
         <source> sec.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-244"/>
+        <location line="-247"/>
         <source>Starting ResetSpentZerocoin: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3899,45 +5085,24 @@ Maximum allowed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>Too much inputs (</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>
-Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <location line="+4"/>
+        <location line="+36"/>
         <source>Spend Zerocoin failed with status = </source>
         <translation type="unfinished"></translation>
     </message>
-    <message numerus="yes">
-        <location line="+362"/>
-        <source>PrivacyDialog</source>
-        <comment>Enter an amount of PNY to convert to zPNY</comment>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
     <message>
-        <location line="-334"/>
+        <location line="+28"/>
         <source>denomination: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-73"/>
+        <location line="-76"/>
         <source>Spending Zerocoin.
 Computationally expensive, might need several minutes depending on your hardware.
 Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+74"/>
+        <location line="+77"/>
         <source>serial: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3969,6 +5134,181 @@ Please be patient...</source>
     <message>
         <location line="+1"/>
         <source>fee: </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyWidget</name>
+    <message>
+        <location filename="../pny/forms/privacywidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>Title</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <location line="+117"/>
+        <location line="+53"/>
+        <location line="+83"/>
+        <location line="+254"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <location line="+14"/>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-588"/>
+        <location line="+25"/>
+        <location line="+116"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+180"/>
+        <source>No active Master Node yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/privacywidget.cpp" line="+38"/>
+        <source>Privacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Minting zPNY anonymizes your PNY by removing any
+transaction history, making transactions untraceable </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Mint new zPNY or convert back to PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>Last Zerocoin Movements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>No transactions yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+83"/>
+        <source>Mint zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Enter amount of PNY to mint into zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Convert back to PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Enter amount of zPNY to convert back into PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>Zerocoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>zPNY is currently undergoing maintenance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>You need to unlock the wallet to be able to %1 zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>convert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>mint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Invalid value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>zPNY minted successfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>zPNY converted back to PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>You don&apos;t have any PNY to select.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Rescan Mints</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Reset Spent Zerocoins</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+96"/>
+        <source>Total %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4059,17 +5399,17 @@ Please be patient...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../bitcoinunits.cpp" line="+252"/>
+        <location filename="../bitcoinunits.cpp" line="+278"/>
         <source>Amount</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location filename="../guiutil.cpp" line="+105"/>
+        <location filename="../guiutil.cpp" line="+136"/>
         <source>Enter a PNY address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+773"/>
+        <location line="+777"/>
         <source>%1 d</source>
         <translation>%1 d</translation>
     </message>
@@ -4153,7 +5493,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+40"/>
+        <location line="+61"/>
         <source>PNY Core didn&apos;t yet exit safely...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4199,12 +5539,12 @@ Please be patient...</source>
         <translation>General</translation>
     </message>
     <message>
-        <location line="+164"/>
+        <location line="+152"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location line="-157"/>
+        <location line="-145"/>
         <source>Client name</source>
         <translation>Client name</translation>
     </message>
@@ -4212,15 +5552,16 @@ Please be patient...</source>
         <location line="+10"/>
         <location line="+23"/>
         <location line="+26"/>
-        <location line="+26"/>
+        <location line="+23"/>
+        <location line="+23"/>
+        <location line="+20"/>
+        <location line="+30"/>
         <location line="+23"/>
         <location line="+23"/>
         <location line="+36"/>
         <location line="+23"/>
-        <location line="+23"/>
-        <location line="+36"/>
-        <location line="+23"/>
-        <location line="+522"/>
+        <location line="+20"/>
+        <location line="+516"/>
         <location line="+23"/>
         <location line="+23"/>
         <location line="+23"/>
@@ -4238,29 +5579,29 @@ Please be patient...</source>
         <location line="+26"/>
         <location line="+23"/>
         <location line="+78"/>
-        <location line="+26"/>
+        <location line="+29"/>
         <location line="+29"/>
         <location line="+29"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location line="-1147"/>
+        <location line="-1164"/>
         <source>Number of connections</source>
         <translation>Number of connections</translation>
     </message>
     <message>
-        <location line="+134"/>
+        <location line="+148"/>
         <source>&amp;Open</source>
         <translation>&amp;Open</translation>
     </message>
     <message>
-        <location line="-193"/>
+        <location line="-221"/>
         <source>Startup time</source>
         <translation>Startup time</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+43"/>
         <source>Network</source>
         <translation>Network</translation>
     </message>
@@ -4270,52 +5611,57 @@ Please be patient...</source>
         <translation>Last block time</translation>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+56"/>
         <source>Debug log file</source>
         <translation>Debug log file</translation>
     </message>
     <message>
-        <location line="-258"/>
-        <source>Using OpenSSL version</source>
-        <translation>Using OpenSSL version</translation>
-    </message>
-    <message>
-        <location line="+52"/>
+        <location line="-234"/>
         <source>Build date</source>
         <translation>Build date</translation>
     </message>
     <message>
-        <location line="+141"/>
+        <location line="+155"/>
         <source>Current number of blocks</source>
         <translation>Current number of blocks</translation>
     </message>
     <message>
-        <location line="-216"/>
+        <location line="-204"/>
         <source>Client version</source>
         <translation>Client version</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+23"/>
         <source>Using BerkeleyDB version</source>
         <translation>Using BerkeleyDB version</translation>
     </message>
     <message>
-        <location line="+160"/>
+        <location line="+174"/>
         <source>Block chain</source>
         <translation>Block chain</translation>
     </message>
     <message>
-        <location line="+79"/>
+        <location line="+93"/>
         <source>Open the PNY debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-108"/>
+        <location line="-122"/>
         <source>Number of Masternodes</source>
         <translation>Number of Masternodes</translation>
     </message>
     <message>
-        <location line="+122"/>
+        <location line="-73"/>
+        <source>Data Directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+155"/>
+        <source>Last block hash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+54"/>
         <source>&amp;Console</source>
         <translation>&amp;Console</translation>
     </message>
@@ -4361,8 +5707,8 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+59"/>
-        <location filename="../rpcconsole.cpp" line="+329"/>
-        <location line="+727"/>
+        <location filename="../rpcconsole.cpp" line="+326"/>
+        <location line="+730"/>
         <source>Select a peer to view detailed information.</source>
         <translation>Select a peer to view detailed information.</translation>
     </message>
@@ -4472,7 +5818,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+101"/>
+        <location line="+104"/>
         <source>Custom Backup Path:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4487,7 +5833,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+45"/>
         <source>Salvage wallet</source>
         <translation>Salvage wallet</translation>
     </message>
@@ -4567,7 +5913,7 @@ Please be patient...</source>
         <translation>Rebuild index</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="-376"/>
+        <location filename="../rpcconsole.cpp" line="-378"/>
         <source>In:</source>
         <translation>In:</translation>
     </message>
@@ -4582,7 +5928,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-218"/>
+        <location line="-219"/>
         <source>&amp;Disconnect Node</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4620,7 +5966,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+95"/>
+        <location line="+96"/>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4660,7 +6006,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+141"/>
+        <location line="+143"/>
         <source>%1 B</source>
         <translation>%1 B</translation>
     </message>
@@ -4725,7 +6071,7 @@ Please be patient...</source>
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
-        <location filename="../forms/receivecoinsdialog.ui" line="+263"/>
+        <location filename="../forms/receivecoinsdialog.ui" line="+245"/>
         <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
         <translation>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</translation>
     </message>
@@ -4767,12 +6113,12 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-175"/>
+        <location line="-166"/>
         <source>RECEIVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+191"/>
+        <location line="+182"/>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the PNY network.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4859,6 +6205,39 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>ReceiveDialog</name>
+    <message>
+        <location filename="../pny/forms/receivedialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ReceiveRequestDialog</name>
     <message>
         <location filename="../forms/receiverequestdialog.ui" line="+29"/>
@@ -4927,9 +6306,114 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>ReceiveWidget</name>
+    <message>
+        <location filename="../pny/forms/receivewidget.ui" line="+20"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <location line="+7"/>
+        <location line="+112"/>
+        <location line="+20"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <location filename="../pny/receivewidget.cpp" line="+230"/>
+        <source>No address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <location filename="../pny/receivewidget.cpp" line="-133"/>
+        <source>Add Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location filename="../pny/receivewidget.cpp" line="+4"/>
+        <source>Generate Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location filename="../pny/receivewidget.cpp" line="+4"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/receivewidget.cpp" line="-32"/>
+        <source>Receive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Scan the QR code or copy the address to receive PNY.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>No address </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <source>No available address, try unlocking the wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error generating address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Change Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Edit Address Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Address label saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error storing address label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>New address created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Address copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>URI copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Address copied to clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>RecentRequestsTableModel</name>
     <message>
-        <location filename="../recentrequeststablemodel.cpp" line="+28"/>
+        <location filename="../recentrequeststablemodel.cpp" line="+27"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
@@ -4970,22 +6454,156 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>RequestDialog</name>
+    <message>
+        <location filename="../pny/forms/requestdialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <location filename="../pny/requestdialog.cpp" line="+25"/>
+        <source>New Request Payment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+115"/>
+        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+43"/>
+        <location filename="../pny/requestdialog.cpp" line="+21"/>
+        <source>Amount</source>
+        <translation type="unfinished">Amount</translation>
+    </message>
+    <message>
+        <location line="+129"/>
+        <location line="+58"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+99"/>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>COPY ADDRESS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>COPY URL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>REQUEST</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/requestdialog.cpp" line="-18"/>
+        <source>Instead of share a PNY address, you can create a Payment Request message which bundles up more information than is contained in just a PNY address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Label</source>
+        <translation type="unfinished">Label</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Enter a label to be saved within the address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Description (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Add description </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Error</source>
+        <translation type="unfinished">Error</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>GENERATE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendChangeAddressDialog</name>
+    <message>
+        <location filename="../pny/forms/sendchangeaddressdialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+79"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/sendchangeaddressdialog.cpp" line="+21"/>
+        <source>Custom Change Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The remainder of the value resultant from the inputs minus the outputs value goes to the &quot;change&quot; PNY address</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SendCoinsDialog</name>
     <message>
         <location filename="../forms/sendcoinsdialog.ui" line="+17"/>
-        <location filename="../sendcoinsdialog.cpp" line="+234"/>
+        <location filename="../sendcoinsdialog.cpp" line="+239"/>
         <location line="+25"/>
         <location line="+413"/>
         <source>Send Coins</source>
         <translation>Send Coins</translation>
     </message>
     <message>
-        <location line="+65"/>
+        <location line="+47"/>
         <source>SEND</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+156"/>
+        <location line="+147"/>
         <source>Coin Control Features</source>
         <translation>Coin Control Features</translation>
     </message>
@@ -4995,7 +6613,7 @@ Please be patient...</source>
         <translation>Insufficient funds!</translation>
     </message>
     <message>
-        <location line="+89"/>
+        <location line="+80"/>
         <source>Quantity:</source>
         <translation>Quantity:</translation>
     </message>
@@ -5075,7 +6693,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+167"/>
+        <location line="+149"/>
         <source>SwiftX technology allows for near instant transactions - A flat fee of 0.01 PNY applies</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5100,7 +6718,7 @@ Please be patient...</source>
         <translation>Minimize</translation>
     </message>
     <message>
-        <location line="+135"/>
+        <location line="+126"/>
         <source>per kilobyte</source>
         <translation>per kilobyte</translation>
     </message>
@@ -5120,7 +6738,7 @@ Please be patient...</source>
         <translation>Custom:</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-202"/>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Smart fee not initialized yet. This usually takes a few blocks...)</translation>
     </message>
@@ -5135,7 +6753,7 @@ Please be patient...</source>
         <translation>Confirmation time:</translation>
     </message>
     <message>
-        <location line="-750"/>
+        <location line="-723"/>
         <source>Open Coin Control...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5145,7 +6763,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1062"/>
+        <location line="+1026"/>
         <source>If the custom fee is set to 1000 uPNYs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uPNYs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uPNYs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5161,7 +6779,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-374"/>
+        <location line="-365"/>
         <source>normal</source>
         <translation>normal</translation>
     </message>
@@ -5171,7 +6789,7 @@ Please be patient...</source>
         <translation>fast</translation>
     </message>
     <message>
-        <location line="+360"/>
+        <location line="+351"/>
         <source>Recommended</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5226,7 +6844,7 @@ Please be patient...</source>
         <translation>Balance:</translation>
     </message>
     <message>
-        <location filename="../sendcoinsdialog.cpp" line="-590"/>
+        <location filename="../sendcoinsdialog.cpp" line="-595"/>
         <source>Copy quantity</source>
         <translation>Copy quantity</translation>
     </message>
@@ -5266,7 +6884,7 @@ Please be patient...</source>
         <translation>Copy change</translation>
     </message>
     <message>
-        <location line="+146"/>
+        <location line="+151"/>
         <source>The split block tool does not work when sending to outside addresses. Try again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5502,9 +7120,2263 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>SendCustomFeeDialog</name>
+    <message>
+        <location filename="../pny/forms/sendcustomfeedialog.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <location filename="../pny/sendcustomfeedialog.cpp" line="+26"/>
+        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>Recomended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>0.00 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Custom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>Per kilobyte</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/sendcustomfeedialog.cpp" line="-1"/>
+        <source>Customize Fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Normal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Slow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Fast</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendMultiRow</name>
+    <message>
+        <location filename="../pny/forms/sendmultirow.ui" line="+26"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+261"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/sendmultirow.cpp" line="+23"/>
+        <source>Add address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Add description</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendWidget</name>
+    <message>
+        <location filename="../pny/send.cpp" line="+43"/>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>You can transfer public coins (PNY) or private coins (zPNY)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Select coin type to spend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Enter a PNY address or contact label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Amount</source>
+        <translation type="unfinished">Amount</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Customize fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Clear all</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Add recipient</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Reset to default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>Total to send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+40"/>
+        <source>Send PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Send zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Total remaining from the selected UTXO</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Total remaining</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <location line="+408"/>
+        <source>Customize Fee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-377"/>
+        <source>Maximum amount of outputs reached</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Invalid entry, previous entries must be valid before add a new one</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>Invalid entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>No set recipients</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Cannot send, wallet locked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Cannot create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Transaction sent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <location line="+38"/>
+        <source>Spend Zerocoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-38"/>
+        <source>zPNY is currently undergoing maintenance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Coin control mint not found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Sending %1 to address %2
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Sending %1 to addresses:
+%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>zPNY transaction sent!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Version 1 zPNY require a security level of 100 to successfully spend.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Too much inputs (</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>) needed.
+Maximum allowed: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Address label update failed for address: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>The recipient address is not valid, please recheck.</source>
+        <translation type="unfinished">The recipient address is not valid, please recheck.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The amount to pay must be larger than 0.</source>
+        <translation type="unfinished">The amount to pay must be larger than 0.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The amount exceeds your balance.</source>
+        <translation type="unfinished">The amount exceeds your balance.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
+        <translation type="unfinished">The total exceeds your balance when the %1 transaction fee is included.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Duplicate address found, can only send to each address once per send operation.</source>
+        <translation type="unfinished">Duplicate address found, can only send to each address once per send operation.</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Transaction creation failed!</source>
+        <translation type="unfinished">Transaction creation failed!</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation type="unfinished">The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Error: The wallet was unlocked only to anonymize coins.</source>
+        <translation type="unfinished">Error: The wallet was unlocked only to anonymize coins.</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
+        <translation type="unfinished">A fee %1 times higher than %2 per kB is considered an insanely high fee.</translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Send Coins</source>
+        <translation type="unfinished">Send Coins</translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Invalid change address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Invalid URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Invalid address in URI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Custom Fee %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>You don&apos;t have any PNY to select.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>You don&apos;t have any zPNY in your balance to select.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>No contacts available, you can go to the contacts screen and add some there!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>Save contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Address field is empty</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Invalid address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Cannot store your own address as contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Update Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Create New Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>New Contact Stored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error Storing Contact</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsBackupWallet</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsbackupwallet.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <location line="+7"/>
+        <location line="+30"/>
+        <location line="+133"/>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-121"/>
+        <location line="+55"/>
+        <location line="+121"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsbackupwallet.cpp" line="+26"/>
+        <source>Backup Wallet </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Change Wallet Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Keep your wallet safe doing regular backups, store your backup file externally.
+This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) from another device.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Change your wallet encryption passphrase for another one that you like. This will decrypt and encrypt your whole data under the new passphrase.
+Remember to write it down to not lose access to your funds.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Where</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+31"/>
+        <source>Set a folder location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-26"/>
+        <source>Backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Change Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Backup Wallet</source>
+        <translation type="unfinished">Backup Wallet</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wallet Data (*.dat)</source>
+        <translation type="unfinished">Wallet Data (*.dat)</translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Backup created</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Backup creation failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Please select a folder to export the backup first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsBitToolWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsbittoolwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <location line="+7"/>
+        <location line="+191"/>
+        <location line="+54"/>
+        <location line="+327"/>
+        <location line="+71"/>
+        <location line="+83"/>
+        <location line="+20"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-685"/>
+        <location line="+25"/>
+        <location line="+409"/>
+        <location line="+336"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-509"/>
+        <source>Decrypt Address Result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <location filename="../pny/settings/settingsbittoolwidget.cpp" line="+74"/>
+        <source>Import Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+75"/>
+        <location line="+336"/>
+        <source>Clear</source>
+        <translation type="unfinished">Clear</translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsbittoolwidget.cpp" line="-39"/>
+        <source>BIP38 Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Encrypt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Decrypt</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <location line="+54"/>
+        <source>Encrypted key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-52"/>
+        <source>Enter a encrypted key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <location line="+37"/>
+        <source>Passphrase</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-34"/>
+        <source>Enter a passphrase </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Decrypted address result</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Decrypted Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>DECRYPT KEY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Enter a PNY address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Add address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Write a message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Encrypted Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>ENCRYPT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>CLEAR ALL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>CLEAR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <source>The entered passphrase is invalid. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Allowed: 0-9,a-z,A-Z,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>The entered address is invalid.</source>
+        <translation type="unfinished">The entered address is invalid.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+8"/>
+        <source>Please check the address and try again.</source>
+        <translation type="unfinished">Please check the address and try again.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>The entered address does not refer to a key.</source>
+        <translation type="unfinished">The entered address does not refer to a key.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+106"/>
+        <source>Wallet unlock was cancelled.</source>
+        <translation type="unfinished">Wallet unlock was cancelled.</translation>
+    </message>
+    <message>
+        <location line="-99"/>
+        <source>Private key for the entered address is not available.</source>
+        <translation type="unfinished">Private key for the entered address is not available.</translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Address encrypted.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>No addresses available, you can go to the receive screen and add some there!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+63"/>
+        <source>Failed to decrypt.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Please check the key and passphrase and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Data Not Valid.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Please wait while key is imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Cannot import address, key already held by the wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Error adding key to the wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Successfully added pnyate key to the wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsConsoleWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsconsolewidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <location line="+19"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsconsolewidget.cpp" line="+255"/>
+        <source>Console</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Console input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Command Line Options </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Open Debug File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Cannot open debug file.
+Verify that you have installed a predetermined text editor.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+137"/>
+        <source>Welcome to the PNY RPC console.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
+        <translation type="unfinished">Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsDisplayOptionsWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsdisplayoptionswidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <location line="+7"/>
+        <location line="+32"/>
+        <location line="+56"/>
+        <location line="+56"/>
+        <location line="+91"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-31"/>
+        <location line="+134"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-48"/>
+        <location filename="../pny/settings/settingsdisplayoptionswidget.cpp" line="+93"/>
+        <source>Reset to default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Discard changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsdisplayoptionswidget.cpp" line="-64"/>
+        <source>Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Customize the display view options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Unit to show amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Decimal digits</source>
+        <translation type="unfinished">Decimal digits</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Third party transactions URLs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Hide empty balances</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+43"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>default</source>
+        <translation type="unfinished">default</translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Options reset succeed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsFaqWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsfaqwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <location line="+329"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-309"/>
+        <location line="+332"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-250"/>
+        <source>1) What is PNY?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>2) Why are my PNY unspendable?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>3) PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>4) Why are my zPNY unspendable?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>5) Why did my wallet convert the balance
+    into zPNY automatically?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>6) How do I receive PNY/zPNY?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>7) How do I stake PNY/zPNY?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>8) Where I should go if I need support?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>9) What is a Master Node?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>10) What is a Master Node Controller?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+192"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>What is PNY?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           PNY is a form of digital online money using blockchain technology
+                           that can be easily transferred globally, instantly, and with near
+                           zero fees.  PNY incorporates market leading security &amp;
+                           privacy and is also the first PoS (Proof of Stake) Cryptocurrency
+                           to implement ZeroCoin(zPNY) and Zerocoin staking.
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           PNY utilizes a Proof of Stake (PoS) consensus system algorithm,
+                           allowing all owners of PNY to participate in earning block rewards
+                           while securing the network with full node wallets, as well as to
+                           run Masternodes to create and vote on proposals.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>Why are my PNY unspendable?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           Newly received PNY requires 6 confirmations on the network
+                           to become eligible for spending which can take ~6 minutes.
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           Your PNY wallet also needs to be completely synchronized
+                           to see and spend balances on the network.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           zPNY is an optional privacy-centric method of coin mixing on the
+                           PNY blockchain. Basically all your transactions cannot be tracked
+                           on to any block explorer. You can read more about the technicals in the
+                           &lt;a style=&apos;color: #cfc8af&apos; href=&apos;https://peonycoin.io/zpny/&apos;&gt;
+                           &quot;PNY Zerocoin (zPNY) Technical Paper&quot;&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+54"/>
+        <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Why are my zPNY unspendable?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           After minting, zPNY will require 20 confirmations as well as 1
+                           additional mint of the same denomination on the network to
+                           become eligible for spending.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Why did my wallet convert the balance into zPNY automatically?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           By default the PNY wallet will convert 10% of your entire PNY
+                           balance to zPNY to assist the network. If you do not wish to
+                           stake zPNY or take advantage of the privacy benefit it brings,
+                           you can disable the automatic minting in your PNY wallet by
+                           going to Settings-&gt;Options and deselecting “Enable zPNY Automint”.
+                           If you are not making use of the PNY-QT or GUI you can simply open
+                           your pny.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
+                           marks and restart your wallet to disable automint.&lt;/p&gt;
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           You can read more about zPNY in the
+                           &lt;a style=&apos;color: #cfc8af&apos; href=&apos;https://peonycoin.io/zpny/&apos;&gt; &quot;PNY Zerocoin (zPNY) Technical Paper&quot;&lt;/a&gt;.
+                           If you would like to keep and stake your zPNY, please read the &quot;How do I stake&quot;
+                           section of the FAQ below.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>6</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+21"/>
+        <source>How do I receive PNY/zPNY?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           zPNY can be spent and sent to any PNY address. The receiver will
+                           receive standard PNY but the origin of the PNY is anonymized by the zPNY Protocol.
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           If you want more zPNY you will need to mint your balance in the “Privacy” tab.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>7</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>How do I stake PNY/zPNY?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           To Stake PNY:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           &lt;ol&gt;&lt;li&gt;
+                           Make sure your wallet is completely synchronized and you are using the latest release.
+                           &lt;li&gt;
+                           You must have a balance of PNY with a minimum of 101 confirmations.
+                           &lt;li&gt;
+                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
+                           &lt;li&gt;
+                           Once all those steps are followed staking should be enabled.
+                           &lt;li&gt;
+                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &quot;Staking Enabled&quot; to indicate it is staking.  Using the command line interface (pny-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
+                           &lt;/li&gt;&lt;/ol&gt;
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           To Stake zPNY:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           &lt;ol&gt;&lt;li&gt;
+                           Make sure your wallet is completely synchronized and you are using the latest release.
+                           &lt;li&gt;
+                           Your newly minted or existing zPNY balance must have a minimum of 200 confirmations.
+                           &lt;li&gt;
+                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
+                           Staking should now be enabled.
+                           &lt;/li&gt;&lt;/ol&gt;
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+73"/>
+        <source>8</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Where I should go if I need support?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           We have support channels in most of our official chat groups, for example
+                           &lt;a style=&apos;color: #cfc8af&apos; href=&apos;https://Discord.PNY.com&apos;&gt;
+                           #support in our Discord&lt;/a&gt;.
+                           If you prefer to submit a ticket, One can be
+                           &lt;a style=&apos;color: #cfc8af&apos; href=&apos;https://PNY.FreshDesk.com&apos;&gt;
+                           our Freshdesk support site&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+55"/>
+        <source>9</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>What is a Master Node?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
+                           A masternode is a computer running a full node PNY core wallet with a
+                           requirement of 2,000 PNY secured collateral to provide extra services
+                           to the network and in return, receive a portion of the block reward
+                           regularly.  These services include:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+
+                           &lt;ul&gt;
+                           &lt;li&gt;Instant transactions (SwiftX)&lt;/li&gt;
+                           &lt;li&gt;A decentralized governance (Proposal Voting)&lt;/li&gt;
+                           &lt;li&gt;A decentralized budgeting system (Treasury)&lt;/li&gt;
+                           &lt;li&gt;Validation of transactions within each block&lt;/li&gt;
+                           &lt;li&gt;Act as an additional full node in the network&lt;/li&gt;
+                           &lt;/ul&gt;
+
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           For providing such services, masternodes are also paid a certain portion
+                           of reward for each block. This can serve as a passive income to the
+                           masternode owners minus their running cost.
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+
+                           Masternode Perks:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           &lt;ul&gt;
+                           &lt;li&gt;Participate in PNY Governance&lt;/li&gt;
+                           &lt;li&gt;Earn Masternode Rewards&lt;/li&gt;
+                           &lt;li&gt;Commodity option for future sale&lt;/li&gt;
+                           &lt;li&gt;Help secure the PNY network&lt;/li&gt;
+                           &lt;/ul&gt;
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+
+                           Requirements:
+                           &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
+                           &lt;ul&gt;
+                           &lt;li&gt;2,000 PNY per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
+                           &lt;li&gt;Need dedicated IP address&lt;/li&gt;
+                           &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
+                           &lt;/ul&gt;
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+87"/>
+        <source>10</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>What is a Master Node Controller?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 2,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet/s and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsfaqwidget.cpp" line="+19"/>
+        <source>Frequently Asked Questions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>You can read more here</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+65"/>
+        <source>Exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsInformationWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsinformationwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+46"/>
+        <location line="+146"/>
+        <location line="+24"/>
+        <location line="+7"/>
+        <location line="+26"/>
+        <location line="+7"/>
+        <location line="+26"/>
+        <location line="+7"/>
+        <location line="+26"/>
+        <location line="+7"/>
+        <location line="+29"/>
+        <location line="+7"/>
+        <location line="+28"/>
+        <location line="+24"/>
+        <location line="+7"/>
+        <location line="+39"/>
+        <location line="+7"/>
+        <location line="+26"/>
+        <location line="+24"/>
+        <location line="+7"/>
+        <location line="+39"/>
+        <location line="+7"/>
+        <location line="+26"/>
+        <location line="+24"/>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-530"/>
+        <location filename="../pny/settings/settingsinformationwidget.cpp" line="+96"/>
+        <source>Network Monitor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <location line="+25"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsinformationwidget.cpp" line="-67"/>
+        <source>Information</source>
+        <translation type="unfinished">Information</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>General</source>
+        <translation type="unfinished">General</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Client Version: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>User Agent:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Using BerkeleyDB version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Datadir: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Startup Time:  </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Network</source>
+        <translation type="unfinished">Network</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Number Connections:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Current Number of Blocks:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Last Block Time:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Memory Pool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Current Number of Transactions:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Main</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Wallet Conf</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Backups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>No information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <source>In:</source>
+        <translation type="unfinished">In:</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Out:</source>
+        <translation type="unfinished">Out:</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsMainOptionsWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsmainoptionswidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <location line="+7"/>
+        <location line="+77"/>
+        <location line="+50"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Customize the application window options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+30"/>
+        <location line="+23"/>
+        <source>CheckBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <location filename="../pny/settings/settingsmainoptionswidget.cpp" line="+81"/>
+        <source>Reset to default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Discard changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <location filename="../pny/settings/settingsmainoptionswidget.cpp" line="-1"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsmainoptionswidget.cpp" line="-31"/>
+        <source>Main</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Size of database cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Number of script verification threads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Start PNY on system login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>Minimize to the tray instead of the taskbar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Minimize on close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Reset Options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>You are just about to reset the app&apos;s options to the default values.
+
+Are you sure?
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Options reset succeed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsMultisendDialog</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsmultisenddialog.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+107"/>
+        <location line="+64"/>
+        <location line="+58"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+68"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsmultisenddialog.cpp" line="+24"/>
+        <source>New recipient for multisend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Label (optional)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enter a label to add this address in your address book</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Percentage</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsMultisendWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingsmultisendwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <location line="+25"/>
+        <location line="+274"/>
+        <location line="+35"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-163"/>
+        <source>No active Master Node yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+50"/>
+        <location line="+29"/>
+        <source>CheckBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingsmultisendwidget.cpp" line="+156"/>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other PNY addresses after it matures.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>No active recipient yet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Send stakes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send masternode rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>ADD RECIPIENT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>CLEAR ALL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>Clear succeed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Clear all failed, could not locate address in wallet file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>The entered address: %1 is invalid.
+Please check the address and try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Invalid percentage, please enter values from 1 to 100.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Error saving  MultiSend, failed saving properties to the database.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Unable to activate MultiSend, no available recipients</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Unable to activate MultiSend
+Check one or both of the check boxes to send on stake and/or masternode rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>MultiSend activated but writing settings to DB failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>MultiSend activated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>First multiSend address invalid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>MultiSend deactivated but writing settings to DB failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>MultiSend deactivated</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsSignMessageWidgets</name>
+    <message>
+        <location filename="../pny/settings/forms/settingssignmessagewidgets.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <location line="+7"/>
+        <location line="+188"/>
+        <location line="+59"/>
+        <location line="+80"/>
+        <location line="+23"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-273"/>
+        <location line="+25"/>
+        <location line="+317"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-19"/>
+        <source>Clear</source>
+        <translation type="unfinished">Clear</translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingssignmessagewidgets.cpp" line="+35"/>
+        <source>Sign/Verify Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Enter a PNY address or contact label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Add address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Sign</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Verify</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Select mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Message</source>
+        <translation type="unfinished">Message</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Write a message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location line="+2"/>
+        <source>Signature</source>
+        <translation type="unfinished">Signature</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <location line="+36"/>
+        <source>SIGN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-35"/>
+        <source>CLEAR ALL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation type="unfinished">You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
+        <translation type="unfinished">Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>VERIFY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <location line="+55"/>
+        <source>The entered address is invalid.</source>
+        <translation type="unfinished">The entered address is invalid.</translation>
+    </message>
+    <message>
+        <location line="-55"/>
+        <location line="+8"/>
+        <location line="+47"/>
+        <location line="+7"/>
+        <source>Please check the address and try again.</source>
+        <translation type="unfinished">Please check the address and try again.</translation>
+    </message>
+    <message>
+        <location line="-54"/>
+        <location line="+54"/>
+        <source>The entered address does not refer to a key.</source>
+        <translation type="unfinished">The entered address does not refer to a key.</translation>
+    </message>
+    <message>
+        <location line="-47"/>
+        <source>Wallet unlock was cancelled.</source>
+        <translation type="unfinished">Wallet unlock was cancelled.</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Private key for the entered address is not available.</source>
+        <translation type="unfinished">Private key for the entered address is not available.</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Message signing failed.</source>
+        <translation type="unfinished">Message signing failed.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Message signed.</source>
+        <translation type="unfinished">Message signed.</translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>The signature could not be decoded.</source>
+        <translation type="unfinished">The signature could not be decoded.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+12"/>
+        <source>Please check the signature and try again.</source>
+        <translation type="unfinished">Please check the signature and try again.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>The signature did not match the message digest.</source>
+        <translation type="unfinished">The signature did not match the message digest.</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Message verification failed.</source>
+        <translation type="unfinished">Message verification failed.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Message verified.</source>
+        <translation type="unfinished">Message verified.</translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>No addresses available, you can go to the receive screen and add some there!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsWalletOptionsWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingswalletoptionswidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <location line="+7"/>
+        <location line="+35"/>
+        <location line="+124"/>
+        <location line="+7"/>
+        <location line="+101"/>
+        <location line="+43"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-222"/>
+        <source>CheckBox</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+129"/>
+        <location line="+7"/>
+        <location line="+7"/>
+        <source>RadioButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+136"/>
+        <location filename="../pny/settings/settingswalletoptionswidget.cpp" line="+69"/>
+        <source>Reset to default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Discard changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+35"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingswalletoptionswidget.cpp" line="-43"/>
+        <source>Wallet</source>
+        <translation type="unfinished">Wallet</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Customize the internal wallet options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Stake split threshold:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
+        <source>Spend unconfirmed change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Network</source>
+        <translation type="unfinished">Network</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Customize the node network options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Proxy IP:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Enter proxy IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Port:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Map port using UPnP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Allow incoming connections</source>
+        <translation type="unfinished">Allow incoming connections</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Connect through SOCKS5 proxy (default proxy):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>SAVE</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Options reset succeed</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsWalletRepairWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingswalletrepairwidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+94"/>
+        <location line="+7"/>
+        <location line="+61"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+68"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-387"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <location line="+62"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingswalletrepairwidget.cpp" line="+31"/>
+        <source>Wallet Repair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Rescan the blockchain for missing wallet transactions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Rebuild blockchain index from current blk000???.dat files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Salvage wallet</source>
+        <translation type="unfinished">Salvage wallet</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Rescan blockchain file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Recover transactions 1</source>
+        <translation type="unfinished">Recover transactions 1</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Recover transactions 2</source>
+        <translation type="unfinished">Recover transactions 2</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Upgrade wallet format</source>
+        <translation type="unfinished">Upgrade wallet format</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Rebuild index</source>
+        <translation type="unfinished">Rebuild index</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Delete local blockchain </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Confirm resync Blockchain</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsWidget</name>
+    <message>
+        <location filename="../pny/settings/forms/settingswidget.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+58"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+152"/>
+        <source>Wallet Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <location line="+246"/>
+        <source>Wallet</source>
+        <translation type="unfinished">Wallet</translation>
+    </message>
+    <message>
+        <location line="-221"/>
+        <source>Multisend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>Sign/Verify Message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>BIP38 Tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>Options</source>
+        <translation type="unfinished">Options</translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>Main</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+53"/>
+        <source>Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>Debug</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>Information</source>
+        <translation type="unfinished">Information</translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Console</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+25"/>
+        <source>Wallet Repair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>FAQ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>About PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/settings/settingswidget.cpp" line="+47"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+149"/>
+        <source>Confirm options reset</source>
+        <translation type="unfinished">Confirm options reset</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Client restart required to activate changes.</source>
+        <translation type="unfinished">Client restart required to activate changes.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Client will be shutdown, do you want to proceed?</source>
+        <translation type="unfinished">Client will be shutdown, do you want to proceed?</translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Restart required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>You wallet will be restarted to apply the changes
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Options stored</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Options store failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+169"/>
+        <source>Discard Unsaved Changes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>You are just about to discard all of your unsaved options.
+
+Are you sure?
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ShutdownWindow</name>
     <message>
-        <location filename="../utilitydialog.cpp" line="+75"/>
+        <location filename="../utilitydialog.cpp" line="+70"/>
         <source>PNY Core is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5697,6 +9569,32 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>SnackBar</name>
+    <message>
+        <location filename="../pny/forms/snackbar.ui" line="+26"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+51"/>
+        <source>Contact Stored</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Splash</name>
+    <message>
+        <location filename="../pny/forms/splash.ui" line="+26"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+119"/>
+        <source>Loading…</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+36"/>
@@ -5730,6 +9628,168 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>TooltipMenu</name>
+    <message>
+        <location filename="../pny/forms/tooltipmenu.ui" line="+26"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TopBar</name>
+    <message>
+        <location filename="../pny/forms/topbar.ui" line="+26"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+96"/>
+        <location line="+269"/>
+        <source>480.0685 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-200"/>
+        <location line="+311"/>
+        <source>1,000 zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-118"/>
+        <location line="+111"/>
+        <source>Available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-88"/>
+        <location line="+111"/>
+        <source>Pending</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-104"/>
+        <source>6.943 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <location line="+111"/>
+        <source>Immature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-104"/>
+        <source>10 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+77"/>
+        <source>60 zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>10 zPNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/topbar.cpp" line="+227"/>
+        <source>Wallet Unlocked for staking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>Address Copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+45"/>
+        <source>Automint enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Automint disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Staking active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Staking not active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location line="+20"/>
+        <source>%n active connection(s)</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="+34"/>
+        <source>Synchronized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location line="+35"/>
+        <source>%n hour(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n hour</numerusform>
+            <numerusform>%n hours</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location line="+2"/>
+        <source>%n day(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n day</numerusform>
+            <numerusform>%n days</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location line="+2"/>
+        <location line="+5"/>
+        <source>%n week(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n week</numerusform>
+            <numerusform>%n weeks</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <source>%1 and %2</source>
+        <translation type="unfinished">%1 and %2</translation>
+    </message>
+    <message numerus="yes">
+        <location line="+0"/>
+        <source>%n year(s)</source>
+        <translation type="unfinished">
+            <numerusform>%n year</numerusform>
+            <numerusform>%n years</numerusform>
+        </translation>
+    </message>
+</context>
+<context>
     <name>TrafficGraphWidget</name>
     <message>
         <location filename="../trafficgraphwidget.cpp" line="+79"/>
@@ -5740,7 +9800,7 @@ Please be patient...</source>
 <context>
     <name>TransactionDesc</name>
     <message numerus="yes">
-        <location filename="../transactiondesc.cpp" line="+33"/>
+        <location filename="../transactiondesc.cpp" line="+32"/>
         <source>Open for %n more block(s)</source>
         <translation>
             <numerusform>Open for %n more block</numerusform>
@@ -5960,12 +10020,7 @@ Please be patient...</source>
         <translation>Merchant</translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</translation>
-    </message>
-    <message>
-        <location line="+7"/>
+        <location line="+13"/>
         <source>Debug information</source>
         <translation>Debug information</translation>
     </message>
@@ -6013,7 +10068,7 @@ Please be patient...</source>
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+215"/>
+        <location filename="../transactiontablemodel.cpp" line="+238"/>
         <source>Date</source>
         <translation>Date</translation>
     </message>
@@ -6028,7 +10083,7 @@ Please be patient...</source>
         <translation>Address</translation>
     </message>
     <message numerus="yes">
-        <location line="+57"/>
+        <location line="+67"/>
         <source>Open for %n more block(s)</source>
         <translation>
             <numerusform>Open for %n more block</numerusform>
@@ -6151,17 +10206,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+56"/>
-        <source>Anonymous (zPNY Transaction)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Anonymous (zPNY Stake)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-86"/>
+        <location line="-28"/>
         <source>Sent to</source>
         <translation>Sent to</translation>
     </message>
@@ -6186,17 +10231,27 @@ Please be patient...</source>
         <translation>Obfuscated</translation>
     </message>
     <message>
-        <location line="+44"/>
+        <location line="+43"/>
         <source>watch-only</source>
         <translation>watch-only</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+23"/>
+        <source>Anonymous</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>No information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>(n/a)</source>
         <translation>(n/a)</translation>
     </message>
     <message>
-        <location line="+211"/>
+        <location line="+215"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>Transaction status. Hover over this field to show number of confirmations.</translation>
     </message>
@@ -6451,6 +10506,183 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>TxDetailDialog</name>
+    <message>
+        <location filename="../pny/forms/sendconfirmdialog.ui" line="+20"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+84"/>
+        <location filename="../pny/sendconfirmdialog.cpp" line="+66"/>
+        <source>Transaction Details</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+160"/>
+        <source>ID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+69"/>
+        <source>Sending to: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
+        <source>Total amount</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>2 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <source>Coin inputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>1 Inputs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+47"/>
+        <source>Previous Transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Output Index</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Fee:</source>
+        <translation type="unfinished">Fee:</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>0.0001 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Change address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>P7VFR83SQbie…BhjcWJtcfip5krte2Z </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Confirmations:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>12</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>2 kB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Date:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>May 25, 2017</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Status:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Spendable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/sendconfirmdialog.cpp" line="-20"/>
+        <source>Confirm Your Transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>SEND</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+56"/>
+        <source>ID copied</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+90"/>
+        <source>Unknown</source>
+        <translation type="unfinished">Unknown</translation>
+    </message>
+</context>
+<context>
+    <name>TxRow</name>
+    <message>
+        <location filename="../pny/forms/txrow.ui" line="+20"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+90"/>
+        <source>Received from Bob</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>18/05/18</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>+0.000585 PNY</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UnitDisplayStatusBarControl</name>
     <message>
         <location filename="../bitcoingui.cpp" line="+120"/>
@@ -6469,7 +10701,7 @@ Please be patient...</source>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+334"/>
+        <location filename="../walletmodel.cpp" line="+362"/>
         <location line="+9"/>
         <location line="+9"/>
         <source>Send Coins</source>
@@ -6479,6 +10711,41 @@ Please be patient...</source>
         <location line="-18"/>
         <location line="+9"/>
         <source>SwiftX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 PNY.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WalletPasswordDialog</name>
+    <message>
+        <location filename="../pny/forms/walletpassworddialog.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+81"/>
+        <location line="+112"/>
+        <location line="+113"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-187"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+31"/>
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+219"/>
+        <source>CANCEL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6516,6 +10783,95 @@ Please be patient...</source>
     </message>
 </context>
 <context>
+    <name>WelcomeContentWidget</name>
+    <message>
+        <location filename="../pny/forms/welcomecontentwidget.ui" line="+14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+227"/>
+        <source>1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+83"/>
+        <source>2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+83"/>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+83"/>
+        <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+111"/>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>Welcome</source>
+        <translation type="unfinished">Welcome</translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Privacy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Masternodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+108"/>
+        <source>Select your language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+89"/>
+        <source>Welcome to
+PNY Core Wallet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>PNY is the world’s most advanced privacy-enabled Proof of Stake blockchain technology, all developed by a team of highly experienced developers and cryptographers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+73"/>
+        <source>How PNY respects your privacy?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom the share their data whenever and with whomever they want - PNY believes in self sovereignty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>What is a Masternode?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>The masternode network is PNY&apos;s second layer network on top of the blockchain that enables our DAO to provide decentralized governance, treasury, and SwiftX transactions.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../pny/welcomecontentwidget.cpp" line="+173"/>
+        <source>default</source>
+        <translation type="unfinished">default</translation>
+    </message>
+</context>
+<context>
     <name>ZPnyControlDialog</name>
     <message>
         <location filename="../forms/zpnycontroldialog.ui" line="+20"/>
@@ -6523,29 +10879,48 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Quantity</source>
+        <location line="+81"/>
+        <source>Coin Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>zPny</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <location line="+14"/>
+        <source>0.00 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>Quantity:</source>
+        <translation type="unfinished">Quantity:</translation>
+    </message>
+    <message>
+        <location line="+135"/>
+        <source>Is Spendable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-128"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-7"/>
-        <source>zPNY</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+39"/>
+        <location line="+45"/>
         <source>Select/Deselect All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+79"/>
-        <source>Spendable?</source>
+        <location filename="../zpnycontroldialog.cpp" line="+39"/>
+        <source>Select zPNY Denominations to Spend</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6690,11 +11065,6 @@ Please be patient...</source>
         <location line="+3"/>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation type="unfinished">Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
-        <translation type="unfinished">Found unconfirmed denominated outputs, will wait till they confirm to continue.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -6958,11 +11328,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Already have that input.</source>
-        <translation type="unfinished">Already have that input.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Always query for peer addresses via DNS lookup (default: %u)</source>
         <translation type="unfinished">Always query for peer addresses via DNS lookup (default: %u)</translation>
     </message>
@@ -6992,22 +11357,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Can&apos;t denominate: no compatible inputs left.</source>
-        <translation type="unfinished">Can&apos;t denominate: no compatible inputs left.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Can&apos;t find random Masternode.</source>
-        <translation type="unfinished">Can&apos;t find random Masternode.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Can&apos;t mix while sync in progress.</source>
-        <translation type="unfinished">Can&apos;t mix while sync in progress.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Cannot downgrade wallet</source>
         <translation type="unfinished">Cannot downgrade wallet</translation>
     </message>
@@ -7035,11 +11385,6 @@ Please be patient...</source>
         <location line="+2"/>
         <source>CoinSpend: failed check</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Collateral not valid.</source>
-        <translation type="unfinished">Collateral not valid.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7158,16 +11503,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Entries are full.</source>
-        <translation type="unfinished">Entries are full.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Error connecting to Masternode.</source>
-        <translation type="unfinished">Error connecting to Masternode.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Error initializing block database</source>
         <translation type="unfinished">Error initializing block database</translation>
     </message>
@@ -7228,11 +11563,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+2"/>
-        <source>Error: Can&apos;t select current denominated inputs</source>
-        <translation type="unfinished">Error: Can&apos;t select current denominated inputs</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Error: Disk space is low!</source>
         <translation type="unfinished">Error: Disk space is low!</translation>
     </message>
@@ -7245,11 +11575,6 @@ Please be patient...</source>
         <location line="+1"/>
         <source>Error: Wallet locked, unable to create transaction!</source>
         <translation type="unfinished">Error: Wallet locked, unable to create transaction!</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Error: You already have pending entries in the Obfuscation pool</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7267,7 +11592,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Failed to read block</source>
         <translation type="unfinished">Failed to read block</translation>
     </message>
@@ -7278,23 +11603,8 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Finalizing transaction.</source>
-        <translation type="unfinished">Finalizing transaction.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Force safe mode (default: %u)</source>
         <translation type="unfinished">Force safe mode (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Found enough users, signing ( waiting %s )</source>
-        <translation type="unfinished">Found enough users, signing ( waiting %s )</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Found enough users, signing ...</source>
-        <translation type="unfinished">Found enough users, signing ...</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7328,16 +11638,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Incompatible mode.</source>
-        <translation type="unfinished">Incompatible mode.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Incompatible version.</source>
-        <translation type="unfinished">Incompatible version.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
         <translation type="unfinished">Incorrect or no genesis block found. Wrong datadir for network?</translation>
     </message>
@@ -7350,11 +11650,6 @@ Please be patient...</source>
         <location line="+1"/>
         <source>Initialization sanity check failed. PNY Core is shutting down.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Input is not valid.</source>
-        <translation type="unfinished">Input is not valid.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7427,17 +11722,12 @@ Please be patient...</source>
         <translation type="unfinished">Invalid private key.</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Invalid script detected.</source>
-        <translation type="unfinished">Invalid script detected.</translation>
-    </message>
-    <message>
-        <location line="+49"/>
+        <location line="+32"/>
         <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Recalculating PNY supply...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7472,7 +11762,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+28"/>
         <source>Support the zerocoin light node protocol (default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7482,12 +11772,12 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-281"/>
+        <location line="-247"/>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-190"/>
+        <location line="-187"/>
         <source> mints deleted
 </source>
         <translation type="unfinished"></translation>
@@ -7539,7 +11829,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+14"/>
         <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7569,17 +11859,22 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
         <source>Attempt to force blockchain corruption recovery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+5"/>
+        <source>Cannot create public spend input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
         <source>CoinSpend: Accumulator witness does not verify</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+17"/>
         <source>Display the stake modifier calculations in the debug.log file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7614,17 +11909,17 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+14"/>
         <source>Error: A fatal internal error occurred, see debug.log for details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+2"/>
         <source>Error: No valid utxo!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
         <source>Failed to create mint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7634,7 +11929,12 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+3"/>
+        <source>Failed to parse public spend</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
         <source>Failed to select a zerocoin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7649,19 +11949,9 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+26"/>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation type="unfinished">Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Last Obfuscation was too recent.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Last successful Obfuscation action was too recent.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7730,11 +12020,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Lock is already in place.</source>
-        <translation type="unfinished">Lock is already in place.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Lock masternodes from masternode configuration file (default: %u)</source>
         <translation type="unfinished">Lock masternodes from masternode configuration file (default: %u)</translation>
     </message>
@@ -7755,16 +12040,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Masternode queue is full.</source>
-        <translation type="unfinished">Masternode queue is full.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Masternode:</source>
-        <translation type="unfinished">Masternode:</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
         <translation type="unfinished">Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</translation>
     </message>
@@ -7780,16 +12055,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Missing input transaction information.</source>
-        <translation type="unfinished">Missing input transaction information.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Mixing in progress...</source>
-        <translation type="unfinished">Mixing in progress...</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Need address because change is not exact</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7800,48 +12065,13 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>No Masternodes detected.</source>
-        <translation type="unfinished">No Masternodes detected.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>No compatible Masternode found.</source>
-        <translation type="unfinished">No compatible Masternode found.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>No funds detected in need of denominating.</source>
-        <translation type="unfinished">No funds detected in need of denominating.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>No matching denominations found for mixing.</source>
-        <translation type="unfinished">No matching denominations found for mixing.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Node relay options:</source>
         <translation type="unfinished">Node relay options:</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Non-standard public key detected.</source>
-        <translation type="unfinished">Non-standard public key detected.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Not compatible with existing transactions.</source>
-        <translation type="unfinished">Not compatible with existing transactions.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Not enough file descriptors available.</source>
         <translation type="unfinished">Not enough file descriptors available.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Not in the Masternode list.</source>
-        <translation type="unfinished">Not in the Masternode list.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -7851,21 +12081,6 @@ Please be patient...</source>
     <message>
         <location line="+1"/>
         <source>Number of custom location backups to retain (default: %d)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation is idle.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation request complete:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation request incomplete:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7889,12 +12104,22 @@ Please be patient...</source>
         <translation type="unfinished">Password for JSON-RPC connections</translation>
     </message>
     <message>
-        <location line="+98"/>
+        <location line="+81"/>
+        <source>Unable to find transaction containing mint %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unable to find transaction containing mint, txHash: %s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Use block spam filter (default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+20"/>
         <source>could not get lock on cs_spendcache</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7904,7 +12129,7 @@ Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-122"/>
+        <location line="-109"/>
         <source>Preparing for resync...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7916,6 +12141,11 @@ Please be patient...</source>
     <message>
         <location line="+1"/>
         <source>Print version and exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Pubcoin not found in mint tx</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7992,11 +12222,6 @@ Please be patient...</source>
         <location line="+2"/>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation type="unfinished">Send transactions as zero-fee transactions if possible (default: %u)</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Session not complete!</source>
-        <translation type="unfinished">Session not complete!</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -8129,21 +12354,6 @@ Please be patient...</source>
         <translation type="unfinished">Stop running after importing blocks from disk (default: %u)</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation type="unfinished">Submitted following entries to masternode: %u / %d</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation type="unfinished">Submitted to masternode, waiting for more entries ( %u / %d ) %s</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Submitted to masternode, waiting in queue %s</source>
-        <translation type="unfinished">Submitted to masternode, waiting in queue %s</translation>
-    </message>
-    <message>
         <location line="+3"/>
         <source>Synchronization failed</source>
         <translation type="unfinished">Synchronization failed</translation>
@@ -8210,11 +12420,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>This is not a Masternode.</source>
-        <translation type="unfinished">This is not a Masternode.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
         <translation type="unfinished">Threshold for disconnecting misbehaving peers (default: %u)</translation>
     </message>
@@ -8255,21 +12460,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Transaction created successfully.</source>
-        <translation type="unfinished">Transaction created successfully.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Transaction fees are too high.</source>
-        <translation type="unfinished">Transaction fees are too high.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Transaction not valid.</source>
-        <translation type="unfinished">Transaction not valid.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Transaction too large for fee policy</source>
         <translation type="unfinished">Transaction too large for fee policy</translation>
     </message>
@@ -8277,11 +12467,6 @@ Please be patient...</source>
         <location line="+1"/>
         <source>Transaction too large</source>
         <translation type="unfinished">Transaction too large</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Transmitting final transaction.</source>
-        <translation type="unfinished">Transmitting final transaction.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -8294,12 +12479,7 @@ Please be patient...</source>
         <translation type="unfinished">Unable to bind to %s on this computer (bind returned error %s)</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Unable to find transaction containing mint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Unable to sign spork message, wrong key?</source>
         <translation type="unfinished">Unable to sign spork message, wrong key?</translation>
     </message>
@@ -8312,11 +12492,6 @@ Please be patient...</source>
         <location line="+1"/>
         <source>Unknown network specified in -onlynet: &apos;%s&apos;</source>
         <translation type="unfinished">Unknown network specified in -onlynet: &apos;%s&apos;</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Unknown state: id = %u</source>
-        <translation type="unfinished">Unknown state: id = %u</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -8360,11 +12535,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Value more than Obfuscation pool maximum allows.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>Verifying blocks...</source>
         <translation type="unfinished">Verifying blocks...</translation>
     </message>
@@ -8377,11 +12547,6 @@ Please be patient...</source>
         <location line="+1"/>
         <source>Wallet %s resides outside data directory %s</source>
         <translation type="unfinished">Wallet %s resides outside data directory %s</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Wallet is locked.</source>
-        <translation type="unfinished">Wallet is locked.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -8420,11 +12585,6 @@ Please be patient...</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Will retry...</source>
-        <translation type="unfinished">Will retry...</translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>You don&apos;t have enough Zerocoins in your wallet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8432,16 +12592,6 @@ Please be patient...</source>
         <location line="+1"/>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation type="unfinished">You need to rebuild the database using -reindex to change -txindex</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Your entries added successfully.</source>
-        <translation type="unfinished">Your entries added successfully.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation type="unfinished">Your transaction was accepted into the pool!</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -8467,6 +12617,42 @@ Please be patient...</source>
         <location line="+1"/>
         <source>wallet.dat corrupt, salvage failed</source>
         <translation type="unfinished">wallet.dat corrupt, salvage failed</translation>
+    </message>
+</context>
+<context>
+    <name>send</name>
+    <message>
+        <location filename="../pny/forms/send.ui" line="+14"/>
+        <source>Form</source>
+        <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+        <location line="+60"/>
+        <source>Send</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <location line="+107"/>
+        <location line="+50"/>
+        <location line="+23"/>
+        <location line="+271"/>
+        <location line="+7"/>
+        <location line="+65"/>
+        <location line="+7"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-467"/>
+        <location line="+25"/>
+        <location line="+210"/>
+        <location line="+26"/>
+        <location line="+23"/>
+        <location line="+230"/>
+        <location line="+104"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

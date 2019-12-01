@@ -8,121 +8,199 @@ EXTRA_LIBRARIES += qt/libbitcoinqt.a
 # pny qt core #
 QT_TS = \
   qt/locale/pny_bg.ts \
-   qt/locale/pny_ca.ts \
-   qt/locale/pny_cs.ts \
-   qt/locale/pny_da.ts \
-   qt/locale/pny_de.ts \
-   qt/locale/pny_en.ts \
-   qt/locale/pny_en_GB.ts \
-   qt/locale/pny_en_US.ts \
-   qt/locale/pny_eo.ts \
-   qt/locale/pny_es.ts \
-   qt/locale/pny_es_ES.ts \
-   qt/locale/pny_fi.ts \
-   qt/locale/pny_fr_FR.ts \
-   qt/locale/pny_hi_IN.ts \
-   qt/locale/pny_hr.ts \
-   qt/locale/pny_hr_HR.ts \
-   qt/locale/pny_it.ts \
-   qt/locale/pny_ja.ts \
-   qt/locale/pny_ko_KR.ts \
-   qt/locale/pny_lt_LT.ts \
-   qt/locale/pny_nl.ts \
-   qt/locale/pny_pl.ts \
-   qt/locale/pny_pt.ts \
-   qt/locale/pny_pt_BR.ts \
-   qt/locale/pny_ro_RO.ts \
-   qt/locale/pny_ru.ts \
-   qt/locale/pny_sk.ts \
-   qt/locale/pny_sv.ts \
-   qt/locale/pny_tr.ts \
-   qt/locale/pny_uk.ts \
-   qt/locale/pny_vi.ts \
-   qt/locale/pny_zh_CN.ts \
-   qt/locale/pny_zh_TW.ts
+  qt/locale/pny_ca.ts \
+  qt/locale/pny_cs.ts \
+  qt/locale/pny_da.ts \
+  qt/locale/pny_de.ts \
+  qt/locale/pny_en.ts \
+  qt/locale/pny_en_GB.ts \
+  qt/locale/pny_en_US.ts \
+  qt/locale/pny_eo.ts \
+  qt/locale/pny_es.ts \
+  qt/locale/pny_es_ES.ts \
+  qt/locale/pny_fi.ts \
+  qt/locale/pny_fr_FR.ts \
+  qt/locale/pny_hi_IN.ts \
+  qt/locale/pny_hr.ts \
+  qt/locale/pny_hr_HR.ts \
+  qt/locale/pny_it.ts \
+  qt/locale/pny_ja.ts \
+  qt/locale/pny_ko_KR.ts \
+  qt/locale/pny_lt_LT.ts \
+  qt/locale/pny_nl.ts \
+  qt/locale/pny_pl.ts \
+  qt/locale/pny_pt.ts \
+  qt/locale/pny_pt_BR.ts \
+  qt/locale/pny_ro_RO.ts \
+  qt/locale/pny_ru.ts \
+  qt/locale/pny_sk.ts \
+  qt/locale/pny_sv.ts \
+  qt/locale/pny_tr.ts \
+  qt/locale/pny_uk.ts \
+  qt/locale/pny_vi.ts \
+  qt/locale/pny_zh_CN.ts \
+  qt/locale/pny_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
   qt/forms/askpassphrasedialog.ui \
-  qt/forms/bip38tooldialog.ui \
   qt/forms/coincontroldialog.ui \
   qt/forms/blockexplorer.ui \
-  qt/forms/obfuscationconfig.ui \
   qt/forms/editaddressdialog.ui \
   qt/forms/governancepage.ui \
   qt/forms/helpmessagedialog.ui \
   qt/forms/intro.ui \
-  qt/forms/masternodelist.ui \
-  qt/forms/multisenddialog.ui \
-  qt/forms/multisigdialog.ui\
   qt/forms/openuridialog.ui \
   qt/forms/optionsdialog.ui \
-  qt/forms/overviewpage.ui \
-  qt/forms/receivecoinsdialog.ui \
-  qt/forms/privacydialog.ui \
-  qt/forms/receiverequestdialog.ui \
   qt/forms/rpcconsole.ui \
-  qt/forms/sendcoinsdialog.ui \
-  qt/forms/sendcoinsentry.ui \
-  qt/forms/signverifymessagedialog.ui \
-  qt/forms/transactiondescdialog.ui \
-  qt/forms/zpnycontroldialog.ui
+  qt/pny/forms/loadingdialog.ui \
+  qt/forms/zpnycontroldialog.ui \
+  qt/pny/forms/snackbar.ui \
+  qt/pny/forms/navmenuwidget.ui \
+  qt/pny/forms/lockunlock.ui \
+  qt/pny/forms/expandablebutton.ui \
+  qt/pny/forms/receivedialog.ui \
+  qt/pny/forms/walletpassworddialog.ui \
+  qt/pny/forms/topbar.ui \
+  qt/pny/forms/txrow.ui \
+  qt/pny/forms/dashboardwidget.ui \
+  qt/pny/forms/coincontrolpnywidget.ui \
+  qt/pny/forms/addresslabelrow.ui \
+  qt/pny/forms/contactdropdownrow.ui \
+  qt/pny/forms/mninfodialog.ui \
+  qt/pny/forms/optionbutton.ui \
+  qt/pny/forms/masternodewizarddialog.ui \
+  qt/pny/forms/mnrow.ui \
+  qt/pny/forms/masternodeswidget.ui \
+  qt/pny/forms/myaddressrow.ui \
+  qt/pny/forms/csrow.ui \
+  qt/pny/forms/sendchangeaddressdialog.ui \
+  qt/pny/forms/sendconfirmdialog.ui \
+  qt/pny/forms/sendcustomfeedialog.ui \
+  qt/pny/forms/sendchangeaddressdialog.ui \
+  qt/pny/forms/sendmultirow.ui \
+  qt/pny/forms/send.ui \
+  qt/pny/forms/addnewaddressdialog.ui \
+  qt/pny/forms/addnewcontactdialog.ui \
+  qt/pny/forms/requestdialog.ui \
+  qt/pny/forms/receivewidget.ui \
+  qt/pny/forms/tooltipmenu.ui \
+  qt/pny/forms/addresseswidget.ui \
+  qt/pny/forms/defaultdialog.ui \
+  qt/pny/forms/denomgenerationdialog.ui \
+  qt/pny/forms/privacywidget.ui \
+  qt/pny/forms/coldstakingwidget.ui \
+  qt/pny/settings/forms/settingsbackupwallet.ui \
+  qt/pny/settings/forms/settingsbittoolwidget.ui \
+  qt/pny/settings/forms/settingsconsolewidget.ui \
+  qt/pny/settings/forms/settingsdisplayoptionswidget.ui \
+  qt/pny/settings/forms/settingsfaqwidget.ui \
+  qt/pny/settings/forms/settingsinformationwidget.ui \
+  qt/pny/settings/forms/settingsmainoptionswidget.ui \
+  qt/pny/settings/forms/settingsmultisenddialog.ui \
+  qt/pny/settings/forms/settingsmultisendwidget.ui \
+  qt/pny/settings/forms/settingssignmessagewidgets.ui \
+  qt/pny/settings/forms/settingswalletoptionswidget.ui \
+  qt/pny/settings/forms/settingswalletrepairwidget.ui \
+  qt/pny/settings/forms/settingswidget.ui \
+  qt/pny/forms/welcomecontentwidget.ui \
+  qt/pny/forms/splash.ui
 
 QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
   qt/moc_addresstablemodel.cpp \
   qt/moc_askpassphrasedialog.cpp \
   qt/moc_bantablemodel.cpp \
-  qt/moc_bip38tooldialog.cpp \
   qt/moc_bitcoinaddressvalidator.cpp \
   qt/moc_bitcoinamountfield.cpp \
-  qt/moc_bitcoingui.cpp \
+  qt/pny/moc_pnygui.cpp \
   qt/moc_bitcoinunits.cpp \
   qt/moc_blockexplorer.cpp \
   qt/moc_clientmodel.cpp \
   qt/moc_coincontroldialog.cpp \
   qt/moc_coincontroltreewidget.cpp \
   qt/moc_csvmodelwriter.cpp \
-  qt/moc_obfuscationconfig.cpp \
   qt/moc_editaddressdialog.cpp \
   qt/moc_governancepage.cpp \
   qt/moc_guiutil.cpp \
   qt/moc_intro.cpp \
   qt/moc_macdockiconhandler.cpp \
   qt/moc_macnotificationhandler.cpp \
-  qt/moc_masternodelist.cpp \
-  qt/moc_multisenddialog.cpp \
-  qt/moc_multisigdialog.cpp\
   qt/moc_notificator.cpp \
   qt/moc_openuridialog.cpp \
   qt/moc_optionsdialog.cpp \
   qt/moc_optionsmodel.cpp \
-  qt/moc_overviewpage.cpp \
   qt/moc_peertablemodel.cpp \
   qt/moc_paymentserver.cpp \
   qt/moc_qvalidatedlineedit.cpp \
   qt/moc_qvaluecombobox.cpp \
-  qt/moc_receivecoinsdialog.cpp \
-  qt/moc_privacydialog.cpp \
   qt/moc_proposalframe.cpp \
-  qt/moc_receiverequestdialog.cpp \
   qt/moc_recentrequeststablemodel.cpp \
   qt/moc_rpcconsole.cpp \
-  qt/moc_sendcoinsdialog.cpp \
-  qt/moc_sendcoinsentry.cpp \
-  qt/moc_signverifymessagedialog.cpp \
   qt/moc_splashscreen.cpp \
   qt/moc_trafficgraphwidget.cpp \
   qt/moc_transactiondesc.cpp \
-  qt/moc_transactiondescdialog.cpp \
   qt/moc_transactionfilterproxy.cpp \
   qt/moc_transactiontablemodel.cpp \
-  qt/moc_transactionview.cpp \
   qt/moc_utilitydialog.cpp \
-  qt/moc_walletframe.cpp \
   qt/moc_walletmodel.cpp \
-  qt/moc_walletview.cpp \
-  qt/moc_zpnycontroldialog.cpp
+  qt/pny/moc_loadingdialog.cpp \
+  qt/moc_zpnycontroldialog.cpp \
+  qt/pny/moc_pwidget.cpp \
+  qt/pny/moc_snackbar.cpp \
+  qt/pny/moc_navmenuwidget.cpp \
+  qt/pny/moc_lockunlock.cpp \
+  qt/pny/moc_expandablebutton.cpp \
+  qt/pny/moc_furabstractlistitemdelegate.cpp \
+  qt/pny/moc_receivedialog.cpp \
+  qt/pny/moc_walletpassworddialog.cpp \
+  qt/pny/moc_topbar.cpp \
+  qt/pny/moc_txrow.cpp \
+  qt/pny/moc_dashboardwidget.cpp \
+  qt/pny/moc_coincontrolpnywidget.cpp \
+  qt/pny/moc_addresslabelrow.cpp \
+  qt/pny/moc_contactdropdownrow.cpp \
+  qt/pny/moc_mninfodialog.cpp \
+  qt/pny/moc_optionbutton.cpp \
+  qt/pny/moc_coldstakingmodel.cpp \
+  qt/pny/moc_mnmodel.cpp \
+  qt/pny/moc_masternodewizarddialog.cpp \
+  qt/pny/moc_mnrow.cpp \
+  qt/pny/moc_masternodeswidget.cpp \
+  qt/pny/moc_myaddressrow.cpp \
+  qt/pny/moc_csrow.cpp \
+  qt/pny/moc_contactsdropdown.cpp \
+  qt/pny/moc_sendchangeaddressdialog.cpp \
+  qt/pny/moc_sendconfirmdialog.cpp \
+  qt/pny/moc_sendcustomfeedialog.cpp \
+  qt/pny/moc_sendchangeaddressdialog.cpp \
+  qt/pny/moc_sendmultirow.cpp \
+  qt/pny/moc_send.cpp \
+  qt/pny/moc_addnewaddressdialog.cpp \
+  qt/pny/moc_addnewcontactdialog.cpp \
+  qt/pny/moc_requestdialog.cpp \
+  qt/pny/moc_receivewidget.cpp \
+  qt/pny/moc_tooltipmenu.cpp \
+  qt/pny/moc_addresseswidget.cpp \
+  qt/pny/moc_defaultdialog.cpp \
+  qt/pny/moc_denomgenerationdialog.cpp \
+  qt/pny/moc_privacywidget.cpp \
+  qt/pny/moc_coldstakingwidget.cpp \
+  qt/pny/settings/moc_settingsbackupwallet.cpp \
+  qt/pny/settings/moc_settingsbittoolwidget.cpp \
+  qt/pny/settings/moc_settingsconsolewidget.cpp \
+  qt/pny/settings/moc_settingsdisplayoptionswidget.cpp \
+  qt/pny/settings/moc_settingsfaqwidget.cpp \
+  qt/pny/settings/moc_settingsinformationwidget.cpp \
+  qt/pny/settings/moc_settingsmainoptionswidget.cpp \
+  qt/pny/settings/moc_settingsmultisenddialog.cpp \
+  qt/pny/settings/moc_settingsmultisendwidget.cpp \
+  qt/pny/settings/moc_settingssignmessagewidgets.cpp \
+  qt/pny/settings/moc_settingswalletoptionswidget.cpp \
+  qt/pny/settings/moc_settingswalletrepairwidget.cpp \
+  qt/pny/settings/moc_settingswidget.cpp \
+  qt/pny/moc_welcomecontentwidget.cpp \
+  qt/pny/moc_splash.cpp
 
 BITCOIN_MM = \
   qt/macdockiconhandler.mm \
@@ -132,8 +210,8 @@ QT_MOC = \
   qt/pny.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
-  qt/overviewpage.moc \
-  qt/rpcconsole.moc
+  qt/rpcconsole.moc \
+  qt/pny/settings/moc_settingsconsolewidget.cpp
 
 QT_QRC_CPP = qt/qrc_pny.cpp
 QT_QRC = qt/pny.qrc
@@ -149,17 +227,15 @@ BITCOIN_QT_H = \
   qt/addresstablemodel.h \
   qt/askpassphrasedialog.h \
   qt/bantablemodel.h \
-  qt/bip38tooldialog.h \
   qt/bitcoinaddressvalidator.h \
   qt/bitcoinamountfield.h \
-  qt/bitcoingui.h \
+  qt/pny/pnygui.h \
   qt/bitcoinunits.h \
   qt/blockexplorer.h \
   qt/clientmodel.h \
   qt/coincontroldialog.h \
   qt/coincontroltreewidget.h \
   qt/csvmodelwriter.h \
-  qt/obfuscationconfig.h \
   qt/editaddressdialog.h \
   qt/governancepage.h \
   qt/guiconstants.h \
@@ -167,15 +243,11 @@ BITCOIN_QT_H = \
   qt/intro.h \
   qt/macdockiconhandler.h \
   qt/macnotificationhandler.h \
-  qt/masternodelist.h \
-  qt/multisenddialog.h \
-  qt/multisigdialog.h\
   qt/networkstyle.h \
   qt/notificator.h \
   qt/openuridialog.h \
   qt/optionsdialog.h \
   qt/optionsmodel.h \
-  qt/overviewpage.h \
   qt/paymentrequestplus.h \
   qt/paymentserver.h \
   qt/peertablemodel.h \
@@ -183,29 +255,82 @@ BITCOIN_QT_H = \
   qt/proposalframe.h \
   qt/qvalidatedlineedit.h \
   qt/qvaluecombobox.h \
-  qt/receivecoinsdialog.h \
-  qt/privacydialog.h \
-  qt/receiverequestdialog.h \
   qt/recentrequeststablemodel.h \
   qt/rpcconsole.h \
-  qt/sendcoinsdialog.h \
-  qt/sendcoinsentry.h \
-  qt/signverifymessagedialog.h \
   qt/splashscreen.h \
   qt/trafficgraphwidget.h \
   qt/transactiondesc.h \
-  qt/transactiondescdialog.h \
   qt/transactionfilterproxy.h \
   qt/transactionrecord.h \
   qt/transactiontablemodel.h \
-  qt/transactionview.h \
   qt/utilitydialog.h \
-  qt/walletframe.h \
   qt/walletmodel.h \
   qt/walletmodeltransaction.h \
-  qt/walletview.h \
+  qt/pny/prunnable.h \
+  qt/pny/loadingdialog.h \
   qt/winshutdownmonitor.h \
-  qt/zpnycontroldialog.h
+  qt/zpnycontroldialog.h \
+  qt/pny/pwidget.h \
+  qt/pny/guitransactionsutils.h \
+  qt/pny/snackbar.h \
+  qt/pny/navmenuwidget.h \
+  qt/pny/lockunlock.h \
+  qt/pny/receivedialog.h \
+  qt/pny/furlistrow.h \
+  qt/pny/furabstractlistitemdelegate.h \
+  qt/pny/txviewholder.h \
+  qt/pny/qtutils.h \
+  qt/pny/expandablebutton.h \
+  qt/pny/walletpassworddialog.h \
+  qt/pny/topbar.h \
+  qt/pny/txrow.h \
+  qt/pny/addressholder.h \
+  qt/pny/addressfilterproxymodel.h \
+  qt/pny/dashboardwidget.h \
+  qt/pny/coincontrolpnywidget.h \
+  qt/pny/addresslabelrow.h \
+  qt/pny/contactdropdownrow.h \
+  qt/pny/mninfodialog.h \
+  qt/pny/optionbutton.h \
+  qt/pny/coldstakingmodel.h \
+  qt/pny/mnmodel.h \
+  qt/pny/masternodewizarddialog.h \
+  qt/pny/mnrow.h \
+  qt/pny/masternodeswidget.h \
+  qt/pny/myaddressrow.h \
+  qt/pny/csrow.h \
+  qt/pny/contactsdropdown.h \
+  qt/pny/sendchangeaddressdialog.h \
+  qt/pny/sendconfirmdialog.h \
+  qt/pny/sendcustomfeedialog.h \
+  qt/pny/sendchangeaddressdialog.h \
+  qt/pny/sendmultirow.h \
+  qt/pny/send.h \
+  qt/pny/addnewaddressdialog.h \
+  qt/pny/addnewcontactdialog.h \
+  qt/pny/requestdialog.h \
+  qt/pny/receivewidget.h \
+  qt/pny/tooltipmenu.h \
+  qt/pny/addresseswidget.h \
+  qt/pny/defaultdialog.h \
+  qt/pny/denomgenerationdialog.h \
+  qt/pny/privacywidget.h \
+  qt/pny/coldstakingwidget.h \
+  qt/pny/settings/settingsbackupwallet.h \
+  qt/pny/settings/settingsbittoolwidget.h \
+  qt/pny/settings/settingsconsolewidget.h \
+  qt/pny/settings/settingsdisplayoptionswidget.h \
+  qt/pny/settings/settingsfaqwidget.h \
+  qt/pny/settings/settingsinformationwidget.h \
+  qt/pny/settings/settingsmainoptionswidget.h \
+  qt/pny/settings/settingsmultisenddialog.h \
+  qt/pny/settings/settingsmultisendwidget.h \
+  qt/pny/settings/settingssignmessagewidgets.h \
+  qt/pny/settings/settingswalletoptionswidget.h \
+  qt/pny/settings/settingswalletrepairwidget.h \
+  qt/pny/settings/settingswidget.h \
+  qt/pny/welcomecontentwidget.h \
+  qt/pny/splash.h
 
 RES_ICONS = \
   qt/res/icons/add.png \
@@ -267,6 +392,10 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
+  qt/res/icons/ic-transaction-received.svg \
+  qt/res/icons/ic-transaction-mint.svg \
+  qt/res/icons/ic-transaction-sent.svg \
+  qt/res/icons/ic-transaction-staked.svg \
   qt/res/icons/unit_pny.png \
   qt/res/icons/unit_mpny.png \
   qt/res/icons/unit_upny.png \
@@ -275,20 +404,224 @@ RES_ICONS = \
   qt/res/icons/unit_tupny.png \
   qt/res/icons/yesvote.png \
   qt/res/icons/novote.png \
-  qt/res/icons/abstainvote.png
+  qt/res/icons/abstainvote.png \
+  qt/pny/res/img/bg-dashboard-banner.png \
+  qt/pny/res/img/bg-multi-number-dark.svg \
+  qt/pny/res/img/ic-check-locked.svg \
+  qt/pny/res/img/ic-nav-address.svg \
+  qt/pny/res/img/ic-update.svg \
+  qt/pny/res/img/bg-multi-number.svg \
+  qt/pny/res/img/ic-check-mint-off.svg \
+  qt/pny/res/img/ic-nav-cold-staking.svg \
+  qt/pny/res/img/ic-nav-cold-staking-active.svg \
+  qt/pny/res/img/ic-nav-dashboard-active.svg \
+  qt/pny/res/img/ic-wallet-status-locked.svg \
+  qt/pny/res/img/bg-splash.svg \
+  qt/pny/res/img/bg-splash.png \
+  qt/pny/res/img/ic-check-mint.svg \
+  qt/pny/res/img/ic-nav-dashboard-hover.svg \
+  qt/pny/res/img/ic-wallet-status-staking.svg \
+  qt/pny/res/img/ic-check-peers-off.svg \
+  qt/pny/res/img/ic-nav-dashboard.svg \
+  qt/pny/res/img/ic-wallet-status-unlocked.svg \
+  qt/pny/res/img/ic-check-peers.svg \
+  qt/pny/res/img/ic-nav-master-active.svg \
+  qt/pny/res/img/ic-watch-password-white.svg \
+  qt/pny/res/img/bg-welcome-container.jpg \
+  qt/pny/res/img/bg-welcome-container.png \
+  qt/pny/res/img/bg-welcome-container.svg \
+  qt/pny/res/img/bg-welcome-container@2x.png \
+  qt/pny/res/img/bg-welcome-container@3x.png \
+  qt/pny/res/img/ic-check-staking-off.svg \
+  qt/pny/res/img/ic-nav-master-hover.svg \
+  qt/pny/res/img/ic-watch-password.svg \
+  qt/pny/res/img/bg-welcome.jpg \
+  qt/pny/res/img/bg-welcome.svg \
+  qt/pny/res/img/bg-welcome@2x.jpg \
+  qt/pny/res/img/bg-welcome@3x.jpg \
+  qt/pny/res/img/bg-welcome.png \
+  qt/pny/res/img/ic-check-staking.svg \
+  qt/pny/res/img/ic-nav-master.svg \
+  qt/pny/res/img/img-dashboard-banner.jpg \
+  qt/pny/res/img/btn-radio-active.svg \
+  qt/pny/res/img/ic-check-sync-off.svg \
+  qt/pny/res/img/ic-nav-privacy-active.svg \
+  qt/pny/res/img/img-empty-contacts.svg \
+  qt/pny/res/img/btn-radio-off.svg \
+  qt/pny/res/img/ic-check-sync.png \
+  qt/pny/res/img/ic-nav-privacy-hover.svg \
+  qt/pny/res/img/img-empty-dark-contacts.svg \
+  qt/pny/res/img/ic-contact-arrow-down.svg \
+  qt/pny/res/img/ic-contact-arrow-down-white.svg \
+  qt/pny/res/img/ic-check-sync.svg \
+  qt/pny/res/img/ic-check-faq.svg \
+  qt/pny/res/img/ic-nav-privacy.svg \
+  qt/pny/res/img/img-empty-dark-error.svg \
+  qt/pny/res/img/ic-add-label.svg \
+  qt/pny/res/img/ic-pending.svg \
+  qt/pny/res/img/ic-check-theme-dark.svg \
+  qt/pny/res/img/ic-nav-receive-active.svg \
+  qt/pny/res/img/img-empty-dark-masternode.svg \
+  qt/pny/res/img/ic-add-liliac.svg \
+  qt/pny/res/img/ic-check-theme-light.svg \
+  qt/pny/res/img/ic-nav-receive-hover.svg \
+  qt/pny/res/img/img-empty-dark-multisend.svg \
+  qt/pny/res/img/ic-add-purple.svg \
+  qt/pny/res/img/ic-check-white.svg \
+  qt/pny/res/img/ic-nav-receive.svg \
+  qt/pny/res/img/img-empty-dark-peers.svg \
+  qt/pny/res/img/ic-add.svg \
+  qt/pny/res/img/ic-check.svg \
+  qt/pny/res/img/ic-nav-send-active.svg \
+  qt/pny/res/img/img-empty-dark-staking-off.svg \
+  qt/pny/res/img/img-empty-dark-staking-on.svg \
+  qt/pny/res/img/ic-address-book-grey.svg \
+  qt/pny/res/img/ic-chevron-left.svg \
+  qt/pny/res/img/ic-nav-send-hover.svg \
+  qt/pny/res/img/img-empty-dark-transactions.svg \
+  qt/pny/res/img/ic-address-book-white.svg \
+  qt/pny/res/img/ic-chevron-right.svg \
+  qt/pny/res/img/ic-nav-send.svg \
+  qt/pny/res/img/img-empty-error.svg \
+  qt/pny/res/img/ic-address-book.svg \
+  qt/pny/res/img/ic-clear-liliac.svg \
+  qt/pny/res/img/ic-nav-settings-active.svg \
+  qt/pny/res/img/img-empty-masternode.svg \
+  qt/pny/res/img/ic-address-send-white.svg \
+  qt/pny/res/img/ic-clear-purple.svg \
+  qt/pny/res/img/ic-nav-settings-hover.svg \
+  qt/pny/res/img/img-empty-multisend.svg \
+  qt/pny/res/img/ic-address-send.svg \
+  qt/pny/res/img/ic-close-white.svg \
+  qt/pny/res/img/ic-nav-settings.svg \
+  qt/pny/res/img/img-empty-peers.svg \
+  qt/pny/res/img/img-empty-privacy.svg \
+  qt/pny/res/img/img-empty-privacy-dark.svg \
+  qt/pny/res/img/ic-arrow-drop-down-white.svg \
+  qt/pny/res/img/ic-close.svg \
+  qt/pny/res/img/ic-radio-liliac-on.svg \
+  qt/pny/res/img/img-empty-staking-off.svg \
+  qt/pny/res/img/ic-arrow-drop-down.svg \
+  qt/pny/res/img/ic-coin-pny.svg \
+  qt/pny/res/img/ic-receive-off.svg \
+  qt/pny/res/img/img-empty-staking-on.svg \
+  qt/pny/res/img/ic-arrow-drop-up-white.svg \
+  qt/pny/res/img/ic-coin-zpny.png \
+  qt/pny/res/img/ic-receive-on.svg \
+  qt/pny/res/img/img-empty-transactions.svg \
+  qt/pny/res/img/ic-arrow-drop-up.svg \
+  qt/pny/res/img/ic-coin-zpny.svg \
+  qt/pny/res/img/ic-received.svg \
+  qt/pny/res/img/img-logo-pny.png \
+  qt/pny/res/img/ic-arrow-drop-white-down.svg \
+  qt/pny/res/img/ic-combo-box.svg \
+  qt/pny/res/img/ic-send.svg \
+  qt/pny/res/img/img-logo-pny@2x.png \
+  qt/pny/res/img/ic-arrow-purple-down.svg \
+  qt/pny/res/img/ic-connect.svg \
+  qt/pny/res/img/ic-submenu-lock.svg \
+  qt/pny/res/img/img-logo-pny@3x.png \
+  qt/pny/res/img/img-logo-pny.svg \
+  qt/pny/res/img/ic-arrow-right-white.svg \
+  qt/pny/res/img/ic-arrow-left-white.svg \
+  qt/pny/res/img/ic-arrow-left.svg \
+  qt/pny/res/img/ic-copy-liliac.svg \
+  qt/pny/res/img/ic-submenu-staking.svg \
+  qt/pny/res/img/img-nav-logo-pny.png \
+  qt/pny/res/img/ic-arrow-right.svg \
+  qt/pny/res/img/ic-copy.svg \
+  qt/pny/res/img/ic-copy-big.svg \
+  qt/pny/res/img/ic-copy-big-white.svg \
+  qt/pny/res/img/ic-submenu-unlock.svg \
+  qt/pny/res/img/img-nav-logo.png \
+  qt/pny/res/img/ic-arrow-white-left.svg \
+  qt/pny/res/img/ic-exit.svg \
+  qt/pny/res/img/ic-switch-liliac-on.svg \
+  qt/pny/res/img/img-nav-logo.svg \
+  qt/pny/res/img/ic-arrow-white-right.svg \
+  qt/pny/res/img/ic-expand.svg \
+  qt/pny/res/img/ic-switch-off.svg \
+  qt/pny/res/img/img-qr-test-big.png \
+  qt/pny/res/img/ic-check-active.svg \
+  qt/pny/res/img/ic-folder.svg \
+  qt/pny/res/img/ic-switch-on.svg \
+  qt/pny/res/img/img-qr-test.png \
+  qt/pny/res/img/ic-check-box.svg \
+  qt/pny/res/img/ic-check-box-dark-active.svg \
+  qt/pny/res/img/ic-check-box-indeterminate.svg \
+  qt/pny/res/img/ic-check-box-liliac-indeterminate.svg \
+  qt/pny/res/img/ic-label-liliac.svg \
+  qt/pny/res/img/ic-transaction-warning.svg \
+  qt/pny/res/img/ic-transaction-mint.svg \
+  qt/pny/res/img/ic-transaction-mint-inactive.svg \
+  qt/pny/res/img/ic-check-cold-staking.svg \
+  qt/pny/res/img/ic-check-cold-staking-off.svg \
+  qt/pny/res/img/ic-check-cold-staking-enabled.svg \
+  qt/pny/res/img/dark/ic-transaction-cs-contract.svg \
+  qt/pny/res/img/dark/ic-transaction-cs-contract-inactive.svg \
+  qt/pny/res/img/img-qr.svg \
+  qt/pny/res/img/ic-check-connect-off.svg \
+  qt/pny/res/img/ic-label.svg \
+  qt/pny/res/img/ic-transaction-received.svg \
+  qt/pny/res/img/dark/ic-transaction-received.svg \
+  qt/pny/res/img/dark/ic-transaction-warning.svg \
+  qt/pny/res/img/dark/ic-transaction-mint.svg \
+  qt/pny/res/img/dark/ic-transaction-mint-inactive.svg \
+  qt/pny/res/img/ic-transaction-received-inactive.svg \
+  qt/pny/res/img/dark/ic-transaction-received-inactive.svg \
+  qt/pny/res/img/img-welcome-step1.png \
+  qt/pny/res/img/ic-check-connect.svg \
+  qt/pny/res/img/ic-menu-hover.svg \
+  qt/pny/res/img/ic-transaction-sent.svg \
+  qt/pny/res/img/ic-transaction-sent-inactive.svg \
+  qt/pny/res/img/dark/ic-transaction-sent.svg \
+  qt/pny/res/img/dark/ic-transaction-sent-inactive.svg \
+  qt/pny/res/img/img-welcome-step2.png \
+  qt/pny/res/img/ic-check-dark.svg \
+  qt/pny/res/img/ic-mint.svg \
+  qt/pny/res/img/ic-transaction-staked.svg \
+  qt/pny/res/img/ic-transaction-staked-inactive.svg \
+  qt/pny/res/img/dark/ic-transaction-staked.svg \
+  qt/pny/res/img/dark/ic-transaction-staked-inactive.svg \
+  qt/pny/res/img/img-welcome-step3.png \
+  qt/pny/res/img/ic-check-liliac-on.svg \
+  qt/pny/res/img/ic-nav-address-active.svg \
+  qt/pny/res/img/ic-unlock-staking.svg \
+  qt/pny/res/img/img-welcome-step4.png \
+  qt/pny/res/img/ic-check-locked-off.svg \
+  qt/pny/res/img/ic-nav-address-hover.svg \
+  qt/pny/res/img/ic-update-liliac.svg \
+  qt/pny/res/img/ic-arrow-drop-down-purple.svg \
+  qt/pny/res/img/ic-arrow-drop-up-purple.svg \
+  qt/pny/res/img/ic-check-liliac-indeterminate.svg \
+  qt/pny/res/img/ic-check-box-liliac-indeterminate.svg \
+  qt/pny/res/img/ic-transaction-stake-delegated.svg \
+  qt/pny/res/img/ic-transaction-stake-delegated-inactive.svg \
+  qt/pny/res/img/ic-transaction-stake-hot.svg \
+  qt/pny/res/img/ic-transaction-stake-hot-inactive.svg \
+  qt/pny/res/img/dark/ic-transaction-stake-hot.svg \
+  qt/pny/res/img/dark/ic-transaction-stake-hot-inactive.svg \
+  qt/pny/res/img/dark/ic-transaction-stake-delegated.svg \
+  qt/pny/res/img/dark/ic-transaction-stake-delegated-inactive.svg \
+  qt/pny/res/img/ic-transaction-cs-contract.svg \
+  qt/pny/res/img/ic-transaction-cs-contract-inactive.svg \
+  qt/pny/res/img/ic-check-box-indeterminate.svg \
+  qt/pny/res/img/ani-loading-dark.gif \
+  qt/pny/res/img/ani-loading.gif
+
+
 
 BITCOIN_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
   qt/bitcoinaddressvalidator.cpp \
   qt/bitcoinamountfield.cpp \
-  qt/bitcoingui.cpp \
+  qt/pny/pnygui.cpp \
   qt/bitcoinunits.cpp \
   qt/blockexplorer.cpp \
   qt/clientmodel.cpp \
   qt/csvmodelwriter.cpp \
   qt/guiutil.cpp \
   qt/intro.cpp \
-  qt/masternodelist.cpp \
   qt/networkstyle.cpp \
   qt/notificator.cpp \
   qt/optionsdialog.cpp \
@@ -308,39 +641,85 @@ BITCOIN_QT_WALLET_CPP = \
   qt/addressbookpage.cpp \
   qt/addresstablemodel.cpp \
   qt/askpassphrasedialog.cpp \
-  qt/bip38tooldialog.cpp \
   qt/blockexplorer.cpp \
   qt/coincontroldialog.cpp \
   qt/coincontroltreewidget.cpp \
-  qt/obfuscationconfig.cpp \
   qt/editaddressdialog.cpp \
   qt/governancepage.cpp \
-  qt/masternodelist.cpp \
-  qt/multisenddialog.cpp \
-  qt/multisigdialog.cpp\
   qt/openuridialog.cpp \
-  qt/overviewpage.cpp \
   qt/paymentrequestplus.cpp \
   qt/paymentserver.cpp \
-  qt/receivecoinsdialog.cpp \
-  qt/privacydialog.cpp \
   qt/proposalframe.cpp \
-  qt/receiverequestdialog.cpp \
   qt/recentrequeststablemodel.cpp \
-  qt/sendcoinsdialog.cpp \
-  qt/sendcoinsentry.cpp \
-  qt/signverifymessagedialog.cpp \
   qt/transactiondesc.cpp \
-  qt/transactiondescdialog.cpp \
   qt/transactionfilterproxy.cpp \
   qt/transactionrecord.cpp \
   qt/transactiontablemodel.cpp \
-  qt/transactionview.cpp \
-  qt/walletframe.cpp \
   qt/walletmodel.cpp \
   qt/walletmodeltransaction.cpp \
-  qt/walletview.cpp \
-  qt/zpnycontroldialog.cpp
+  qt/pny/loadingdialog.cpp \
+  qt/zpnycontroldialog.cpp \
+  qt/pny/pwidget.cpp \
+  qt/pny/guitransactionsutils.cpp \
+  qt/pny/snackbar.cpp \
+  qt/pny/navmenuwidget.cpp \
+  qt/pny/lockunlock.cpp \
+  qt/pny/receivedialog.cpp \
+  qt/pny/furabstractlistitemdelegate.cpp \
+  qt/pny/txviewholder.cpp \
+  qt/pny/qtutils.cpp \
+  qt/pny/expandablebutton.cpp \
+  qt/pny/walletpassworddialog.cpp \
+  qt/pny/topbar.cpp \
+  qt/pny/txrow.cpp \
+  qt/pny/addressholder.cpp \
+  qt/pny/addressfilterproxymodel.cpp \
+  qt/pny/dashboardwidget.cpp \
+  qt/pny/coincontrolpnywidget.cpp \
+  qt/pny/addresslabelrow.cpp \
+  qt/pny/contactdropdownrow.cpp \
+  qt/pny/contactsdropdown.cpp \
+  qt/pny/optionbutton.cpp \
+  qt/pny/mninfodialog.cpp \
+  qt/pny/coldstakingmodel.cpp \
+  qt/pny/mnmodel.cpp \
+  qt/pny/masternodewizarddialog.cpp \
+  qt/pny/mnrow.cpp \
+  qt/pny/masternodeswidget.cpp \
+  qt/pny/myaddressrow.cpp \
+  qt/pny/csrow.cpp \
+  qt/pny/sendchangeaddressdialog.cpp \
+  qt/pny/sendconfirmdialog.cpp \
+  qt/pny/sendcustomfeedialog.cpp \
+  qt/pny/sendchangeaddressdialog.cpp \
+  qt/pny/sendmultirow.cpp \
+  qt/pny/send.cpp \
+  qt/pny/addnewaddressdialog.cpp \
+  qt/pny/addnewcontactdialog.cpp \
+  qt/pny/requestdialog.cpp \
+  qt/pny/receivewidget.cpp \
+  qt/pny/tooltipmenu.cpp \
+  qt/pny/addresseswidget.cpp \
+  qt/pny/defaultdialog.cpp \
+  qt/pny/denomgenerationdialog.cpp \
+  qt/pny/privacywidget.cpp \
+  qt/pny/coldstakingwidget.cpp \
+  qt/pny/settings/settingsbackupwallet.cpp \
+  qt/pny/settings/settingsbittoolwidget.cpp \
+  qt/pny/settings/settingsconsolewidget.cpp \
+  qt/pny/settings/settingsdisplayoptionswidget.cpp \
+  qt/pny/settings/settingsfaqwidget.cpp \
+  qt/pny/settings/settingsinformationwidget.cpp \
+  qt/pny/settings/settingsmainoptionswidget.cpp \
+  qt/pny/settings/settingsmultisenddialog.cpp \
+  qt/pny/settings/settingsmultisendwidget.cpp \
+  qt/pny/settings/settingssignmessagewidgets.cpp \
+  qt/pny/settings/settingswalletoptionswidget.cpp \
+  qt/pny/settings/settingswalletrepairwidget.cpp \
+  qt/pny/settings/settingswidget.cpp \
+  qt/pny/welcomecontentwidget.cpp \
+  qt/pny/splash.cpp
+
 
 BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
 if TARGET_WINDOWS
@@ -366,7 +745,9 @@ RES_IMAGES = \
   qt/res/images/qtreeview_selected.png
 
 RES_CSS = \
-  qt/res/css/default.css
+  qt/res/css/default.css \
+  qt/pny/res/css/style_dark.css \
+  qt/pny/res/css/style_light.css
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
@@ -376,7 +757,7 @@ BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms
 
 qt_libbitcoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
-  $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
+  $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
 qt_libbitcoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 qt_libbitcoinqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
 
@@ -401,7 +782,7 @@ $(QT_MOC_CPP): $(PROTOBUF_H)
 
 # pny-qt binary #
 qt_pny_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
-  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
+  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
 qt_pny_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
 qt_pny_qt_SOURCES = qt/pny.cpp
@@ -419,7 +800,7 @@ if ENABLE_ZMQ
 qt_pny_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 qt_pny_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
-  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(SVG_LIBS) $(CHARTS_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 qt_pny_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 qt_pny_qt_LIBTOOLFLAGS = $(AM_LIBTOOLFLAGS) --tag CXX

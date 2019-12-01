@@ -1,4 +1,6 @@
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +14,7 @@
 #include "net.h"
 #include "txdb.h"
 #include "ui_blockexplorer.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #include "utilstrencodings.h"
 #include <QDateTime>
@@ -405,7 +407,7 @@ std::string AddressToString(const CBitcoinAddress& Address)
     {
         std::vector<CDiskTxPos> Txs;
         paddressmap->GetTxs(Txs, AddressScript.GetID());
-        BOOST_FOREACH (const CDiskTxPos& pos, Txs)
+        for (const CDiskTxPos& pos : Txs)
         {
             CTransaction tx;
             CBlock block;
@@ -554,7 +556,7 @@ void BlockExplorer::setBlock(CBlockIndex* pBlock)
 
 void BlockExplorer::setContent(const std::string& Content)
 {
-    QString CSS = "body {font-size:12px; color:#f8f6f6; bgcolor:#80754d;}\n a, span { font-family: monospace; }\n span.addr {color:#80754d; font-weight: bold;}\n table tr td {padding: 3px; border: 1px solid black; background-color: #80754d;}\n td.d0 {font-weight: bold; color:#f8f6f6;}\n h2, h3 { white-space:nowrap; color:#80754d;}\n a { color:#88f6f6; text-decoration:none; }\n a.nav {color:#80754d;}\n";
+    QString CSS = "body {font-size:12px; color:#f8f6f6; bgcolor:#100e0a;}\n a, span { font-family: monospace; }\n span.addr {color:#100e0a; font-weight: bold;}\n table tr td {padding: 3px; border: 1px solid black; background-color: #100e0a;}\n td.d0 {font-weight: bold; color:#f8f6f6;}\n h2, h3 { white-space:nowrap; color:#100e0a;}\n a { color:#88f6f6; text-decoration:none; }\n a.nav {color:#100e0a;}\n";
     QString FullContent = "<html><head><style type=\"text/css\">" + CSS + "</style></head>" + "<body>" + Content.c_str() + "</body></html>";
     // printf(FullContent.toUtf8());
 

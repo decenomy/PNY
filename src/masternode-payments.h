@@ -1,5 +1,7 @@
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2015-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,7 +12,6 @@
 #include "main.h"
 #include "masternode.h"
 
-using namespace std;
 
 extern CCriticalSection cs_vecPayments;
 extern CCriticalSection cs_mapMasternodeBlocks;
@@ -107,7 +108,7 @@ public:
     {
         LOCK(cs_vecPayments);
 
-        BOOST_FOREACH (CMasternodePayee& payee, vecPayments) {
+        for (CMasternodePayee& payee : vecPayments) {
             if (payee.scriptPubKey == payeeIn) {
                 payee.nVotes += nIncrement;
                 return;
@@ -123,7 +124,7 @@ public:
         LOCK(cs_vecPayments);
 
         int nVotes = -1;
-        BOOST_FOREACH (CMasternodePayee& p, vecPayments) {
+        for (CMasternodePayee& p : vecPayments) {
             if (p.nVotes > nVotes) {
                 payee = p.scriptPubKey;
                 nVotes = p.nVotes;
@@ -137,7 +138,7 @@ public:
     {
         LOCK(cs_vecPayments);
 
-        BOOST_FOREACH (CMasternodePayee& p, vecPayments) {
+        for (CMasternodePayee& p : vecPayments) {
             if (p.nVotes >= nVotesReq && p.scriptPubKey == payee) return true;
         }
 
@@ -158,49 +159,41 @@ public:
 };
 
 // for storing the winning payments
-class CMasternodePaymentWinner
+class CMasternodePaymentWinner : public CSignedMessage
 {
 public:
     CTxIn vinMasternode;
-
     int nBlockHeight;
     CScript payee;
-    std::vector<unsigned char> vchSig;
 
-    CMasternodePaymentWinner()
-    {
-        nBlockHeight = 0;
-        vinMasternode = CTxIn();
-        payee = CScript();
-    }
+    CMasternodePaymentWinner() :
+        CSignedMessage(),
+        vinMasternode(),
+        nBlockHeight(0),
+        payee()
+    {}
 
-    CMasternodePaymentWinner(CTxIn vinIn)
-    {
-        nBlockHeight = 0;
-        vinMasternode = vinIn;
-        payee = CScript();
-    }
+    CMasternodePaymentWinner(CTxIn vinIn) :
+        CSignedMessage(),
+        vinMasternode(vinIn),
+        nBlockHeight(0),
+        payee()
+    {}
 
-    uint256 GetHash()
-    {
-        CHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);
-        ss << payee;
-        ss << nBlockHeight;
-        ss << vinMasternode.prevout;
+    uint256 GetHash() const;
 
-        return ss.GetHash();
-    }
+    // override CSignedMessage functions
+    uint256 GetSignatureHash() const override { return GetHash(); }
+    std::string GetStrMessage() const override;
+    const CTxIn GetVin() const override { return vinMasternode; };
 
-    bool Sign(CKey& keyMasternode, CPubKey& pubKeyMasternode);
     bool IsValid(CNode* pnode, std::string& strError);
-    bool SignatureValid();
     void Relay();
 
     void AddPayee(CScript payeeIn)
     {
         payee = payeeIn;
     }
-
 
     ADD_SERIALIZE_METHODS;
 
@@ -211,6 +204,12 @@ public:
         READWRITE(nBlockHeight);
         READWRITE(payee);
         READWRITE(vchSig);
+        try
+        {
+            READWRITE(nMessVersion);
+        } catch (...) {
+            nMessVersion = MessageVersion::MESS_VER_STRMESS;
+        }
     }
 
     std::string ToString()

@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
@@ -30,6 +30,12 @@ void Interrupt();
 void Shutdown();
 void PrepareShutdown();
 bool AppInit2();
+
+/** Initialize PNY core: Basic context setup.
+ *  @note This can be done before daemonization. Do not call Shutdown() if this function fails.
+ *  @pre Parameters should be parsed and config file should be read.
+ */
+bool AppInitBasicSetup();
 
 /** The help message mode determines what help message to show */
 enum HelpMessageMode {

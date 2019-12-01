@@ -1,4 +1,6 @@
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
+// Copyright (c) 2019 The CryptoDev developers
+// Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,13 +17,13 @@ CZPnyStake::CZPnyStake(const libzerocoin::CoinSpend& spend)
     this->denom = spend.getDenomination();
     uint256 nSerial = spend.getCoinSerialNumber().getuint256();
     this->hashSerial = Hash(nSerial.begin(), nSerial.end());
-    this->pindexFrom = nullptr;
     fMint = false;
 }
 
 int CZPnyStake::GetChecksumHeightFromMint()
 {
     int nHeightChecksum = chainActive.Height() - Params().Zerocoin_RequiredStakeDepth();
+    nHeightChecksum = std::min(nHeightChecksum, Params().Zerocoin_Block_Last_Checkpoint());
 
     //Need to return the first occurance of this checksum in order for the validation process to identify a specific
     //block height
@@ -85,17 +87,18 @@ bool CZPnyStake::GetModifier(uint64_t& nStakeModifier)
     }
 
     int64_t nTimeBlockFrom = pindex->GetBlockTime();
-    while (true) {
+    // zPNY staking is disabled long before block v7 (and checkpoint is not included in blocks since v7)
+    // just return false for now. !TODO: refactor/remove this method
+    while (pindex && pindex->nHeight + 1 <= std::min(chainActive.Height(), Params().Zerocoin_Block_Last_Checkpoint()-1)) {
         if (pindex->GetBlockTime() - nTimeBlockFrom > 60 * 60) {
             nStakeModifier = pindex->nAccumulatorCheckpoint.Get64();
             return true;
         }
 
-        if (pindex->nHeight + 1 <= chainActive.Height())
-            pindex = chainActive.Next(pindex);
-        else
-            return false;
+        pindex = chainActive.Next(pindex);
     }
+
+    return false;
 }
 
 CDataStream CZPnyStake::GetUniqueness()
@@ -121,12 +124,12 @@ bool CZPnyStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 
     CZerocoinSpendReceipt receipt;
     if (!pwallet->MintToTxIn(mint, hashTxOut, txIn, receipt, libzerocoin::SpendType::STAKE, pindexCheckpoint))
-        return error("%s\n", receipt.GetStatusMessage());
+        return error("%s", receipt.GetStatusMessage());
 
     return true;
 }
 
-bool CZPnyStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
+bool CZPnyStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
 {
     //Create an output returning the zPNY that was staked
     CTxOut outReward;
@@ -195,52 +198,66 @@ CAmount CPnyStake::GetValue()
     return txFrom.vout[nPosition].nValue;
 }
 
-bool CPnyStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
+bool CPnyStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
 {
-    vector<valtype> vSolutions;
+    std::vector<valtype> vSolutions;
     txnouttype whichType;
     CScript scriptPubKeyKernel = txFrom.vout[nPosition].scriptPubKey;
-    if (!Solver(scriptPubKeyKernel, whichType, vSolutions)) {
-        LogPrintf("CreateCoinStake : failed to parse kernel\n");
-        return false;
-    }
+    if (!Solver(scriptPubKeyKernel, whichType, vSolutions))
+        return error("%s: failed to parse kernel", __func__);
 
-    if (whichType != TX_PUBKEY && whichType != TX_PUBKEYHASH)
-        return false; // only support pay to public key and pay to address
+    if (whichType != TX_PUBKEY && whichType != TX_PUBKEYHASH && whichType != TX_COLDSTAKE)
+        return error("%s: type=%d (%s) not supported for scriptPubKeyKernel", __func__, whichType, GetTxnOutputType(whichType));
 
     CScript scriptPubKey;
-    if (whichType == TX_PUBKEYHASH) // pay to address type
-    {
-        //convert to pay to public key type
-        CKey key;
-        CKeyID keyID = CKeyID(uint160(vSolutions[0]));
-        if (!pwallet->GetKey(keyID, key))
-            return false;
+    CKey key;
+    if (whichType == TX_PUBKEYHASH) {
+        // if P2PKH check that we have the input private key
+        if (!pwallet->GetKey(CKeyID(uint160(vSolutions[0])), key))
+            return error("%s: Unable to get staking private key", __func__);
 
+        // convert to P2PK inputs
         scriptPubKey << key.GetPubKey() << OP_CHECKSIG;
-    } else
+
+    } else {
+        // if P2CS, check that we have the coldstaking private key
+        if ( whichType == TX_COLDSTAKE && !pwallet->GetKey(CKeyID(uint160(vSolutions[0])), key) )
+            return error("%s: Unable to get cold staking private key", __func__);
+
+        // keep the same script
         scriptPubKey = scriptPubKeyKernel;
+    }
 
     vout.emplace_back(CTxOut(0, scriptPubKey));
 
     // Calculate if we need to split the output
-    if (nTotal / 2 > (CAmount)(pwallet->nStakeSplitThreshold * COIN))
-        vout.emplace_back(CTxOut(0, scriptPubKey));
+    int nSplit = nTotal / (static_cast<CAmount>(pwallet->nStakeSplitThreshold * COIN));
+    if (nSplit > 1) {
+        // if nTotal is twice or more of the threshold; create more outputs
+        int txSizeMax = MAX_STANDARD_TX_SIZE >> 11; // limit splits to <10% of the max TX size (/2048)
+        if (nSplit > txSizeMax)
+            nSplit = txSizeMax;
+        for (int i = nSplit; i > 1; i--) {
+            LogPrintf("%s: StakeSplit: nTotal = %d; adding output %d of %d\n", __func__, nTotal, (nSplit-i)+2, nSplit);
+            vout.emplace_back(CTxOut(0, scriptPubKey));
+        }
+    }
 
     return true;
 }
 
 bool CPnyStake::GetModifier(uint64_t& nStakeModifier)
 {
-    int nStakeModifierHeight = 0;
-    int64_t nStakeModifierTime = 0;
-    GetIndexFrom();
-    if (!pindexFrom)
-        return error("%s: failed to get index from", __func__);
-
-    if (!GetKernelStakeModifier(pindexFrom->GetBlockHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime, false))
-        return error("CheckStakeKernelHash(): failed to get kernel stake modifier \n");
-
+    if (this->nStakeModifier == 0) {
+        // look for the modifier
+        GetIndexFrom();
+        if (!pindexFrom)
+            return error("%s: failed to get index from", __func__);
+        // TODO: This method must be removed from here in the short terms.. it's a call to an static method in kernel.cpp when this class method is only called from kernel.cpp, no comments..
+        if (!GetKernelStakeModifier(pindexFrom->GetBlockHash(), this->nStakeModifier, this->nStakeModifierHeight, this->nStakeModifierTime, false))
+            return error("CheckStakeKernelHash(): failed to get kernel stake modifier");
+    }
+    nStakeModifier = this->nStakeModifier;
     return true;
 }
 
@@ -255,6 +272,8 @@ CDataStream CPnyStake::GetUniqueness()
 //The block that the UTXO was added to the chain
 CBlockIndex* CPnyStake::GetIndexFrom()
 {
+    if (pindexFrom)
+        return pindexFrom;
     uint256 hashBlock = 0;
     CTransaction tx;
     if (GetTransaction(txFrom.GetHash(), tx, hashBlock, true)) {

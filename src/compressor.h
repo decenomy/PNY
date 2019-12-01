@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT software license, see the accompanying
@@ -94,8 +94,14 @@ public:
             return;
         }
         nSize -= nSpecialScripts;
-        script.resize(nSize);
-        s >> REF(CFlatData(script));
+        if (nSize > MAX_SCRIPT_SIZE) {
+            // Overly long script, replace with a short invalid one
+            script << OP_RETURN;
+            s.ignore(nSize);
+        } else {
+            script.resize(nSize);
+            s >> REF(CFlatData(script));
+        }
     }
 };
 
