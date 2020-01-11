@@ -10,6 +10,7 @@
 #include "qt/pny/qtutils.h"
 #include "clientversion.h"
 #include "optionsmodel.h"
+#include <QScrollBar>
 
 NavMenuWidget::NavMenuWidget(PNYGUI *mainWindow, QWidget *parent) :
     PWidget(mainWindow, parent),
@@ -59,6 +60,16 @@ NavMenuWidget::NavMenuWidget(PNYGUI *mainWindow, QWidget *parent) :
 
     btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnMaster, ui->btnColdStaking, ui->btnSettings, ui->btnColdStaking};
     onNavSelected(ui->btnDashboard, true);
+
+    ui->scrollAreaNav->setWidgetResizable(true);
+
+    QSizePolicy scrollAreaPolicy = ui->scrollAreaNav->sizePolicy();
+    scrollAreaPolicy.setVerticalStretch(1);
+    ui->scrollAreaNav->setSizePolicy(scrollAreaPolicy);
+
+    QSizePolicy scrollVertPolicy = ui->scrollAreaNavVert->sizePolicy();
+    scrollVertPolicy.setVerticalStretch(1);
+    ui->scrollAreaNavVert->setSizePolicy(scrollVertPolicy);
 
     connectActions();
 }
@@ -151,7 +162,8 @@ void NavMenuWidget::selectSettings() {
 
 void NavMenuWidget::onShowHideColdStakingChanged(bool show) {
     ui->btnColdStaking->setVisible(show);
-    window->setMinimumHeight(show ? 780 : 740);
+    if (show)
+        ui->scrollAreaNav->verticalScrollBar()->setValue(ui->btnColdStaking->y());
 }
 
 void NavMenuWidget::updateButtonStyles(){

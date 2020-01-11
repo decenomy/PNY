@@ -7,7 +7,6 @@
 #include "qt/pny/requestdialog.h"
 #include "qt/pny/forms/ui_requestdialog.h"
 #include <QListView>
-#include <QDoubleValidator>
 
 #include "qt/pny/qtutils.h"
 #include "guiutil.h"
@@ -25,10 +24,10 @@ RequestDialog::RequestDialog(QWidget *parent) :
     setCssProperty(ui->frame, "container-dialog");
 
     // Text
-    ui->labelTitle->setText(tr("New Request Payment"));
+    ui->labelTitle->setText(tr("New Payment Request"));
     setCssProperty(ui->labelTitle, "text-title-dialog");
 
-    ui->labelMessage->setText(tr("Instead of only sharing a PNY address, you can create a Payment Request message which bundles up more information than is contained in just a PNY address."));
+    ui->labelMessage->setText(tr("Instead of sharing only a PNY address, you can create a payment request, bundling up more information."));
     setCssProperty(ui->labelMessage, "text-main-grey");
 
     // Combo Coins
@@ -38,7 +37,7 @@ RequestDialog::RequestDialog(QWidget *parent) :
     // Label
     ui->labelSubtitleLabel->setText(tr("Label"));
     setCssProperty(ui->labelSubtitleLabel, "text-title2-dialog");
-    ui->lineEditLabel->setPlaceholderText(tr("Enter a label to be saved within the address"));
+    ui->lineEditLabel->setPlaceholderText(tr("Enter a label for the address"));
     setCssEditLineDialog(ui->lineEditLabel, true);
 
     // Amount
@@ -46,16 +45,13 @@ RequestDialog::RequestDialog(QWidget *parent) :
     setCssProperty(ui->labelSubtitleAmount, "text-title2-dialog");
     ui->lineEditAmount->setPlaceholderText("0.00 PNY");
     setCssEditLineDialog(ui->lineEditAmount, true);
-
-    QDoubleValidator *doubleValidator = new QDoubleValidator(0, 9999999, 7, this);
-    doubleValidator->setNotation(QDoubleValidator::StandardNotation);
-    ui->lineEditAmount->setValidator(doubleValidator);
+    GUIUtil::setupAmountWidget(ui->lineEditAmount, this);
 
     // Description
     ui->labelSubtitleDescription->setText(tr("Description (optional)"));
     setCssProperty(ui->labelSubtitleDescription, "text-title2-dialog");
 
-    ui->lineEditDescription->setPlaceholderText(tr("Add description "));
+    ui->lineEditDescription->setPlaceholderText(tr("Enter description"));
     setCssEditLineDialog(ui->lineEditDescription, true);
 
     // Stack
@@ -90,6 +86,7 @@ void RequestDialog::setPaymentRequest(bool isPaymentRequest) {
     if (!this->isPaymentRequest) {
         ui->labelMessage->setText(tr("Creates an address to receive coin delegations and be able to stake them."));
         ui->labelTitle->setText(tr("New Cold Staking Address"));
+        ui->labelSubtitleAmount->setText(tr("Amount (optional)"));
     }
 }
 
@@ -101,14 +98,12 @@ void RequestDialog::onNextClicked(){
         //Amount
         int displayUnit = walletModel->getOptionsModel()->getDisplayUnit();
         bool isValueValid = true;
-        CAmount value = GUIUtil::parseValue(
-                ui->lineEditAmount->text(),
-                displayUnit,
-                &isValueValid
-        );
+        CAmount value = (ui->lineEditAmount->text().isEmpty() ?
+                            0 :
+                            GUIUtil::parseValue(ui->lineEditAmount->text(), displayUnit, &isValueValid)
+                        );
 
         if (!this->isPaymentRequest) {
-
             // Add specific checks for cold staking address creation
             if (labelStr.isEmpty()) {
                 inform("Address label cannot be empty");
@@ -171,6 +166,11 @@ void RequestDialog::onCopyUriClicked(){
         res = 1;
         accept();
     }
+}
+
+void RequestDialog::showEvent(QShowEvent *event)
+{
+    if (ui->lineEditAmount) ui->lineEditAmount->setFocus();
 }
 
 void RequestDialog::updateQr(QString str){

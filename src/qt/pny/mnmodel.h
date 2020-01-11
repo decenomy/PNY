@@ -44,9 +44,18 @@ public:
     void updateMNList();
 
 
+    bool isMNsNetworkSynced();
+    // Returns the MN activeState field.
+    int getMNState(QString alias);
+    // Checks if the masternode is inactive
+    bool isMNInactive(QString mnAlias);
+    // Masternode is active if it's in PRE_ENABLED OR ENABLED state
+    bool isMNActive(QString mnAlias);
+
+
 private:
     // alias mn node ---> pair <ip, master node>
-    QMap<QString, std::pair<QString,CMasternode*>> nodes;
+    QMap<QString, std::pair<QString, CMasternode*>> nodes;
     QMap<std::string, bool> collateralTxAccepted;
 };
 

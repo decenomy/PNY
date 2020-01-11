@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string></string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="frame_2" native="true">
+    <widget class="PFBorderImage" name="frame_2" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_1">
       <property name="spacing">
        <number>0</number>
@@ -237,6 +237,9 @@
                       <height>22</height>
                      </size>
                     </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
+                    </property>
                     <property name="text">
                      <string>1</string>
                     </property>
@@ -319,6 +322,9 @@
                       <width>22</width>
                       <height>22</height>
                      </size>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
                     </property>
                     <property name="text">
                      <string>2</string>
@@ -403,6 +409,9 @@
                       <height>22</height>
                      </size>
                     </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
+                    </property>
                     <property name="text">
                      <string>3</string>
                     </property>
@@ -485,6 +494,9 @@
                       <width>22</width>
                       <height>22</height>
                      </size>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
                     </property>
                     <property name="text">
                      <string>4</string>
@@ -597,6 +609,9 @@
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
+                    </property>
                     <property name="text">
                      <string>Language</string>
                     </property>
@@ -638,6 +653,9 @@
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
+                    </property>
                     <property name="text">
                      <string>Welcome</string>
                     </property>
@@ -676,6 +694,9 @@
                       <height>16777215</height>
                      </size>
                     </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
+                    </property>
                     <property name="text">
                      <string>About</string>
                     </property>
@@ -713,6 +734,9 @@
                       <width>100</width>
                       <height>16777215</height>
                      </size>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::NoFocus</enum>
                     </property>
                     <property name="text">
                      <string>Masternodes</string>
@@ -1153,6 +1177,14 @@ PNY Core Wallet</string>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PFBorderImage</class>
+   <extends>QFrame</extends>
+   <header>qt/pny/pfborderimage.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

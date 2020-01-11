@@ -146,6 +146,9 @@ public:
     bool isTestNetwork() const;
     /** Whether cold staking is enabled or disabled in the network **/
     bool isColdStakingNetworkelyEnabled() const;
+    CAmount getMinColdStakingAmount() const;
+    /* current staking status from the miner thread **/
+    bool isStakingStatusActive() const;
 
     CAmount getBalance(const CCoinControl* coinControl = NULL) const;
     CAmount getUnconfirmedBalance() const;
@@ -166,6 +169,7 @@ public:
 
     EncryptionStatus getEncryptionStatus() const;
     bool isWalletUnlocked() const;
+    bool isWalletLocked() const;
     CKey generateNewKey() const; //for temporary paper wallet key generation
     bool setAddressBook(const CTxDestination& address, const std::string& strName, const std::string& strPurpose);
     void encryptKey(const CKey key, const std::string& pwd, const std::string& slt, std::vector<unsigned char>& crypted);
@@ -224,22 +228,15 @@ public:
             CZerocoinSpendReceipt &receipt
     );
 
-    // ###################
-    // Cold Staking
-    // ###################
-
-
-
-    // ###################
-    // End Cold Staking
-    // ###################
-
-
-
     // Wallet encryption
     bool setWalletEncrypted(bool encrypted, const SecureString& passphrase);
     // Passphrase only needed when unlocking
     bool setWalletLocked(bool locked, const SecureString& passPhrase = SecureString(), bool anonymizeOnly = false);
+
+    // Method used to "lock" the wallet only for staking purposes. Just a flag that should prevent possible movements in the wallet.
+    // Passphrase only needed when unlocking.
+    bool lockForStakingOnly(const SecureString& passPhrase = SecureString());
+
     bool changePassphrase(const SecureString& oldPass, const SecureString& newPass);
     // Is wallet unlocked for anonymization only?
     bool isAnonymizeOnlyUnlocked();

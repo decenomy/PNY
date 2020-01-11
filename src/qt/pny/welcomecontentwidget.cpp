@@ -17,11 +17,11 @@
 WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::WelcomeContentWidget),
-    backButton(new QPushButton()),
     icConfirm1(new QPushButton()),
     icConfirm2(new QPushButton()),
     icConfirm3(new QPushButton()),
     icConfirm4(new QPushButton()),
+    backButton(new QPushButton()),
     nextButton(new QPushButton())
 {
     ui->setupUi(this);
@@ -29,7 +29,12 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     this->setStyleSheet(GUIUtil::loadStyleSheet());
 
     ui->frame->setProperty("cssClass", "container-welcome-stack");
+#ifdef Q_OS_MAC
+    ui->frame_2->load("://bg-welcome");
+    ui->frame_2->setProperty("cssClass", "container-welcome-no-image");
+#else
     ui->frame_2->setProperty("cssClass", "container-welcome");
+#endif
 
     backButton = new QPushButton(ui->container);
     nextButton = new QPushButton(ui->container);

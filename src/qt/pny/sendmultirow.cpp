@@ -6,7 +6,6 @@
 
 #include "qt/pny/sendmultirow.h"
 #include "qt/pny/forms/ui_sendmultirow.h"
-#include <QDoubleValidator>
 
 #include "optionsmodel.h"
 #include "addresstablemodel.h"
@@ -22,21 +21,19 @@ SendMultiRow::SendMultiRow(PWidget *parent) :
     ui->setupUi(this);
     this->setStyleSheet(parent->styleSheet());
 
-    ui->lineEditAddress->setPlaceholderText(tr("Add address"));
+    ui->lineEditAddress->setPlaceholderText(tr("Enter address"));
     setCssProperty(ui->lineEditAddress, "edit-primary-multi-book");
     ui->lineEditAddress->setAttribute(Qt::WA_MacShowFocusRect, 0);
     setShadow(ui->stackedAddress);
 
     ui->lineEditAmount->setPlaceholderText("0.00 PNY ");
     initCssEditLine(ui->lineEditAmount);
-    QDoubleValidator *doubleValidator = new QDoubleValidator(0, 9999999, 8, this);
-    doubleValidator->setNotation(QDoubleValidator::StandardNotation);
-    ui->lineEditAmount->setValidator(doubleValidator);
+    GUIUtil::setupAmountWidget(ui->lineEditAmount, this);
 
     /* Description */
-    ui->labelSubtitleDescription->setText("Label address (optional)");
+    ui->labelSubtitleDescription->setText("Address label (optional)");
     setCssProperty(ui->labelSubtitleDescription, "text-title");
-    ui->lineEditDescription->setPlaceholderText(tr("Add description"));
+    ui->lineEditDescription->setPlaceholderText(tr("Enter label"));
     initCssEditLine(ui->lineEditDescription);
 
     // Button menu
@@ -70,13 +67,9 @@ SendMultiRow::SendMultiRow(PWidget *parent) :
 void SendMultiRow::amountChanged(const QString& amount){
     if(!amount.isEmpty()) {
         QString amountStr = amount;
-        int commaIndex = amountStr.indexOf(',');
-        if (commaIndex != -1) {
-            amountStr = amountStr.remove(commaIndex, 1);
-        }
         CAmount value = getAmountValue(amountStr);
         if (value > 0) {
-            ui->lineEditAmount->setText(amountStr);
+            GUIUtil::updateWidgetTextAndCursorPosition(ui->lineEditAmount, amountStr);
             setCssEditLine(ui->lineEditAmount, true, true);
         }
     }

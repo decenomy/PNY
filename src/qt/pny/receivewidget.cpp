@@ -86,6 +86,7 @@ ReceiveWidget::ReceiveWidget(PNYGUI* parent) :
     ui->listViewAddress->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listViewAddress->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listViewAddress->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->listViewAddress->setUniformItemSizes(true);
 
     spacer = new QSpacerItem(40, 20, QSizePolicy::Maximum, QSizePolicy::Expanding);
     ui->btnMyAddresses->setChecked(true);
@@ -149,7 +150,7 @@ void ReceiveWidget::updateLabel(){
         if (!label.isEmpty()) {
             ui->labelLabel->setVisible(true);
             ui->labelLabel->setText(label);
-            ui->pushButtonLabel->setText(tr("Change Label"));
+            ui->pushButtonLabel->setText(tr("Edit Label"));
         }else{
             ui->labelLabel->setVisible(false);
         }
@@ -190,7 +191,7 @@ void ReceiveWidget::onLabelClicked(){
             if (!label.isEmpty() && walletModel->updateAddressBookLabels(
                     address.Get(),
                     label.toUtf8().constData(),
-                    "receive"
+                    AddressBook::AddressBookPurpose::RECEIVE
             )
                     ) {
                 // update label status (icon color)

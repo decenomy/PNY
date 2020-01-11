@@ -42,7 +42,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QWidget" name="containerTop" native="true">
+    <widget class="PFBorderImage" name="containerTop" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_11">
       <property name="spacing">
        <number>0</number>
@@ -641,6 +641,9 @@ border:none;</string>
                 <height>70</height>
                </size>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -682,6 +685,9 @@ border:none;</string>
                 <height>36</height>
                </size>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="text">
                <string/>
               </property>
@@ -703,6 +709,12 @@ border:none;</string>
    <class>ExpandableButton</class>
    <extends>QWidget</extends>
    <header>qt/pny/expandablebutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PFBorderImage</class>
+   <extends>QFrame</extends>
+   <header>qt/pny/pfborderimage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

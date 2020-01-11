@@ -126,6 +126,9 @@ DashboardWidget::DashboardWidget(PNYGUI* parent) :
     ui->listTransactions->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listTransactions->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->listTransactions->setLayoutMode(QListView::LayoutMode::Batched);
+    ui->listTransactions->setBatchSize(50);
+    ui->listTransactions->setUniformItemSizes(true);
 
     // Sync Warning
     ui->layoutWarning->setVisible(true);
@@ -184,7 +187,6 @@ void DashboardWidget::handleTransactionClicked(const QModelIndex &index){
     window->showHide(true);
     TxDetailDialog *dialog = new TxDetailDialog(window, false);
     dialog->setData(walletModel, rIndex);
-    dialog->adjustSize();
     openDialogWithOpaqueBackgroundY(dialog, window, 3, 17);
 
     // Back to regular status

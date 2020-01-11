@@ -26,7 +26,7 @@ SendChangeAddressDialog::SendChangeAddressDialog(QWidget *parent) :
     ui->labelMessage->setText(tr("The remainder of the value resultant from the inputs minus the outputs value goes to the \"change\" PNY address"));
     ui->labelMessage->setProperty("cssClass", "text-main-grey");
 
-    ui->lineEditAddress->setPlaceholderText("Enter a PNY  address (e.g P7VFR83SQbiezrW72hjc… ");
+    ui->lineEditAddress->setPlaceholderText("Enter PNY address (e.g P7VFR83SQbiezrW72hjc… ");
     initCssEditLine(ui->lineEditAddress, true);
 
     // Buttons
@@ -53,6 +53,11 @@ bool SendChangeAddressDialog::getAddress(WalletModel *model, QString *retAddress
         return true;
     }
     return false;
+}
+
+void SendChangeAddressDialog::showEvent(QShowEvent *event)
+{
+    if (ui->lineEditAddress) ui->lineEditAddress->setFocus();
 }
 
 SendChangeAddressDialog::~SendChangeAddressDialog(){
