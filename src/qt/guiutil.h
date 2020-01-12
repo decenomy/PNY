@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -58,6 +58,9 @@ bool requestUnlock(WalletModel* walletModel, AskPassphraseDialog::Context contex
 // Set up widgets for address and amounts
 void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent);
 void setupAmountWidget(QLineEdit* widget, QWidget* parent);
+
+// Update the cursor of the widget after a text change
+void updateWidgetTextAndCursorPosition(QLineEdit* widget, const QString& str);
 
 // Parse "pny:" URI into recipient object, return true on successful parsing
 bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out);

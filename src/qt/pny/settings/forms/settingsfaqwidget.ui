@@ -30,7 +30,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="QFrame" name="container">
+    <widget class="PFBorderImage" name="container">
      <layout class="QVBoxLayout" name="verticalLayoutcont">
       <property name="leftMargin">
        <number>36</number>
@@ -159,6 +159,9 @@
                        <height>50</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
                       <string>1) What is PNY?</string>
                      </property>
@@ -187,6 +190,9 @@
                        <height>50</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
                       <string>2) Why are my PNY unspendable?</string>
                      </property>
@@ -211,6 +217,9 @@
                        <width>16777215</width>
                        <height>16777215</height>
                       </size>
+                     </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
                       <string>3) PNY privacy? What is Zerocoin (zPNY)?</string>
@@ -237,6 +246,9 @@
                        <height>16777215</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
                       <string>4) Why are my zPNY unspendable?</string>
                      </property>
@@ -255,6 +267,9 @@
                        <width>0</width>
                        <height>50</height>
                       </size>
+                     </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
                       <string>5) Why did my wallet convert the balance
@@ -276,6 +291,9 @@
                        <height>50</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
                       <string>6) How do I receive PNY/zPNY?</string>
                      </property>
@@ -294,6 +312,9 @@
                        <width>0</width>
                        <height>50</height>
                       </size>
+                     </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
                       <string>7) How do I stake PNY/zPNY?</string>
@@ -314,6 +335,9 @@
                        <height>50</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
                       <string>8) Where I should go if I need support?</string>
                      </property>
@@ -333,8 +357,11 @@
                        <height>50</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
-                      <string>9) What is a Master Node?</string>
+                      <string>9) What is a Masternode?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -352,8 +379,11 @@
                        <height>50</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
-                      <string>10) What is a Master Node Controller?</string>
+                      <string>10) What is a Masternode Controller?</string>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -409,6 +439,9 @@
                </item>
                <item>
                 <widget class="QPushButton" name="pushButtonWebLink">
+                 <property name="focusPolicy">
+                  <enum>Qt::NoFocus</enum>
+                 </property>
                  <property name="text">
                   <string>PushButton</string>
                  </property>
@@ -1200,9 +1233,9 @@
                            &lt;ol&gt;&lt;li&gt;
                            Make sure your wallet is completely synchronized and you are using the latest release.
                            &lt;li&gt;
-                           You must have a balance of PNY with a minimum of 101 confirmations.
+                           You must have a balance of PNY with a minimum of 600 confirmations.
                            &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
+                           Your wallet must stay online and be unlocked for staking purposes.
                            &lt;li&gt;
                            Once all those steps are followed staking should be enabled.
                            &lt;li&gt;
@@ -1284,7 +1317,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle8">
                         <property name="text">
-                         <string>Where I should go if I need support?</string>
+                         <string>Where should I go if I need support?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1313,10 +1346,10 @@
                          <string>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
                            We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #cfc8af' href='https://Discord.PNY.com'&gt;
+                           &lt;a style='color: #cfc8af' href='https://discord.peonycoin.io'&gt;
                            #support in our Discord&lt;/a&gt;.
                            If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #cfc8af' href='https://PNY.FreshDesk.com'&gt;
+                           &lt;a style='color: #cfc8af' href='https://PNY.freshdesk.com'&gt;
                            our Freshdesk support site&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </string>
@@ -1383,7 +1416,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle9">
                         <property name="text">
-                         <string>What is a Master Node?</string>
+                         <string>What is a Masternode?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1412,9 +1445,9 @@
                          <string>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
                            A masternode is a computer running a full node PNY core wallet with a
-                           requirement of 2,000/5,000/10,000/20,000 PNY secured collateral to provide
-						   extra services to the network and in return, receive a portion of the block 
-						   reward regularly. These services include:
+                           requirement of 5,000/10,000/20,000 PNY secured collateral to provide extra services
+                           to the network and in return, receive a portion of the block reward
+                           regularly.  These services include:
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
 
                            &lt;ul&gt;
@@ -1444,7 +1477,7 @@
                            Requirements:
                            &lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;2,000/5,000/10,000/20,000 PNY per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;5,000/10,000/20,000 PNY per single Masternode instance&lt;/li&gt;
                            &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
                            &lt;li&gt;Need dedicated IP address&lt;/li&gt;
                            &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
@@ -1514,7 +1547,7 @@
                       <item>
                        <widget class="QLabel" name="labelSubtitle10">
                         <property name="text">
-                         <string>What is a Master Node Controller?</string>
+                         <string>What is a Masternode Controller?</string>
                         </property>
                         <property name="wordWrap">
                          <bool>true</bool>
@@ -1540,7 +1573,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent10">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 2,000/5,000/10,000/20,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet/s and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A Masternode Controller wallet is where the 5,000/10,000/20,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1584,6 +1617,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PFBorderImage</class>
+   <extends>QFrame</extends>
+   <header>qt/pny/pfborderimage.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

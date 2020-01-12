@@ -29,6 +29,7 @@ public:
 
     void setWalletModel(WalletModel *model);
     void setPaymentRequest(bool isPaymentRequest);
+    void showEvent(QShowEvent *event) override;
     int res = -1;
 
 private slots:

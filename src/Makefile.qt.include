@@ -154,6 +154,7 @@ QT_MOC_CPP = \
   qt/pny/moc_furabstractlistitemdelegate.cpp \
   qt/pny/moc_receivedialog.cpp \
   qt/pny/moc_walletpassworddialog.cpp \
+  qt/pny/moc_pfborderimage.cpp \
   qt/pny/moc_topbar.cpp \
   qt/pny/moc_txrow.cpp \
   qt/pny/moc_dashboardwidget.cpp \
@@ -267,6 +268,7 @@ BITCOIN_QT_H = \
   qt/walletmodel.h \
   qt/walletmodeltransaction.h \
   qt/pny/prunnable.h \
+  qt/pny/pfborderimage.h \
   qt/pny/loadingdialog.h \
   qt/winshutdownmonitor.h \
   qt/zpnycontroldialog.h \

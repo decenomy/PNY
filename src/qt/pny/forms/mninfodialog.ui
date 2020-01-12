@@ -101,7 +101,7 @@
            <string notr="true">padding-left:24px;</string>
           </property>
           <property name="text">
-           <string>Master Node Information</string>
+           <string>Masternode Information</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -289,6 +289,9 @@ background:transparent;
                        <height>34</height>
                       </size>
                      </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
+                     </property>
                      <property name="text">
                       <string/>
                      </property>
@@ -409,6 +412,9 @@ background:transparent;
                        <width>34</width>
                        <height>34</height>
                       </size>
+                     </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
                       <string/>
@@ -548,7 +554,7 @@ background:transparent;
                       <number>0</number>
                      </property>
                      <property name="text">
-                      <string>Export data to run the Master Node on a remote server</string>
+                      <string>Export data to run the Masternode on a remote server</string>
                      </property>
                      <property name="wordWrap">
                       <bool>true</bool>
@@ -571,6 +577,9 @@ background:transparent;
                        <width>34</width>
                        <height>34</height>
                       </size>
+                     </property>
+                     <property name="focusPolicy">
+                      <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
                       <string/>

@@ -147,12 +147,6 @@ static const unsigned char REJECT_DUST = 0x41;
 static const unsigned char REJECT_INSUFFICIENTFEE = 0x42;
 static const unsigned char REJECT_CHECKPOINT = 0x43;
 
-/** zPNY precomputing variables
- * Set the number of included blocks to precompute per cycle. */
-static const int DEFAULT_PRECOMPUTE_LENGTH = 1000;
-static const int MIN_PRECOMPUTE_LENGTH = 500;
-static const int MAX_PRECOMPUTE_LENGTH = 2000;
-
 struct BlockHasher {
     size_t operator()(const uint256& hash) const { return hash.GetLow64(); }
 };
@@ -166,8 +160,12 @@ extern uint64_t nLastBlockTx;
 extern uint64_t nLastBlockSize;
 extern const std::string strMessageMagic;
 extern int64_t nTimeBestReceived;
-extern CWaitableCriticalSection csBestBlock;
-extern CConditionVariable cvBlockChange;
+
+// Best block section
+extern CWaitableCriticalSection g_best_block_mutex;
+extern std::condition_variable g_best_block_cv;
+extern uint256 g_best_block;
+
 extern bool fImporting;
 extern bool fReindex;
 extern int nScriptCheckThreads;
@@ -179,17 +177,13 @@ extern CFeeRate minRelayTxFee;
 extern bool fAlerts;
 extern int64_t nMaxTipAge;
 extern bool fVerifyingBlocks;
-extern bool fClearSpendCache;
 
 extern bool fLargeWorkForkFound;
 extern bool fLargeWorkInvalidChainFound;
 
-extern int64_t nLastCoinStakeSearchInterval;
-extern int64_t nLastCoinStakeSearchTime;
 extern int64_t nReserveBalance;
 
 extern std::map<uint256, int64_t> mapRejectedBlocks;
-extern std::map<unsigned int, unsigned int> mapHashedBlocks;
 extern std::map<uint256, int64_t> mapZerocoinspends; //txid, time received
 
 /** Best header we've seen so far (used for getheaders queries' starting points). */

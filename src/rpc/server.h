@@ -283,7 +283,6 @@ extern UniValue getzpnyseed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
 extern UniValue searchdzpny(const UniValue& params, bool fHelp);
 extern UniValue dzpnystate(const UniValue& params, bool fHelp);
-extern UniValue clearspendcache(const UniValue& params, bool fHelp);
 extern UniValue enableautomintaddress(const UniValue& params, bool fHelp);
 extern UniValue createautomintaddress(const UniValue& params, bool fHelp);
 
@@ -297,7 +296,7 @@ extern UniValue decodescript(const UniValue& params, bool fHelp);
 extern UniValue signrawtransaction(const UniValue& params, bool fHelp);
 extern UniValue sendrawtransaction(const UniValue& params, bool fHelp);
 extern UniValue createrawzerocoinstake(const UniValue& params, bool fHelp);
-extern UniValue createrawzerocoinpublicspend(const UniValue& params, bool fHelp);
+extern UniValue createrawzerocoinspend(const UniValue& params, bool fHelp);
 
 extern UniValue findserial(const UniValue& params, bool fHelp); // in rpc/blockchain.cpp
 extern UniValue getblockcount(const UniValue& params, bool fHelp);

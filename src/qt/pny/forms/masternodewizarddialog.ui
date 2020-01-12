@@ -82,6 +82,9 @@
             <height>20</height>
            </size>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="text">
            <string/>
           </property>
@@ -504,6 +507,9 @@
                 <height>16777215</height>
                </size>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="text">
                <string>Intro</string>
               </property>
@@ -545,6 +551,9 @@
                 <height>16777215</height>
                </size>
               </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
               <property name="text">
                <string>Name</string>
               </property>
@@ -582,6 +591,9 @@
                 <width>80</width>
                 <height>16777215</height>
                </size>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
                <string>Address</string>
@@ -678,7 +690,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Create New Master Node Controller</string>
+             <string>Create New Masternode Controller</string>
             </property>
            </widget>
           </item>
@@ -701,7 +713,7 @@
           <item>
            <widget class="QLabel" name="labelMessage1a">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PNY Masternode you must dedicate 2,000/5,000/10,000/20,000 PNY (the unit of PNY) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PNY Masternode you must dedicate 5,000/10,000/20,000 PNY (the unit of PNY) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -790,7 +802,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Set Master Node’s Name</string>
+             <string>Set Masternode Name</string>
             </property>
            </widget>
           </item>
@@ -829,7 +841,7 @@
           <item>
            <widget class="QLabel" name="labelMessage3">
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 2,000/5,000/10,000/20,000 PNY will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 5,000/10,000/20,000 PNY will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -873,7 +885,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Set Master Node’s IP and port</string>
+             <string>Set Masternode IP and Port</string>
             </property>
            </widget>
           </item>
@@ -954,7 +966,7 @@
           <item>
            <widget class="QLabel" name="labelSubtitlePort">
             <property name="text">
-             <string>Enter Port</string>
+             <string>Enter port</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -1039,6 +1051,9 @@
             <height>16777215</height>
            </size>
           </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="text">
            <string>CANCEL</string>
           </property>
@@ -1057,6 +1072,9 @@
             <width>180</width>
             <height>16777215</height>
            </size>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
            <string>OK</string>

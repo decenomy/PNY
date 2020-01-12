@@ -206,6 +206,9 @@
                   <height>100</height>
                  </size>
                 </property>
+                <property name="focusPolicy">
+                 <enum>Qt::NoFocus</enum>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -223,7 +226,7 @@
                  <string notr="true"/>
                 </property>
                 <property name="text">
-                 <string>No active Master Node yet</string>
+                 <string>N/A</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -261,18 +264,47 @@
            <widget class="QPushButton" name="pushButtonSave">
             <property name="minimumSize">
              <size>
-              <width>280</width>
+              <width>283</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>280</width>
+              <width>283</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonStartAll">
+            <property name="minimumSize">
+             <size>
+              <width>125</width>
               <height>50</height>
              </size>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Start All</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButtonStartMissing">
+            <property name="minimumSize">
+             <size>
+              <width>125</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Start Inactive/s</string>
             </property>
            </widget>
           </item>

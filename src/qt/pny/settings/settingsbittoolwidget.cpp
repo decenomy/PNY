@@ -83,10 +83,10 @@ SettingsBitToolWidget::SettingsBitToolWidget(PNYGUI* _window, QWidget *parent) :
     // Encrypt
 
     // Address
-    ui->labelSubtitleAddress->setText(tr("Enter a PNY address"));
+    ui->labelSubtitleAddress->setText(tr("PNY address"));
     setCssProperty(ui->labelSubtitleAddress, "text-title");
 
-    ui->addressIn_ENC->setPlaceholderText(tr("Add address"));
+    ui->addressIn_ENC->setPlaceholderText(tr("Enter address"));
     setCssProperty(ui->addressIn_ENC, "edit-primary-multi-book");
     ui->addressIn_ENC->setAttribute(Qt::WA_MacShowFocusRect, 0);
     setShadow(ui->addressIn_ENC);
@@ -96,7 +96,7 @@ SettingsBitToolWidget::SettingsBitToolWidget(PNYGUI* _window, QWidget *parent) :
     setCssProperty(ui->labelSubtitleMessage, "text-title");
 
     setCssProperty(ui->passphraseIn_ENC, "edit-primary");
-    ui->passphraseIn_ENC->setPlaceholderText(tr("Write a message"));
+    ui->passphraseIn_ENC->setPlaceholderText(tr("Enter passphrase"));
     setCssProperty(ui->passphraseIn_ENC,"edit-primary");
     setShadow(ui->passphraseIn_ENC);
     ui->passphraseIn_ENC->setAttribute(Qt::WA_MacShowFocusRect, 0);
@@ -309,7 +309,7 @@ void SettingsBitToolWidget::importAddressFromDecKey(){
         ui->statusLabel_DEC->setText(tr("Please wait while key is imported"));
 
         pwalletMain->MarkDirty();
-        pwalletMain->SetAddressBook(vchAddress, "", "receive");
+        pwalletMain->SetAddressBook(vchAddress, "", AddressBook::AddressBookPurpose::RECEIVE);
 
         // Don't throw error in case a key is already there
         if (pwalletMain->HaveKey(vchAddress)) {

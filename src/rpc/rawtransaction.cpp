@@ -233,7 +233,7 @@ UniValue listunspent(const UniValue& params, bool fHelp)
             "    \"txid\" : \"txid\",        (string) the transaction id\n"
             "    \"vout\" : n,               (numeric) the vout value\n"
             "    \"address\" : \"address\",  (string) the pny address\n"
-            "    \"account\" : \"account\",  (string) The associated account, or \"\" for the default account\n"
+            "    \"account\" : \"account\",  (string) DEPRECATED. The associated account, or \"\" for the default account\n"
             "    \"scriptPubKey\" : \"key\", (string) the script key\n"
             "    \"redeemScript\" : \"key\", (string) the redeemscript key\n"
             "    \"amount\" : x.xxx,         (numeric) the transaction amount in btc\n"
@@ -348,7 +348,7 @@ UniValue createrawtransaction(const UniValue& params, bool fHelp)
             "     ]\n"
             "2. \"addresses\"           (string, required) a json object with addresses as keys and amounts as values\n"
             "    {\n"
-            "      \"address\": x.xxx   (numeric, required) The key is the pny address, the value is the btc amount\n"
+            "      \"address\": x.xxx   (numeric, required) The key is the pny address, the value is the pny amount\n"
             "      ,...\n"
             "    }\n"
             "3. locktime                (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs\n"
@@ -924,7 +924,7 @@ UniValue createrawzerocoinstake(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw std::runtime_error(
             "createrawzerocoinstake mint_input \n"
-            "\nCreates raw zPNY coinstakes (without MN output).\n" +
+            "\nCreates raw zPNY coinstakes (without MN output). Only for regtest\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -940,6 +940,9 @@ UniValue createrawzerocoinstake(const UniValue& params, bool fHelp)
             HelpExampleCli("createrawzerocoinstake", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f") +
             HelpExampleRpc("createrawzerocoinstake", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f"));
 
+
+    if (Params().NetworkID() != CBaseChainParams::REGTEST)
+        throw JSONRPCError(RPC_WALLET_ERROR, "createrawzerocoinstake is available only on regtest net");
 
     assert(pwalletMain != NULL);
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -985,8 +988,8 @@ UniValue createrawzerocoinstake(const UniValue& params, bool fHelp)
 
     // create the zerocoinspend input
     CTxIn newTxIn;
-    // !TODO: mint checks
-    if (!pwalletMain->MintToTxIn(input_mint, hashTxOut, newTxIn, receipt, libzerocoin::SpendType::STAKE))
+    // Use v2 spends for input (with v3 zpny staking is disabled)
+    if (!pwalletMain->MintToTxIn(input_mint, hashTxOut, newTxIn, receipt, libzerocoin::SpendType::STAKE, nullptr, false))
         throw JSONRPCError(RPC_WALLET_ERROR, "failed to create zc-spend stake input");
 
     coinstake_tx.vin.push_back(newTxIn);
@@ -1001,17 +1004,19 @@ UniValue createrawzerocoinstake(const UniValue& params, bool fHelp)
 
 }
 
-UniValue createrawzerocoinpublicspend(const UniValue& params, bool fHelp)
+UniValue createrawzerocoinspend(const UniValue& params, bool fHelp)
 {
-    if (fHelp || params.size() < 1 || params.size() > 2)
+    if (fHelp || params.size() < 1 || params.size() > 3)
         throw std::runtime_error(
-            "createrawzerocoinpublicspend mint_input \n"
+            "createrawzerocoinspend mint_input ( \"address\" isPublicSpend )\n"
             "\nCreates raw zPNY public spend.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
             "1. mint_input      (hex string, required) serial hash of the mint used as input\n"
             "2. \"address\"     (string, optional, default=change) Send to specified address or to a new change address.\n"
+            "3. isPublicSpend   (boolean, optional, default=true) create a public zc spend."
+            "                       If false, instead create spend version 2 (only for regression tests)"
 
 
             "\nResult:\n"
@@ -1019,29 +1024,31 @@ UniValue createrawzerocoinpublicspend(const UniValue& params, bool fHelp)
             "   \"hex\": \"xxx\",           (hex string) raw public spend signed transaction\n"
             "}\n"
             "\nExamples\n" +
-            HelpExampleCli("createrawzerocoinpublicspend", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f") +
-            HelpExampleRpc("createrawzerocoinpublicspend", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f"));
+            HelpExampleCli("createrawzerocoinspend", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f") +
+            HelpExampleRpc("createrawzerocoinspend", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f"));
 
+    const std::string serial_hash = params[0].get_str();
+    const std::string address_str = (params.size() > 1 ? params[1].get_str() : "");
+    const bool isPublicSpend = (params.size() > 2 ? params[2].get_bool() : true);
 
-    assert(pwalletMain != NULL);
-    LOCK2(cs_main, pwalletMain->cs_wallet);
-
-    std::string serial_hash = params[0].get_str();
     if (!IsHex(serial_hash))
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected hex serial hash");
 
-    std::string address_str = "";
     CBitcoinAddress address;
     CBitcoinAddress* addr_ptr = nullptr;
-    if (params.size() > 1) {
-        address_str = params[1].get_str();
+    if (address_str != "") {
         address = CBitcoinAddress(address_str);
         if(!address.IsValid())
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid PNY address");
         addr_ptr = &address;
     }
 
+    if (Params().NetworkID() != CBaseChainParams::REGTEST && !isPublicSpend)
+        throw JSONRPCError(RPC_WALLET_ERROR, "zPNY old spend only available in regtest for tests purposes");
+
+    assert(pwalletMain != NULL);
     EnsureWalletIsUnlocked();
+    LOCK2(cs_main, pwalletMain->cs_wallet);
 
     uint256 hashSerial(serial_hash);
     CZerocoinMint input_mint;
@@ -1061,7 +1068,7 @@ UniValue createrawzerocoinpublicspend(const UniValue& params, bool fHelp)
     if (addr_ptr) {
         outputs.push_back(std::pair<CBitcoinAddress*, CAmount>(addr_ptr, nAmount));
     }
-    if (!pwalletMain->CreateZerocoinSpendTransaction(nAmount, rawTx, reserveKey, receipt, vMintsSelected, vNewMints, false, true, outputs, nullptr, true))
+    if (!pwalletMain->CreateZerocoinSpendTransaction(nAmount, rawTx, reserveKey, receipt, vMintsSelected, vNewMints, false, true, outputs, nullptr, isPublicSpend))
         throw JSONRPCError(RPC_WALLET_ERROR, receipt.GetStatusMessage());
 
     // output the raw transaction

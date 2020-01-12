@@ -32,10 +32,14 @@ TopBar::TopBar(PNYGUI* _mainWindow, QWidget *parent) :
 
     // Set parent stylesheet
     this->setStyleSheet(_mainWindow->styleSheet());
-
     /* Containers */
+    ui->containerTop->setContentsMargins(10, 4, 10, 10);
+#ifdef Q_OS_MAC
+    ui->containerTop->load("://bg-dashboard-banner");
+    setCssProperty(ui->containerTop,"container-topbar-no-image");
+#else
     ui->containerTop->setProperty("cssClass", "container-top");
-    ui->containerTop->setContentsMargins(10,4,10,10);
+#endif
 
     std::initializer_list<QWidget*> lblTitles = {ui->labelTitle1, ui->labelTitle2, ui->labelTitle3, ui->labelTitle4, ui->labelTitle5, ui->labelTitle6};
     setCssProperty(lblTitles, "text-title-topbar");
@@ -205,6 +209,9 @@ void TopBar::lockDropdownClicked(const StateClicked& state){
                 walletModel->setWalletLocked(true);
                 ui->pushButtonLock->setButtonText("Wallet Locked");
                 ui->pushButtonLock->setButtonClassStyle("cssClass", "btn-check-status-lock", true);
+                // Directly update the staking status icon when the wallet is manually locked here
+                // so the feedback is instant (no need to wait for the polling timeout)
+                setStakingStatusActive(false);
                 break;
             }
             case 1: {
@@ -215,7 +222,7 @@ void TopBar::lockDropdownClicked(const StateClicked& state){
                                         AskPassphraseDialog::Context::ToggleLock);
                 dlg->adjustSize();
                 openDialogWithOpaqueBackgroundY(dlg, window);
-                if (this->walletModel->getEncryptionStatus() == WalletModel::Unlocked) {
+                if (walletModel->getEncryptionStatus() == WalletModel::Unlocked) {
                     ui->pushButtonLock->setButtonText("Wallet Unlocked");
                     ui->pushButtonLock->setButtonClassStyle("cssClass", "btn-check-status-unlock", true);
                 }
@@ -223,18 +230,25 @@ void TopBar::lockDropdownClicked(const StateClicked& state){
                 break;
             }
             case 2: {
-                if (walletModel->getEncryptionStatus() == WalletModel::UnlockedForAnonymizationOnly)
+                WalletModel::EncryptionStatus status = walletModel->getEncryptionStatus();
+                if (status == WalletModel::UnlockedForAnonymizationOnly)
                     break;
-                showHideOp(true);
-                AskPassphraseDialog *dlg = new AskPassphraseDialog(AskPassphraseDialog::Mode::UnlockAnonymize, window, walletModel,
-                                        AskPassphraseDialog::Context::ToggleLock);
-                dlg->adjustSize();
-                openDialogWithOpaqueBackgroundY(dlg, window);
-                if (this->walletModel->getEncryptionStatus() == WalletModel::UnlockedForAnonymizationOnly) {
+
+                if (status == WalletModel::Unlocked) {
+                    walletModel->lockForStakingOnly();
+                } else {
+                    showHideOp(true);
+                    AskPassphraseDialog *dlg = new AskPassphraseDialog(AskPassphraseDialog::Mode::UnlockAnonymize,
+                                                                       window, walletModel,
+                                                                       AskPassphraseDialog::Context::ToggleLock);
+                    dlg->adjustSize();
+                    openDialogWithOpaqueBackgroundY(dlg, window);
+                    dlg->deleteLater();
+                }
+                if (walletModel->getEncryptionStatus() == WalletModel::UnlockedForAnonymizationOnly) {
                     ui->pushButtonLock->setButtonText(tr("Wallet Unlocked for staking"));
                     ui->pushButtonLock->setButtonClassStyle("cssClass", "btn-check-status-staking", true);
                 }
-                dlg->deleteLater();
                 break;
             }
         }
@@ -344,20 +358,20 @@ void TopBar::updateAutoMintStatus(){
     ui->pushButtonMint->setChecked(fEnableZeromint);
 }
 
-void TopBar::updateStakingStatus(){
-    if (nLastCoinStakeSearchInterval) {
-        if (!ui->pushButtonStack->isChecked()) {
-            ui->pushButtonStack->setButtonText(tr("Staking active"));
-            ui->pushButtonStack->setChecked(true);
-            ui->pushButtonStack->setButtonClassStyle("cssClass", "btn-check-stack", true);
-        }
-    }else{
-        if (ui->pushButtonStack->isChecked()) {
-            ui->pushButtonStack->setButtonText(tr("Staking not active"));
-            ui->pushButtonStack->setChecked(false);
-            ui->pushButtonStack->setButtonClassStyle("cssClass", "btn-check-stack-inactive", true);
-        }
+void TopBar::setStakingStatusActive(bool fActive)
+{
+    if (ui->pushButtonStack->isChecked() != fActive) {
+        ui->pushButtonStack->setButtonText(fActive ? tr("Staking active") : tr("Staking not active"));
+        ui->pushButtonStack->setChecked(fActive);
+        ui->pushButtonStack->setButtonClassStyle("cssClass", (fActive ?
+                                                                "btn-check-stack" :
+                                                                "btn-check-stack-inactive"), true);
     }
+}
+void TopBar::updateStakingStatus(){
+    setStakingStatusActive(walletModel &&
+                           !walletModel->isWalletLocked() &&
+                           walletModel->isStakingStatusActive());
 }
 
 void TopBar::setNumConnections(int count) {
@@ -473,7 +487,6 @@ void TopBar::loadWalletModel(){
             SLOT(updateBalances(CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount, CAmount)));
     connect(walletModel->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     connect(walletModel, &WalletModel::encryptionStatusChanged, this, &TopBar::refreshStatus);
-
     // update the display unit, to not use the default ("PNY")
     updateDisplayUnit();
 
@@ -529,15 +542,15 @@ void TopBar::updateBalances(const CAmount& balance, const CAmount& unconfirmedBa
                             const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance,
                             const CAmount& delegatedBalance, const CAmount& coldStakedBalance){
 
+    // Locked balance. //TODO move this to the signal properly in the future..
     CAmount nLockedBalance = 0;
     if (walletModel) {
         nLockedBalance = walletModel->getLockedBalance();
     }
+    ui->labelTitle1->setText(nLockedBalance > 0 ? tr("Available (Locked included)") : tr("Available"));
 
-    // PNY Balance
-    //CAmount nTotalBalance = balance + unconfirmedBalance + immatureBalance;
-    CAmount pnyAvailableBalance = balance + delegatedBalance - nLockedBalance;
-
+    // PNY Total
+    CAmount pnyAvailableBalance = balance + delegatedBalance;
     // zPNY Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
 

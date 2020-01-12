@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -89,6 +89,11 @@ public:
      * Look up purpose for address in address book, if not found return empty string
      */
     std::string purposeForAddress(const std::string& address) const;
+
+    /**
+     * Checks if the address is whitelisted
+     */
+    bool isWhitelisted(const std::string& address) const;
 
     /**
      * Return last unused address

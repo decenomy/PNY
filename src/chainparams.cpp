@@ -255,7 +255,7 @@ public:
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 118);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x2D)(0x02)(0x31)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x25)(0x2B).convert_to_container<std::vector<unsigned char> >();
-        // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+        // BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x77).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
@@ -436,17 +436,20 @@ public:
         nStakeMinAge = 0;
         nStakeMinDepth = 0;
         nMasternodeCountDrift = 4;
-        nModifierUpdateBlock = 0;       //approx Mon, 17 Apr 2017 04:00:00 GMT
+        nModifierUpdateBlock = 0;
         nMaxMoneyOut = 21000001 * COIN;
         nZerocoinStartHeight = 300;
         nBlockZerocoinV2 = 300;
         nZerocoinStartTime = 1556301910;
-        nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 999999999; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 999999999; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 999999999; //Last valid accumulator checkpoint
-        nBlockStakeModifierlV2 = 255;
+        nBlockEnforceSerialRange = 1;               // Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 999999999;  // Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 999999999;          // First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 999999999;       // Last valid accumulator checkpoint
+        nBlockStakeModifierlV2 = nLastPOWBlock + 1; // start with modifier V2 on testnet
         nBlockTimeProtocolV2 = 999999999;
+
+        nMintRequiredConfirmations = 10;
+        nZerocoinRequiredStakeDepth = nMintRequiredConfirmations;
 
         // Public coin spend enforcement
         nPublicZCSpends = 225;

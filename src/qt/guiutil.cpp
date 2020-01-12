@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Copyright (c) 2019 The CryptoDev developers
 // Copyright (c) 2019 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -51,7 +51,9 @@
 #include <QDateTime>
 #include <QDesktopServices>
 #include <QDesktopWidget>
-#include <QDoubleValidator>
+#include <QRegExp>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 #include <QFileDialog>
 #include <QFont>
 #include <QLineEdit>
@@ -140,18 +142,24 @@ void setupAddressWidget(QValidatedLineEdit* widget, QWidget* parent)
     widget->setFont(bitcoinAddressFont());
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a PNY address (e.g. %1)").arg("P7VFR83SQbiezrW72hjcWJtcfip5krte2Z"));
+    widget->setPlaceholderText(QObject::tr("Enter PNY address (e.g. %1)").arg("P7VFR83SQbiezrW72hjcWJtcfip5krte2Z"));
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
 }
 
 void setupAmountWidget(QLineEdit* widget, QWidget* parent)
 {
-    QDoubleValidator* amountValidator = new QDoubleValidator(parent);
-    amountValidator->setDecimals(8);
-    amountValidator->setBottom(0.0);
-    widget->setValidator(amountValidator);
-    widget->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    QRegularExpression rx("^(\\d{0,8})((\\.|,)\\d{1,8})?$");
+    QValidator *validator = new QRegularExpressionValidator(rx, widget);
+    widget->setValidator(validator);
+}
+
+void updateWidgetTextAndCursorPosition(QLineEdit* widget, const QString& str)
+{
+    const int cpos = widget->cursorPosition();
+    widget->setText(str);
+    if (cpos > str.size()) return;
+    widget->setCursorPosition(cpos);
 }
 
 bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)

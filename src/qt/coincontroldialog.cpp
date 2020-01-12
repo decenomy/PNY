@@ -930,3 +930,11 @@ void CoinControlDialog::updateView()
     sortView(sortColumn, sortOrder);
     ui->treeWidget->setEnabled(true);
 }
+
+void CoinControlDialog::refreshDialog()
+{
+    updateView();
+    updateLabelLocked();
+    CoinControlDialog::updateLabels(model, this);
+    updateDialogLabels();
+}
