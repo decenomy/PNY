@@ -1,9 +1,9 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -2322,7 +2322,7 @@ UniValue walletpassphrase(const UniValue& params, bool fHelp)
             "\nExamples:\n"
             "\nUnlock the wallet for 60 seconds\n" +
             HelpExampleCli("walletpassphrase", "\"my pass phrase\" 60") +
-            "\nUnlock the wallet for 60 seconds but allow anonymization, automint, and staking only\n" +
+            "\nUnlock the wallet for 60 seconds but allow staking only\n" +
             HelpExampleCli("walletpassphrase", "\"my pass phrase\" 60 true") +
             "\nLock the wallet again (before 60 seconds)\n" +
             HelpExampleCli("walletlock", "") +
@@ -2720,8 +2720,7 @@ UniValue getwalletinfo(const UniValue& params, bool fHelp)
             "  \"keypoololdest\": xxxxxx,                 (numeric) the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool\n"
             "  \"keypoolsize\": xxxx,                     (numeric) how many new keys are pre-generated\n"
             "  \"unlocked_until\": ttt,                   (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked\n"
-            "  \"paytxfee\": x.xxxx,                      (numeric) the transaction fee configuration, set in PNY/kB\n"
-            "  \"automintaddresses\": status              (boolean) the status of automint addresses (true if enabled, false if disabled)\n"
+            "  \"paytxfee\": x.xxxx                       (numeric) the transaction fee configuration, set in PNY/kB\n"
             "}\n"
 
             "\nExamples:\n" +
@@ -2744,7 +2743,6 @@ UniValue getwalletinfo(const UniValue& params, bool fHelp)
     if (pwalletMain->IsCrypted())
         obj.push_back(Pair("unlocked_until", nWalletUnlockTime));
     obj.push_back(Pair("paytxfee",      ValueFromAmount(payTxFee.GetFeePerK())));
-    obj.push_back(Pair("automintaddresses", fEnableAutoConvert));
     return obj;
 }
 
@@ -4273,43 +4271,6 @@ UniValue searchdzpny(const UniValue& params, bool fHelp)
 
     //todo: better response
     return "done";
-}
-
-UniValue enableautomintaddress(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() != 1)
-        throw std::runtime_error(
-                "enableautomintaddress enable\n"
-                "\nEnables or disables automint address functionality\n"
-
-                "\nArguments\n"
-                "1. enable     (boolean, required) Enable or disable automint address functionality\n"
-
-                "\nExamples\n" +
-                HelpExampleCli("enableautomintaddress", "true") + HelpExampleRpc("enableautomintaddress", "false"));
-
-    fEnableAutoConvert = params[0].get_bool();
-
-    return NullUniValue;
-}
-
-UniValue createautomintaddress(const UniValue& params, bool fHelp)
-{
-    if (fHelp || params.size() != 0)
-        throw std::runtime_error(
-                "createautomintaddress\n"
-                "\nGenerates new auto mint address\n" +
-                HelpRequiringPassphrase() + "\n"
-
-                "\nResult\n"
-                "\"address\"     (string) PNY address for auto minting\n" +
-                HelpExampleCli("createautomintaddress", "") +
-                HelpExampleRpc("createautomintaddress", ""));
-
-    EnsureWalletIsUnlocked();
-    LOCK(pwalletMain->cs_wallet);
-    CBitcoinAddress address = pwalletMain->GenerateNewAutoMintKey();
-    return address.ToString();
 }
 
 UniValue spendrawzerocoin(const UniValue& params, bool fHelp)

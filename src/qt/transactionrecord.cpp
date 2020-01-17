@@ -1,8 +1,8 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -379,11 +379,16 @@ void TransactionRecord::loadHotOrColdStakeOrContract(
             break;
         }
     }
-    bool isSpendable = wallet->IsMine(p2csUtxo) & ISMINE_SPENDABLE_DELEGATED;
+
+    bool isSpendable = (wallet->IsMine(p2csUtxo) & ISMINE_SPENDABLE_DELEGATED);
+    bool isFromMe = wallet->IsFromMe(wtx);
 
     if (isContract) {
-        if (isSpendable) {
+        if (isSpendable && isFromMe) {
             // Wallet delegating balance
+            record.type = TransactionRecord::P2CSDelegationSentOwner;
+        } else if (isFromMe){
+            // Wallet delegating balance and transfering ownership
             record.type = TransactionRecord::P2CSDelegationSent;
         } else {
             // Wallet receiving a delegation
@@ -394,7 +399,8 @@ void TransactionRecord::loadHotOrColdStakeOrContract(
         if (isSpendable) {
             // Offline wallet receiving an stake due a delegation
             record.type = TransactionRecord::StakeDelegated;
-
+            record.credit = wtx.GetCredit(ISMINE_SPENDABLE_DELEGATED);
+            record.debit = -(wtx.GetDebit(ISMINE_SPENDABLE_DELEGATED));
         } else {
             // Online wallet receiving an stake due a received utxo delegation that won a block.
             record.type = TransactionRecord::StakeHot;
@@ -476,7 +482,13 @@ void TransactionRecord::updateStatus(const CWalletTx& wtx)
         }
     }
     // For generated transactions, determine maturity
-    else if (type == TransactionRecord::Generated || type == TransactionRecord::StakeMint || type == TransactionRecord::StakeZPNY || type == TransactionRecord::MNReward) {
+    else if (type == TransactionRecord::Generated ||
+            type == TransactionRecord::StakeMint ||
+            type == TransactionRecord::StakeZPNY ||
+            type == TransactionRecord::MNReward ||
+            type == TransactionRecord::StakeDelegated ||
+            type == TransactionRecord::StakeHot) {
+
         if (nBlocksToMaturity > 0) {
             status.status = TransactionStatus::Immature;
             status.matures_in = nBlocksToMaturity;
@@ -531,8 +543,9 @@ bool TransactionRecord::isCoinStake() const
 bool TransactionRecord::isAnyColdStakingType() const
 {
     return (type == TransactionRecord::P2CSDelegation || type == TransactionRecord::P2CSDelegationSent
-           || type == TransactionRecord::StakeDelegated || type == TransactionRecord::StakeHot
-           || type == TransactionRecord::P2CSUnlockOwner || type == TransactionRecord::P2CSUnlockStaker);
+            || type == TransactionRecord::P2CSDelegationSentOwner
+            || type == TransactionRecord::StakeDelegated || type == TransactionRecord::StakeHot
+            || type == TransactionRecord::P2CSUnlockOwner || type == TransactionRecord::P2CSUnlockStaker);
 }
 
 bool TransactionRecord::isNull() const

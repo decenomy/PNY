@@ -1,6 +1,4 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -77,10 +75,6 @@ TopBar::TopBar(PNYGUI* _mainWindow, QWidget *parent) :
 
     ui->pushButtonColdStaking->setButtonClassStyle("cssClass", "btn-check-cold-staking-inactive");
     ui->pushButtonColdStaking->setButtonText("Cold Staking Disabled");
-
-    ui->pushButtonMint->setButtonClassStyle("cssClass", "btn-check-mint-inactive");
-    ui->pushButtonMint->setButtonText("Automint Enabled");
-    ui->pushButtonMint->setVisible(false);
 
     ui->pushButtonSync->setButtonClassStyle("cssClass", "btn-check-sync");
     ui->pushButtonSync->setButtonText(" %54 Synchronizing..");
@@ -353,11 +347,6 @@ void TopBar::loadClientModel(){
     }
 }
 
-void TopBar::updateAutoMintStatus(){
-    ui->pushButtonMint->setButtonText(fEnableZeromint ? tr("Automint enabled") : tr("Automint disabled"));
-    ui->pushButtonMint->setChecked(fEnableZeromint);
-}
-
 void TopBar::setStakingStatusActive(bool fActive)
 {
     if (ui->pushButtonStack->isChecked() != fActive) {
@@ -420,12 +409,11 @@ void TopBar::setNumBlocks(int count) {
         emit walletSynced(true);
         if (masternodeSync.IsSynced()) {
             // Node synced
-            // TODO: Set synced icon to pushButtonSync here..
-            ui->pushButtonSync->setButtonText(tr("Synchronized"));
+            ui->pushButtonSync->setButtonText(tr("Synchronized - Block: %1").arg(QString::number(count)));
             progressBar->setRange(0,100);
             progressBar->setValue(100);
             return;
-        }else{
+        } else {
 
             // TODO: Show out of sync warning
             int nAttempt = masternodeSync.RequestedMasternodeAttempt < MASTERNODE_SYNC_THRESHOLD ?
@@ -434,7 +422,7 @@ void TopBar::setNumBlocks(int count) {
             int progress = nAttempt + (masternodeSync.RequestedMasternodeAssets - 1) * MASTERNODE_SYNC_THRESHOLD;
             if(progress >= 0){
                 // todo: MN progress..
-                text = std::string("Synchronizing additional data..");//: %p%", progress);
+                text = strprintf("Synchronizing masternodes data... - Block: %d", count);
                 //progressBar->setMaximum(4 * MASTERNODE_SYNC_THRESHOLD);
                 //progressBar->setValue(progress);
                 needState = false;
@@ -550,7 +538,7 @@ void TopBar::updateBalances(const CAmount& balance, const CAmount& unconfirmedBa
     ui->labelTitle1->setText(nLockedBalance > 0 ? tr("Available (Locked included)") : tr("Available"));
 
     // PNY Total
-    CAmount pnyAvailableBalance = balance + delegatedBalance;
+    CAmount pnyAvailableBalance = balance;
     // zPNY Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
 

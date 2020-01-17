@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -63,12 +63,6 @@ static const CAmount nHighTransactionMaxFeeWarning = 100 * nHighTransactionFeeWa
 static const unsigned int MAX_FREE_TRANSACTION_CREATE_SIZE = 1000;
 //! -custombackupthreshold default
 static const int DEFAULT_CUSTOMBACKUPTHRESHOLD = 1;
-//! -enableautoconvertaddress default
-static const bool DEFAULT_AUTOCONVERTADDRESS = false;
-
-// Zerocoin denomination which creates exactly one of each denominations:
-// 6666 = 1*5000 + 1*1000 + 1*500 + 1*100 + 1*50 + 1*10 + 1*5 + 1
-static const int ZQ_6666 = 6666;
 
 class CAccountingEntry;
 class CCoinControl;
@@ -266,7 +260,6 @@ public:
     bool SetMintUnspent(const CBigNum& bnSerial);
     bool UpdateMint(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const libzerocoin::CoinDenomination& denom);
     std::string GetUniqueWalletBackupName(bool fzpnyAuto) const;
-    void InitAutoConvertAddresses();
 
 
     /** Zerocin entry changed.
@@ -283,8 +276,6 @@ public:
     mutable CCriticalSection cs_wallet;
 
     CzPNYWallet* zwalletMain;
-
-    std::set<CBitcoinAddress> setAutoConvertAddresses;
 
     bool fFileBacked;
     bool fWalletUnlockAnonymizeOnly;
@@ -321,10 +312,8 @@ public:
     CWallet(std::string strWalletFileIn);
     ~CWallet();
     void SetNull();
-    int getZeromintPercentage();
     void setZWallet(CzPNYWallet* zwallet);
     CzPNYWallet* getZWallet();
-    bool isZeromintEnabled();
     void setZPnyAutoBackups(bool fEnabled);
     bool isMultiSendEnabled();
     void setMultiSendDisabled();
@@ -380,7 +369,6 @@ public:
                                            const CChainParams::Base58Type addrType = CChainParams::PUBKEY_ADDRESS);
     PairResult getNewAddress(CBitcoinAddress& ret, std::string label);
     PairResult getNewStakingAddress(CBitcoinAddress& ret, std::string label);
-    CBitcoinAddress GenerateNewAutoMintKey();
     int64_t GetKeyCreationTime(CPubKey pubkey);
     int64_t GetKeyCreationTime(const CBitcoinAddress& address);
 
@@ -477,9 +465,6 @@ public:
     bool CreateCoinStake(const CKeyStore& keystore, const CBlockIndex* pindexPrev, unsigned int nBits, CMutableTransaction& txNew, int64_t& nTxNewTime);
     bool MultiSend();
     void AutoCombineDust();
-    void AutoZeromint();
-    void AutoZeromintForAddress();
-    void CreateAutoMintTransaction(const CAmount& nMintAmount, CCoinControl* coinControl = nullptr);
 
     static CFeeRate minTxFee;
     static CAmount GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool);

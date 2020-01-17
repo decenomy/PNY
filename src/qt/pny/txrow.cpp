@@ -1,6 +1,4 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -95,9 +93,18 @@ void TxRow::setType(bool isLightTheme, int type, bool isConfirmed){
             css = "text-list-amount-unconfirmed";
             break;
         case TransactionRecord::P2CSDelegationSent:
+        case TransactionRecord::P2CSDelegationSentOwner:
+            path = "://ic-transaction-cs-contract";
+            css = "text-list-amount-send";
+            break;
         case TransactionRecord::P2CSDelegation:
             path = "://ic-transaction-cs-contract";
             css = "text-list-amount-unconfirmed";
+            break;
+        case TransactionRecord::P2CSUnlockOwner:
+        case TransactionRecord::P2CSUnlockStaker:
+            path = "://ic-transaction-cs-contract";
+            css = "text-list-amount-send";
             break;
         default:
             path = "://ic-pending";

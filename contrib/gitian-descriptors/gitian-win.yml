@@ -1,5 +1,5 @@
 ---
-name: "pny-win-3.0.1"
+name: "pny-win-3.0.2"
 enable_cache: true
 distro: "ubuntu"
 suites:
