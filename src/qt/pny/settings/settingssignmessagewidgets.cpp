@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -34,24 +34,16 @@ SettingsSignMessageWidgets::SettingsSignMessageWidgets(PNYGUI* _window, QWidget 
     ui->left->setContentsMargins(10,10,10,10);
 
     // Title
-    ui->labelTitle->setText(tr("Sign/Verify Message"));
     ui->labelTitle->setProperty("cssClass", "text-title-screen");
-
-    // Subtitle
     ui->labelSubtitle1->setProperty("cssClass", "text-subtitle");
 
     // Address
-    ui->labelSubtitleAddress->setText(tr("PNY address or contact label"));
     ui->labelSubtitleAddress->setProperty("cssClass", "text-title");
-
-    ui->addressIn_SM->setPlaceholderText(tr("Enter address"));
     ui->addressIn_SM->setProperty("cssClass", "edit-primary-multi-book");
     ui->addressIn_SM->setAttribute(Qt::WA_MacShowFocusRect, 0);
     setShadow(ui->addressIn_SM);
 
     /* Button Group */
-    ui->pushSign->setText(tr("Sign"));
-    ui->pushVerify->setText(tr("Verify"));
     setCssProperty(ui->pushSign, "btn-check-right");
     setCssProperty(ui->pushVerify, "btn-check-right");
     ui->labelSubtitleSwitch->setText(tr("Select mode"));
@@ -60,19 +52,13 @@ SettingsSignMessageWidgets::SettingsSignMessageWidgets(PNYGUI* _window, QWidget 
     updateMode();
 
     // Message
-    ui->labelSubtitleMessage->setText(tr("Message"));
     ui->labelSubtitleMessage->setProperty("cssClass", "text-title");
-
-#if QT_VERSION >= 0x050300
-    ui->messageIn_SM->setPlaceholderText(tr("Write message"));
-#endif
     ui->messageIn_SM->setProperty("cssClass","edit-primary");
     setShadow(ui->messageIn_SM);
     ui->messageIn_SM->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
-    ui->labelSubtitleSignature->setText(tr("Signature"));
+    // Signature
     ui->labelSubtitleSignature->setProperty("cssClass", "text-title");
-    ui->signatureOut_SM->setPlaceholderText(tr("Signature"));
     ui->signatureOut_SM->setAttribute(Qt::WA_MacShowFocusRect, 0);
 
     initCssEditLine(ui->signatureOut_SM);
@@ -81,21 +67,20 @@ SettingsSignMessageWidgets::SettingsSignMessageWidgets(PNYGUI* _window, QWidget 
     // Buttons
     btnContact = ui->addressIn_SM->addAction(QIcon("://ic-contact-arrow-down"), QLineEdit::TrailingPosition);
 
-    ui->pushButtonSave->setText(tr("SIGN"));
-    ui->pushButtonClear->setText(tr("CLEAR ALL"));
     setCssBtnPrimary(ui->pushButtonSave);
     setCssBtnSecondary(ui->pushButtonClear);
 
     ui->statusLabel_SM->setStyleSheet("QLabel { color: transparent; }");
 
-    connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onGoClicked()));
-    connect(btnContact, SIGNAL(triggered()), this, SLOT(onAddressesClicked()));
-    connect(ui->pushButtonClear, SIGNAL(clicked()), this, SLOT(onClearAll()));
+    connect(ui->pushButtonSave, &QPushButton::clicked, this, &SettingsSignMessageWidgets::onGoClicked);
+    connect(btnContact, &QAction::triggered, this, &SettingsSignMessageWidgets::onAddressesClicked);
+    connect(ui->pushButtonClear, &QPushButton::clicked, this, &SettingsSignMessageWidgets::onClearAll);
     connect(ui->pushSign, &QPushButton::clicked, [this](){onModeSelected(true);});
     connect(ui->pushVerify,  &QPushButton::clicked, [this](){onModeSelected(false);});
 }
 
-SettingsSignMessageWidgets::~SettingsSignMessageWidgets(){
+SettingsSignMessageWidgets::~SettingsSignMessageWidgets()
+{
     delete ui;
 }
 
@@ -104,23 +89,26 @@ void SettingsSignMessageWidgets::showEvent(QShowEvent *event)
     if (ui->addressIn_SM) ui->addressIn_SM->setFocus();
 }
 
-void SettingsSignMessageWidgets::onModeSelected(bool isSign){
+void SettingsSignMessageWidgets::onModeSelected(bool isSign)
+{
     this->isSign = isSign;
     updateMode();
 }
 
-void SettingsSignMessageWidgets::onGoClicked(){
-    if(isSign){
+void SettingsSignMessageWidgets::onGoClicked()
+{
+    if (isSign) {
         onSignMessageButtonSMClicked();
     } else {
         onVerifyMessage();
     }
 }
 
-void SettingsSignMessageWidgets::updateMode(){
+void SettingsSignMessageWidgets::updateMode()
+{
     QString subtitle;
     QString go;
-    if(isSign){
+    if (isSign) {
         subtitle = tr("You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.");
         go = tr("SIGN");
         ui->signatureOut_SM->setReadOnly(true);
@@ -134,12 +122,14 @@ void SettingsSignMessageWidgets::updateMode(){
     ui->pushButtonSave->setText(go);
 }
 
-void SettingsSignMessageWidgets::setAddress_SM(const QString& address){
+void SettingsSignMessageWidgets::setAddress_SM(const QString& address)
+{
     ui->addressIn_SM->setText(address);
     ui->messageIn_SM->setFocus();
 }
 
-void SettingsSignMessageWidgets::onAddressBookButtonSMClicked(){
+void SettingsSignMessageWidgets::onAddressBookButtonSMClicked()
+{
     if (walletModel && walletModel->getAddressTableModel()) {
         AddressBookPage dlg(AddressBookPage::ForSelection, AddressBookPage::ReceivingTab, this);
         dlg.setModel(walletModel->getAddressTableModel());
@@ -149,33 +139,35 @@ void SettingsSignMessageWidgets::onAddressBookButtonSMClicked(){
     }
 }
 
-void SettingsSignMessageWidgets::onPasteButtonSMClicked(){
+void SettingsSignMessageWidgets::onPasteButtonSMClicked()
+{
     setAddress_SM(QApplication::clipboard()->text());
 }
 
-void SettingsSignMessageWidgets::onClearAll() {
+void SettingsSignMessageWidgets::onClearAll()
+{
     ui->addressIn_SM->clear();
     ui->signatureOut_SM->clear();
     ui->messageIn_SM->clear();
     ui->statusLabel_SM->setStyleSheet("QLabel { color: transparent; }");
 }
 
-void SettingsSignMessageWidgets::onSignMessageButtonSMClicked(){
-
+void SettingsSignMessageWidgets::onSignMessageButtonSMClicked()
+{
     if (!walletModel)
         return;
 
     /* Clear old signature to ensure users don't get confused on error with an old signature displayed */
     ui->signatureOut_SM->clear();
 
-    CBitcoinAddress addr(ui->addressIn_SM->text().toStdString());
-    if (!addr.IsValid()) {
+    CTxDestination addr = DecodeDestination(ui->addressIn_SM->text().toStdString());
+    if (!IsValidDestination(addr)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("The entered address is invalid.") + QString(" ") + tr("Please check the address and try again."));
         return;
     }
-    CKeyID keyID;
-    if (!addr.GetKeyID(keyID)) {
+    const CKeyID* keyID = boost::get<CKeyID>(&addr);
+    if (!keyID) {
         // TODO: change css..
         //ui->addressIn_SM->setValid(false);
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
@@ -183,7 +175,7 @@ void SettingsSignMessageWidgets::onSignMessageButtonSMClicked(){
         return;
     }
 
-    WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::Sign_Message, true));
+    WalletModel::UnlockContext ctx(walletModel->requestUnlock());
     if (!ctx.isValid()) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("Wallet unlock was cancelled."));
@@ -191,7 +183,7 @@ void SettingsSignMessageWidgets::onSignMessageButtonSMClicked(){
     }
 
     CKey key;
-    if (!pwalletMain->GetKey(keyID, key)) {
+    if (!pwalletMain->GetKey(*keyID, key)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("Private key for the entered address is not available."));
         return;
@@ -214,8 +206,8 @@ void SettingsSignMessageWidgets::onSignMessageButtonSMClicked(){
     ui->signatureOut_SM->setText(QString::fromStdString(EncodeBase64(&vchSig[0], vchSig.size())));
 }
 
-void SettingsSignMessageWidgets::onVerifyMessage(){
-
+void SettingsSignMessageWidgets::onVerifyMessage()
+{
     /**
      * ui->addressIn_SM->clear();
     ui->signatureOut_SM->clear();
@@ -223,14 +215,14 @@ void SettingsSignMessageWidgets::onVerifyMessage(){
     ui->statusLabel_SM->setStyleSheet("QLabel { color: transparent; }");
      */
 
-    CBitcoinAddress addr(ui->addressIn_SM->text().toStdString());
-    if (!addr.IsValid()) {
+    CTxDestination addr = DecodeDestination(ui->addressIn_SM->text().toStdString());
+    if (!IsValidDestination(addr)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("The entered address is invalid.") + QString(" ") + tr("Please check the address and try again."));
         return;
     }
-    CKeyID keyID;
-    if (!addr.GetKeyID(keyID)) {
+    const CKeyID* keyID = boost::get<CKeyID>(&addr);
+    if (!keyID) {
         //ui->addressIn_SM->setValid(false);
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(tr("The entered address does not refer to a key.") + QString(" ") + tr("Please check the address and try again."));
@@ -259,7 +251,7 @@ void SettingsSignMessageWidgets::onVerifyMessage(){
         return;
     }
 
-    if (!(CBitcoinAddress(pubkey.GetID()) == addr)) {
+    if (!(pubkey.GetID() == *keyID)) {
         ui->statusLabel_SM->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel_SM->setText(QString("<nobr>") + tr("Message verification failed.") + QString("</nobr>"));
         return;
@@ -269,9 +261,10 @@ void SettingsSignMessageWidgets::onVerifyMessage(){
     ui->statusLabel_SM->setText(QString("<nobr>") + tr("Message verified.") + QString("</nobr>"));
 }
 
-void SettingsSignMessageWidgets::onAddressesClicked(){
+void SettingsSignMessageWidgets::onAddressesClicked()
+{
     int addressSize = walletModel->getAddressTableModel()->sizeRecv();
-    if(addressSize == 0) {
+    if (addressSize == 0) {
         inform(tr("No addresses available, you can go to the receive screen and add some there!"));
         return;
     }
@@ -279,7 +272,7 @@ void SettingsSignMessageWidgets::onAddressesClicked(){
     int height = (addressSize <= 2) ? ui->addressIn_SM->height() * ( 2 * (addressSize + 1 )) : ui->addressIn_SM->height() * 4;
     int width = ui->containerAddress->width();
 
-    if(!menuContacts){
+    if (!menuContacts) {
         menuContacts = new ContactsDropdown(
                 width,
                 height,
@@ -292,7 +285,7 @@ void SettingsSignMessageWidgets::onAddressesClicked(){
 
     }
 
-    if(menuContacts->isVisible()){
+    if (menuContacts->isVisible()) {
         menuContacts->hide();
         return;
     }
@@ -307,8 +300,9 @@ void SettingsSignMessageWidgets::onAddressesClicked(){
     menuContacts->show();
 }
 
-void SettingsSignMessageWidgets::resizeMenu(){
-    if(menuContacts && menuContacts->isVisible()){
+void SettingsSignMessageWidgets::resizeMenu()
+{
+    if (menuContacts && menuContacts->isVisible()) {
         int width = ui->containerAddress->width();
         menuContacts->resizeList(width, menuContacts->height());
         menuContacts->resize(width, menuContacts->height());
@@ -318,7 +312,8 @@ void SettingsSignMessageWidgets::resizeMenu(){
     }
 }
 
-void SettingsSignMessageWidgets::resizeEvent(QResizeEvent *event){
+void SettingsSignMessageWidgets::resizeEvent(QResizeEvent *event)
+{
     resizeMenu();
     QWidget::resizeEvent(event);
 }

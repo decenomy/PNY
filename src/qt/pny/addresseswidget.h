@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -39,13 +39,15 @@ public:
     void loadWalletModel() override;
     void onNewContactClicked();
 
-private slots:
+private Q_SLOTS:
     void handleAddressClicked(const QModelIndex &index);
     void onStoreContactClicked();
     void onEditClicked();
     void onDeleteClicked();
     void onCopyClicked();
     void onAddContactShowHideClicked();
+    void onSortChanged(int idx);
+    void onSortOrderChanged(int idx);
 
     void changeTheme(bool isLightTheme, QString &theme) override;
 private:
@@ -61,7 +63,12 @@ private:
     // Cached index
     QModelIndex index;
 
+    // Cached sort type and order
+    AddressTableModel::ColumnIndex sortType = AddressTableModel::Label;
+    Qt::SortOrder sortOrder = Qt::AscendingOrder;
+
     void updateListView();
+    void sortAddresses();
 };
 
 #endif // ADDRESSESWIDGET_H

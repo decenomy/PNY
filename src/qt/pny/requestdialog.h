@@ -1,16 +1,17 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef REQUESTDIALOG_H
 #define REQUESTDIALOG_H
 
-#include <QDialog>
-#include <QPixmap>
-#include "walletmodel.h"
+#include "qt/pny/focuseddialog.h"
 #include "qt/pny/snackbar.h"
+#include "walletmodel.h"
+
+#include <QPixmap>
 
 class WalletModel;
 class PNYGUI;
@@ -19,7 +20,7 @@ namespace Ui {
 class RequestDialog;
 }
 
-class RequestDialog : public QDialog
+class RequestDialog : public FocusedDialog
 {
     Q_OBJECT
 
@@ -32,8 +33,8 @@ public:
     void showEvent(QShowEvent *event) override;
     int res = -1;
 
-private slots:
-    void onNextClicked();
+private Q_SLOTS:
+    void accept() override;
     void onCopyClicked();
     void onCopyUriClicked();
 

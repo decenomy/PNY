@@ -1,6 +1,6 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -29,7 +29,7 @@ public:
     void updateStatus(WalletModel::EncryptionStatus status);
     int lock = 0;
     bool isHovered();
-signals:
+Q_SIGNALS:
     void Mouse_Entered();
     void Mouse_Leave();
 
@@ -38,7 +38,7 @@ protected:
     virtual void enterEvent(QEvent *);
     virtual void leaveEvent(QEvent *);
 
-public slots:
+public Q_SLOTS:
     void onLockClicked();
     void onUnlockClicked();
     void onStakingClicked();

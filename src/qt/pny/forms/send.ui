@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>send</class>
  <widget class="QWidget" name="send">
@@ -81,7 +81,7 @@
             <item>
              <widget class="QLabel" name="labelSubtitle1">
               <property name="text">
-               <string>TextLabel</string>
+               <string>Send public coins (PNY)</string>
               </property>
              </widget>
             </item>
@@ -99,109 +99,6 @@
              </size>
             </property>
            </spacer>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QGroupBox" name="groupBox">
-              <property name="title">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-              </property>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QPushButton" name="pushLeft">
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>120</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::NoFocus</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="autoExclusive">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushRight">
-                 <property name="minimumSize">
-                  <size>
-                   <width>120</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>120</width>
-                   <height>30</height>
-                  </size>
-                 </property>
-                 <property name="focusPolicy">
-                  <enum>Qt::NoFocus</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="checkable">
-                  <bool>true</bool>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                 <property name="autoExclusive">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="labelSubtitle2">
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
           </item>
          </layout>
         </item>
@@ -244,7 +141,7 @@
              <string notr="true">margin-left:8px;</string>
             </property>
             <property name="text">
-             <string>TextLabel</string>
+             <string>PNY address or contact label</string>
             </property>
            </widget>
           </item>
@@ -267,7 +164,7 @@
           <item>
            <widget class="QLabel" name="labelSubtitleAmount">
             <property name="text">
-             <string>TextLabel</string>
+             <string>Amount</string>
             </property>
            </widget>
           </item>
@@ -366,9 +263,22 @@
           <property name="spacing">
            <number>6</number>
           </property>
+          <property name="leftMargin">
+           <number>20</number>
+          </property>
           <property name="rightMargin">
            <number>20</number>
           </property>
+          <item>
+           <widget class="QCheckBox" name="checkBoxDelegations">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="text">
+             <string>Include delegated</string>
+            </property>
+           </widget>
+          </item>
           <item>
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
@@ -376,7 +286,7 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>10</width>
               <height>20</height>
              </size>
             </property>
@@ -388,7 +298,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Customize fee</string>
             </property>
            </widget>
           </item>
@@ -402,7 +312,7 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
+              <width>10</width>
               <height>20</height>
              </size>
             </property>
@@ -417,7 +327,7 @@
              <enum>Qt::RightToLeft</enum>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Clear all</string>
             </property>
            </widget>
           </item>
@@ -431,7 +341,7 @@
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>20</width>
+              <width>10</width>
               <height>20</height>
              </size>
             </property>
@@ -443,7 +353,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Add recipient</string>
             </property>
            </widget>
           </item>
@@ -547,14 +457,14 @@
                      <item>
                       <widget class="QLabel" name="labelTitleTotalSend">
                        <property name="text">
-                        <string>TextLabel</string>
+                        <string>Total to send</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QLabel" name="labelAmountSend">
                        <property name="text">
-                        <string>TextLabel</string>
+                        <string notr="true">0.00 PNY</string>
                        </property>
                       </widget>
                      </item>
@@ -619,14 +529,14 @@
                      <item>
                       <widget class="QLabel" name="labelTitleTotalRemaining">
                        <property name="text">
-                        <string>TextLabel</string>
+                        <string notr="true">N/A</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QLabel" name="labelAmountRemaining">
                        <property name="text">
-                        <string>TextLabel</string>
+                        <string notr="true">N/A</string>
                        </property>
                       </widget>
                      </item>
@@ -676,7 +586,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string/>
+             <string>Send</string>
             </property>
            </widget>
           </item>
@@ -783,7 +693,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Reset to default</string>
             </property>
            </widget>
           </item>

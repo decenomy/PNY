@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,21 +52,21 @@ public:
     explicit SortEdit(QWidget* parent = nullptr) : QLineEdit(parent){}
 
     inline void mousePressEvent(QMouseEvent *) override{
-        emit Mouse_Pressed();
+        Q_EMIT Mouse_Pressed();
     }
 
     ~SortEdit() override{}
 
-signals:
+Q_SIGNALS:
     void Mouse_Pressed();
 
 };
 
 enum SortTx {
-    DATE_ASC = 0,
-    DATE_DESC = 1,
-    AMOUNT_ASC = 2,
-    AMOUNT_DESC = 3
+    DATE_DESC = 0,
+    DATE_ASC = 1,
+    AMOUNT_DESC = 2,
+    AMOUNT_ASC = 3
 };
 
 enum ChartShowType {
@@ -107,17 +107,17 @@ public:
     void run(int type) override;
     void onError(QString error, int type) override;
 
-public slots:
+public Q_SLOTS:
     void walletSynced(bool isSync);
     /**
      * Show incoming transaction notification for new transactions.
      * The new items are those between start and end inclusive, under the given parent item.
     */
     void processNewTransaction(const QModelIndex& parent, int start, int /*end*/);
-signals:
+Q_SIGNALS:
     /** Notify that a new transaction appeared */
     void incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address);
-private slots:
+private Q_SLOTS:
     void handleTransactionClicked(const QModelIndex &index);
     void changeTheme(bool isLightTheme, QString &theme) override;
     void onSortChanged(const QString&);
@@ -127,7 +127,7 @@ private slots:
     void onTxArrived(const QString& hash, const bool& isCoinStake, const bool& isCSAnyType);
 
 #ifdef USE_QTCHARTS
-    void windowResizeEvent(QResizeEvent *event);
+    void windowResizeEvent(QResizeEvent* event);
     void changeChartColors();
     void onChartYearChanged(const QString&);
     void onChartMonthChanged(const QString&);
@@ -142,6 +142,7 @@ private:
     TransactionTableModel* txModel;
     int nDisplayUnit = -1;
     bool isSync = false;
+    void changeSort(int nSortIndex);
 
 #ifdef USE_QTCHARTS
 
@@ -169,6 +170,7 @@ private:
 
     ChartData* chartData = nullptr;
     bool hasStakes = false;
+    bool fShowCharts = true;
 
     void initChart();
     void showHideEmptyChart(bool show, bool loading, bool forceView = false);
@@ -181,8 +183,9 @@ private:
     void setChartShow(ChartShowType type);
     std::pair<int, int> getChartRange(QMap<int, std::pair<qint64, qint64>> amountsBy);
 
-private slots:
+private Q_SLOTS:
     void onChartRefreshed();
+    void onHideChartsChanged(bool fHide);
 
 #endif
 

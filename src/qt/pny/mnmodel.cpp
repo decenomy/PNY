@@ -1,52 +1,56 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/pny/mnmodel.h"
+
+#include "activemasternode.h"
 #include "masternode-sync.h"
 #include "masternodeman.h"
-#include "activemasternode.h"
+#include "net.h"        // for validateMasternodeIP
 #include "sync.h"
 #include "uint256.h"
 #include "wallet/wallet.h"
 
-MNModel::MNModel(QObject *parent) : QAbstractTableModel(parent){
+MNModel::MNModel(QObject *parent) : QAbstractTableModel(parent)
+{
     updateMNList();
 }
 
-void MNModel::updateMNList(){
+void MNModel::updateMNList()
+{
     int end = nodes.size();
     nodes.clear();
     collateralTxAccepted.clear();
     for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
         int nIndex;
-        if(!mne.castOutputIndex(nIndex))
+        if (!mne.castOutputIndex(nIndex))
             continue;
 
         uint256 txHash(mne.getTxHash());
         CTxIn txIn(txHash, uint32_t(nIndex));
         CMasternode* pmn = mnodeman.Find(txIn);
-        if (!pmn){
+        if (!pmn) {
             pmn = new CMasternode();
             pmn->vin = txIn;
             pmn->activeState = CMasternode::MASTERNODE_MISSING;
         }
         nodes.insert(QString::fromStdString(mne.getAlias()), std::make_pair(QString::fromStdString(mne.getIp()), pmn));
-        if(pwalletMain) {
+        if (pwalletMain) {
             bool txAccepted = false;
             {
                 LOCK2(cs_main, pwalletMain->cs_wallet);
                 const CWalletTx *walletTx = pwalletMain->GetWalletTx(txHash);
-                if (walletTx && walletTx->GetDepthInMainChain() > 0) {
+                if (walletTx && walletTx->GetDepthInMainChain() >= MASTERNODE_MIN_CONFIRMATIONS) {
                     txAccepted = true;
                 }
             }
             collateralTxAccepted.insert(mne.getTxHash(), txAccepted);
         }
     }
-    emit dataChanged(index(0, 0, QModelIndex()), index(end, 5, QModelIndex()) );
+    Q_EMIT dataChanged(index(0, 0, QModelIndex()), index(end, 5, QModelIndex()) );
 }
 
 int MNModel::rowCount(const QModelIndex &parent) const
@@ -66,7 +70,7 @@ int MNModel::columnCount(const QModelIndex &parent) const
 
 QVariant MNModel::data(const QModelIndex &index, int role) const
 {
-    if(!index.isValid())
+    if (!index.isValid())
             return QVariant();
 
     // rec could be null, always verify it.
@@ -91,7 +95,7 @@ QVariant MNModel::data(const QModelIndex &index, int role) const
             }
             case PRIV_KEY: {
                 for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
-                    if (mne.getTxHash().compare(rec->vin.prevout.hash.GetHex()) == 0){
+                    if (mne.getTxHash().compare(rec->vin.prevout.hash.GetHex()) == 0) {
                         return QString::fromStdString(mne.getPrivKey());
                     }
                 }
@@ -100,7 +104,7 @@ QVariant MNModel::data(const QModelIndex &index, int role) const
             case WAS_COLLATERAL_ACCEPTED:{
                 if (!isAvailable) return false;
                 std::string txHash = rec->vin.prevout.hash.GetHex();
-                if(!collateralTxAccepted.value(txHash)){
+                if (!collateralTxAccepted.value(txHash)) {
                     bool txAccepted = false;
                     {
                         LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -123,7 +127,7 @@ QModelIndex MNModel::index(int row, int column, const QModelIndex& parent) const
     CMasternode* data = pair.second;
     if (data) {
         return createIndex(row, column, data);
-    } else if (!pair.first.isEmpty()){
+    } else if (!pair.first.isEmpty()) {
         return createIndex(row, column, nullptr);
     } else {
         return QModelIndex();
@@ -131,20 +135,22 @@ QModelIndex MNModel::index(int row, int column, const QModelIndex& parent) const
 }
 
 
-bool MNModel::removeMn(const QModelIndex& modelIndex) {
+bool MNModel::removeMn(const QModelIndex& modelIndex)
+{
     QString alias = modelIndex.data(Qt::DisplayRole).toString();
     int idx = modelIndex.row();
     beginRemoveRows(QModelIndex(), idx, idx);
     nodes.take(alias);
     endRemoveRows();
-    emit dataChanged(index(idx, 0, QModelIndex()), index(idx, 5, QModelIndex()) );
+    Q_EMIT dataChanged(index(idx, 0, QModelIndex()), index(idx, 5, QModelIndex()) );
     return true;
 }
 
-bool MNModel::addMn(CMasternodeConfig::CMasternodeEntry* mne){
+bool MNModel::addMn(CMasternodeConfig::CMasternodeEntry* mne)
+{
     beginInsertRows(QModelIndex(), nodes.size(), nodes.size());
     int nIndex;
-    if(!mne->castOutputIndex(nIndex))
+    if (!mne->castOutputIndex(nIndex))
         return false;
 
     CMasternode* pmn = mnodeman.Find(CTxIn(uint256S(mne->getTxHash()), uint32_t(nIndex)));
@@ -153,22 +159,38 @@ bool MNModel::addMn(CMasternodeConfig::CMasternodeEntry* mne){
     return true;
 }
 
-int MNModel::getMNState(QString mnAlias) {
+int MNModel::getMNState(QString mnAlias)
+{
     QMap<QString, std::pair<QString, CMasternode*>>::const_iterator it = nodes.find(mnAlias);
     if (it != nodes.end()) return it.value().second->activeState;
     throw std::runtime_error(std::string("Masternode alias not found"));
 }
 
-bool MNModel::isMNInactive(QString mnAlias) {
+bool MNModel::isMNInactive(QString mnAlias)
+{
     int activeState = getMNState(mnAlias);
     return activeState == CMasternode::MASTERNODE_MISSING || activeState == CMasternode::MASTERNODE_EXPIRED || activeState == CMasternode::MASTERNODE_REMOVE;
 }
 
-bool MNModel::isMNActive(QString mnAlias) {
+bool MNModel::isMNActive(QString mnAlias)
+{
     int activeState = getMNState(mnAlias);
     return activeState == CMasternode::MASTERNODE_PRE_ENABLED || activeState == CMasternode::MASTERNODE_ENABLED;
 }
 
-bool MNModel::isMNsNetworkSynced() {
+bool MNModel::isMNCollateralMature(QString mnAlias)
+{
+    QMap<QString, std::pair<QString, CMasternode*>>::const_iterator it = nodes.find(mnAlias);
+    if (it != nodes.end()) return collateralTxAccepted.value(it.value().second->vin.prevout.hash.GetHex());
+    throw std::runtime_error(std::string("Masternode alias not found"));
+}
+
+bool MNModel::isMNsNetworkSynced()
+{
     return masternodeSync.IsSynced();
+}
+
+bool MNModel::validateMNIP(const QString& addrStr)
+{
+    return validateMasternodeIP(addrStr.toStdString());
 }

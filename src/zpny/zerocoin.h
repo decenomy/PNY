@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -79,7 +79,7 @@ public:
         value = 0;
         denomination = libzerocoin::ZQ_ERROR;
         nHeight = 0;
-        txid = 0;
+        txid.SetNull();
         version = 1;
         privkey.clear();
     }
@@ -157,7 +157,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action) {
         READWRITE(isUsed);
         READWRITE(randomness);
         READWRITE(serialNumber);
@@ -211,7 +211,7 @@ public:
     void SetNull()
     {
         coinSerial = 0;
-        hashTx = 0;
+        hashTx.SetNull();
         pubCoin = 0;
         denomination = libzerocoin::ZQ_ERROR;
     }
@@ -229,7 +229,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+    inline void SerializationOp(Stream& s, Operation ser_action) {
         READWRITE(coinSerial);
         READWRITE(hashTx);
         READWRITE(pubCoin);

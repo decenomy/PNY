@@ -10,8 +10,8 @@
 * @license    This project is released under the MIT license.
 **/
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 
 #include "Params.h"
 #include "ParamGeneration.h"

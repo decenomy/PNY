@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Copyright (c) 2018-2019 The Bitcoin Core developers
-# Copyright (c) 2019 The PIVX developers
+# Copyright (c) 2019-2020 The PIVX developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -120,7 +120,7 @@ def setup_repos():
     if args.host_os == 'darwin':
         subprocess.check_call(['sed', '-i.old', '/50cacher/d', 'bin/make-base-vm'])
     if args.host_os == 'linux':
-        if args.is_fedora or args.is_centos:
+        if args.is_fedora or args.is_centos or args.is_wsl:
             subprocess.check_call(['sed', '-i', '/50cacher/d', 'bin/make-base-vm'])
     subprocess.check_call(make_image_prog)
     subprocess.check_call(['git', 'checkout', 'bin/make-base-vm'])
@@ -288,12 +288,15 @@ def main():
         args.is_bionic = False
         args.is_fedora = False
         args.is_centos = False
+        args.is_wsl    = False
         if os.path.isfile('/usr/bin/lsb_release'):
             args.is_bionic = b'bionic' in subprocess.check_output(['lsb_release', '-cs'])
         if os.path.isfile('/etc/fedora-release'):
             args.is_fedora = True
         if os.path.isfile('/etc/centos-release'):
             args.is_centos = True
+        if os.path.isfile('/proc/version') and open('/proc/version', 'r').read().find('Microsoft'):
+            args.is_wsl = True
 
     if args.kvm and args.docker:
         raise Exception('Error: cannot have both kvm and docker')

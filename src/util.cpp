@@ -20,7 +20,10 @@
 #include "utilstrencodings.h"
 #include "utiltime.h"
 
+#include <librustzcash.h>
+
 #include <stdarg.h>
+#include <thread>
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 
@@ -77,14 +80,16 @@
 #include <boost/algorithm/string/case_conv.hpp> // for to_lower()
 #include <boost/algorithm/string/join.hpp>
 #include <boost/algorithm/string/predicate.hpp> // for startswith() and endswith()
-#include <boost/filesystem.hpp>
-#include <boost/filesystem/fstream.hpp>
 #include <boost/program_options/detail/config_file.hpp>
 #include <boost/program_options/parsers.hpp>
 #include <boost/thread.hpp>
 #include <openssl/conf.h>
 #include <openssl/crypto.h>
 #include <openssl/rand.h>
+
+const char * const PNY_CONF_FILENAME = "pny.conf";
+const char * const PNY_PID_FILENAME = "pny.pid";
+const char * const PNY_MASTERNODE_CONF_FILENAME = "masternode.conf";
 
 
 // PNY only features
@@ -100,23 +105,16 @@ int nSwiftTXDepth = 5;
 /** Spork enforcement enabled time */
 int64_t enforceMasternodePaymentsTime = 4085657524;
 bool fSucessfullyLoaded = false;
-/** All denominations used by obfuscation */
-std::vector<int64_t> obfuScationDenominations;
 std::string strBudgetMode = "";
 
 std::map<std::string, std::string> mapArgs;
 std::map<std::string, std::vector<std::string> > mapMultiArgs;
-bool fDebug = false;
-bool fPrintToConsole = false;
-bool fPrintToDebugLog = true;
+
 bool fDaemon = false;
 std::string strMiscWarning;
-bool fLogTimestamps = false;
-bool fLogIPs = false;
-volatile bool fReopenDebugLog = false;
 
 /** Init OpenSSL library multithreading support */
-static CCriticalSection** ppmutexOpenSSL;
+static RecursiveMutex** ppmutexOpenSSL;
 void locking_callback(int mode, int i, const char* file, int line) NO_THREAD_SAFETY_ANALYSIS
 {
     if (mode & CRYPTO_LOCK) {
@@ -133,9 +131,9 @@ public:
     CInit()
     {
         // Init OpenSSL library multithreading support
-        ppmutexOpenSSL = (CCriticalSection**)OPENSSL_malloc(CRYPTO_num_locks() * sizeof(CCriticalSection*));
+        ppmutexOpenSSL = (RecursiveMutex**)OPENSSL_malloc(CRYPTO_num_locks() * sizeof(RecursiveMutex*));
         for (int i = 0; i < CRYPTO_num_locks(); i++)
-            ppmutexOpenSSL[i] = new CCriticalSection();
+            ppmutexOpenSSL[i] = new RecursiveMutex();
         CRYPTO_set_locking_callback(locking_callback);
 
         // OpenSSL can optionally load a config file which lists optional loadable modules and engines.
@@ -165,110 +163,6 @@ public:
     }
 } instance_of_cinit;
 
-/**
- * LogPrintf() has been broken a couple of times now
- * by well-meaning people adding mutexes in the most straightforward way.
- * It breaks because it may be called by global destructors during shutdown.
- * Since the order of destruction of static/global objects is undefined,
- * defining a mutex as a global object doesn't work (the mutex gets
- * destroyed, and then some later destructor calls OutputDebugStringF,
- * maybe indirectly, and you get a core dump at shutdown trying to lock
- * the mutex).
- */
-
-static boost::once_flag debugPrintInitFlag = BOOST_ONCE_INIT;
-/**
- * We use boost::call_once() to make sure these are initialized
- * in a thread-safe manner the first time called:
- */
-static FILE* fileout = NULL;
-static boost::mutex* mutexDebugLog = NULL;
-
-static void DebugPrintInit()
-{
-    assert(fileout == NULL);
-    assert(mutexDebugLog == NULL);
-
-    boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
-    fileout = fopen(pathDebug.string().c_str(), "a");
-    if (fileout) setbuf(fileout, NULL); // unbuffered
-
-    mutexDebugLog = new boost::mutex();
-}
-
-bool LogAcceptCategory(const char* category)
-{
-    if (category != NULL) {
-        if (!fDebug)
-            return false;
-
-        // Give each thread quick access to -debug settings.
-        // This helps prevent issues debugging global destructors,
-        // where mapMultiArgs might be deleted before another
-        // global destructor calls LogPrint()
-        static boost::thread_specific_ptr<std::set<std::string> > ptrCategory;
-        if (ptrCategory.get() == NULL) {
-            const std::vector<std::string>& categories = mapMultiArgs["-debug"];
-            ptrCategory.reset(new std::set<std::string>(categories.begin(), categories.end()));
-            // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "pny" is a composite category enabling all PNY-related debug output
-            if (ptrCategory->count(std::string("pny"))) {
-                ptrCategory->insert(std::string("obfuscation"));
-                ptrCategory->insert(std::string("swiftx"));
-                ptrCategory->insert(std::string("masternode"));
-                ptrCategory->insert(std::string("mnpayments"));
-                ptrCategory->insert(std::string("zero"));
-                ptrCategory->insert(std::string("mnbudget"));
-                ptrCategory->insert(std::string("staking"));
-            }
-        }
-        const std::set<std::string>& setCategories = *ptrCategory.get();
-
-        // if not debugging everything and not debugging specific category, LogPrint does nothing.
-        if (setCategories.count(std::string("")) == 0 &&
-            setCategories.count(std::string(category)) == 0)
-            return false;
-    }
-    return true;
-}
-
-int LogPrintStr(const std::string& str)
-{
-    int ret = 0; // Returns total number of characters written
-    if (fPrintToConsole) {
-        // print to console
-        ret = fwrite(str.data(), 1, str.size(), stdout);
-        fflush(stdout);
-    } else if (fPrintToDebugLog && AreBaseParamsConfigured()) {
-        static bool fStartedNewLine = true;
-        boost::call_once(&DebugPrintInit, debugPrintInitFlag);
-
-        if (fileout == NULL)
-            return ret;
-
-        boost::mutex::scoped_lock scoped_lock(*mutexDebugLog);
-
-        // reopen the log file, if requested
-        if (fReopenDebugLog) {
-            fReopenDebugLog = false;
-            boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
-            if (freopen(pathDebug.string().c_str(), "a", fileout) != NULL)
-                setbuf(fileout, NULL); // unbuffered
-        }
-
-        // Debug print useful for profiling
-        if (fLogTimestamps && fStartedNewLine)
-            ret += fprintf(fileout, "%s ", DateTimeStrFormat("%Y-%m-%d %H:%M:%S", GetTime()).c_str());
-        if (!str.empty() && str[str.size() - 1] == '\n')
-            fStartedNewLine = true;
-        else
-            fStartedNewLine = false;
-
-        ret = fwrite(str.data(), 1, str.size(), fileout);
-    }
-
-    return ret;
-}
 
 /** Interpret string as boolean, for argument parsing */
 static bool InterpretBool(const std::string& strValue)
@@ -396,9 +290,8 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
     strMiscWarning = message;
 }
 
-boost::filesystem::path GetDefaultDataDir()
+fs::path GetDefaultDataDir()
 {
-    namespace fs = boost::filesystem;
 // Windows < Vista: C:\Documents and Settings\Username\Application Data\PNY
 // Windows >= Vista: C:\Users\Username\AppData\Roaming\PNY
 // Mac: ~/Library/Application Support/PNY
@@ -425,14 +318,108 @@ boost::filesystem::path GetDefaultDataDir()
 #endif
 }
 
-static boost::filesystem::path pathCached;
-static boost::filesystem::path pathCachedNetSpecific;
-static CCriticalSection csPathCached;
+static fs::path pathCached;
+static fs::path pathCachedNetSpecific;
+static fs::path zc_paramsPathCached;
+static RecursiveMutex csPathCached;
 
-const boost::filesystem::path& GetDataDir(bool fNetSpecific)
+static fs::path ZC_GetBaseParamsDir()
 {
-    namespace fs = boost::filesystem;
+    // Copied from GetDefaultDataDir and adapter for zcash params.
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\PNYParams
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\PNYParams
+    // Mac: ~/Library/Application Support/PNYParams
+    // Unix: ~/.pny-params
+#ifdef WIN32
+    // Windows
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "PNYParams";
+#else
+    fs::path pathRet;
+    char* pszHome = getenv("HOME");
+    if (pszHome == NULL || strlen(pszHome) == 0)
+        pathRet = fs::path("/");
+    else
+        pathRet = fs::path(pszHome);
+#ifdef MAC_OSX
+    // Mac
+    pathRet /= "Library/Application Support";
+    TryCreateDirectory(pathRet);
+    return pathRet / "PNYParams";
+#else
+    // Unix
+    return pathRet / ".pny-params";
+#endif
+#endif
+}
 
+const fs::path &ZC_GetParamsDir()
+{
+    LOCK(csPathCached); // Reuse the same lock as upstream.
+
+    fs::path &path = zc_paramsPathCached;
+
+    // This can be called during exceptions by LogPrintf(), so we cache the
+    // value so we don't have to do memory allocations after that.
+    if (!path.empty())
+        return path;
+
+#ifdef USE_CUSTOM_PARAMS
+    path = fs::system_complete(PARAMS_DIR);
+#else
+    if (mapArgs.count("-paramsdir")) {
+        path = fs::system_complete(mapArgs["-paramsdir"]);
+        if (!fs::is_directory(path)) {
+            path = "";
+            return path;
+        }
+    } else {
+        path = ZC_GetBaseParamsDir();
+    }
+#endif
+
+    return path;
+}
+
+void initZKSNARKS()
+{
+    const fs::path& path = ZC_GetParamsDir();
+    fs::path sapling_spend = path / "sapling-spend.params";
+    fs::path sapling_output = path / "sapling-output.params";
+    fs::path sprout_groth16 = path / "sprout-groth16.params";
+
+    if (!(fs::exists(sapling_spend) &&
+          fs::exists(sapling_output) &&
+          fs::exists(sprout_groth16)
+    )) {
+        throw std::runtime_error("Sapling params don't exist");
+    }
+
+    static_assert(
+        sizeof(fs::path::value_type) == sizeof(codeunit),
+        "librustzcash not configured correctly");
+    auto sapling_spend_str = sapling_spend.native();
+    auto sapling_output_str = sapling_output.native();
+    auto sprout_groth16_str = sprout_groth16.native();
+
+    //LogPrintf("Loading Sapling (Spend) parameters from %s\n", sapling_spend.string().c_str());
+
+    librustzcash_init_zksnark_params(
+        reinterpret_cast<const codeunit*>(sapling_spend_str.c_str()),
+        sapling_spend_str.length(),
+        "8270785a1a0d0bc77196f000ee6d221c9c9894f55307bd9357c3f0105d31ca63991ab91324160d8f53e2bbd3c2633a6eb8bdf5205d822e7f3f73edac51b2b70c",
+        reinterpret_cast<const codeunit*>(sapling_output_str.c_str()),
+        sapling_output_str.length(),
+        "657e3d38dbb5cb5e7dd2970e8b03d69b4787dd907285b5a7f0790dcc8072f60bf593b32cc2d1c030e00ff5ae64bf84c5c3beb84ddc841d48264b4a171744d028",
+        reinterpret_cast<const codeunit*>(sprout_groth16_str.c_str()),
+        sprout_groth16_str.length(),
+        "e9b238411bd6c0ec4791e9d04245ec350c9c5744f5610dfcce4365d5ca49dfefd5054e371842b3f88fa1b9d7e8e075249b3ebabd167fa8b0f3161292d36c180a"
+    );
+
+    //std::cout << "### Sapling params initialized ###" << std::endl;
+}
+
+const fs::path& GetDataDir(bool fNetSpecific)
+{
     LOCK(csPathCached);
 
     fs::path& path = fNetSpecific ? pathCachedNetSpecific : pathCached;
@@ -461,33 +448,29 @@ const boost::filesystem::path& GetDataDir(bool fNetSpecific)
 
 void ClearDatadirCache()
 {
-    pathCached = boost::filesystem::path();
-    pathCachedNetSpecific = boost::filesystem::path();
+    pathCached = fs::path();
+    pathCachedNetSpecific = fs::path();
 }
 
-boost::filesystem::path GetConfigFile()
+fs::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "pny.conf"));
-    if (!pathConfigFile.is_complete())
-        pathConfigFile = GetDataDir(false) / pathConfigFile;
-
-    return pathConfigFile;
+    fs::path pathConfigFile(GetArg("-conf", PNY_CONF_FILENAME));
+    return AbsPathForConfigVal(pathConfigFile, false);
 }
 
-boost::filesystem::path GetMasternodeConfigFile()
+fs::path GetMasternodeConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-mnconf", "masternode.conf"));
-    if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
-    return pathConfigFile;
+    fs::path pathConfigFile(GetArg("-mnconf", PNY_MASTERNODE_CONF_FILENAME));
+    return AbsPathForConfigVal(pathConfigFile);
 }
 
 void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
     std::map<std::string, std::vector<std::string> >& mapMultiSettingsRet)
 {
-    boost::filesystem::ifstream streamConfig(GetConfigFile());
+    fs::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
         // Create empty pny.conf if it does not exist
-        FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
+        FILE* configFile = fsbridge::fopen(GetConfigFile(), "a");
         if (configFile != NULL)
             fclose(configFile);
         return; // Nothing to read, so just return
@@ -509,17 +492,24 @@ void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
     ClearDatadirCache();
 }
 
-#ifndef WIN32
-boost::filesystem::path GetPidFile()
+fs::path AbsPathForConfigVal(const fs::path& path, bool net_specific)
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "pnyd.pid"));
-    if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
-    return pathPidFile;
+    if (path.is_absolute()) {
+        return path;
+    }
+    return fs::absolute(path, GetDataDir(net_specific));
 }
 
-void CreatePidFile(const boost::filesystem::path& path, pid_t pid)
+#ifndef WIN32
+fs::path GetPidFile()
 {
-    FILE* file = fopen(path.string().c_str(), "w");
+    fs::path pathPidFile(GetArg("-pid", PNY_PID_FILENAME));
+    return AbsPathForConfigVal(pathPidFile);
+}
+
+void CreatePidFile(const fs::path& path, pid_t pid)
+{
+    FILE* file = fsbridge::fopen(path, "w");
     if (file) {
         fprintf(file, "%d\n", pid);
         fclose(file);
@@ -527,7 +517,7 @@ void CreatePidFile(const boost::filesystem::path& path, pid_t pid)
 }
 #endif
 
-bool RenameOver(boost::filesystem::path src, boost::filesystem::path dest)
+bool RenameOver(fs::path src, fs::path dest)
 {
 #ifdef WIN32
     return MoveFileExA(src.string().c_str(), dest.string().c_str(),
@@ -543,12 +533,12 @@ bool RenameOver(boost::filesystem::path src, boost::filesystem::path dest)
  * Specifically handles case where path p exists, but it wasn't possible for the user to
  * write to the parent directory.
  */
-bool TryCreateDirectory(const boost::filesystem::path& p)
+bool TryCreateDirectory(const fs::path& p)
 {
     try {
-        return boost::filesystem::create_directory(p);
-    } catch (const boost::filesystem::filesystem_error&) {
-        if (!boost::filesystem::exists(p) || !boost::filesystem::is_directory(p))
+        return fs::create_directory(p);
+    } catch (const fs::filesystem_error&) {
+        if (!fs::exists(p) || !fs::is_directory(p))
             throw;
     }
 
@@ -653,32 +643,9 @@ void AllocateFileRange(FILE* file, unsigned int offset, unsigned int length)
 #endif
 }
 
-void ShrinkDebugFile()
-{
-    // Scroll debug.log if it's getting too big
-    boost::filesystem::path pathLog = GetDataDir() / "debug.log";
-    FILE* file = fopen(pathLog.string().c_str(), "r");
-    if (file && boost::filesystem::file_size(pathLog) > 10 * 1000000) {
-        // Restart the file with some of the end
-        std::vector<char> vch(200000, 0);
-        fseek(file, -((long)vch.size()), SEEK_END);
-        int nBytes = fread(vch.data(), 1, vch.size(), file);
-        fclose(file);
-
-        file = fopen(pathLog.string().c_str(), "w");
-        if (file) {
-            fwrite(vch.data(), 1, nBytes, file);
-            fclose(file);
-        }
-    } else if (file != NULL)
-        fclose(file);
-}
-
 #ifdef WIN32
-boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate)
+fs::path GetSpecialFolderPath(int nFolder, bool fCreate)
 {
-    namespace fs = boost::filesystem;
-
     char pszPath[MAX_PATH] = "";
 
     if (SHGetSpecialFolderPathA(NULL, pszPath, nFolder, fCreate)) {
@@ -690,27 +657,9 @@ boost::filesystem::path GetSpecialFolderPath(int nFolder, bool fCreate)
 }
 #endif
 
-boost::filesystem::path GetTempPath()
+fs::path GetTempPath()
 {
-#if BOOST_FILESYSTEM_VERSION == 3
-    return boost::filesystem::temp_directory_path();
-#else
-    // TODO: remove when we don't support filesystem v2 anymore
-    boost::filesystem::path path;
-#ifdef WIN32
-    char pszPath[MAX_PATH] = "";
-
-    if (GetTempPathA(MAX_PATH, pszPath))
-        path = boost::filesystem::path(pszPath);
-#else
-    path = boost::filesystem::path("/tmp");
-#endif
-    if (path.empty() || !boost::filesystem::is_directory(path)) {
-        LogPrintf("GetTempPath(): failed to find temp path\n");
-        return boost::filesystem::path("");
-    }
-    return path;
-#endif
+    return fs::temp_directory_path();
 }
 
 double double_safe_addition(double fValue, double fIncrement)
@@ -740,30 +689,6 @@ void runCommand(std::string strCommand)
         LogPrintf("runCommand error: system(%s) returned %d\n", strCommand, nErr);
 }
 
-void RenameThread(const char* name)
-{
-#if defined(PR_SET_NAME)
-    // Only the first 15 characters are used (16 - NUL terminator)
-    ::prctl(PR_SET_NAME, name, 0, 0, 0);
-#elif 0 && (defined(__FreeBSD__) || defined(__OpenBSD__))
-    // TODO: This is currently disabled because it needs to be verified to work
-    //       on FreeBSD or OpenBSD first. When verified the '0 &&' part can be
-    //       removed.
-    pthread_set_name_np(pthread_self(), name);
-
-#elif defined(MAC_OSX) && defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
-
-// pthread_setname_np is XCode 10.6-and-later
-#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1060
-    pthread_setname_np(name);
-#endif
-
-#else
-    // Prevent warnings for unused parameters...
-    (void)name;
-#endif
-}
-
 void SetupEnvironment()
 {
 // On most POSIX systems (e.g. Linux, but not BSD) the environment's locale
@@ -778,9 +703,9 @@ void SetupEnvironment()
     // The path locale is lazy initialized and to avoid deinitialization errors
     // in multithreading environments, it is set explicitly by the main thread.
     // A dummy locale is used to extract the internal default locale, used by
-    // boost::filesystem::path, which is then used to explicitly imbue the path.
-    std::locale loc = boost::filesystem::path::imbue(std::locale::classic());
-    boost::filesystem::path::imbue(loc);
+    // fs::path, which is then used to explicitly imbue the path.
+    std::locale loc = fs::path::imbue(std::locale::classic());
+    fs::path::imbue(loc);
 }
 
 bool SetupNetworking()
@@ -806,4 +731,9 @@ void SetThreadPriority(int nPriority)
     setpriority(PRIO_PROCESS, 0, nPriority);
 #endif // PRIO_THREAD
 #endif // WIN32
+}
+
+int GetNumCores()
+{
+    return std::thread::hardware_concurrency();
 }

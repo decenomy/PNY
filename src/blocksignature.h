@@ -1,6 +1,6 @@
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,6 +13,6 @@
 
 bool SignBlockWithKey(CBlock& block, const CKey& key);
 bool SignBlock(CBlock& block, const CKeyStore& keystore);
-bool CheckBlockSignature(const CBlock& block);
+bool CheckBlockSignature(const CBlock& block, const bool enableP2PKH);
 
 #endif //PNY_BLOCKSIGNATURE_H

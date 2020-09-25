@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,14 +52,14 @@ public:
      */
     static QString getDefaultDataDirectory();
 
-signals:
+Q_SIGNALS:
     void requestCheck();
     void stopThread();
 
-public slots:
+public Q_SLOTS:
     void setStatus(int status, const QString& message, quint64 bytesAvailable);
 
-private slots:
+private Q_SLOTS:
     void on_dataDirectory_textChanged(const QString& arg1);
     void on_ellipsisButton_clicked();
     void on_dataDirDefault_clicked();

@@ -1,8 +1,8 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,27 +57,28 @@ QString BitcoinUnits::id(int unit)
 
 QString BitcoinUnits::name(int unit, bool isZpny)
 {
+    const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
     QString z = "";
     if(isZpny) z = "z";
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
         case PNY:
-            return z + QString("PNY");
+            return z + CURR_UNIT;
         case mPNY:
-            return z + QString("mPNY");
+            return z + QString("m") + CURR_UNIT;
         case uPNY:
-            return z + QString::fromUtf8("μPNY");
+            return z + QString::fromUtf8("μ") + CURR_UNIT;
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
         case PNY:
-            return z + QString("tPNY");
+            return z + QString("t") + CURR_UNIT;
         case mPNY:
-            return z + QString("mtPNY");
+            return z + QString("mt") + CURR_UNIT;
         case uPNY:
-            return z + QString::fromUtf8("μtPNY");
+            return z + QString::fromUtf8("μt") + CURR_UNIT;
         default:
             return QString("???");
         }
@@ -86,25 +87,26 @@ QString BitcoinUnits::name(int unit, bool isZpny)
 
 QString BitcoinUnits::description(int unit)
 {
+    const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
         case PNY:
-            return QString("PNY");
+            return CURR_UNIT;
         case mPNY:
-            return QString("Milli-PNY (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000)");
         case uPNY:
-            return QString("Micro-PNY (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
         case PNY:
-            return QString("TestPNYs");
+            return QString("Test") + CURR_UNIT;
         case mPNY:
-            return QString("Milli-TestPNY (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-Test") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000)");
         case uPNY:
-            return QString("Micro-TestPNY (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-Test") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -310,5 +312,5 @@ QVariant BitcoinUnits::data(const QModelIndex& index, int role) const
 
 CAmount BitcoinUnits::maxMoney()
 {
-    return Params().MaxMoneyOut();
+    return Params().GetConsensus().nMaxMoneyOut;
 }

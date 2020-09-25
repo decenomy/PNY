@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2019 The PIVX developers
+# Copyright (c) 2019-2020 The PIVX developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@ from test_framework.util import (
     sync_blocks,
     assert_equal,
     assert_raises_rpc_error,
-    connect_nodes_bi,
+    connect_nodes,
     connect_nodes_clique,
     disconnect_nodes,
     set_node_times,
@@ -21,7 +21,6 @@ class ReorgStakeTest(PnyTestFramework):
     def set_test_params(self):
         self.num_nodes = 3
         # node 0 and 1 stake the blocks, node 2 makes the zerocoin spends
-        self.extra_args = [['-staking=0']] * self.num_nodes
 
     def setup_chain(self):
         # Start with PoS cache: 330 blocks
@@ -52,6 +51,14 @@ class ReorgStakeTest(PnyTestFramework):
         wi = self.nodes[nodeid].getwalletinfo()
         return wi['balance'] + wi['immature_balance']
 
+    def check_money_supply(self, expected_pny, expected_zpny):
+        g_info = [self.nodes[i].getinfo() for i in range(self.num_nodes)]
+        # verify that nodes have the expected PNY and zPNY supply
+        for node in g_info:
+            assert_equal(node['moneysupply'], DecimalAmt(expected_pny))
+            for denom in node['zPNYsupply']:
+                assert_equal(node['zPNYsupply'][denom], DecimalAmt(expected_zpny[denom]))
+
 
     def run_test(self):
 
@@ -60,6 +67,24 @@ class ReorgStakeTest(PnyTestFramework):
                 if x["txid"] == txid and x["vout"] == vout:
                     return True, x
             return False, None
+
+        # Check PNY and zPNY supply at the beginning
+        # ------------------------------------------
+        # zPNY supply: 2 coins for each denomination
+        expected_zpny_supply = {
+            "1": 2,
+            "5": 10,
+            "10": 20,
+            "50": 100,
+            "100": 200,
+            "500": 1000,
+            "1000": 2000,
+            "5000": 10000,
+            "total": 13332,
+        }
+        # PNY supply: block rewards minus burned fees for minting
+        expected_money_supply = 250.0 * 330 - 16 * 0.01
+        self.check_money_supply(expected_money_supply, expected_zpny_supply)
 
         # Stake with node 0 and node 1 up to public spend activation (400)
         # 70 blocks: 5 blocks each (x7)
@@ -70,7 +95,6 @@ class ReorgStakeTest(PnyTestFramework):
                 for nblock in range(5):
                     self.mocktime = self.generate_pos(peer, self.mocktime)
                 sync_blocks(self.nodes)
-                set_node_times(self.nodes, self.mocktime)
         block_time_0 = block_time_1 = self.mocktime
         self.log.info("Blocks staked.")
 
@@ -110,7 +134,7 @@ class ReorgStakeTest(PnyTestFramework):
         assert(len(last_block["tx"]) > 1)                                       # a PoS block has at least two txes
         coinstake_txid = last_block["tx"][1]
         coinstake_tx = self.nodes[0].getrawtransaction(coinstake_txid, True)
-        assert(coinstake_tx["vout"][0]["scriptPubKey"]["hex"] == "")            # first output of coinstake is empty
+        assert (coinstake_tx["vout"][0]["scriptPubKey"]["hex"] == "")  # first output of coinstake is empty
         stakeinput = coinstake_tx["vin"][0]
 
         # The stake input was unspent 1 block ago, now it's not
@@ -135,7 +159,7 @@ class ReorgStakeTest(PnyTestFramework):
 
         # Connect with node 2, sync and check zerocoin balance
         self.log.info("Reconnecting node 0 and node 2")
-        connect_nodes_bi(self.nodes, 0, 2)
+        connect_nodes(self.nodes[0], 2)
         sync_blocks([self.nodes[i] for i in [0, 2]])
         self.log.info("Resetting zerocoin mints on node 2")
         self.nodes[2].resetmintzerocoin(True)
@@ -144,9 +168,9 @@ class ReorgStakeTest(PnyTestFramework):
         self.log.info("Balance for node 2 checks out.")
 
         # Double spending txes not possible
-        assert_raises_rpc_error(-26, "bad-txns-invalid-zpny",
+        assert_raises_rpc_error(-26, "bad-zc-spend-contextcheck",
                                 self.nodes[0].sendrawtransaction, tx_B0)
-        assert_raises_rpc_error(-26, "bad-txns-invalid-zpny",
+        assert_raises_rpc_error(-26, "bad-zc-spend-contextcheck",
                                 self.nodes[0].sendrawtransaction, tx_B1)
 
         # verify that the stakeinput can't be spent
@@ -205,6 +229,17 @@ class ReorgStakeTest(PnyTestFramework):
         sync_blocks(self.nodes)
         res, utxo = findUtxoInList(stakeinput["txid"], stakeinput["vout"], self.nodes[0].listunspent())
         assert (not res or not utxo["spendable"])
+
+        # Verify that PNY and zPNY supplies were properly updated after the spends and reorgs
+        self.log.info("Check PNY and zPNY supply...")
+        expected_money_supply += 250.0 * (self.nodes[1].getblockcount() - 330)
+        spent_coin_0 = mints[0]["denomination"]
+        spent_coin_1 = mints[1]["denomination"]
+        expected_zpny_supply[str(spent_coin_0)] -= spent_coin_0
+        expected_zpny_supply[str(spent_coin_1)] -= spent_coin_1
+        expected_zpny_supply["total"] -= (spent_coin_0 + spent_coin_1)
+        self.check_money_supply(expected_money_supply, expected_zpny_supply)
+        self.log.info("Supply checks out.")
 
 
 if __name__ == '__main__':

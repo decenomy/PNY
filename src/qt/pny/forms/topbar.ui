@@ -42,7 +42,7 @@
     <number>0</number>
    </property>
    <item>
-    <widget class="PFBorderImage" name="containerTop" native="true">
+    <widget class="PFBorderImage" name="containerTop">
      <layout class="QVBoxLayout" name="verticalLayout_11">
       <property name="spacing">
        <number>0</number>
@@ -119,76 +119,7 @@
                <string notr="true">padding:0px;margin:0px;</string>
               </property>
               <property name="text">
-               <string>480.0685 PNY</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_11">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item alignment="Qt::AlignVCenter">
-             <widget class="QLabel" name="label_16">
-              <property name="minimumSize">
-               <size>
-                <width>1</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>1</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">background-color:white;
-padding:0px;
-border:none;</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_12">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Fixed</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item alignment="Qt::AlignTop">
-             <widget class="QLabel" name="labelAmountTopzPny">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>36</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>1,000 zPNY</string>
+               <string notr="true">480.0685 PNY</string>
               </property>
              </widget>
             </item>
@@ -263,6 +194,16 @@ border:none;</string>
             </widget>
            </item>
            <item>
+            <widget class="ExpandableButton" name="pushButtonHDUpgrade" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>36</width>
+               <height>36</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="ExpandableButton" name="pushButtonStack" native="true">
              <property name="minimumSize">
               <size>
@@ -284,6 +225,16 @@ border:none;</string>
            </item>
            <item>
             <widget class="ExpandableButton" name="pushButtonConnection" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>36</width>
+               <height>36</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="ExpandableButton" name="pushButtonTor" native="true">
              <property name="minimumSize">
               <size>
                <width>36</width>
@@ -388,7 +339,7 @@ border:none;</string>
                <item>
                 <widget class="QLabel" name="labelAmountPny">
                  <property name="text">
-                  <string>480.0685 PNY</string>
+                  <string notr="true">480.0685 PNY</string>
                  </property>
                 </widget>
                </item>
@@ -411,7 +362,7 @@ border:none;</string>
                  <item>
                   <widget class="QLabel" name="labelPendingPny">
                    <property name="text">
-                    <string>6.943 PNY</string>
+                    <string notr="true">6.943 PNY</string>
                    </property>
                   </widget>
                  </item>
@@ -445,118 +396,7 @@ border:none;</string>
                  <item>
                   <widget class="QLabel" name="labelImmaturePny">
                    <property name="text">
-                    <string>10 PNY</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_9">
-             <property name="minimumSize">
-              <size>
-               <width>1</width>
-               <height>100</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>1</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color:white;
-padding:0px;
-border:none;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_8">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>30</number>
-             </property>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout">
-               <item>
-                <widget class="QLabel" name="labelTitle2">
-                 <property name="text">
-                  <string>Available</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="labelAmountzPny">
-                 <property name="text">
-                  <string>1,000 zPNY</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <item>
-                  <widget class="QLabel" name="labelTitle5">
-                   <property name="text">
-                    <string>Pending</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="labelPendingzPny">
-                   <property name="text">
-                    <string>60 zPNY</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_4">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <layout class="QVBoxLayout" name="verticalLayout_6">
-                 <item>
-                  <widget class="QLabel" name="labelTitle6">
-                   <property name="text">
-                    <string>Immature</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="labelImmaturezPny">
-                   <property name="text">
-                    <string>10 zPNY</string>
+                    <string notr="true">10 PNY</string>
                    </property>
                   </widget>
                  </item>

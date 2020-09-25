@@ -1,8 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,15 +20,16 @@ namespace boost
 class thread_group;
 } // namespace boost
 
-extern CWallet* pwalletMain;
-extern CzPNYWallet* zwalletMain;
-
 void StartShutdown();
 bool ShutdownRequested();
 /** Interrupt threads */
 void Interrupt();
 void Shutdown();
 void PrepareShutdown();
+//!Initialize the logging infrastructure
+void InitLogging();
+//!Parameter interaction: change current parameters depending on various rules
+void InitParameterInteraction();
 bool AppInit2();
 
 /** Initialize PNY core: Basic context setup.

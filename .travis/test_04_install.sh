@@ -13,15 +13,11 @@ if [[ $HOST = *-mingw32 ]]; then
 elif [[ $BITCOIN_CONFIG = *--with-sanitizers=*address* ]]; then # If ran with (ASan + LSan), Docker needs access to ptrace (https://github.com/google/sanitizers/issues/764)
   DOCKER_ADMIN="--cap-add SYS_PTRACE"
 fi
-DOCKER_ID=$(docker run $DOCKER_ADMIN -idt --mount type=bind,src=$TRAVIS_BUILD_DIR,dst=$TRAVIS_BUILD_DIR --mount type=bind,src=$CCACHE_DIR,dst=$CCACHE_DIR -w $TRAVIS_BUILD_DIR --env-file /tmp/env $DOCKER_NAME_TAG)
+DOCKER_ID=$(docker run $DOCKER_ADMIN -idt --mount type=bind,src=$TRAVIS_BUILD_DIR,dst=$TRAVIS_BUILD_DIR --mount type=bind,src=$CCACHE_DIR,dst=$CCACHE_DIR --mount type=bind,src=$PARAMS_DIR,dst=$PARAMS_DIR -w $TRAVIS_BUILD_DIR --env-file /tmp/env $DOCKER_NAME_TAG)
 
 DOCKER_EXEC () {
   docker exec $DOCKER_ID bash -c "cd $PWD && $*"
 }
-
-if [ -n "$DPKG_ADD_ARCH" ]; then
-  DOCKER_EXEC dpkg --add-architecture "$DPKG_ADD_ARCH"
-fi
 
 travis_retry DOCKER_EXEC apt-get update
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES

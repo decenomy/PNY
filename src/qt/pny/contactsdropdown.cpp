@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -80,7 +80,7 @@ ContactsDropdown::ContactsDropdown(int minWidth, int minHeight, PWidget *parent)
     list->setAttribute(Qt::WA_MacShowFocusRect, false);
     list->setSelectionBehavior(QAbstractItemView::SelectRows);
 
-    connect(list, SIGNAL(clicked(QModelIndex)), this, SLOT(handleClick(QModelIndex)));
+    connect(list, &QListView::clicked, this, &ContactsDropdown::handleClick);
 }
 
 void ContactsDropdown::setWalletModel(WalletModel* _model, const QString& type){
@@ -88,6 +88,7 @@ void ContactsDropdown::setWalletModel(WalletModel* _model, const QString& type){
         model = _model->getAddressTableModel();
         this->filter = new AddressFilterProxyModel(type, this);
         this->filter->setSourceModel(model);
+        this->filter->sort(AddressTableModel::Label, Qt::AscendingOrder);
         list->setModel(this->filter);
         list->setModelColumn(AddressTableModel::Address);
     } else {
@@ -120,7 +121,7 @@ void ContactsDropdown::handleClick(const QModelIndex &index){
     QString address = rIndex.data(Qt::DisplayRole).toString();
     QModelIndex sibling = rIndex.sibling(rIndex.row(), AddressTableModel::Label);
     QString label = sibling.data(Qt::DisplayRole).toString();
-    emit contactSelected(address, label);
+    Q_EMIT contactSelected(address, label);
     close();
 }
 

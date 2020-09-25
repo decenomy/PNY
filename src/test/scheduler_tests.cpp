@@ -1,7 +1,7 @@
 // Copyright (c) 2012-2013 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,8 +9,6 @@
 #include "scheduler.h"
 #if defined(HAVE_CONFIG_H)
 #include "config/pny-config.h"
-#else
-#define HAVE_WORKING_BOOST_SLEEP_FOR
 #endif
 
 #include <boost/bind.hpp>
@@ -36,14 +34,7 @@ static void microTask(CScheduler& s, boost::mutex& mutex, int& counter, int delt
 
 static void MicroSleep(uint64_t n)
 {
-#if defined(HAVE_WORKING_BOOST_SLEEP_FOR)
     boost::this_thread::sleep_for(boost::chrono::microseconds(n));
-#elif defined(HAVE_WORKING_BOOST_SLEEP)
-    boost::this_thread::sleep(boost::posix_time::microseconds(n));
-#else
-    //should never get here
-    #error missing boost sleep implementation
-#endif
 }
 
 BOOST_AUTO_TEST_CASE(manythreads)

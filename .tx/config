@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[PeonyTeam-translations.qt-translation-43x]
+file_filter = src/qt/locale/pny_<lang>.ts
+source_file = src/qt/locale/pny_en.ts
+source_lang = en

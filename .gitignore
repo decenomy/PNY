@@ -11,6 +11,7 @@ src/pny
 src/pnyd
 src/pny-cli
 src/pny-tx
+src/bench/bench_pny
 src/test/test_pny
 src/qt/test/test_pny-qt
 
@@ -87,6 +88,11 @@ Makefile
 pny-qt
 PNY-Qt.app
 background.tiff*
+
+# Rust
+.cargo/.configured-for-*
+.cargo/config
+target/
 
 # Unit-tests
 Makefile.test

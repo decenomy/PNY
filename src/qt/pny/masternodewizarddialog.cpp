@@ -1,23 +1,27 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "qt/pny/masternodewizarddialog.h"
 #include "qt/pny/forms/ui_masternodewizarddialog.h"
-#include "qt/pny/qtutils.h"
+
+#include "activemasternode.h"
 #include "optionsmodel.h"
 #include "pairresult.h"
-#include "activemasternode.h"
+#include "qt/pny/mnmodel.h"
 #include "qt/pny/guitransactionsutils.h"
+#include "qt/pny/qtutils.h"
+
 #include <QFile>
 #include <QIntValidator>
 #include <QHostAddress>
-#include <QRegExpValidator>
+#include <QRegularExpression>
+#include <QRegularExpressionValidator>
 
 MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *parent) :
-    QDialog(parent),
+    FocusedDialog(parent),
     ui(new Ui::MasterNodeWizardDialog),
     icConfirm1(new QPushButton()),
     icConfirm3(new QPushButton()),
@@ -51,23 +55,23 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     setCssProperty(ui->labelTitle3, "text-title-dialog");
     setCssProperty(ui->labelMessage3, "text-main-grey");
 
-    ui->lineEditName->setPlaceholderText(tr("e.g user_masternode"));
     initCssEditLine(ui->lineEditName);
-    ui->lineEditName->setValidator(new QRegExpValidator(QRegExp("^[A-Za-z0-9]+"), ui->lineEditName));
+    // MN alias must not contain spaces or "#" character
+    QRegularExpression rx("^(?:(?![\\#\\s]).)*");
+    ui->lineEditName->setValidator(new QRegularExpressionValidator(rx, ui->lineEditName));
 
     // Frame 4
     setCssProperty(ui->labelTitle4, "text-title-dialog");
     setCssProperty({ui->labelSubtitleIp, ui->labelSubtitlePort}, "text-title");
     setCssSubtitleScreen(ui->labelSubtitleAddressIp);
 
-    ui->lineEditIpAddress->setPlaceholderText("e.g 18.255.255.255");
-    ui->lineEditPort->setPlaceholderText("e.g 16889");
     initCssEditLine(ui->lineEditIpAddress);
     initCssEditLine(ui->lineEditPort);
     ui->stackedWidget->setCurrentIndex(pos);
-    ui->lineEditPort->setValidator(new QIntValidator(0, 9999999, ui->lineEditPort));
-    if(walletModel->isTestNetwork()){
-        ui->lineEditPort->setEnabled(false);
+    ui->lineEditPort->setEnabled(false);    // use default port number
+    if (walletModel->isRegTestNetwork()) {
+        ui->lineEditPort->setText("51476");
+    } else if (walletModel->isTestNetwork()) {
         ui->lineEditPort->setText("41121");
     } else {
         ui->lineEditPort->setText("16889");
@@ -82,15 +86,13 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
 
     // Connect btns
     setCssBtnPrimary(ui->btnNext);
-    ui->btnNext->setText(tr("NEXT"));
     setCssProperty(ui->btnBack , "btn-dialog-cancel");
     ui->btnBack->setVisible(false);
-    ui->btnBack->setText(tr("BACK"));
     setCssProperty(ui->pushButtonSkip, "ic-close");
 
-    connect(ui->pushButtonSkip, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(onNextClicked()));
-    connect(ui->btnBack, SIGNAL(clicked()), this, SLOT(onBackClicked()));
+    connect(ui->pushButtonSkip, &QPushButton::clicked, this, &MasterNodeWizardDialog::close);
+    connect(ui->btnNext, &QPushButton::clicked, this, &MasterNodeWizardDialog::accept);
+    connect(ui->btnBack, &QPushButton::clicked, this, &MasterNodeWizardDialog::onBackClicked);
 }
 
 void MasterNodeWizardDialog::showEvent(QShowEvent *event)
@@ -98,8 +100,9 @@ void MasterNodeWizardDialog::showEvent(QShowEvent *event)
     if (ui->btnNext) ui->btnNext->setFocus();
 }
 
-void MasterNodeWizardDialog::onNextClicked(){
-    switch(pos){
+void MasterNodeWizardDialog::accept()
+{
+    switch(pos) {
         case 0:{
             ui->stackedWidget->setCurrentIndex(1);
             ui->pushName4->setChecked(false);
@@ -141,56 +144,65 @@ void MasterNodeWizardDialog::onNextClicked(){
             ui->btnBack->setVisible(true);
             ui->btnBack->setVisible(true);
             isOk = createMN();
-            accept();
+            QDialog::accept();
         }
     }
     pos++;
 }
 
-bool MasterNodeWizardDialog::createMN(){
-    if (walletModel) {
-        /**
-         *
-        1) generate the mn key.
-        2) create the mn address.
-        3) send a tx with 10k to that address.
-        4) get thereate output.
-        5) use those values on the masternode.conf
-         */
+bool MasterNodeWizardDialog::createMN()
+{
+    if (!walletModel) {
+        returnStr = tr("walletModel not set");
+        return false;
+    }
 
-        // First create the mn key
-        CKey secret;
-        secret.MakeNewKey(false);
-        CBitcoinSecret mnKey = CBitcoinSecret(secret);
-        std::string mnKeyString = mnKey.ToString();
+    /**
+     *
+    1) generate the mn key.
+    2) create the mn address.
+    3) if there is a valid (unlocked) collateral utxo, use it
+    4) otherwise create a receiving address and send a tx with 10k to it.
+    5) get the collateral output.
+    6) use those values on the masternode.conf
+     */
 
-        // second create mn address
-        QString addressLabel = ui->lineEditName->text();
-        if (addressLabel.isEmpty()) {
-            returnStr = tr("address label cannot be empty");
-            return false;
-        }
-        std::string alias = addressLabel.toStdString();
+    // validate IP address
+    QString addressLabel = ui->lineEditName->text();
+    if (addressLabel.isEmpty()) {
+        returnStr = tr("address label cannot be empty");
+        return false;
+    }
+    std::string alias = addressLabel.toStdString();
 
-        QString addressStr = ui->lineEditIpAddress->text();
-        QString portStr = ui->lineEditPort->text();
-        if (addressStr.isEmpty() || portStr.isEmpty()) {
-            returnStr = tr("IP or port cannot be empty");
-            return false;
-        }
-        // TODO: Validate IP address..
-        int portInt = portStr.toInt();
-        if (portInt <= 0 && portInt > 999999){
-            returnStr = tr("Invalid port number");
-            return false;
-        }
-        // ip + port
-        std::string ipAddress = addressStr.toStdString();
-        std::string port = portStr.toStdString();
+    QString addressStr = ui->lineEditIpAddress->text();
+    QString portStr = ui->lineEditPort->text();
+    if (addressStr.isEmpty() || portStr.isEmpty()) {
+        returnStr = tr("IP or port cannot be empty");
+        return false;
+    }
+    if (!MNModel::validateMNIP(addressStr)) {
+        returnStr = tr("Invalid IP address");
+        return false;
+    }
 
+    // ip + port
+    std::string ipAddress = addressStr.toStdString();
+    std::string port = portStr.toStdString();
+
+    // create the mn key
+    CKey secret;
+    secret.MakeNewKey(false);
+    std::string mnKeyString = EncodeSecret(secret);
+
+    // Look for a valid collateral utxo
+    COutPoint collateralOut;
+
+    // If not found create a new collateral tx
+    if (!walletModel->getMNCollateralCandidate(collateralOut)) {
         // New receive address
-        CBitcoinAddress address;
-        PairResult r = walletModel->getNewAddress(address, alias);
+        Destination dest;
+        PairResult r = walletModel->getNewAddress(dest, alias);
 
         if (!r.result) {
             // generate address fail
@@ -199,7 +211,11 @@ bool MasterNodeWizardDialog::createMN(){
         }
 
         // const QString& addr, const QString& label, const CAmount& amount, const QString& message
-        SendCoinsRecipient sendCoinsRecipient(QString::fromStdString(address.ToString()), QString::fromStdString(alias), CAmount(GetMNCollateral(chainActive.Height())) * COIN, "");
+        SendCoinsRecipient sendCoinsRecipient(
+                QString::fromStdString(dest.ToString()),
+                QString::fromStdString(alias),
+                CAmount(GetMNCollateral(chainActive.Height())) * COIN,
+                "");
 
         // Send the 10 tx to one of your address
         QList<SendCoinsRecipient> recipients;
@@ -207,9 +223,10 @@ bool MasterNodeWizardDialog::createMN(){
         WalletModelTransaction currentTransaction(recipients);
         WalletModel::SendCoinsReturn prepareStatus;
 
-        prepareStatus = walletModel->prepareTransaction(currentTransaction);
+        // no coincontrol, no P2CS delegations
+        prepareStatus = walletModel->prepareTransaction(currentTransaction, nullptr, false);
 
-        QString returnMsg = "Unknown error";
+        QString returnMsg = tr("Unknown error");
         // process prepareStatus and on error generate message shown to user
         CClientUIInterface::MessageBoxFlags informType;
         returnMsg = GuiTransactionsUtils::ProcessSendCoinsReturn(
@@ -236,118 +253,127 @@ bool MasterNodeWizardDialog::createMN(){
                 informType
         );
 
-        if (sendStatus.status == WalletModel::OK) {
-            // now change the conf
-            std::string strConfFile = "masternode.conf";
-            std::string strDataDir = GetDataDir().string();
-            if (strConfFile != boost::filesystem::basename(strConfFile) + boost::filesystem::extension(strConfFile)){
-                throw std::runtime_error(strprintf(_("masternode.conf %s resides outside data directory %s"), strConfFile, strDataDir));
-            }
-
-            boost::filesystem::path pathBootstrap = GetDataDir() / strConfFile;
-            if (boost::filesystem::exists(pathBootstrap)) {
-                boost::filesystem::path pathMasternodeConfigFile = GetMasternodeConfigFile();
-                boost::filesystem::ifstream streamConfig(pathMasternodeConfigFile);
-
-                if (!streamConfig.good()) {
-                    returnStr = tr("Invalid masternode.conf file");
-                    return false;
-                }
-
-                int linenumber = 1;
-                std::string lineCopy = "";
-                for (std::string line; std::getline(streamConfig, line); linenumber++) {
-                    if (line.empty()) continue;
-
-                    std::istringstream iss(line);
-                    std::string comment, alias, ip, privKey, txHash, outputIndex;
-
-                    if (iss >> comment) {
-                        if (comment.at(0) == '#') continue;
-                        iss.str(line);
-                        iss.clear();
-                    }
-
-                    if (!(iss >> alias >> ip >> privKey >> txHash >> outputIndex)) {
-                        iss.str(line);
-                        iss.clear();
-                        if (!(iss >> alias >> ip >> privKey >> txHash >> outputIndex)) {
-                            streamConfig.close();
-                            returnStr = tr("Error parsing masternode.conf file");
-                            return false;
-                        }
-                    }
-                    lineCopy += line + "\n";
-                }
-
-                if (lineCopy.size() == 0) {
-                    lineCopy = "# Masternode config file\n"
-                               "# Format: alias IP:port masternodeprivkey collateral_output_txid collateral_output_index\n"
-                               "# Example: mn1 127.0.0.2:16889 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0"
-                               "#";
-                }
-                lineCopy += "\n";
-
-                streamConfig.close();
-
-                CWalletTx* walletTx = currentTransaction.getTransaction();
-                std::string txID = walletTx->GetHash().GetHex();
-                int indexOut = -1;
-                for (int i=0; i < (int)walletTx->vout.size(); i++){
-                    CTxOut& out = walletTx->vout[i];
-                    if (out.nValue == GetMNCollateral(chainActive.Height()) * COIN){
-                        indexOut = i;
-                    }
-                }
-                if (indexOut == -1) {
-                    returnStr = tr("Invalid collateral output index");
-                    return false;
-                }
-                std::string indexOutStr = std::to_string(indexOut);
-
-                // Check IP address type
-                QHostAddress hostAddress(addressStr);
-                QAbstractSocket::NetworkLayerProtocol layerProtocol = hostAddress.protocol();
-                if (layerProtocol == QAbstractSocket::IPv6Protocol) {
-                    ipAddress = "["+ipAddress+"]";
-                }
-
-                boost::filesystem::path pathConfigFile("masternode_temp.conf");
-                if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
-                FILE* configFile = fopen(pathConfigFile.string().c_str(), "w");
-                lineCopy += alias+" "+ipAddress+":"+port+" "+mnKeyString+" "+txID+" "+indexOutStr+"\n";
-                fwrite(lineCopy.c_str(), std::strlen(lineCopy.c_str()), 1, configFile);
-                fclose(configFile);
-
-                boost::filesystem::path pathOldConfFile("old_masternode.conf");
-                if (!pathOldConfFile.is_complete()) pathOldConfFile = GetDataDir() / pathOldConfFile;
-                if (boost::filesystem::exists(pathOldConfFile)) {
-                    boost::filesystem::remove(pathOldConfFile);
-                }
-                rename(pathMasternodeConfigFile, pathOldConfFile);
-
-                boost::filesystem::path pathNewConfFile("masternode.conf");
-                if (!pathNewConfFile.is_complete()) pathNewConfFile = GetDataDir() / pathNewConfFile;
-                rename(pathConfigFile, pathNewConfFile);
-
-                mnEntry = masternodeConfig.add(alias, ipAddress+":"+port, mnKeyString, txID, indexOutStr);
-
-                returnStr = tr("Master node created!");
-                return true;
-            } else{
-                returnStr = tr("masternode.conf file doesn't exists");
-            }
-        } else {
+        if (sendStatus.status != WalletModel::OK) {
             returnStr = tr("Cannot send collateral transaction.\n\n%1").arg(returnMsg);
+            return false;
         }
+
+        // look for the tx index of the collateral
+        CWalletTx* walletTx = currentTransaction.getTransaction();
+        std::string txID = walletTx->GetHash().GetHex();
+        int indexOut = -1;
+        for (int i=0; i < (int)walletTx->vout.size(); i++) {
+            CTxOut& out = walletTx->vout[i];
+            if (out.nValue == GetMNCollateral(chainActive.Height()) * COIN) {
+                indexOut = i;
+                break;
+            }
+        }
+        if (indexOut == -1) {
+            returnStr = tr("Invalid collateral output index");
+            return false;
+        }
+        // save the collateral outpoint
+        collateralOut = COutPoint(walletTx->GetHash(), indexOut);
     }
-    return false;
+
+    // Update the conf file
+    std::string strConfFile = "masternode.conf";
+    std::string strDataDir = GetDataDir().string();
+    fs::path conf_file_path(strConfFile);
+    if (strConfFile != conf_file_path.filename().string()) {
+        throw std::runtime_error(strprintf(_("masternode.conf %s resides outside data directory %s"), strConfFile, strDataDir));
+    }
+
+    fs::path pathBootstrap = GetDataDir() / strConfFile;
+    if (!fs::exists(pathBootstrap)) {
+        returnStr = tr("masternode.conf file doesn't exists");
+        return false;
+    }
+
+    fs::path pathMasternodeConfigFile = GetMasternodeConfigFile();
+    fs::ifstream streamConfig(pathMasternodeConfigFile);
+
+    if (!streamConfig.good()) {
+        returnStr = tr("Invalid masternode.conf file");
+        return false;
+    }
+
+    int linenumber = 1;
+    std::string lineCopy = "";
+    for (std::string line; std::getline(streamConfig, line); linenumber++) {
+        if (line.empty()) continue;
+
+        std::istringstream iss(line);
+        std::string comment, alias, ip, privKey, txHash, outputIndex;
+
+        if (iss >> comment) {
+            if (comment.at(0) == '#') continue;
+            iss.str(line);
+            iss.clear();
+        }
+
+        if (!(iss >> alias >> ip >> privKey >> txHash >> outputIndex)) {
+            iss.str(line);
+            iss.clear();
+            if (!(iss >> alias >> ip >> privKey >> txHash >> outputIndex)) {
+                streamConfig.close();
+                returnStr = tr("Error parsing masternode.conf file");
+                return false;
+            }
+        }
+        lineCopy += line + "\n";
+    }
+
+    if (lineCopy.size() == 0) {
+        lineCopy = "# Masternode config file\n"
+                   "# Format: alias IP:port masternodeprivkey collateral_output_txid collateral_output_index\n"
+                   "# Example: mn1 127.0.0.2:16889 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0"
+                   "#";
+    }
+    lineCopy += "\n";
+
+    streamConfig.close();
+
+    std::string txID = collateralOut.hash.ToString();
+    std::string indexOutStr = std::to_string(collateralOut.n);
+
+    // Check IP address type
+    QHostAddress hostAddress(addressStr);
+    QAbstractSocket::NetworkLayerProtocol layerProtocol = hostAddress.protocol();
+    if (layerProtocol == QAbstractSocket::IPv6Protocol) {
+        ipAddress = "["+ipAddress+"]";
+    }
+
+    fs::path pathConfigFile = AbsPathForConfigVal(fs::path("masternode_temp.conf"));
+    FILE* configFile = fopen(pathConfigFile.string().c_str(), "w");
+    lineCopy += alias+" "+ipAddress+":"+port+" "+mnKeyString+" "+txID+" "+indexOutStr+"\n";
+    fwrite(lineCopy.c_str(), std::strlen(lineCopy.c_str()), 1, configFile);
+    fclose(configFile);
+
+    fs::path pathOldConfFile = AbsPathForConfigVal(fs::path("old_masternode.conf"));
+    if (fs::exists(pathOldConfFile)) {
+        fs::remove(pathOldConfFile);
+    }
+    rename(pathMasternodeConfigFile, pathOldConfFile);
+
+    fs::path pathNewConfFile = AbsPathForConfigVal(fs::path("masternode.conf"));
+    rename(pathConfigFile, pathNewConfFile);
+
+    mnEntry = masternodeConfig.add(alias, ipAddress+":"+port, mnKeyString, txID, indexOutStr);
+
+    // Lock collateral output
+    walletModel->lockCoin(collateralOut);
+
+    returnStr = tr("Master node created! Wait %1 confirmations before starting it.").arg(MASTERNODE_MIN_CONFIRMATIONS);
+    return true;
 }
 
-void MasterNodeWizardDialog::onBackClicked(){
+void MasterNodeWizardDialog::onBackClicked()
+{
     if (pos == 0) return;
     pos--;
-    switch(pos){
+    switch(pos) {
         case 0:{
             ui->stackedWidget->setCurrentIndex(0);
             ui->btnNext->setFocus();
@@ -375,7 +401,8 @@ void MasterNodeWizardDialog::onBackClicked(){
     }
 }
 
-void MasterNodeWizardDialog::inform(QString text){
+void MasterNodeWizardDialog::inform(QString text)
+{
     if (!snackBar)
         snackBar = new SnackBar(nullptr, this);
     snackBar->setText(text);
@@ -384,7 +411,8 @@ void MasterNodeWizardDialog::inform(QString text){
 }
 
 QSize BUTTON_SIZE = QSize(22, 22);
-void MasterNodeWizardDialog::initBtn(std::initializer_list<QPushButton*> args){
+void MasterNodeWizardDialog::initBtn(std::initializer_list<QPushButton*> args)
+{
     for (QPushButton* btn : args) {
         btn->setMinimumSize(BUTTON_SIZE);
         btn->setMaximumSize(BUTTON_SIZE);
@@ -395,7 +423,8 @@ void MasterNodeWizardDialog::initBtn(std::initializer_list<QPushButton*> args){
     }
 }
 
-MasterNodeWizardDialog::~MasterNodeWizardDialog(){
-    if(snackBar) delete snackBar;
+MasterNodeWizardDialog::~MasterNodeWizardDialog()
+{
+    if (snackBar) delete snackBar;
     delete ui;
 }

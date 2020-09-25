@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -59,10 +59,10 @@ class RPCExecutor : public QObject
 {
     Q_OBJECT
 
-public slots:
+public Q_SLOTS:
      void requestCommand(const QString& command);
 
-signals:
+Q_SIGNALS:
      void reply(int category, const QString& command);
 };
 
@@ -73,19 +73,18 @@ class QtRPCTimerBase: public QObject, public RPCTimerBase
 {
     Q_OBJECT
 public:
-    QtRPCTimerBase(boost::function<void(void)>& func, int64_t millis):
-            func(func)
+    QtRPCTimerBase(std::function<void(void)>& _func, int64_t millis):
+            func(_func)
     {
         timer.setSingleShot(true);
-        connect(&timer, SIGNAL(timeout()), this, SLOT(timeout()));
+        connect(&timer, &QTimer::timeout, [this]{ func(); });
         timer.start(millis);
     }
     ~QtRPCTimerBase() {}
-private slots:
-            void timeout() { func(); }
+
 private:
     QTimer timer;
-    boost::function<void(void)> func;
+    std::function<void(void)> func;
 };
 
 class QtRPCTimerInterface: public RPCTimerInterface
@@ -93,7 +92,7 @@ class QtRPCTimerInterface: public RPCTimerInterface
 public:
     ~QtRPCTimerInterface() {}
     const char *Name() { return "Qt"; }
-    RPCTimerBase* NewTimer(boost::function<void(void)>& func, int64_t millis)
+    RPCTimerBase* NewTimer(std::function<void(void)>& func, int64_t millis)
     {
         return new QtRPCTimerBase(func, millis);
     }
@@ -126,7 +125,7 @@ bool parseCommandLineSettings(std::vector<std::string>& args, const std::string&
         STATE_ESCAPE_DOUBLEQUOTED
     } state = STATE_EATING_SPACES;
     std::string curarg;
-    foreach (char ch, strCommand) {
+    Q_FOREACH (char ch, strCommand) {
         switch (state) {
             case STATE_ARGUMENT:      // In or after argument
             case STATE_EATING_SPACES: // Handle runs of whitespace
@@ -203,7 +202,7 @@ void RPCExecutor::requestCommand(const QString& command)
 {
     std::vector<std::string> args;
     if (!parseCommandLineSettings(args, command.toStdString())) {
-        emit reply(SettingsConsoleWidget::CMD_ERROR, QString("Parse error: unbalanced ' or \""));
+        Q_EMIT reply(SettingsConsoleWidget::CMD_ERROR, QString("Parse error: unbalanced ' or \""));
         return;
     }
     if (args.empty())
@@ -212,9 +211,10 @@ void RPCExecutor::requestCommand(const QString& command)
         std::string strPrint;
         // Convert argument list to JSON objects in method-dependent way,
         // and pass it along with the method name to the dispatcher.
-        UniValue result = tableRPC.execute(
-                args[0],
-                RPCConvertValues(args[0], std::vector<std::string>(args.begin() + 1, args.end())));
+        JSONRPCRequest req;
+        req.params = RPCConvertValues(args[0], std::vector<std::string>(args.begin() + 1, args.end()));
+        req.strMethod = args[0];
+        UniValue result = tableRPC.execute(req);
 
         // Format result reply
         if (result.isNull())
@@ -224,19 +224,19 @@ void RPCExecutor::requestCommand(const QString& command)
         else
             strPrint = result.write(2);
 
-        emit reply(SettingsConsoleWidget::CMD_REPLY, QString::fromStdString(strPrint));
+        Q_EMIT reply(SettingsConsoleWidget::CMD_REPLY, QString::fromStdString(strPrint));
     } catch (UniValue& objError) {
         try // Nice formatting for standard-format error
         {
             int code = find_value(objError, "code").get_int();
             std::string message = find_value(objError, "message").get_str();
-            emit reply(SettingsConsoleWidget::CMD_ERROR, QString::fromStdString(message) + " (code " + QString::number(code) + ")");
+            Q_EMIT reply(SettingsConsoleWidget::CMD_ERROR, QString::fromStdString(message) + " (code " + QString::number(code) + ")");
         } catch (std::runtime_error&) // raised when converting to invalid type, i.e. missing code or message
         {                             // Show raw JSON object
-            emit reply(SettingsConsoleWidget::CMD_ERROR, QString::fromStdString(objError.write()));
+            Q_EMIT reply(SettingsConsoleWidget::CMD_ERROR, QString::fromStdString(objError.write()));
         }
     } catch (std::exception& e) {
-        emit reply(SettingsConsoleWidget::CMD_ERROR, QString("Error: ") + QString::fromStdString(e.what()));
+        Q_EMIT reply(SettingsConsoleWidget::CMD_ERROR, QString("Error: ") + QString::fromStdString(e.what()));
     }
 }
 
@@ -251,9 +251,10 @@ SettingsConsoleWidget::SettingsConsoleWidget(PNYGUI* _window, QWidget *parent) :
     // Containers
     setCssProperty({ui->left, ui->messagesWidget}, "container");
     ui->left->setContentsMargins(10,10,10,10);
+    ui->messagesWidget->setReadOnly(true);
+    ui->messagesWidget->setTextInteractionFlags(Qt::TextInteractionFlag::TextSelectableByMouse);
 
     // Title
-    ui->labelTitle->setText(tr("Console"));
     setCssTitleScreen(ui->labelTitle);
 
     // Console container
@@ -266,17 +267,18 @@ SettingsConsoleWidget::SettingsConsoleWidget(PNYGUI* _window, QWidget *parent) :
 
     // Buttons
     ui->pushButton->setProperty("cssClass", "ic-arrow");
-    ui->pushButtonCommandOptions->setText(tr("Command Line Options "));
-    ui->pushButtonOpenDebug->setText(tr("Open Debug File"));
     setCssBtnSecondary(ui->pushButtonOpenDebug);
+    setCssBtnSecondary(ui->pushButtonClear);
     setCssBtnSecondary(ui->pushButtonCommandOptions);
 
+    setShadow(ui->pushButtonClear);
+    connect(ui->pushButtonClear, &QPushButton::clicked, [this]{ clear(false); });
     connect(ui->pushButtonOpenDebug, &QPushButton::clicked, [this](){
-        if(!GUIUtil::openDebugLogfile()){
+        if (!GUIUtil::openDebugLogfile()) {
             inform(tr("Cannot open debug file.\nVerify that you have installed a predetermined text editor."));
         }
     });
-    connect(ui->pushButtonCommandOptions, SIGNAL(clicked()), this, SLOT(onCommandsClicked()));
+    connect(ui->pushButtonCommandOptions, &QPushButton::clicked, this, &SettingsConsoleWidget::onCommandsClicked);
 
     // Install event filter for up and down arrow
     ui->lineEdit->installEventFilter(this);
@@ -295,7 +297,7 @@ SettingsConsoleWidget::SettingsConsoleWidget(PNYGUI* _window, QWidget *parent) :
 SettingsConsoleWidget::~SettingsConsoleWidget()
 {
     GUIUtil::saveWindowGeometry("nRPCConsoleWindow", this);
-    emit stopExecutor();
+    Q_EMIT stopExecutor();
     RPCUnsetTimerInterface(rpcTimerInterface);
     delete rpcTimerInterface;
     delete ui;
@@ -332,7 +334,7 @@ bool SettingsConsoleWidget::eventFilter(QObject* obj, QEvent* event)
             case Qt::Key_Return:
             case Qt::Key_Enter:
                 // forward these events to lineEdit
-                if(obj == autoCompleter->popup()) {
+                if (obj == autoCompleter->popup()) {
                     QApplication::postEvent(ui->lineEdit, new QKeyEvent(*keyevt));
                     return true;
                 }
@@ -347,12 +349,15 @@ bool SettingsConsoleWidget::eventFilter(QObject* obj, QEvent* event)
                     QApplication::postEvent(ui->lineEdit, new QKeyEvent(*keyevt));
                     return true;
                 }
+                if (mod == Qt::ControlModifier && key == Qt::Key_L)
+                    clear(false);
         }
     }
     return QWidget::eventFilter(obj, event);
 }
 
-void SettingsConsoleWidget::loadClientModel() {
+void SettingsConsoleWidget::loadClientModel()
+{
     if (clientModel){
 
         //Setup autocomplete and attach it
@@ -390,10 +395,13 @@ static QString categoryClass(int category)
     }
 }
 
-void SettingsConsoleWidget::clear(){
+void SettingsConsoleWidget::clear(bool clearHistory)
+{
     ui->messagesWidget->clear();
-    history.clear();
-    historyPtr = 0;
+    if (clearHistory) {
+        history.clear();
+        historyPtr = 0;
+    }
     ui->lineEdit->clear();
     ui->lineEdit->setFocus();
 
@@ -447,7 +455,7 @@ void SettingsConsoleWidget::on_lineEdit_returnPressed()
 
     if (!cmd.isEmpty()) {
         message(CMD_REQUEST, cmd);
-        emit cmdCommandRequest(cmd);
+        Q_EMIT cmdCommandRequest(cmd);
         // Remove command, if already in history
         history.removeOne(cmd);
         // Append command to history
@@ -483,17 +491,17 @@ void SettingsConsoleWidget::startExecutor()
     executor->moveToThread(thread);
 
     // Replies from executor object must go to this object
-    connect(executor, SIGNAL(reply(int, QString)), this, SLOT(message(int, QString)));
+    connect(executor, &RPCExecutor::reply, this, static_cast<void (SettingsConsoleWidget::*)(int, const QString&)>(&SettingsConsoleWidget::message));
     // Requests from this object must go to executor
     connect(this, &SettingsConsoleWidget::cmdCommandRequest, executor, &RPCExecutor::requestCommand);
 
     // On stopExecutor signal
     // - queue executor for deletion (in execution thread)
     // - quit the Qt event loop in the execution thread
-    connect(this, SIGNAL(stopExecutor()), executor, SLOT(deleteLater()));
-    connect(this, SIGNAL(stopExecutor()), thread, SLOT(quit()));
+    connect(this, &SettingsConsoleWidget::stopExecutor, executor, &RPCExecutor::deleteLater);
+    connect(this, &SettingsConsoleWidget::stopExecutor, thread, &QThread::quit);
     // Queue the thread for deletion (in this thread) when it is finished
-    connect(thread, SIGNAL(finished()), thread, SLOT(deleteLater()));
+    connect(thread, &QThread::finished, thread, &QThread::deleteLater);
 
     // Default implementation of QThread::run() simply spins up an event loop in the thread,
     // which is what we want.
@@ -532,7 +540,8 @@ void SettingsConsoleWidget::changeTheme(bool isLightTheme, QString &theme)
     updateStyle(ui->messagesWidget);
 }
 
-void SettingsConsoleWidget::onCommandsClicked() {
+void SettingsConsoleWidget::onCommandsClicked()
+{
     if (!clientModel)
         return;
 

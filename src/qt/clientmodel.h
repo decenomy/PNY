@@ -1,8 +1,8 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2015-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +10,7 @@
 #define BITCOIN_QT_CLIENTMODEL_H
 
 #include "uint256.h"
+#include "chain.h"
 #include <QObject>
 #include <QDateTime>
 
@@ -55,17 +56,16 @@ public:
 
     //! Return number of connections, default is in- and outbound (total)
     int getNumConnections(unsigned int flags = CONNECTIONS_ALL) const;
-    QString getMasternodeCountString() const;
-    int getNumBlocks() const;
     int getNumBlocksAtStartup();
+
+    // from cached block index
+    int getNumBlocks();
+    QDateTime getLastBlockDate() const;
+    QString getLastBlockHash() const;
+    double getVerificationProgress() const;
 
     quint64 getTotalBytesRecv() const;
     quint64 getTotalBytesSent() const;
-
-    double getVerificationProgress() const;
-    QDateTime getLastBlockDate() const;
-
-    QString getLastBlockHash() const;
 
     //! Return true if core is doing initial block download
     bool inInitialBlockDownload() const;
@@ -81,17 +81,28 @@ public:
     QString formatClientStartupTime() const;
     QString dataDir() const;
 
+    void setCacheTip(const CBlockIndex* const tip) { cacheTip = tip; }
+    void setCacheReindexing(bool reindex) { cachedReindexing = reindex; }
+    void setCacheImporting(bool import) { cachedImporting = import; }
+    void setCacheInitialSync(bool _initialSync) { cachedInitialSync = _initialSync; }
+
     bool getTorInfo(std::string& ip_port) const;
 
+    // Start/Stop the masternode polling timer
+    void startMasternodesTimer();
+    void stopMasternodesTimer();
+
 private:
+    QString getMasternodeCountString() const;
     OptionsModel* optionsModel;
     PeerTableModel* peerTableModel;
     BanTableModel *banTableModel;
 
-    int cachedNumBlocks;
+    const CBlockIndex* cacheTip{nullptr};
     QString cachedMasternodeCountString;
     bool cachedReindexing;
     bool cachedImporting;
+    bool cachedInitialSync;
 
     int numBlocksAtStartup;
 
@@ -101,7 +112,7 @@ private:
     void subscribeToCoreSignals();
     void unsubscribeFromCoreSignals();
 
-signals:
+Q_SIGNALS:
     void numConnectionsChanged(int count);
     void numBlocksChanged(int count);
     void strMasternodesChanged(const QString& strMasternodes);
@@ -109,16 +120,16 @@ signals:
     void bytesChanged(quint64 totalBytesIn, quint64 totalBytesOut);
 
     //! Fired when a message should be reported to the user
-    void message(const QString& title, const QString& message, unsigned int style);
+    void message(const QString& title, const QString& message, unsigned int style, bool* ret = nullptr);
 
     // Show progress dialog e.g. for verifychain
     void showProgress(const QString& title, int nProgress);
 
-public slots:
+public Q_SLOTS:
     void updateTimer();
     void updateMnTimer();
     void updateNumConnections(int numConnections);
-    void updateAlert(const QString& hash, int status);
+    void updateAlert();
     void updateBanlist();
 };
 

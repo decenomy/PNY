@@ -8,23 +8,24 @@
 #define PNY_ZPNYTRACKER_H
 
 #include "zerocoin.h"
-#include "witness.h"
 #include "sync.h"
 #include <list>
 
 class CDeterministicMint;
 class CzPNYWallet;
+class CWallet;
 
 class CzPNYTracker
 {
 private:
     bool fInitialized;
-    std::string strWalletFile;
+    /* Parent wallet */
+    CWallet* wallet{nullptr};
     std::map<uint256, CMintMeta> mapSerialHashes;
     std::map<uint256, uint256> mapPendingSpends; //serialhash, txid of spend
     bool UpdateStatusInternal(const std::set<uint256>& setMempool, CMintMeta& mint);
 public:
-    CzPNYTracker(std::string strWalletFile);
+    CzPNYTracker(CWallet* parent);
     ~CzPNYTracker();
     void Add(const CDeterministicMint& dMint, bool isNew = false, bool isArchived = false, CzPNYWallet* zPNYWallet = NULL);
     void Add(const CZerocoinMint& mint, bool isNew = false, bool isArchived = false);

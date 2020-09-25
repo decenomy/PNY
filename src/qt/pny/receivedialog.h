@@ -1,13 +1,13 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef RECEIVEDIALOG_H
 #define RECEIVEDIALOG_H
 
-#include <QDialog>
+#include "qt/pny/focuseddialog.h"
 #include <QPixmap>
 
 class SendCoinsRecipient;
@@ -16,7 +16,7 @@ namespace Ui {
 class ReceiveDialog;
 }
 
-class ReceiveDialog : public QDialog
+class ReceiveDialog : public FocusedDialog
 {
     Q_OBJECT
 
@@ -26,7 +26,7 @@ public:
 
     void updateQr(QString address);
 
-private slots:
+private Q_SLOTS:
     void onCopy();
 private:
     Ui::ReceiveDialog *ui;

@@ -9,9 +9,9 @@
  * @copyright  Copyright 2013 Ian Miers, Christina Garman and Matthew Green
  * @license    This project is released under the MIT license.
  **/
-// Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 
 #include <stdexcept>
 #include <iostream>
@@ -24,7 +24,7 @@ namespace libzerocoin {
 //PublicCoin class
 PublicCoin::PublicCoin(const ZerocoinParams* p):
     params(p) {
-    if (this->params->initialized == false) {
+    if (!this->params->initialized) {
         throw std::runtime_error("Params are not initialized");
     }
     // Assume this will get set by another method later
@@ -32,18 +32,11 @@ PublicCoin::PublicCoin(const ZerocoinParams* p):
 };
 
 PublicCoin::PublicCoin(const ZerocoinParams* p, const CBigNum& coin, const CoinDenomination d):
-    params(p), value(coin) {
-    if (this->params->initialized == false) {
+    params(p), value(coin), denomination(d) {
+    if (!this->params->initialized) {
         throw std::runtime_error("Params are not initialized");
     }
-
-    denomination = d;
-    for(const CoinDenomination denom : zerocoinDenomList) {
-        if(denom == d)
-            denomination = d;
-    }
     if (denomination == 0) {
-        std::cout << "denom does not exist\n";
         throw std::runtime_error("Denomination does not exist");
     }
 };
@@ -70,7 +63,7 @@ bool PublicCoin::validate() const
 //PrivateCoin class
 PrivateCoin::PrivateCoin(const ZerocoinParams* p, const CoinDenomination denomination, bool fMintNew): params(p), publicCoin(p) {
     // Verify that the parameters are valid
-    if(this->params->initialized == false) {
+    if(!this->params->initialized) {
         throw std::runtime_error("Params are not initialized");
     }
 
@@ -118,7 +111,7 @@ bool GenerateKeyPair(const CBigNum& bnGroupOrder, const uint256& nPrivkey, CKey&
     // Generate a new key pair, which also has a 256-bit pubkey hash that qualifies as a serial #
     // This builds off of Tim Ruffing's work on libzerocoin, but has a different implementation
     CKey keyPair;
-    if (nPrivkey == 0)
+    if (nPrivkey.IsNull())
         keyPair.MakeNewKey(true);
     else
         keyPair.Set(nPrivkey.begin(), nPrivkey.end(), true);
@@ -171,7 +164,7 @@ void PrivateCoin::mintCoin(const CoinDenomination denomination) {
         CBigNum s;
         bool isValid = false;
         while (!isValid) {
-            isValid = GenerateKeyPair(this->params->coinCommitmentGroup.groupOrder, uint256(0), key, s);
+            isValid = GenerateKeyPair(this->params->coinCommitmentGroup.groupOrder, UINT256_ZERO, key, s);
         }
 
         // Generate a Pedersen commitment to the serial number "s"
@@ -209,7 +202,7 @@ void PrivateCoin::mintCoinFast(const CoinDenomination denomination) {
     CBigNum s;
     bool isValid = false;
     while (!isValid) {
-        isValid = GenerateKeyPair(this->params->coinCommitmentGroup.groupOrder, uint256(0), key, s);
+        isValid = GenerateKeyPair(this->params->coinCommitmentGroup.groupOrder, UINT256_ZERO, key, s);
     }
     // Generate a random number "r" in the range 0...{q-1}
     CBigNum r = CBigNum::randBignum(this->params->coinCommitmentGroup.groupOrder);
@@ -273,7 +266,7 @@ int ExtractVersionFromSerial(const CBigNum& bnSerial)
 CBigNum GetAdjustedSerial(const CBigNum& bnSerial)
 {
     uint256 serial = bnSerial.getuint256();
-    serial &= ~uint256(0) >> PrivateCoin::V2_BITSHIFT;
+    serial &= ~UINT256_ZERO >> PrivateCoin::V2_BITSHIFT;
     CBigNum bnSerialAdjusted;
     bnSerialAdjusted.setuint256(serial);
     return bnSerialAdjusted;

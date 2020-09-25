@@ -52,14 +52,15 @@
         <item>
          <widget class="QLabel" name="labelTitle">
           <property name="text">
-           <string>TextLabel</string>
+           <string>Backup Wallet</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="labelSubtitle1">
           <property name="text">
-           <string>TextLabel</string>
+           <string>Keep your wallet safe by doing regular backups and storing your backup file externally.
+This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -89,7 +90,7 @@
         <item>
          <widget class="QLabel" name="labelSubtitleLocation">
           <property name="text">
-           <string>TextLabel</string>
+           <string>Where</string>
           </property>
          </widget>
         </item>
@@ -111,65 +112,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <spacer name="verticalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_7">
-        <item>
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Expanding</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonSave">
-          <property name="minimumSize">
-           <size>
-            <width>200</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>200</width>
-            <height>50</height>
-           </size>
-          </property>
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="text">
-           <string/>
+           <string>Select folder...</string>
           </property>
          </widget>
         </item>
@@ -208,19 +151,6 @@
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <layout class="QVBoxLayout" name="verticalLayoutTitle_2">
         <property name="spacing">
          <number>5</number>
@@ -228,14 +158,15 @@
         <item>
          <widget class="QLabel" name="labelTitle_2">
           <property name="text">
-           <string>TextLabel</string>
+           <string>Change Wallet Passphrase</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="labelSubtitle_2">
           <property name="text">
-           <string>TextLabel</string>
+           <string>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
+Remember to write it down and store it safely, otherwise you might lose access to your funds</string>
           </property>
           <property name="wordWrap">
            <bool>true</bool>
@@ -293,7 +224,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
-           <string/>
+           <string>Change Passphrase</string>
           </property>
          </widget>
         </item>

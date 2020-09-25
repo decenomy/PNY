@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2013 The Bitcoin developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,7 +49,7 @@ public:
     void setModel(AddressTableModel* model);
     const QString& getReturnValue() const { return returnValue; }
 
-public slots:
+public Q_SLOTS:
     void done(int retval);
 
 private:
@@ -63,7 +63,7 @@ private:
     QAction* deleteAction; // to be able to explicitly disable it
     QString newAddressToSelect;
 
-private slots:
+private Q_SLOTS:
     /** Delete currently selected address entry */
     void on_deleteAddress_clicked();
     /** Create a new address for receiving coins and / or add a new address book entry */
@@ -84,7 +84,7 @@ private slots:
     /** New entry/entries were added to address table */
     void selectNewAddress(const QModelIndex& parent, int begin, int /*end*/);
 
-signals:
+Q_SIGNALS:
     void sendCoins(QString addr);
 };
 

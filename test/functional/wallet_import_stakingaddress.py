@@ -22,7 +22,7 @@ class ImportStakingTest(PnyTestFramework):
 
     def set_test_params(self):
         self.num_nodes = 2
-        self.extra_args = [['-staking=0']] * self.num_nodes
+        self.extra_args = [[]] * self.num_nodes
         self.extra_args[0].append('-sporkkey=932HEevBSujW2ud7RfB1YF91AFygbBRQj3de3LyaCRqNzKKgWXi')
 
     def log_title(self):
@@ -47,7 +47,7 @@ class ImportStakingTest(PnyTestFramework):
             delegations.append(self.nodes[0].delegatestake(sa, 10)['txid'])
             # mine a block and check staking balance
             self.nodes[0].generate(1)
-            assert_equal(self.nodes[0].getcoldstakingbalance(), DecimalAmt(10 * (i+1)))
+            assert_equal(self.nodes[0].getdelegatedbalance(), DecimalAmt(10 * (i+1)))
             sync_blocks(self.nodes)
 
         # Export keys

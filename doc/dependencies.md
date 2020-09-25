@@ -6,7 +6,7 @@ These are the dependencies currently used by PNY Core. You can find instructions
 | Dependency | Version used | Minimum required | CVEs | Shared | [Bundled Qt library](https://doc.qt.io/qt-5/configure-options.html#third-party-libraries) |
 | --- | --- | --- | --- | --- | --- |
 | Berkeley DB | [4.8.30](https://www.oracle.com/technetwork/database/database-technologies/berkeleydb/downloads/index.html) | 4.8.x | No |  |  |
-| Boost | [1.64.0](https://www.boost.org/users/download/) | [1.47.0](https://github.com/bitcoin/bitcoin/pull/8920) | No |  |  |
+| Boost | [1.64.0](https://www.boost.org/users/download/) | [1.57.0](https://github.com/PeonyTeam/PNY/pull/1703) | No |  |  |
 | Clang |  | [3.3+](https://llvm.org/releases/download.html) (C++11 support) |  |  |  |
 | D-Bus | [1.10.18](https://cgit.freedesktop.org/dbus/dbus/tree/NEWS?h=dbus-1.10) |  | No | Yes |  |
 | Expat | [2.2.6](https://libexpat.github.io/) |  | No | Yes |  |
@@ -30,6 +30,8 @@ These are the dependencies currently used by PNY Core. You can find instructions
 | xkbcommon |  |  |  |  | [Yes](https://github.com/PeonyTeam/pny/blob/master/depends/packages/qt.mk#L86) (Linux only) |
 | ZeroMQ | [4.3.1](https://github.com/zeromq/libzmq/releases) | 4.0.0 | No |  |  |
 | zlib | [1.2.11](https://zlib.net/) |  |  |  | No |
+| Sodium | [1.0.15](https://github.com/jedisct1/libsodium) |
+| Rust | [1.42.0](https://www.rust-lang.org/) | 1.42.0 |
 
 Controlling dependencies
 ------------------------

@@ -1,6 +1,6 @@
 // Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,11 +57,11 @@ public:
     int getEditWidth();
     int getMenuBtnWidth();
 
-public slots:
+public Q_SLOTS:
     void clear();
     void updateDisplayUnit();
 
-signals:
+Q_SIGNALS:
     void removeEntry(SendMultiRow* entry);
     void onContactsClicked(SendMultiRow* entry);
     void onMenuClicked(SendMultiRow* entry);
@@ -73,9 +73,9 @@ protected:
     virtual void enterEvent(QEvent *) override ;
     virtual void leaveEvent(QEvent *) override ;
 
-private slots:
+private Q_SLOTS:
     void amountChanged(const QString&);
-    bool addressChanged(const QString&);
+    bool addressChanged(const QString&, bool fOnlyValidate = false);
     void deleteClicked();
     //void on_payTo_textChanged(const QString& address);
     //void on_addressBookButton_clicked();

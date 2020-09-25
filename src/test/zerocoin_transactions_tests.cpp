@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,47 +10,44 @@
 #include "amount.h"
 #include "chainparams.h"
 #include "coincontrol.h"
+#include "consensus/zerocoin_verify.h"
 #include "main.h"
 #include "wallet/wallet.h"
 #include "wallet/walletdb.h"
 #include "txdb.h"
 #include "zpny/zpnymodule.h"
-#include "test/test_pny.h"
+#include "wallet/test/wallet_test_fixture.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
 
 
 
-BOOST_FIXTURE_TEST_SUITE(zerocoin_transactions_tests, TestingSetup)
-
-static CWallet cWallet("unlocked.dat");
+BOOST_FIXTURE_TEST_SUITE(zerocoin_transactions_tests, WalletTestingSetup)
 
 BOOST_AUTO_TEST_CASE(zerocoin_spend_test)
 {
     SelectParams(CBaseChainParams::MAIN);
-    libzerocoin::ZerocoinParams *ZCParams = Params().Zerocoin_Params(false);
+    libzerocoin::ZerocoinParams *ZCParams = Params().GetConsensus().Zerocoin_Params(false);
     (void)ZCParams;
 
     bool fFirstRun;
-    cWallet.LoadWallet(fFirstRun);
-    cWallet.zpnyTracker = std::unique_ptr<CzPNYTracker>(new CzPNYTracker(cWallet.strWalletFile));
+    pwalletMain->LoadWallet(fFirstRun);
+    pwalletMain->zpnyTracker = std::unique_ptr<CzPNYTracker>(new CzPNYTracker(pwalletMain));
     CMutableTransaction tx;
-    CWalletTx* wtx = new CWalletTx(&cWallet, tx);
-    bool fMintChange=true;
-    bool fMinimizeChange=true;
+    CWalletTx* wtx = new CWalletTx(pwalletMain, tx);
     std::vector<CZerocoinSpend> vSpends;
     std::vector<CZerocoinMint> vMints;
     CAmount nAmount = COIN;
 
     CZerocoinSpendReceipt receipt;
-    std::list<std::pair<CBitcoinAddress*, CAmount>> outputs;
-    cWallet.SpendZerocoin(nAmount, *wtx, receipt, vMints, fMintChange, fMinimizeChange, outputs);
+    std::list<std::pair<CTxDestination, CAmount>> outputs;
+    pwalletMain->SpendZerocoin(nAmount, *wtx, receipt, vMints, outputs);
 
     BOOST_CHECK_MESSAGE(receipt.GetStatus() == ZPNY_TRX_FUNDS_PROBLEMS, strprintf("Failed Invalid Amount Check: %s", receipt.GetStatusMessage()));
 
     nAmount = 1;
     CZerocoinSpendReceipt receipt2;
-    cWallet.SpendZerocoin(nAmount, *wtx, receipt2, vMints, fMintChange, fMinimizeChange, outputs);
+    pwalletMain->SpendZerocoin(nAmount, *wtx, receipt2, vMints, outputs);
 
     // if using "wallet.dat", instead of "unlocked.dat" need this
     /// BOOST_CHECK_MESSAGE(vString == "Error: Wallet locked, unable to create transaction!"," Locked Wallet Check Failed");
@@ -63,9 +60,9 @@ BOOST_AUTO_TEST_CASE(zerocoin_schnorr_signature_test)
 {
     const int NUM_OF_TESTS = 50;
     SelectParams(CBaseChainParams::MAIN);
-    libzerocoin::ZerocoinParams *ZCParams_v1 = Params().Zerocoin_Params(true);
+    libzerocoin::ZerocoinParams *ZCParams_v1 = Params().GetConsensus().Zerocoin_Params(true);
     (void)ZCParams_v1;
-    libzerocoin::ZerocoinParams *ZCParams_v2 = Params().Zerocoin_Params(false);
+    libzerocoin::ZerocoinParams *ZCParams_v2 = Params().GetConsensus().Zerocoin_Params(false);
     (void)ZCParams_v2;
 
     for (int i=0; i<NUM_OF_TESTS; i++) {
@@ -162,8 +159,8 @@ BOOST_AUTO_TEST_CASE(zerocoin_schnorr_signature_test)
 BOOST_AUTO_TEST_CASE(zerocoin_public_spend_test)
 {
     SelectParams(CBaseChainParams::MAIN);
-    libzerocoin::ZerocoinParams *ZCParams_v1 = Params().Zerocoin_Params(true);
-    libzerocoin::ZerocoinParams *ZCParams_v2 = Params().Zerocoin_Params(false);
+    libzerocoin::ZerocoinParams *ZCParams_v1 = Params().GetConsensus().Zerocoin_Params(true);
+    libzerocoin::ZerocoinParams *ZCParams_v2 = Params().GetConsensus().Zerocoin_Params(false);
     (void)ZCParams_v1;
     (void)ZCParams_v2;
 
@@ -228,13 +225,13 @@ BOOST_AUTO_TEST_CASE(zerocoin_public_spend_test)
     CMutableTransaction tx1, tx2, tx3;
     tx1.vout.resize(1);
     tx1.vout[0].nValue = 1*CENT;
-    tx1.vout[0].scriptPubKey = GetScriptForDestination(CBitcoinAddress("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q").Get());
+    tx1.vout[0].scriptPubKey = GetScriptForDestination(DecodeDestination("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q"));
     tx2.vout.resize(1);
     tx2.vout[0].nValue = 1*CENT;
-    tx2.vout[0].scriptPubKey = GetScriptForDestination(CBitcoinAddress("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q").Get());
+    tx2.vout[0].scriptPubKey = GetScriptForDestination(DecodeDestination("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q"));
     tx3.vout.resize(1);
     tx3.vout[0].nValue = 1*CENT;
-    tx3.vout[0].scriptPubKey = GetScriptForDestination(CBitcoinAddress("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q").Get());
+    tx3.vout[0].scriptPubKey = GetScriptForDestination(DecodeDestination("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q"));
 
     CTxIn in1, in2, in3;
 

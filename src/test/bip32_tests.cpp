@@ -1,7 +1,7 @@
 // Copyright (c) 2013 The Bitcoin Core developers
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -84,7 +84,7 @@ void RunTest(const TestVector &test) {
     std::vector<unsigned char> seed = ParseHex(test.strHexMaster);
     CExtKey key;
     CExtPubKey pubkey;
-    key.SetMaster(&seed[0], seed.size());
+    key.SetSeed(&seed[0], seed.size());
     pubkey = key.Neuter();
     for (const TestDerivation &derive : test.vDerive) {
         unsigned char data[74];
@@ -93,9 +93,19 @@ void RunTest(const TestVector &test) {
         // Test private key
         CBitcoinExtKey b58key; b58key.SetKey(key);
         BOOST_CHECK(b58key.ToString() == derive.prv);
+
+        CBitcoinExtKey b58keyDecodeCheck(derive.prv);
+        CExtKey checkKey = b58keyDecodeCheck.GetKey();
+        assert(checkKey == key); //ensure a base58 decoded key also matches
+
         // Test public key
         CBitcoinExtPubKey b58pubkey; b58pubkey.SetKey(pubkey);
         BOOST_CHECK(b58pubkey.ToString() == derive.pub);
+
+        CBitcoinExtPubKey b58PubkeyDecodeCheck(derive.pub);
+        CExtPubKey checkPubKey = b58PubkeyDecodeCheck.GetKey();
+        assert(checkPubKey == pubkey); //ensure a base58 decoded pubkey also matches
+
         // Derive new keys
         CExtKey keyNew;
         BOOST_CHECK(key.Derive(keyNew, derive.nChild));
@@ -108,6 +118,22 @@ void RunTest(const TestVector &test) {
         }
         key = keyNew;
         pubkey = pubkeyNew;
+
+        CDataStream ssPub(SER_DISK, CLIENT_VERSION);
+        ssPub << pubkeyNew;
+        BOOST_CHECK(ssPub.size() == 75);
+
+        CDataStream ssPriv(SER_DISK, CLIENT_VERSION);
+        ssPriv << keyNew;
+        BOOST_CHECK(ssPriv.size() == 75);
+
+        CExtPubKey pubCheck;
+        CExtKey privCheck;
+        ssPub >> pubCheck;
+        ssPriv >> privCheck;
+
+        BOOST_CHECK(pubCheck == pubkeyNew);
+        BOOST_CHECK(privCheck == keyNew);
     }
 }
 

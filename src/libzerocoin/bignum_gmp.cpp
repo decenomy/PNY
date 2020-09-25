@@ -1,8 +1,8 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2017-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -135,7 +135,7 @@ uint256 CBigNum::getuint256() const
     if(bitSize() > 256) {
         throw std::range_error("cannot convert to uint256, bignum longer than 256 bits");
     }
-    uint256 n = uint256(0);
+    uint256 n = UINT256_ZERO;
     mpz_export((unsigned char*)&n, NULL, -1, 1, 0, 0, bn);
     return n;
 }

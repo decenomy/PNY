@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +10,7 @@
 #include <QWidget>
 #include "qt/pny/pwidget.h"
 #include "qt/pny/settings/settingsbackupwallet.h"
+#include "qt/pny/settings/settingsexportcsv.h"
 #include "qt/pny/settings/settingsbittoolwidget.h"
 #include "qt/pny/settings/settingssignmessagewidgets.h"
 #include "qt/pny/settings/settingswalletrepairwidget.h"
@@ -42,12 +43,14 @@ public:
     void loadWalletModel() override;
     void setMapper();
     void showDebugConsole();
+    void showInformation();
+    void openNetworkMonitor();
 
-signals:
+Q_SIGNALS:
     /** Get restart command-line parameters and handle restart */
     void handleRestart(QStringList args);
 
-private slots:
+private Q_SLOTS:
     // File
     void onFileClicked();
     void onBackupWalletClicked();
@@ -57,6 +60,7 @@ private slots:
     void onConfigurationClicked();
     void onBipToolClicked();
     void onMultisendClicked();
+    void onExportCSVClicked();
 
     // Options
     void onOptionsClicked();
@@ -75,13 +79,15 @@ private slots:
     // Help
     void onHelpClicked();
     void onAboutClicked();
-
     void onResetAction();
     void onSaveOptionsClicked();
+
 private:
     Ui::SettingsWidget *ui;
+    int navAreaBaseHeight{0};
 
     SettingsBackupWallet *settingsBackupWallet;
+    SettingsExportCSV *settingsExportCsvWidget;
     SettingsBitToolWidget *settingsBitToolWidget;
     SettingsSignMessageWidgets *settingsSingMessageWidgets;
     SettingsWalletRepairWidget *settingsWalletRepairWidget;
@@ -95,9 +101,12 @@ private:
     QDataWidgetMapper* mapper;
 
     QList<QPushButton*> options;
+    // Map of: menu button -> sub menu items
+    QMap <QPushButton*, QWidget*> menus;
 
     void selectOption(QPushButton* option);
-    bool openStandardDialog(QString title = "", QString body = "", QString okBtn = "OK", QString cancelBtn = "");
+    bool openStandardDialog(const QString& title = "", const QString& body = "", const QString& okBtn = "OK", const QString& cancelBtn = "");
+    void selectMenu(QPushButton* btn);
 };
 
 #endif // SETTINGSWIDGET_H

@@ -6,24 +6,20 @@
         <translation>Dialoog</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>Mijn Adres</translation>
-    </message>
-    <message>
         <source>Address</source>
         <translation>Adres</translation>
     </message>
     <message>
         <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <translation>DrukKnop</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
+        <source>SAVE</source>
+        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
@@ -33,16 +29,8 @@
         <translation>Dialoog</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -51,10 +39,6 @@
     <message>
         <source>Set a label for the selected address</source>
         <translation>Stel een label in voor het geselecteerde adres</translation>
-    </message>
-    <message>
-        <source>Enter a name for the address (e.g Exchange)</source>
-        <translation>Voeg een naam toe bij het behorende adres</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -163,7 +147,7 @@
     </message>
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>Er was een fout opgetreden tijdens het opslaan van deze adreslijst naar %1. Probeer het nogmaals.</translation>
+        <translation>Er is een fout opgetreden tijdens het opslaan van de adreslijst naar %1. Probeer het opnieuw.</translation>
     </message>
 </context>
 <context>
@@ -196,6 +180,10 @@
         <translation>Datum</translation>
     </message>
     <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(geen label)</translation>
     </message>
@@ -207,28 +195,12 @@
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>Send</source>
-        <translation>Zenden</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
-    </message>
-    <message>
         <source>Contact name</source>
         <translation>Contactpersoon</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Voeg adres toe</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -241,14 +213,6 @@
     <message>
         <source>No contacts yet</source>
         <translation>Nog geen contacten</translation>
-    </message>
-    <message>
-        <source>e.g. John Doe</source>
-        <translation>bv. Jan Jansen</translation>
-    </message>
-    <message>
-        <source>Enter a PNY address</source>
-        <translation>Voeg een PNY adres toe</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -296,7 +260,7 @@ Are you sure?</source>
 
 %1
 
-Weet U het zeker?</translation>
+Weet u het zeker?</translation>
     </message>
     <message>
         <source>Contact Deleted</source>
@@ -323,7 +287,7 @@ Weet U het zeker?</translation>
     </message>
     <message>
         <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <translation>DrukKnop</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -368,6 +332,14 @@ voor bewijs van Inzet</translation>
         <translation>Bevestig versleuteling van de portemonnee</translation>
     </message>
     <message>
+        <source>WARNING</source>
+        <translation>WAARSCHUWING</translation>
+    </message>
+    <message>
+        <source>If you encrypt your wallet and lose your passphrase, you will</source>
+        <translation>Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zal u</translation>
+    </message>
+    <message>
         <source>ENCRYPT</source>
         <translation>Versleutelen</translation>
     </message>
@@ -382,10 +354,6 @@ voor bewijs van Inzet</translation>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Weet u zeker dat u uw portemonnee wilt versleutelen?</translation>
-    </message>
-    <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PNY&lt;/b&gt;!</source>
-        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW PNY VERLIEZEN&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -427,10 +395,6 @@ voor bewijs van Inzet</translation>
         <source>Wallet passphrase was successfully changed.</source>
         <translation>Portemonnee wachtwoordzin is met succes gewijzigd.</translation>
     </message>
-    <message>
-        <source>Warning: The Caps Lock key is on!</source>
-        <translation>Waarschuwing: De Caps-Lock-toets staat aan!</translation>
-    </message>
 </context>
 <context>
     <name>BanTableModel</name>
@@ -441,37 +405,6 @@ voor bewijs van Inzet</translation>
     <message>
         <source>Banned Until</source>
         <translation>Verboden tot</translation>
-    </message>
-</context>
-<context>
-    <name>BlockExplorer</name>
-    <message>
-        <source>Blockchain Explorer</source>
-        <translation>Blockchain Verkenner</translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation>Terug</translation>
-    </message>
-    <message>
-        <source>Forward</source>
-        <translation>Volgende</translation>
-    </message>
-    <message>
-        <source>Address / Block / Transaction</source>
-        <translation>Adres / Block / Transactie</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Zoeken</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pny.conf).</source>
-        <translation>Niet alle transacties zullen worden getoond. Om alle transacties te bekijken moet u txindex=1 instellen in het configuratie bestand (pny.conf).</translation>
     </message>
 </context>
 <context>
@@ -507,10 +440,6 @@ voor bewijs van Inzet</translation>
         <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
         <translation>Totaal: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Onbekend: %5)</translation>
     </message>
-    <message>
-        <source>Network Alert</source>
-        <translation>Netwerk waarschuwing</translation>
-    </message>
 </context>
 <context>
     <name>CoinControlDialog</name>
@@ -529,6 +458,10 @@ voor bewijs van Inzet</translation>
     <message>
         <source>Coin Selection</source>
         <translation>Munt Selectie</translation>
+    </message>
+    <message>
+        <source>Select PNY Outputs to Spend</source>
+        <translation>Selecteer PNY Outputs om te besteden</translation>
     </message>
     <message>
         <source>Dust:</source>
@@ -553,14 +486,6 @@ voor bewijs van Inzet</translation>
     <message>
         <source>Amount</source>
         <translation>Bedrag</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
     </message>
     <message>
         <source>0.00 PNY</source>
@@ -631,40 +556,40 @@ voor bewijs van Inzet</translation>
         <translation>Unlock niet besteed</translation>
     </message>
     <message>
-        <source>Copy quantity</source>
-        <translation>Kopieer kwantiteit</translation>
-    </message>
-    <message>
-        <source>Copy fee</source>
-        <translation>Kopieer fee</translation>
-    </message>
-    <message>
-        <source>Copy after fee</source>
-        <translation>Kopieer na fee</translation>
-    </message>
-    <message>
-        <source>Copy bytes</source>
-        <translation>Kopieer bytes</translation>
-    </message>
-    <message>
-        <source>Copy priority</source>
-        <translation>Kopieer prioriteit</translation>
-    </message>
-    <message>
-        <source>Copy dust</source>
-        <translation>Kopieer dust</translation>
-    </message>
-    <message>
-        <source>Copy change</source>
-        <translation>Kopieer wisselgeld</translation>
-    </message>
-    <message>
         <source>Unselect all</source>
         <translation>Deselecteer alles</translation>
     </message>
     <message>
         <source>Please switch to "List mode" to use this function.</source>
         <translation>Schakel alsjeblieft over naar "Lijst modus" om deze functie te gebruiken.</translation>
+    </message>
+    <message>
+        <source>Quantity Copied</source>
+        <translation>Aantal gekopieerd</translation>
+    </message>
+    <message>
+        <source>Amount Copied</source>
+        <translation>Hoeveelheid gekopieerd</translation>
+    </message>
+    <message>
+        <source>Fee Copied</source>
+        <translation>Kost gekopieerd</translation>
+    </message>
+    <message>
+        <source>After Fee Copied</source>
+        <translation>Na Vergoeding Gekopieerd</translation>
+    </message>
+    <message>
+        <source>Bytes Copied</source>
+        <translation>Bytes gekopieerd</translation>
+    </message>
+    <message>
+        <source>Dust Copied</source>
+        <translation>Dust Gekopieerd</translation>
+    </message>
+    <message>
+        <source>Change Copied</source>
+        <translation>Wissel Gekopieerd</translation>
     </message>
     <message>
         <source>highest</source>
@@ -715,6 +640,14 @@ voor bewijs van Inzet</translation>
         <translation>ja</translation>
     </message>
     <message>
+        <source>delegated to %1 for cold staking</source>
+        <translation>gedelegeerd naar %1 voor cold staking</translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation>Selecteer Alles</translation>
+    </message>
+    <message>
         <source>no</source>
         <translation>nee</translation>
     </message>
@@ -743,10 +676,6 @@ voor bewijs van Inzet</translation>
         <translation>Dit label wordt rood, als een ontvanger een hoeveelheid kleiner dan %1 ontvangt.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 upny per input.</source>
-        <translation>Kan +/-%1 upny per invoer variëren.</translation>
-    </message>
-    <message>
         <source>(no label)</source>
         <translation>(geen label)</translation>
     </message>
@@ -760,125 +689,18 @@ voor bewijs van Inzet</translation>
     </message>
 </context>
 <context>
-    <name>CoinControlPnyWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialoog</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>PNY:</source>
-        <translation>PNY:</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Kwantiteit:</translation>
-    </message>
-    <message>
-        <source>Fee:</source>
-        <translation>Fee:</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Bedrag</translation>
-    </message>
-    <message>
-        <source>Label</source>
-        <translation>Label</translation>
-    </message>
-    <message>
-        <source>Address</source>
-        <translation>Adres</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>Type</translation>
-    </message>
-    <message>
-        <source>Date</source>
-        <translation>Datum</translation>
-    </message>
-    <message>
-        <source>Confirmations</source>
-        <translation>Bevestigingen</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>Selectievakje</translation>
-    </message>
-    <message>
-        <source>Bytes:</source>
-        <translation>Bytes:</translation>
-    </message>
-    <message>
-        <source>Dust:</source>
-        <translation>Dust:</translation>
-    </message>
-    <message>
-        <source>Change:</source>
-        <translation>Wisselgeld:</translation>
-    </message>
-    <message>
-        <source>After Fee: </source>
-        <translation>Na kosten</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
-    </message>
-</context>
-<context>
     <name>ColdStakingWidget</name>
     <message>
         <source>Form</source>
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>Title</source>
-        <translation>Tietel</translation>
+        <source>Owner address (optional, if empty a new address will be created)</source>
+        <translation>Eigenaarsadres (optioneel, indien leeg wordt er een nieuw adres aangemaakt)</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Owner Address (optional, if empty a new address will be created)</source>
-        <translation>Eigenaarsadres (optioneel, indien leeg zal er een nieuw adres aangemaakt worden)</translation>
-    </message>
-    <message>
-        <source>List of delegated balance by address</source>
-        <translation>Lijst van gedelegeerde balans gesorteerd op adres</translation>
-    </message>
-    <message>
-        <source>Total</source>
-        <translation>Totaal</translation>
-    </message>
-    <message>
-        <source>Unconfirmed balance will not be shown</source>
-        <translation>Onbevestigde saldi zal niet getoond worden</translation>
-    </message>
-    <message>
-        <source>No balance delegated</source>
-        <translation>Geen balans gedelegeerd</translation>
+        <source>Total Staking:</source>
+        <translation>Totaal Staking:</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -893,30 +715,12 @@ voor bewijs van Inzet</translation>
         <translation>Delegatie</translation>
     </message>
     <message>
-        <source>You can delegate your PNYs and let a hot node (24/7 online node)
-stake in your behalf, keeping the keys in a secure place offline.</source>
-        <translation>Je kan jouw PNYs delegeren en een hot node (24/7 online node)
-laten staken in jouw naam, waardoor de sleutels in een veilige offline opslag bewaard worden.</translation>
-    </message>
-    <message>
-        <source>Add owner address</source>
-        <translation>Eigenaarsadres toevoegen</translation>
-    </message>
-    <message>
-        <source>Delegate or Accept PNY delegation</source>
-        <translation>Delegeer of Accepteer PNY delegatie</translation>
-    </message>
-    <message>
         <source>Delegate</source>
         <translation>Delegeer</translation>
     </message>
     <message>
         <source>Clear All</source>
         <translation>Alles wissen</translation>
-    </message>
-    <message>
-        <source>Add the staking address</source>
-        <translation>Staking-adres toevoegen</translation>
     </message>
     <message>
         <source>Delegated balance history</source>
@@ -935,20 +739,50 @@ laten staken in jouw naam, waardoor de sleutels in een veilige offline opslag be
         <translation>Fout bij laden delegaties: %1</translation>
     </message>
     <message>
+        <source>You can delegate your PNYs, letting a hot node (24/7 online node)
+stake on your behalf, while you keep the keys securely offline.</source>
+        <translation>Je kan jouw PNYs delegeren en een hot node (24/7 online node)
+voor je laten staken, terwijl je de sleutels veilig offline opslag bewaart.</translation>
+    </message>
+    <message>
+        <source>Enter owner address</source>
+        <translation>Voer eigenaarsadres in</translation>
+    </message>
+    <message>
+        <source>Accept PNY delegation / Delegate PNY</source>
+        <translation>Accepteer PNY delegatie / Delegeer PNY</translation>
+    </message>
+    <message>
+        <source>Cold Staking address</source>
+        <translation>Cold Staking adres</translation>
+    </message>
+    <message>
+        <source>No receive addresses available, you can go to the receive screen and create some there!</source>
+        <translation>Geen ontvangstadressen beschikbare, je kan naar het ontvangstscherm gaan en daar enkele toevoegen!</translation>
+    </message>
+    <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
         <translation>Geen beschikbare contacten, je kan naar het contactscherm gaan en daar enkele toevoegen!</translation>
+    </message>
+    <message>
+        <source>Cannot send delegation, wallet locked</source>
+        <translation>Kan delegatie niet versturen, portemonnee vergrendeld</translation>
     </message>
     <message>
         <source>Cold staking is networkely disabled</source>
         <translation>Cold staking is uitgeschakeld</translation>
     </message>
     <message>
+        <source>Coin Control</source>
+        <translation>Munt Controle</translation>
+    </message>
+    <message>
         <source>Invalid entry</source>
         <translation>Ongeldige invoer</translation>
     </message>
     <message>
-        <source>Invalid entry, minimum delegable amount is 10 PNY</source>
-        <translation>Ongeldige invoer, de minimum gedelegeerde hoeveelheid is 10 PNY</translation>
+        <source>Invalid entry, minimum delegable amount is </source>
+        <translation>Ongeldige invoer, minimaal te delegeren bedrag is</translation>
     </message>
     <message>
         <source>Owner address invalid</source>
@@ -987,8 +821,8 @@ Wil je verdergaan?</translation>
         <translation>Gedelegeerde Munten</translation>
     </message>
     <message>
-        <source>You don't have any PNY to select.</source>
-        <translation>Je hebt geen PNY om te selecteren</translation>
+        <source>Cannot perform operation, wallet locked</source>
+        <translation>Kan deze actie niet uitvoeren, portemonnee vergrendeld</translation>
     </message>
     <message>
         <source>URI copied to clipboard</source>
@@ -1070,14 +904,6 @@ address</source>
         <source>Form</source>
         <translation>Formulier</translation>
     </message>
-    <message>
-        <source>Bob Allen</source>
-        <translation>Bob Allen</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
-    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -1090,40 +916,12 @@ address</source>
         <translation>Transacties</translation>
     </message>
     <message>
-        <source>You can see here the history of your account</source>
-        <translation>U kunt hier de geschiedenis van uw account bekijken</translation>
-    </message>
-    <message>
-        <source>Warning</source>
-        <translation>Waarschuwing</translation>
-    </message>
-    <message>
-        <source>No transactions</source>
-        <translation>Geen transacties</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Staking Rewards</source>
         <translation>Staking Beloningen</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
         <source>Staking statistics</source>
         <translation>Staking statistieken</translation>
-    </message>
-    <message>
-        <source>PNY</source>
-        <translation>PNY</translation>
-    </message>
-    <message>
-        <source>zPNY</source>
-        <translation>zPNY</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -1146,60 +944,8 @@ address</source>
         <translation>Filter volgens</translation>
     </message>
     <message>
-        <source>LabelText</source>
-        <translation>LabelText</translation>
-    </message>
-    <message>
-        <source>You can view your account's history</source>
-        <translation>U kunt de geschiedenis van uw account bekijken</translation>
-    </message>
-    <message>
         <source>Amount of PNY staked.</source>
         <translation>Hoeveelheid aan gestaked PNY en zPNY.</translation>
-    </message>
-    <message>
-        <source>All</source>
-        <translation>Alle</translation>
-    </message>
-    <message>
-        <source>Received</source>
-        <translation>Ontvangen</translation>
-    </message>
-    <message>
-        <source>Sent</source>
-        <translation>Verstuurd</translation>
-    </message>
-    <message>
-        <source>Mined</source>
-        <translation>Mined</translation>
-    </message>
-    <message>
-        <source>Minted</source>
-        <translation>Minted</translation>
-    </message>
-    <message>
-        <source>MN reward</source>
-        <translation>MN beloning</translation>
-    </message>
-    <message>
-        <source>To yourself</source>
-        <translation>Naar jezelf</translation>
-    </message>
-    <message>
-        <source>Cold stakes</source>
-        <translation>Cold stakes</translation>
-    </message>
-    <message>
-        <source>Hot stakes</source>
-        <translation>Hot stakes</translation>
-    </message>
-    <message>
-        <source>Delegated</source>
-        <translation>Gedelegeerd</translation>
-    </message>
-    <message>
-        <source>Delegations</source>
-        <translation>Delegaties</translation>
     </message>
     <message>
         <source>Please wait until the wallet is fully synced to see your correct balance</source>
@@ -1208,10 +954,6 @@ address</source>
     <message>
         <source>No transactions yet</source>
         <translation>Nog geen transacties</translation>
-    </message>
-    <message>
-        <source>How to get PNY</source>
-        <translation>Hoe PNY of zPNY verkrijgen</translation>
     </message>
     <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
@@ -1251,83 +993,12 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>Text Label</source>
-        <translation>Text Label</translation>
+        <source>OK</source>
+        <translation>Akkoord</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>SAVE</source>
-        <translation>Opslaan</translation>
-    </message>
-</context>
-<context>
-    <name>DenomGenerationDialog</name>
-    <message>
-        <source>Form</source>
-        <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>This will unlock your wallet fully, so that anyone with access to it can spend until the wallet is closed or locked again.</source>
-        <translation>Hiermee wordt uw portemonnee volledig ontgrendeld, zodat iedereen die er toegang toe heeft, deze kan uitgeven totdat de portemonnee weer wordt gesloten of vergrendeld.</translation>
-    </message>
-    <message>
-        <source>5000</source>
-        <translation>5000</translation>
-    </message>
-    <message>
-        <source>100</source>
-        <translation>100</translation>
-    </message>
-    <message>
-        <source>10</source>
-        <translation>10</translation>
-    </message>
-    <message>
-        <source>1000</source>
-        <translation>1000</translation>
-    </message>
-    <message>
-        <source>50</source>
-        <translation>50</translation>
-    </message>
-    <message>
-        <source>500</source>
-        <translation>500</translation>
-    </message>
-    <message>
-        <source>5</source>
-        <translation>5</translation>
-    </message>
-    <message>
-        <source>1</source>
-        <translation>1</translation>
-    </message>
-    <message>
-        <source>Select All</source>
-        <translation>Selecteer Alles</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>SAVE</source>
-        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
@@ -1416,49 +1087,6 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
     </message>
 </context>
 <context>
-    <name>GovernancePage</name>
-    <message>
-        <source>Form</source>
-        <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>GOVERNANCE</source>
-        <translation>BESTUUR</translation>
-    </message>
-    <message>
-        <source>Update Proposals</source>
-        <translation>Voorstellen Bijwerken</translation>
-    </message>
-    <message>
-        <source>Next super block:</source>
-        <translation>Volgende superblok:</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <source>Blocks to next super block:</source>
-        <translation>Blokken tot de volgende superblok:</translation>
-    </message>
-    <message>
-        <source>Days to budget payout (estimate):</source>
-        <translation>Dagen tot budgetuitbetaling (schatting):</translation>
-    </message>
-    <message>
-        <source>Allotted budget:</source>
-        <translation>Toegewezen budget:</translation>
-    </message>
-    <message>
-        <source>Budget left:</source>
-        <translation>Resterend budget:</translation>
-    </message>
-    <message>
-        <source>Masternodes count:</source>
-        <translation>Masternodes aantal:</translation>
-    </message>
-</context>
-<context>
     <name>HelpMessageDialog</name>
     <message>
         <source>version</source>
@@ -1499,6 +1127,10 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
     <message>
         <source>Show splash screen on startup (default: %u)</source>
         <translation>Toon splash scherm bij opstarten (standaard: %u)</translation>
+    </message>
+    <message>
+        <source>Hide QT staking charts on startup (default: %u)</source>
+        <translation>Verberg QT stakinggrafieken bij opstarten (standaard: %u)</translation>
     </message>
     <message>
         <source>Set language, for example "de_DE" (default: system locale)</source>
@@ -1616,19 +1248,7 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <source>Form</source>
         <translation>Formulier</translation>
     </message>
-    <message>
-        <source>user_masternode</source>
-        <translation>user_masternode</translation>
-    </message>
-    <message>
-        <source>Address: 88.26.164.88:41121</source>
-        <translation>Adres: 88.26.164.88:41121</translation>
-    </message>
-    <message>
-        <source>Jan. 19, 2019</source>
-        <translation>Jan. 19, 2019</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MasterNodeWizardDialog</name>
     <message>
@@ -1660,28 +1280,32 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Adres</translation>
     </message>
     <message>
-        <source>Create New Master Node Controller</source>
-        <translation>Creëer een Nieuwe Masternode Controller</translation>
+        <source>Create New Masternode Controller</source>
+        <translation>Creëer Nieuwe Masternode Controller</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PNY Masternode you must dedicate 10.000 PNY (the unit of PNY) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Om een PNY Masternode te maken moet u 10.000 PNY (de eenheid van PNY) aan het netwerk wijden (deze munten zijn echter nog steeds van u en zullen nooit uw bezit verlaten). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;U kunt de node op elk gewenst moment deactiveren en de munten ontgrendelen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PNY Masternode you must dedicate 10,000 PNY (the unit of PNY) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Om een PNY Masternode te creëren moet u 10.000 PNY (de eenheid van PNY) aan het netwerk wijden (deze munten zijn echter nog steeds van u en zullen nooit uw bezit verlaten). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;U kunt de node op elk gewenst moment deactiveren en de munten ontgrendelen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Set Masternode Name</source>
+        <translation>Stel de naam voor de Masternode in</translation>
+    </message>
+    <message>
+        <source>Set Masternode IP and Port</source>
+        <translation>Stel het IP-adres en de Poort voor de Masternode in</translation>
+    </message>
+    <message>
+        <source>Enter port</source>
+        <translation>Voer poort in</translation>
     </message>
     <message>
         <source>Make sure you have this amount of coins.</source>
         <translation>Zorg ervoor dat je deze hoeveelheid munten hebt.</translation>
     </message>
     <message>
-        <source>Set Master Node’s Name</source>
-        <translation>Masternode's Naam instellen</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 1,000 PNY will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Een transactie van 1,000 PNY zal gemaakt worden&lt;/p&gt;&lt;p&gt;naar een nieuw leeg adres in uw portemonnee.&lt;/p&gt;&lt;p&gt;Het adres is gelabeld onder de masternode's naam.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <source>Set Master Node’s IP and port</source>
-        <translation>Masternode's IP en poort instellen</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PNY will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Een transactie van 10,000 PNY zal gemaakt worden&lt;/p&gt;&lt;p&gt;naar een nieuw leeg adres in uw portemonnee.&lt;/p&gt;&lt;p&gt;Het adres is gelabeld onder de masternode's naam.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
@@ -1690,22 +1314,6 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
     <message>
         <source>Enter IP address</source>
         <translation>Voer IP-adres in</translation>
-    </message>
-    <message>
-        <source>Enter Port</source>
-        <translation>Voer Poort In</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
-    </message>
-    <message>
-        <source>e.g user_masternode</source>
-        <translation>e.g user_masternode</translation>
     </message>
     <message>
         <source>NEXT</source>
@@ -1724,12 +1332,34 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>IP of poort kan niet leeg zijn</translation>
     </message>
     <message>
-        <source>Invalid port number</source>
-        <translation>Ongeldige poortnummer</translation>
+        <source>Invalid IP address</source>
+        <translation>Ongeldig IP-adres</translation>
     </message>
     <message>
-        <source>Prepare master node failed..</source>
-        <translation>Voorbereiden masternode mislukt..</translation>
+        <source>Prepare master node failed.
+
+%1
+</source>
+        <translation>Voorbereiden masternode mislukt.
+
+%1
+</translation>
+    </message>
+    <message>
+        <source>Invalid collateral output index</source>
+        <translation>Ongeldige Collaterale Outputindex</translation>
+    </message>
+    <message>
+        <source>Master node created! Wait %1 confirmations before starting it.</source>
+        <translation>Masternode gecreëerd! Wacht op %1 bevestigingen vooraleer je het start. </translation>
+    </message>
+    <message>
+        <source>Cannot send collateral transaction.
+
+%1</source>
+        <translation>Kan geen collaterale transactie versturen.
+
+%1</translation>
     </message>
     <message>
         <source>Invalid masternode.conf file</source>
@@ -1740,56 +1370,8 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Fout opgelopen bij het parsen van het masternode.conf bestand</translation>
     </message>
     <message>
-        <source>Invalid collaterall output index</source>
-        <translation>Ongeldige Collaterale Outputindex</translation>
-    </message>
-    <message>
-        <source>Master node created!</source>
-        <translation>Masternode aangemaakt!</translation>
-    </message>
-    <message>
         <source>masternode.conf file doesn't exists</source>
         <translation>masternode.conf bestand bestaat niet</translation>
-    </message>
-    <message>
-        <source>The recipient address is not valid, please recheck.</source>
-        <translation>Het ontvangstadres is niet geldig, controleer deze.</translation>
-    </message>
-    <message>
-        <source>The amount to pay must be larger than 0.</source>
-        <translation>Het te betalen bedrag moet groter zijn dan 0.</translation>
-    </message>
-    <message>
-        <source>The amount exceeds your balance.</source>
-        <translation>Het bedrag overschrijdt uw saldo.</translation>
-    </message>
-    <message>
-        <source>The total exceeds your balance when the %1 transaction fee is included.</source>
-        <translation>Het totaal overschrijdt uw saldo wanneer de transactievergoeding %1 is inbegrepen.</translation>
-    </message>
-    <message>
-        <source>Duplicate address found, can only send to each address once per send operation.</source>
-        <translation>Dubbel adres gevonden, kan alleen per keer per verzendoperatie naar elk adres versturen.</translation>
-    </message>
-    <message>
-        <source>Transaction creation failed!</source>
-        <translation>Transactie creatie mislukt!</translation>
-    </message>
-    <message>
-        <source>The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>De transactie is afgewezen! Dit kan gebeuren als sommige munten in je portemonnee al waren uitgegeven, zoals als je een kopie van de wallet.dat en munten in de kopie waren besteed maar niet gemarkeerd zoals hier besteed.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins.</source>
-        <translation>Fout: De portemonnee was alleen geopend om munten te anonimiseren.</translation>
-    </message>
-    <message>
-        <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
-        <translation>Een vergoeding %1 keer hoger dan %2 per kB wordt beschouwd als een zwaar hoge vergoeding.</translation>
-    </message>
-    <message>
-        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
-        <translation>Fout: De portemonnee was alleen geopend om munten te anonimiseren. Ontgrendelen geannuleerd.</translation>
     </message>
 </context>
 <context>
@@ -1799,16 +1381,12 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <source>Start All</source>
+        <translation>Alles starten</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <source>Start Inactive/s</source>
+        <translation>Start Inactieve/s</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1841,6 +1419,10 @@ en stemmen over het treasury systeem met een periodieke beloning.</translation>
         <translation>Info</translation>
     </message>
     <message>
+        <source>Please wait until the node is fully synced</source>
+        <translation>Wacht tot de node volledig gesynchroniseerd is</translation>
+    </message>
+    <message>
         <source>Start Masternode</source>
         <translation>Start Masternode</translation>
     </message>
@@ -1851,14 +1433,54 @@ en stemmen over het treasury systeem met een periodieke beloning.</translation>
 </translation>
     </message>
     <message>
-        <source>Cannot start masternode, the collateral transaction has not been accepted by the network.
-Please wait few more minutes.</source>
-        <translation>Kan de masternode niet starten, de collaterale transactie is niet geaccepteerd door het netwerk.
-Gelieve nog enkele minuten te wachten.</translation>
+        <source>Cannot edit masternode, wallet locked</source>
+        <translation>Kan de masternode niet bewerken, portemonnee vergrendeld</translation>
+    </message>
+    <message>
+        <source>Cannot start masternode, the collateral transaction has not been confirmed by the network yet.
+Please wait few more minutes (masternode collaterals require %1 confirmations).</source>
+        <translation>Kan de masternode niet starten, de collaterale transactie is nog niet bevestigd door het netwerk.
+Gelieve nog enkele minuten te wachten (het onderpand van een masternode vereist %1 bevestigingen).</translation>
+    </message>
+    <message>
+        <source>Background task is being executed, please wait</source>
+        <translation>Achtergrondopdracht wordt nu uitgevoerd, even geduld</translation>
+    </message>
+    <message>
+        <source>Start ALL masternodes failed</source>
+        <translation>Opstarten van ALLE masternodes mislukt</translation>
+    </message>
+    <message>
+        <source>Wallet unlock cancelled</source>
+        <translation>Portemonnee ontgrendeling geannuleerd </translation>
+    </message>
+    <message>
+        <source>Cannot perform Masternodes start</source>
+        <translation>Kan geen Masternode opstart uitvoeren</translation>
+    </message>
+    <message>
+        <source>%1 Masternodes failed to start, %2 started</source>
+        <translation>%1 Masternodes niet succesvol opgestart, %2 opgestart</translation>
+    </message>
+    <message>
+        <source>All Masternodes started!</source>
+        <translation>Alle Masternodes zijn opgestart!</translation>
+    </message>
+    <message>
+        <source>Cannot show Masternode information, wallet locked</source>
+        <translation>Kan geen Masternode-informatie tonen, portemonnee vergrendeld</translation>
+    </message>
+    <message>
+        <source>Masternode data copied to the clipboard.</source>
+        <translation>Masternodegegevens gekopieerd naar het klembord</translation>
     </message>
     <message>
         <source>Remote Masternode Data</source>
         <translation>Remote Masternodegegevens</translation>
+    </message>
+    <message>
+        <source>What is a Masternode?</source>
+        <translation>Wat is een Masternode?</translation>
     </message>
     <message>
         <source>You are just about to export the required data to run a Masternode
@@ -1875,11 +1497,8 @@ op een externe server aan uw klembord.
 
 U hoeft alleen de gegevens in het pny.conf bestand te plakken
 van uw externe server en start deze vervolgens de Masternode met
-deze controller portemonnee (selecteer de Masternode in de lijst en druk op "start").</translation>
-    </message>
-    <message>
-        <source>Masternode exported!, check your clipboard</source>
-        <translation>Masternode geëxporteerd, controleer uw klembord</translation>
+deze controller portemonnee (selecteer de Masternode in de lijst en druk op "start").
+</translation>
     </message>
     <message>
         <source>Delete Masternode</source>
@@ -1908,8 +1527,8 @@ Weet je het zeker?</translation>
         <translation>masternode.conf bestand bestaat niet</translation>
     </message>
     <message>
-        <source>Not enough balance to create a masternode, 1,000 PNY required.</source>
-        <translation>Niet genoeg balans om een masternode te creëren, 1,000 PNY vereist.</translation>
+        <source>Cannot create Masternode controller, wallet locked</source>
+        <translation>Kan geen Masternode controller aanmaken, portemonnee vergrendeld</translation>
     </message>
     <message>
         <source>Error creating masternode</source>
@@ -1923,24 +1542,16 @@ Weet je het zeker?</translation>
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>Master Node Information</source>
-        <translation>Masternode Informatie</translation>
+        <source>Masternode Information</source>
+        <translation>Masternode informatie</translation>
     </message>
     <message>
         <source>Public Key:</source>
         <translation>Publieke Sleutel:</translation>
     </message>
     <message>
-        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
-        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
-    </message>
-    <message>
         <source>Address: </source>
         <translation>Adres:</translation>
-    </message>
-    <message>
-        <source>127.0.0.2:43223</source>
-        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1959,31 +1570,15 @@ Weet je het zeker?</translation>
         <translation>Status:</translation>
     </message>
     <message>
-        <source>MISSING</source>
-        <translation>ONTBREKEND</translation>
+        <source>Export data to run the Masternode on a remote server</source>
+        <translation>Exporteer gegevens om de Masternode op een externe server uit te voeren</translation>
     </message>
-    <message>
-        <source>Export data to run the Master Node on a remote server</source>
-        <translation>Exporteer data om de Masternode uit te voeren op een externe server</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>MyAddressRow</name>
     <message>
         <source>Form</source>
         <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>Savings</source>
-        <translation>Besparingen</translation>
-    </message>
-    <message>
-        <source>Jan. 19, 2019</source>
-        <translation>Jan. 19, 2019</translation>
-    </message>
-    <message>
-        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
-        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
     </message>
 </context>
 <context>
@@ -2049,10 +1644,6 @@ Weet je het zeker?</translation>
     <message>
         <source>Form</source>
         <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
     </message>
 </context>
 <context>
@@ -2189,7 +1780,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
-        <translation>Inzet splitdrempel:</translation>
+        <translation>Stake splitsdrempel:</translation>
     </message>
     <message>
         <source>Connect to the PNY network through a SOCKS5 proxy.</source>
@@ -2410,17 +2001,6 @@ Type: %3
 Adres: %4
 </translation>
     </message>
-    <message>
-        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
-        <translation>Een kritieke fout is opgelopen. PNY kan niet langer veilig uitgevoerd worden en zal afsluiten.</translation>
-    </message>
-</context>
-<context>
-    <name>PWidget</name>
-    <message>
-        <source>Wallet locked, you need to unlock it to perform this action</source>
-        <translation>Portemonnee vergrendeld, je moet deze ontgrendelen om deze actie te kunnen uitvoeren</translation>
-    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -2529,207 +2109,13 @@ Adres: %4
     </message>
 </context>
 <context>
-    <name>PrivacyWidget</name>
-    <message>
-        <source>Form</source>
-        <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>Title</source>
-        <translation>Tietel</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
-    </message>
-    <message>
-        <source>Privacy</source>
-        <translation>Privacy</translation>
-    </message>
-    <message>
-        <source>Convert</source>
-        <translation>Converteren</translation>
-    </message>
-    <message>
-        <source>Mint</source>
-        <translation>Munt</translation>
-    </message>
-    <message>
-        <source>Minting zPNY anonymizes your PNY by removing any
-transaction history, making transactions untraceable </source>
-        <translation>Munten van zPNY anonimiseert uw PNY door het verwijderen van eender welke
-transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</translation>
-    </message>
-    <message>
-        <source>Mint new zPNY or convert back to PNY</source>
-        <translation>Munt nieuwe zPNY of converteer deze terug in PNY</translation>
-    </message>
-    <message>
-        <source>Last Zerocoin Movements</source>
-        <translation>Laatste Zerocoin Bewegingen</translation>
-    </message>
-    <message>
-        <source>No transactions yet</source>
-        <translation>Nog geen transacties</translation>
-    </message>
-    <message>
-        <source>Mint zPNY</source>
-        <translation>Munt zPNY</translation>
-    </message>
-    <message>
-        <source>Enter amount of PNY to mint into zPNY</source>
-        <translation>Vul de hoeveelheid PNY in die u omslaan in zPNY</translation>
-    </message>
-    <message>
-        <source>Convert back to PNY</source>
-        <translation>Converteer terug naar PNY</translation>
-    </message>
-    <message>
-        <source>Enter amount of zPNY to convert back into PNY</source>
-        <translation>Voer de hoeveelheed zPNY in om terug te converteren naar PNY</translation>
-    </message>
-    <message>
-        <source>Zerocoin</source>
-        <translation>Zerocoin</translation>
-    </message>
-    <message>
-        <source>zPNY is currently undergoing maintenance</source>
-        <translation>zPNY ondergaat momenteel onderhoud</translation>
-    </message>
-    <message>
-        <source>You need to unlock the wallet to be able to %1 zPNY</source>
-        <translation>Je moet de portemonnee ontgrendelen om in staat zijn om %1 zPNY</translation>
-    </message>
-    <message>
-        <source>convert</source>
-        <translation>converteer</translation>
-    </message>
-    <message>
-        <source>mint</source>
-        <translation>munt</translation>
-    </message>
-    <message>
-        <source>Invalid value</source>
-        <translation>Ongeldige waarde</translation>
-    </message>
-    <message>
-        <source>zPNY minted successfully</source>
-        <translation>zPNY munting succesvol</translation>
-    </message>
-    <message>
-        <source>zPNY converted back to PNY</source>
-        <translation>zPNY terug geconverteerd naar PNY</translation>
-    </message>
-    <message>
-        <source>You don't have any PNY to select.</source>
-        <translation>Je hebt geen PNY om te selecteren</translation>
-    </message>
-    <message>
-        <source>Rescan Mints</source>
-        <translation>Muntingen opnieuw scannen</translation>
-    </message>
-    <message>
-        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
-        <translation>Uw zerocoin muntingen zullen van de blockchain vanaf nul worden gescanned</translation>
-    </message>
-    <message>
-        <source>Reset Spent Zerocoins</source>
-        <translation>Bestede Zerocoins Resetten</translation>
-    </message>
-    <message>
-        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
-        <translation>Uw zerocoin bestedingen zullen van de blockchain vanaf nul worden gescanned</translation>
-    </message>
-    <message>
-        <source>Total %1</source>
-        <translation>Totaal %1</translation>
-    </message>
-</context>
-<context>
-    <name>ProposalFrame</name>
-    <message>
-        <source>Open proposal page in browser</source>
-        <translation>Voorstelpagina in browser openen</translation>
-    </message>
-    <message>
-        <source> remaining payment(s).</source>
-        <translation>resterende betaling(en).</translation>
-    </message>
-    <message>
-        <source>Yes:</source>
-        <translation>Voor:</translation>
-    </message>
-    <message>
-        <source>Abstain:</source>
-        <translation>Onthouden:</translation>
-    </message>
-    <message>
-        <source>No:</source>
-        <translation>Tegen:</translation>
-    </message>
-    <message>
-        <source>A proposal URL can be used for phishing, scams and computer viruses. Open this link only if you trust the following URL.
-</source>
-        <translation>Een voorstel-URL kan worden gebruikt voor phishing, oplichting en computervirussen. Open deze link alleen als u de volgende URL vertrouwt.
-</translation>
-    </message>
-    <message>
-        <source>Open link</source>
-        <translation>Link openen</translation>
-    </message>
-    <message>
-        <source>Copy link</source>
-        <translation>Link kopiëren</translation>
-    </message>
-    <message>
-        <source>Wallet Locked</source>
-        <translation>Portemonnee Vergrendeld</translation>
-    </message>
-    <message>
-        <source>You must unlock your wallet to vote.</source>
-        <translation>Je moet uw portemonnee ontgrendelen om te stemmen.</translation>
-    </message>
-    <message>
-        <source>Do you want to vote %1 on</source>
-        <translation>Wil je stemmen op %1</translation>
-    </message>
-    <message>
-        <source>using all your masternodes?</source>
-        <translation>al je masternodes gebruiken?</translation>
-    </message>
-    <message>
-        <source>Proposal Hash:</source>
-        <translation>Voorstel Hash:</translation>
-    </message>
-    <message>
-        <source>Proposal URL:</source>
-        <translation>Voorstel URL:</translation>
-    </message>
-    <message>
-        <source>Confirm Vote</source>
-        <translation>Stem bevestigen</translation>
-    </message>
-    <message>
-        <source>Vote Results</source>
-        <translation>Stemresultaten</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Bedrag</translation>
     </message>
     <message>
-        <source>Enter a PNY address (e.g. %1)</source>
+        <source>Enter PNY address (e.g. %1)</source>
         <translation>Voer een PNY adres in (b.v. %1)</translation>
     </message>
     <message>
@@ -2757,10 +2143,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>BLOOM</translation>
     </message>
     <message>
-        <source>ZK_BLOOM</source>
-        <translation>ZK_BLOOM</translation>
-    </message>
-    <message>
         <source>UNKNOWN</source>
         <translation>ONBEKEND</translation>
     </message>
@@ -2775,6 +2157,10 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
+    </message>
+    <message>
+        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
+        <translation>Een kritieke fout is opgelopen. PNY kan niet langer veilig uitgevoerd worden en zal afsluiten.</translation>
     </message>
     <message>
         <source>PNY Core</source>
@@ -2800,7 +2186,115 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <source>PNY Core didn't yet exit safely...</source>
         <translation>PNY Core is nog niet veilig afgesloten...</translation>
     </message>
-</context>
+    <message>
+        <source>Contact</source>
+        <translation>Contacteer</translation>
+    </message>
+    <message>
+        <source>Receiving</source>
+        <translation>Ontvangen</translation>
+    </message>
+    <message>
+        <source>Delegator</source>
+        <translation>Delegator</translation>
+    </message>
+    <message>
+        <source>Cold Staking</source>
+        <translation>Cold Staking</translation>
+    </message>
+    <message>
+        <source>Cold Staking Contact</source>
+        <translation>Cold Staking Contact</translation>
+    </message>
+    <message>
+        <source>Hidden</source>
+        <translation>Verborgen</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Ongekend</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Alle</translation>
+    </message>
+    <message>
+        <source>Contacts</source>
+        <translation>Contacten</translation>
+    </message>
+    <message>
+        <source>Staking Contacts</source>
+        <translation>Staking Contacten</translation>
+    </message>
+    <message>
+        <source>Date desc</source>
+        <translation>Datum aflopend</translation>
+    </message>
+    <message>
+        <source>Date asc</source>
+        <translation>Datum oplopend</translation>
+    </message>
+    <message>
+        <source>Amount desc</source>
+        <translation>Aantal aflopend</translation>
+    </message>
+    <message>
+        <source>Amount asc</source>
+        <translation>Aantal oplopend</translation>
+    </message>
+    <message>
+        <source>Received</source>
+        <translation>Ontvangen</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>Verstuurd</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Mined</translation>
+    </message>
+    <message>
+        <source>Minted</source>
+        <translation>Minted</translation>
+    </message>
+    <message>
+        <source>MN reward</source>
+        <translation>MN beloning</translation>
+    </message>
+    <message>
+        <source>To yourself</source>
+        <translation>Naar jezelf</translation>
+    </message>
+    <message>
+        <source>Cold stakes</source>
+        <translation>Cold stakes</translation>
+    </message>
+    <message>
+        <source>Hot stakes</source>
+        <translation>Hot stakes</translation>
+    </message>
+    <message>
+        <source>Delegated</source>
+        <translation>Gedelegeerd</translation>
+    </message>
+    <message>
+        <source>Delegations</source>
+        <translation>Delegaties</translation>
+    </message>
+    <message>
+        <source>by Label</source>
+        <translation>per Label</translation>
+    </message>
+    <message>
+        <source>by Address</source>
+        <translation>per Adres</translation>
+    </message>
+    <message>
+        <source>by Date</source>
+        <translation>per Datum</translation>
+    </message>
+    </context>
 <context>
     <name>RPCConsole</name>
     <message>
@@ -3215,24 +2709,12 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Dialoog</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
+        <source>My Address</source>
+        <translation>Mijn Adres</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
     </message>
 </context>
 <context>
@@ -3240,10 +2722,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Form</source>
         <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
     </message>
     <message>
         <source>No address</source>
@@ -3266,14 +2744,6 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Ontvangen</translation>
     </message>
     <message>
-        <source>Scan the QR code or copy the address to receive PNY.</source>
-        <translation>Scan de QR code of kopieer het adres om PNY te ontvangen.</translation>
-    </message>
-    <message>
-        <source>No address </source>
-        <translation>Geen adres</translation>
-    </message>
-    <message>
         <source>No available address, try unlocking the wallet</source>
         <translation>Geen beschikbaar adres, probeer de portemonnee te ontgrendelen</translation>
     </message>
@@ -3282,8 +2752,8 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Genereren van adres misgelopen</translation>
     </message>
     <message>
-        <source>Change Label</source>
-        <translation>Wijzig Label</translation>
+        <source>Edit Label</source>
+        <translation>Label wijzigen</translation>
     </message>
     <message>
         <source>Edit Address Label</source>
@@ -3298,12 +2768,20 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Fout bij bewaren adreslabel</translation>
     </message>
     <message>
+        <source>Cannot create new address, wallet locked</source>
+        <translation>Kan geen nieuw adres aanmaken, portemonnee vergrendeld</translation>
+    </message>
+    <message>
         <source>New address created</source>
         <translation>Nieuw adres gecreëerd</translation>
     </message>
     <message>
         <source>Address copied</source>
         <translation>Adres gekopieerd</translation>
+    </message>
+    <message>
+        <source>Cannot perform operation, wallet locked</source>
+        <translation>Kan deze actie niet uitvoeren, portemonnee vergrendeld</translation>
     </message>
     <message>
         <source>URI copied to clipboard</source>
@@ -3356,24 +2834,12 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Dialoog</translation>
     </message>
     <message>
-        <source>New Request Payment</source>
-        <translation>Nieuw Betalingsverzoek</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
-        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do </translation>
-    </message>
-    <message>
         <source>Amount</source>
         <translation>Bedrag</translation>
     </message>
     <message>
         <source>PNY</source>
         <translation>PNY</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
     </message>
     <message>
         <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -3392,28 +2858,24 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Annuleren</translation>
     </message>
     <message>
-        <source>REQUEST</source>
-        <translation>VERZOEK</translation>
-    </message>
-    <message>
-        <source>Instead of only sharing a PNY address, you can create a Payment Request message which bundles up more information than is contained in just a PNY address.</source>
-        <translation>In plaats van een PNY-adres te delen, kunt u een bericht voor een betalingsverzoek maken dat meer informatie bundelt dan alleen in een PNY-adres.</translation>
-    </message>
-    <message>
         <source>Label</source>
         <translation>Label</translation>
-    </message>
-    <message>
-        <source>Enter a label to be saved within the address</source>
-        <translation>Voer een label in dat bij het adres moet worden opgeslagen</translation>
     </message>
     <message>
         <source>Description (optional)</source>
         <translation>Omschrijving (optioneel)</translation>
     </message>
     <message>
-        <source>Add description </source>
-        <translation>Voeg beschrijving toe</translation>
+        <source>New Payment Request</source>
+        <translation>Nieuw Betalingsverzoek</translation>
+    </message>
+    <message>
+        <source>Enter a label for the address</source>
+        <translation>Voer een label in voor het adres</translation>
+    </message>
+    <message>
+        <source>Enter description</source>
+        <translation>Beschrijving toevoegen</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3431,7 +2893,15 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <source>New Cold Staking Address</source>
         <translation>Nieuw Cold Staking Adres</translation>
     </message>
-</context>
+    <message>
+        <source>Amount (optional)</source>
+        <translation>Bedrag (optioneel)</translation>
+    </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Ongeldige hoeveelheid</translation>
+    </message>
+    </context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -3439,24 +2909,8 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Dialoog</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
-        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
@@ -3466,7 +2920,19 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <source>The remainder of the value resultant from the inputs minus the outputs value goes to the "change" PNY address</source>
         <translation>De rest van de waarde die resulteert uit de ingangen minus de waarde van de uitgangen gaat naar het "wijzig" PNY-adres</translation>
     </message>
-</context>
+    <message>
+        <source>SAVE</source>
+        <translation>Opslaan</translation>
+    </message>
+    <message>
+        <source>RESET</source>
+        <translation>RESETTEN</translation>
+    </message>
+    <message>
+        <source>Invalid address</source>
+        <translation>Ongeldig adres</translation>
+    </message>
+    </context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
@@ -3474,16 +2940,12 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>Transaction Details</source>
-        <translation>Transactie details</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
-        <translation>Pas de transactiekosten naar wens aan, afhankelijk van de kostenwaarde die uw transactie wel of niet in de blockchain zal opnemen.</translation>
-    </message>
-    <message>
-        <source>Recomended</source>
+        <source>Recommended</source>
         <translation>Aanbevolen</translation>
+    </message>
+    <message>
+        <source>PNY/kilobyte</source>
+        <translation>PNY/kilobyte</translation>
     </message>
     <message>
         <source>0.00 KB</source>
@@ -3494,24 +2956,12 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Aangepast</translation>
     </message>
     <message>
-        <source>Per kilobyte</source>
-        <translation>Per kilobyte</translation>
-    </message>
-    <message>
         <source>CANCEL</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
-    </message>
-    <message>
         <source>Customize Fee</source>
         <translation>Kost Aanpassen</translation>
-    </message>
-    <message>
-        <source>Customize the transaction fee, depending on the fee value your transaction will be included or not in the blockchain.</source>
-        <translation>Pas de transactiekosten aan, afhankelijk van de kostenwaarde die uw transactie wel of niet in de blockchain zal opnemen.</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -3529,7 +2979,7 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <source>SAVE</source>
         <translation>Opslaan</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>SendMultiRow</name>
     <message>
@@ -3537,75 +2987,31 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <source>Enter address</source>
+        <translation>Voeg adres toe</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adres toevoegen</translation>
-    </message>
-    <message>
-        <source>Add description</source>
-        <translation>Beschrijving toevoegen</translation>
+        <source>Enter label</source>
+        <translation>Label toevoegen</translation>
     </message>
 </context>
 <context>
     <name>SendWidget</name>
     <message>
-        <source>Send</source>
-        <translation>Zenden</translation>
-    </message>
-    <message>
-        <source>You can transfer public coins (PNY) or private coins (zPNY)</source>
-        <translation>Je kan publieke munten (PNY) of private munten (zPNY) overdragen</translation>
-    </message>
-    <message>
-        <source>Select coin type to spend</source>
-        <translation>Selecteer munttype om te spenderen</translation>
-    </message>
-    <message>
-        <source>Enter a PNY address or contact label</source>
-        <translation>Voer een PNY-adres of contactlabel in</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Bedrag</translation>
-    </message>
-    <message>
-        <source>Customize fee</source>
-        <translation>Kosten aanpassen</translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation>Alles wissen</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>Voeg bestemmeling toe</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>Terugzetten naar standaardinstelling</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>Totaal te versturen</translation>
-    </message>
-    <message>
-        <source>Send PNY</source>
-        <translation>PNY Versturen</translation>
-    </message>
-    <message>
-        <source>Send zPNY</source>
-        <translation>zPNY Versturen</translation>
-    </message>
-    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>Totaal resterende van de geselecteerde UTXO</translation>
     </message>
     <message>
-        <source>Total remaining</source>
-        <translation>Totaal resterende</translation>
+        <source>Warning!</source>
+        <translation>Waarschuwing!</translation>
+    </message>
+    <message>
+        <source>The change address doesn't belong to this wallet.
+
+Do you want to continue?</source>
+        <translation>Het wisseladres behoort niet toe tot deze portemonnee.
+
+Wilt u verdergaan?</translation>
     </message>
     <message>
         <source>Customize Fee</source>
@@ -3618,6 +3024,10 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
     <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Ongeldige invoer, vorige invoeren moeten geldig zijn voordat je een nieuwe kan toevoegen</translation>
+    </message>
+    <message>
+        <source>Possibly spend coins delegated for cold-staking (currently available: %1</source>
+        <translation>Mogelijks besteedde munten gedelegeerd voor cold-staking (momenteel beschikbaar: %1</translation>
     </message>
     <message>
         <source>Invalid entry</source>
@@ -3648,60 +3058,8 @@ Deze munten zullen niet langer cold-staked zijn.</translation>
         <translation>Transactie verstuurd</translation>
     </message>
     <message>
-        <source>Spend Zerocoin</source>
-        <translation>Besteed Zerocoin</translation>
-    </message>
-    <message>
-        <source>zPNY is currently undergoing maintenance.</source>
-        <translation>zPNY wordt momenteel onderhouden.</translation>
-    </message>
-    <message>
-        <source>Coin control mint not found</source>
-        <translation>Muntcontrole munting niet gevonden</translation>
-    </message>
-    <message>
-        <source>Sending %1 to address %2
-</source>
-        <translation>Versturen van %1 naar adres %2
-</translation>
-    </message>
-    <message>
-        <source>Sending %1 to addresses:
-%2</source>
-        <translation>Versturen van %1 naar adressen:
-%2</translation>
-    </message>
-    <message>
-        <source>zPNY transaction sent!</source>
-        <translation>zPNY transactie verzonden!</translation>
-    </message>
-    <message>
-        <source>Version 1 zPNY require a security level of 100 to successfully spend.</source>
-        <translation>Versie 1 zPNY vereist een beveiligingsniveau van 100 om succesvol te besteden.</translation>
-    </message>
-    <message>
-        <source>Too much inputs (</source>
-        <translation>Teveel invoer (</translation>
-    </message>
-    <message>
-        <source>) needed.
-Maximum allowed: </source>
-        <translation>) vereist.
-Maximaal toegestaan:</translation>
-    </message>
-    <message>
-        <source>
-Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
-        <translation>
-Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te besteden bedrag verminderen.</translation>
-    </message>
-    <message>
         <source>Address label update failed for address: %1</source>
         <translation>Adreslabel bijwerken mislukt voor adres: %1</translation>
-    </message>
-    <message>
-        <source>Invalid change address</source>
-        <translation>Ongeldig wisseladres</translation>
     </message>
     <message>
         <source>Invalid URI</source>
@@ -3716,12 +3074,12 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Aangepaste Kost %1</translation>
     </message>
     <message>
-        <source>You don't have any PNY to select.</source>
-        <translation>Je hebt geen PNY om te selecteren</translation>
+        <source>Coin Control</source>
+        <translation>Munt Controle</translation>
     </message>
     <message>
-        <source>You don't have any zPNY in your balance to select.</source>
-        <translation>Je hebt geen zPNY in je balans om te selecteren.</translation>
+        <source>Open URI</source>
+        <translation>URI openen</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -3767,44 +3125,16 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Backup Wallet </source>
-        <translation>Wallet Back-uppen</translation>
-    </message>
-    <message>
         <source>Change Wallet Passphrase</source>
         <translation>Wijzig Portemonnee Wachtwoord</translation>
-    </message>
-    <message>
-        <source>Keep your wallet safe doing regular backups, store your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) from another device.</source>
-        <translation>Bewaar uw portemonnee veilig door middel van regelmatige back-ups, bewaar uw back-upbestand extern.
-Deze optie maakt een portemonnee.datbbestand aan dat kan worden gebruikt om uw volledige saldo (transacties en adressen) van een ander apparaat terug te krijgen.</translation>
-    </message>
-    <message>
-        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
-Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
-        <translation>Dit zal de gehele portemonneegegevens decrypteren en zal opnieuw encrypteren met een nieuwe wachtwoordzin.
-Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogelijks de toegang tot uw geld.</translation>
     </message>
     <message>
         <source>Where</source>
         <translation>Waar</translation>
     </message>
     <message>
-        <source>Set a folder location</source>
-        <translation>Maplocatie instellen</translation>
-    </message>
-    <message>
-        <source>Backup</source>
-        <translation>Back-up</translation>
+        <source>Select folder...</source>
+        <translation>Map Selecteren...</translation>
     </message>
     <message>
         <source>Change Passphrase</source>
@@ -3838,24 +3168,8 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Decrypt Address Result</source>
-        <translation>Decrypteer Adresresultaat</translation>
-    </message>
-    <message>
         <source>Import Address</source>
         <translation>Adres Importeren</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Leegmaken</translation>
     </message>
     <message>
         <source>BIP38 Tool</source>
@@ -3882,10 +3196,6 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <source>Enter a passphrase </source>
-        <translation>Voer wachtwoord in</translation>
-    </message>
-    <message>
         <source>Decrypted address result</source>
         <translation>Gedecrypteerd Adresresultaat</translation>
     </message>
@@ -3898,16 +3208,16 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
         <translation>DECRYPTEER SLEUTEL</translation>
     </message>
     <message>
-        <source>Enter a PNY address</source>
-        <translation>Voeg een PNY adres toe</translation>
+        <source>PNY address</source>
+        <translation>PNY adres</translation>
     </message>
     <message>
-        <source>Add address</source>
-        <translation>Adres toevoegen</translation>
+        <source>Enter address</source>
+        <translation>Voeg adres toe</translation>
     </message>
     <message>
-        <source>Write a message</source>
-        <translation>Schrijf een bericht</translation>
+        <source>Enter passphrase</source>
+        <translation>Voer wachtwoordzin in</translation>
     </message>
     <message>
         <source>Encrypted Key</source>
@@ -3990,8 +3300,8 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
         <translation>Fout bij toevoegen van sleutel aan de portemonnee</translation>
     </message>
     <message>
-        <source>Successfully added pnyate key to the wallet</source>
-        <translation>Geheime sleutel succesvol toegevoegd aan de portemonnee</translation>
+        <source>Successfully added private key to the wallet</source>
+        <translation>Privésleutel succesvol toegevoegd aan de portemonnee</translation>
     </message>
 </context>
 <context>
@@ -3999,10 +3309,6 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
     <message>
         <source>Form</source>
         <translation>Formulier</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Console</source>
@@ -4013,12 +3319,12 @@ Vergeet deze niet op te schrijven en veilig te bewaren, anders verlies je mogeli
         <translation>Console invoer</translation>
     </message>
     <message>
-        <source>Command Line Options </source>
-        <translation>Command Line Opties</translation>
-    </message>
-    <message>
         <source>Open Debug File</source>
         <translation>Open debugbestand</translation>
+    </message>
+    <message>
+        <source>Clear history</source>
+        <translation>Geschiedenis verwijderen</translation>
     </message>
     <message>
         <source>Cannot open debug file.
@@ -4050,12 +3356,8 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <source>Hide stake charts in the dashboard</source>
+        <translation>Verberg stakegrafieken in het dashboard</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4107,18 +3409,113 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
     </message>
 </context>
 <context>
-    <name>SettingsFaqWidget</name>
+    <name>SettingsExportCSV</name>
     <message>
         <source>Form</source>
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <source>Export Accounting</source>
+        <translation>Exporteer Accounting</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <source>Export your wallet's accounting data to a csv file.</source>
+        <translation>Exporteer je portemonnee's accountinggegevens naar een csv bestand.</translation>
+    </message>
+    <message>
+        <source>Where</source>
+        <translation>Waar</translation>
+    </message>
+    <message>
+        <source>Select folder...</source>
+        <translation>Map Selecteren...</translation>
+    </message>
+    <message>
+        <source>Export Address Book</source>
+        <translation>Adreslijst Exporteren</translation>
+    </message>
+    <message>
+        <source>Export CSV</source>
+        <translation>CSV Exporteren</translation>
+    </message>
+    <message>
+        <source>Export Address List</source>
+        <translation>Exporteer Adreslijst</translation>
+    </message>
+    <message>
+        <source>PNY_tx_csv_export(*.csv)</source>
+        <translation>PNY_tx_csv_export(*.csv)</translation>
+    </message>
+    <message>
+        <source>PNY_addresses_csv_export(*.csv)</source>
+        <translation>PNY_addresses_csv_export(*.csv)</translation>
+    </message>
+    <message>
+        <source>Please select a folder to export the csv file first.</source>
+        <translation>Selecteer eerst een map om het csv te exporteren te exporteren.</translation>
+    </message>
+    <message>
+        <source>Confirmed</source>
+        <translation>Bevestigd</translation>
+    </message>
+    <message>
+        <source>Watch-only</source>
+        <translation>Watch-only</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Label</source>
+        <translation>Label</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
+    </message>
+    <message>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Exporting Successful
+The transaction history was successfully saved to %1.</source>
+        <translation>Export Succesvol
+De transactiegeschiedenis is succesvol bewaard in %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Failed
+There was an error trying to save the transaction history to %1.</source>
+        <translation>Export Mislukt
+Er is een fout opgetreden om de transactiegeschiedenis te bewaren naar %1.</translation>
+    </message>
+    <message>
+        <source>No available addresses to export under the selected filter</source>
+        <translation>Geen beschikbare adressen om te exporteren onder de geselecteerde filter</translation>
+    </message>
+    <message>
+        <source>Exporting Successful
+The address book was successfully saved to %1.</source>
+        <translation>Export Succesvol
+Het adresboek is succesvol bewaard in %1.</translation>
+    </message>
+    <message>
+        <source>Exporting Failed
+There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Export Mislukt
+Er was een fout opgetreden tijdens het opslaan van deze adreslijst naar %1. Probeer het nogmaals.</translation>
+    </message>
+</context>
+<context>
+    <name>SettingsFaqWidget</name>
+    <message>
+        <source>Form</source>
+        <translation>Formulier</translation>
     </message>
     <message>
         <source>1) What is PNY?</source>
@@ -4127,40 +3524,6 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
     <message>
         <source>2) Why are my PNY unspendable?</source>
         <translation>2) Waarom is mijn PNY niet besteedbaar?</translation>
-    </message>
-    <message>
-        <source>3) PNY privacy? What is Zerocoin (zPNY)?</source>
-        <translation>3) PNY privacy? Wat is Zerocoin (zPNY)?</translation>
-    </message>
-    <message>
-        <source>4) Why are my zPNY unspendable?</source>
-        <translation>4) Waarom is mijn zPNY niet besteedbaar?</translation>
-    </message>
-    <message>
-        <source>5) Why did my wallet convert the balance
-    into zPNY automatically?</source>
-        <translation>5) Waarom heeft mijn portemonnee mijn balans
-    automatisch naar zPNY geconverteerd?</translation>
-    </message>
-    <message>
-        <source>6) How do I receive PNY/zPNY?</source>
-        <translation>6) Hoe ontvang ik PNY/zPNY?</translation>
-    </message>
-    <message>
-        <source>7) How do I stake PNY/zPNY?</source>
-        <translation>7) Hoe stake ik PNY/zPNY?</translation>
-    </message>
-    <message>
-        <source>8) Where I should go if I need support?</source>
-        <translation>8) Waar moet ik heen gaan als ik ondersteuning nodig heb?</translation>
-    </message>
-    <message>
-        <source>9) What is a Master Node?</source>
-        <translation>9) Wat is een Masternode?</translation>
-    </message>
-    <message>
-        <source>10) What is a Master Node Controller?</source>
-        <translation>10) Wat is een Master Node Controller?</translation>
     </message>
     <message>
         <source>1</source>
@@ -4233,232 +3596,38 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>3</translation>
     </message>
     <message>
-        <source>PNY privacy? What is Zerocoin (zPNY)?</source>
-        <translation>PNY privacy? Wat is Zerocoin (zPNY)?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zPNY is an optional privacy-centric method of coin mixing on the
-                           PNY blockchain. Basically all your transactions cannot be tracked
-                           on to any block explorer. You can read more about the technicals in the
-                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;
-                           "PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zPNY is een optionele privacy-gerichte methode om munten te mengen op de
-                           PNY blockchain. In principe kunnen al uw transacties niet worden gevolgd
-                           op enige block explorer. U kunt meer lezen over de technische gegevens in de
-                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;
-                           "PNY Zerocoin (zPNY) Technische Paper"&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
-    </message>
-    <message>
         <source>4</source>
         <translation>4</translation>
-    </message>
-    <message>
-        <source>Why are my zPNY unspendable?</source>
-        <translation>Waarom is mijn zPNY niet besteedbaar?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           After minting, zPNY will require 20 confirmations as well as 1
-                           additional mint of the same denomination on the network to
-                           become eligible for spending.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Na het muntenheeft zPNY 20 bevestigingen nodig, evenals 1
-                          extra munt van dezelfde denominatie op het netwerk om
-                           in aanmerking komen voor uitgaven.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
     </message>
     <message>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <source>Why did my wallet convert the balance into zPNY automatically?</source>
-        <translation>Waarom heeft mijn portemonnee mijn balans automatisch naar zPNY geconverteerd?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           By default the PNY wallet will convert 10% of your entire PNY
-                           balance to zPNY to assist the network. If you do not wish to
-                           stake zPNY or take advantage of the privacy benefit it brings,
-                           you can disable the automatic minting in your PNY wallet by
-                           going to Settings-&gt;Options and deselecting “Enable zPNY Automint”.
-                           If you are not making use of the PNY-QT or GUI you can simply open
-                           your pny.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
-                           marks and restart your wallet to disable automint.&lt;/p&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           You can read more about zPNY in the
-                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt; "PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;.
-                           If you would like to keep and stake your zPNY, please read the "How do I stake"
-                           section of the FAQ below.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Standaard zal de PNY portemonnee 10% van uw gehele PNY-balans omzetten
-                          naar zPNY om het netwerk te helpen. Als u niet wenst om
-                           zPNY te staken of voordeel te halen uit het privacyvoordeel dat dit oplevert,
-                           kan je deze automatische omzetting uitschakelen in je PNY portemonnee door
-                           naar Instellingen &gt; Opties te gaan en dan “Schakel zPNY Automuntering in” te deselecteren.
-                           Als je geen gebruik maakt van de PNY-QT of GUI kan je simpelweg
-                           je pny.conf bestand openen en er &lt;i&gt;"enablezeromint=0" aan toevoegen&lt;/i&gt; Zonder de aanhaling
-                           en je portemonnee herstarten om automuntering uit te schakelen.&lt;/p&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           Je kan meer lezen over zPNY in de
-                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt; "PNY Zerocoin (zPNY) Technische Paper"&lt;/a&gt;.
-                           Als u uw zPNY wilt behouden en staken, lees dan de "Hoe stake ik"
-                           sectie in onderstaande FAQ.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
-    </message>
-    <message>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
-        <source>How do I receive PNY/zPNY?</source>
-        <translation>Hoe ontvang ik PNY/zPNY?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zPNY can be spent and sent to any PNY address. The receiver will
-                           receive standard PNY but the origin of the PNY is anonymized by the zPNY Protocol.
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           If you want more zPNY you will need to mint your balance in the “Privacy” tab.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           zPNY kan worden uitgegeven en verzonden naar elk PNY-adres. De ontvanger zal
-                           gewone PNY ontvangen, maar de oorsprong van de PNY is geanonimiseerd door het zPNY-protocol
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           Als u meer zPNY wilt, moet u uw balans op mint zetten in de "Privacy" tab.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
-    </message>
-    <message>
-        <source>7</source>
-        <translation>7</translation>
-    </message>
-    <message>
-        <source>How do I stake PNY/zPNY?</source>
-        <translation>Hoe stakz ik PNY/zPNY?</translation>
-    </message>
-    <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           To Stake PNY:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           You must have a balance of PNY with a minimum of 101 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           &lt;li&gt;
-                           Once all those steps are followed staking should be enabled.
-                           &lt;li&gt;
-                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (pny-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           To Stake zPNY:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Make sure your wallet is completely synchronized and you are using the latest release.
-                           &lt;li&gt;
-                           Your newly minted or existing zPNY balance must have a minimum of 200 confirmations.
-                           &lt;li&gt;
-                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
-                           Staking should now be enabled.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Om PNY te Staken:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                           Zorg ervoor dat uw portemonnee volledig gesynchroniseerd is en dat u de laatste versie gebruikt.
-                           &lt;li&gt;
-                           U moet een saldo van PNY hebben met een minimum van 101 bevestigingen.
-                           &lt;li&gt;
-                           Uw portemonnee moet online blijven en worden ontgrendeld voor anonimisering en staking-doeleinden.
-                           &lt;li&gt;
-                           Zodra al deze stappen zijn gevolgd, zal het staken worden ingeschakeld.
-                           &lt;li&gt;
-                           U kunt de status van de staking in de portemonnee zien door op het pictogram in de rij linksboven in de portemonnee-interface te bewegen. Het pakket zal oplichten en zal "Staking Ingeschakeld" aangeven om aan te geven dat het pakket in de portemonnee is geplaatst. Met behulp van de opdrachtregel-interface (pny-cli); het commando &lt;i&gt;getstakingstatus&lt;/i&gt; zal bevestigen dat de staking actief is.
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           Om zPNY te Staken:
-                           &lt;/p&gt;&lt;p align="justify"&gt;
-                           &lt;ol&gt;&lt;li&gt;
-                            Zorg ervoor dat uw portemonnee volledig gesynchroniseerd is en dat u de laatste versie gebruikt.
-                           &lt;li&gt;
-                           Uw nieuw gemunte of bestaande zPNY balans moet minimaal 200 bevestigingen hebben.
-                           &lt;li&gt;
-                           Uw portemonnee moet online blijven en worden ontgrendeld voor anonimisering en staking-doeleinden.
-                           Het Staken zou nu ingeschakeld moeten zijn
-                           &lt;/li&gt;&lt;/ol&gt;
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
-    </message>
-    <message>
-        <source>8</source>
-        <translation>8</translation>
-    </message>
-    <message>
-        <source>Where I should go if I need support?</source>
+        <source>Where should I go if I need support?</source>
         <translation>Waar moet ik heen gaan als ik ondersteuning nodig heb?</translation>
     </message>
     <message>
-        <source>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We have support channels in most of our official chat groups, for example
-                           &lt;a style='color: #cfc8af' href='https://Discord.PNY.com'&gt;
-                           #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, One can be
-                           &lt;a style='color: #cfc8af' href='https://PNY.FreshDesk.com'&gt;
-                           our Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </source>
-        <translation>
-                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           We hebben ondersteuningskanalen in de meeste van onze officiële chatgroepen, bijvoorbeeld
-                           &lt;a style='color: #cfc8af' href='https://Discord.PNY.com'&gt;
-                           #support in onze Discord&lt;/a&gt;.
-                           Als u liever een ticket indient, kan men dat
-                           &lt;a style='color: #cfc8af' href='https://PNY.FreshDesk.com'&gt;
-                           op onze Freshdesk support site&lt;/a&gt;.
-                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
-                         </translation>
+        <source>What is a Masternode?</source>
+        <translation>Wat is een Masternode?</translation>
     </message>
     <message>
-        <source>9</source>
-        <translation>9</translation>
+        <source>What is a Masternode Controller?</source>
+        <translation>Wat is een Masternode Controller</translation>
     </message>
     <message>
-        <source>What is a Master Node?</source>
-        <translation>Wat is een Masternode</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Een Masternode Controller portemonnee is waar de 10.000 PNY onderpand zich kan bevinden tijdens een Controller-Remote masternode setup. Het is een portemonnee die de remote masternode portemonnee(s) kan activeren en waarmee u uw ondergepande munten offline kunt houden terwijl de remote masternode online blijft. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
                            A masternode is a computer running a full node PNY core wallet with a
-                           requirement of 1,000 PNY secured collateral to provide extra services
+                           requirement of 10,000 PNY secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
                            &lt;/p&gt;&lt;p align="justify"&gt;
@@ -4490,7 +3659,7 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
                            Requirements:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;1,000 PNY per single Masternode instance&lt;/li&gt;
+                           &lt;li&gt;10,000 PNY per single Masternode instance&lt;/li&gt;
                            &lt;li&gt;Must be stored in a core wallet&lt;/li&gt;
                            &lt;li&gt;Need dedicated IP address&lt;/li&gt;
                            &lt;li&gt;Masternode wallet to remain online&lt;/li&gt;
@@ -4532,25 +3701,13 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
                            Vereisten:
                            &lt;/p&gt;&lt;p align="justify"&gt;
                            &lt;ul&gt;
-                           &lt;li&gt;1,000 PNY per Masternode instance&lt;/li&gt;
+                           &lt;li&gt;10,000 PNY per Masternode instance&lt;/li&gt;
                            &lt;li&gt;Moet in een kernportemonnee worden opgeborgen&lt;/li&gt;
                            &lt;li&gt;Vereist een vast IP-adres
                            &lt;li&gt;Masternode portemonnee moet online blijven&lt;/li&gt;
                            &lt;/ul&gt;
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </translation>
-    </message>
-    <message>
-        <source>10</source>
-        <translation>10</translation>
-    </message>
-    <message>
-        <source>What is a Master Node Controller?</source>
-        <translation>Wat is een Masternode Controller?</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 1,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet/s and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Een Masternode Controller portemonnee is waar de 10.000 PNY onderpand zich kan bevinden tijdens een Controller-Remote masternode setup. Het is een portemonnee die de remote masternode portemonnee(s) kan activeren en waarmee u uw ondergepande munten offline kunt houden terwijl de remote masternode online blijft. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -4572,10 +3729,6 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
         <source>Network Monitor</source>
         <translation>Netwerkmonitor</translation>
     </message>
@@ -4588,24 +3741,48 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Algemeen</translation>
     </message>
     <message>
-        <source>Client Version: </source>
+        <source>Client Version:</source>
         <translation>Client Versie:</translation>
+    </message>
+    <message>
+        <source>BerkeleyDB version:</source>
+        <translation>BerkeleyDB versie:</translation>
+    </message>
+    <message>
+        <source>Datadir:</source>
+        <translation>Datadir:</translation>
+    </message>
+    <message>
+        <source>Startup time:</source>
+        <translation>Opstarttijd:</translation>
+    </message>
+    <message>
+        <source>Connections:</source>
+        <translation>Verbindingen:</translation>
+    </message>
+    <message>
+        <source>Number of Masternodes:</source>
+        <translation>Aantal Masternodes:</translation>
+    </message>
+    <message>
+        <source>Current number of blocks:</source>
+        <translation>Huidige aantal blocks:</translation>
+    </message>
+    <message>
+        <source>Last block time:</source>
+        <translation>Laatste blocktijd:</translation>
+    </message>
+    <message>
+        <source>Last block hash:</source>
+        <translation>Laatste blockhash:</translation>
+    </message>
+    <message>
+        <source>Current number of transactions:</source>
+        <translation>Huidig aantal transacties:</translation>
     </message>
     <message>
         <source>User Agent:</source>
         <translation>User Agent:</translation>
-    </message>
-    <message>
-        <source>Using BerkeleyDB version:</source>
-        <translation>Gebruikt BerkeleyDB versie:</translation>
-    </message>
-    <message>
-        <source>Datadir: </source>
-        <translation>Datadir: </translation>
-    </message>
-    <message>
-        <source>Startup Time:  </source>
-        <translation>Starttijd:</translation>
     </message>
     <message>
         <source>Network</source>
@@ -4616,28 +3793,12 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Naam:</translation>
     </message>
     <message>
-        <source>Number Connections:</source>
-        <translation>Nummer Verbindingen:</translation>
-    </message>
-    <message>
         <source>Blockchain</source>
         <translation>Blockchain</translation>
     </message>
     <message>
-        <source>Current Number of Blocks:</source>
-        <translation>Huidige nummer van blokken:</translation>
-    </message>
-    <message>
-        <source>Last Block Time:</source>
-        <translation>Laatste Bloktijd:</translation>
-    </message>
-    <message>
         <source>Memory Pool</source>
         <translation>Geheugenpool</translation>
-    </message>
-    <message>
-        <source>Current Number of Transactions:</source>
-        <translation>Huidige nummer van transacties:</translation>
     </message>
     <message>
         <source>Main</source>
@@ -4679,20 +3840,12 @@ Controleer of u een vooraf bepaalde teksteditor hebt geïnstalleerd.</translatio
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
         <source>Window</source>
         <translation>Venster</translation>
     </message>
     <message>
         <source>Customize the application window options</source>
         <translation>De opties van het toepassingsvenster aanpassen</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>Selectievakje</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4776,12 +3929,12 @@ Weet u het zeker?
         <translation>Nieuwe ontvanger voor multisend</translation>
     </message>
     <message>
-        <source>Label (optional)</source>
-        <translation>Label (optioneel)</translation>
+        <source>Address Label (optional)</source>
+        <translation>Adreslabel (optioneel)</translation>
     </message>
     <message>
-        <source>Enter a label to add this address in your address book</source>
-        <translation>Voer een label in om dit adres toe te voegen aan uw adresboek.</translation>
+        <source>Enter label to be saved with this address</source>
+        <translation>Voer een label in dat bij het adres opgeslagen moet worden </translation>
     </message>
     <message>
         <source>Percentage</source>
@@ -4799,8 +3952,8 @@ Weet u het zeker?
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>No active Master Node yet</source>
-        <translation>Nog geen actieve Master Node</translation>
+        <source>N/A</source>
+        <translation>NB</translation>
     </message>
     <message>
         <source>CheckBox</source>
@@ -4839,12 +3992,20 @@ Weet u het zeker?
         <translation>WIS ALLES</translation>
     </message>
     <message>
+        <source>Cannot perform operation, wallet locked</source>
+        <translation>Kan deze actie niet uitvoeren, portemonnee vergrendeld</translation>
+    </message>
+    <message>
         <source>Clear succeed</source>
         <translation>Wissen geslaagd</translation>
     </message>
     <message>
         <source>Clear all failed, could not locate address in wallet file</source>
         <translation>Alles wissen mislukt, kon geen adres terugvinden in het portemonnee bestand</translation>
+    </message>
+    <message>
+        <source>Cannot add multisend recipient, wallet locked</source>
+        <translation>Kan geen multisendontvanger toevoegen, portemonnee vergrendeld</translation>
     </message>
     <message>
         <source>The entered address: %1 is invalid.
@@ -4902,28 +4063,8 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Clear</source>
-        <translation>Leegmaken</translation>
-    </message>
-    <message>
         <source>Sign/Verify Message</source>
         <translation>Onderteken/Verifiëer Bericht</translation>
-    </message>
-    <message>
-        <source>Enter a PNY address or contact label</source>
-        <translation>Voer een PNY-adres of contactlabel in</translation>
-    </message>
-    <message>
-        <source>Add address</source>
-        <translation>Adres toevoegen</translation>
     </message>
     <message>
         <source>Sign</source>
@@ -4942,8 +4083,12 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Bericht</translation>
     </message>
     <message>
-        <source>Write a message</source>
-        <translation>Schrijf een bericht</translation>
+        <source>PNY address or contact label</source>
+        <translation>PNY adres of contactlabel</translation>
+    </message>
+    <message>
+        <source>Enter address</source>
+        <translation>Voeg adres toe</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -5029,18 +4174,6 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>CheckBox</source>
-        <translation>Selectievakje</translation>
-    </message>
-    <message>
-        <source>RadioButton</source>
-        <translation>RadioButton</translation>
-    </message>
-    <message>
         <source>Reset to default</source>
         <translation>Terugzetten naar standaardinstelling</translation>
     </message>
@@ -5049,20 +4182,12 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Wijzigingen ongedaan maken</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Wallet</source>
         <translation>Portemonnee</translation>
     </message>
     <message>
         <source>Customize the internal wallet options</source>
         <translation>Pas de interne portemonnee-opties aan</translation>
-    </message>
-    <message>
-        <source>Stake split threshold:</source>
-        <translation>Inzet splitdrempel:</translation>
     </message>
     <message>
         <source>Spend unconfirmed change</source>
@@ -5077,16 +4202,12 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Pas de nodenetwerkopties aan</translation>
     </message>
     <message>
-        <source>Proxy IP:</source>
-        <translation>Proxy IP:</translation>
+        <source>Enter port</source>
+        <translation>Voer poort in</translation>
     </message>
     <message>
         <source>Enter proxy IP</source>
         <translation>Proxy IP invoeren</translation>
-    </message>
-    <message>
-        <source>Port:</source>
-        <translation>Poort:</translation>
     </message>
     <message>
         <source>Map port using UPnP</source>
@@ -5095,10 +4216,6 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
     <message>
         <source>Allow incoming connections</source>
         <translation>Sta inkomende connecties toe</translation>
-    </message>
-    <message>
-        <source>Connect through SOCKS5 proxy (default proxy):</source>
-        <translation>Connecteer via SOCKS5 proxy (standaardproxy):</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -5116,52 +4233,20 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
         <source>Wallet Repair</source>
         <translation>Portemonnee Herstel</translation>
-    </message>
-    <message>
-        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
-        <translation>De knoppen hieronder herstarten de portemonnee met commandoregelopties om deze portemonnee te repareren, problemen met corrupte blockchain bestanden of ontbrekende/verouderde transacties op te lossen.</translation>
-    </message>
-    <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
-        <translation>Poog om privé sleutels terug te halen uit een corrupte wallet.dat.</translation>
-    </message>
-    <message>
-        <source>Rescan the blockchain for missing wallet transactions.</source>
-        <translation>Scan de blockchain opnieuw voor ontbrekende portemonneetransacties.</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
-        <translation>Herstel transacties uit de blockchain (keep-meta-data, bijvoorbeeld van de rekeninghouder).</translation>
-    </message>
-    <message>
-        <source>Recover transactions from blockchain (drop meta-data).</source>
-        <translation>Herstel transacties van blockchain (laat meta-data vallen).</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>Upgrade de portemonnee naar het laatste formaat bij het opstarten. (Opmerking: dit is GEEN update van de portemonnee zelf).</translation>
     </message>
     <message>
-        <source>Rebuild blockchain index from current blk000???.dat files.</source>
-        <translation>Bouw de blockchain index opnieuw vanuit huidige blk000???.dat bestanden.</translation>
-    </message>
-    <message>
-        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
-        <translation>Verwijder alle lokale blockchain mappen zodat de portemonnee alles opnieuw kan hersynchroniseren.</translation>
-    </message>
-    <message>
         <source>Salvage wallet</source>
         <translation>Red portemonnee</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
+        <translation>Poog om privé sleutels te herstellen van een corrupte wallet.dat</translation>
     </message>
     <message>
         <source>Rescan blockchain file</source>
@@ -5182,10 +4267,6 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
     <message>
         <source>Rebuild index</source>
         <translation>Herbouw index</translation>
-    </message>
-    <message>
-        <source>Delete local blockchain </source>
-        <translation>Verwijder lokale blockchain</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -5215,10 +4296,6 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
         <source>Wallet Data</source>
         <translation>Portemonnee Data</translation>
     </message>
@@ -5229,6 +4306,10 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
     <message>
         <source>Multisend</source>
         <translation>Multisend</translation>
+    </message>
+    <message>
+        <source>Export Accounting</source>
+        <translation>Exporteer Accounting</translation>
     </message>
     <message>
         <source>Tools</source>
@@ -5268,7 +4349,7 @@ Vink één of beide selectievakjes aan om beloningen op de inzet en/of masternod
     </message>
     <message>
         <source>Wallet Repair</source>
-        <translation>Portemonnee Herstellen</translation>
+        <translation>Portemonnee Herstel</translation>
     </message>
     <message>
         <source>Help</source>
@@ -5383,26 +4464,6 @@ Weet je zeker dat?
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Versie %1</translation>
-    </message>
-    <message>
-        <source>The Bitcoin Core developers</source>
-        <translation>De Bitcoin Kernontwikkelaars</translation>
-    </message>
-    <message>
-        <source>The Dash Core developers</source>
-        <translation>De Dash Kernontwikkelaars</translation>
-    </message>
-    <message>
-        <source>The PNY Core developers</source>
-        <translation>De PNY Kernontwikkelaars</translation>
-    </message>
-    <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
@@ -5437,14 +4498,6 @@ Weet je zeker dat?
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>480.0685 PNY</source>
-        <translation>480.0685 PNY</translation>
-    </message>
-    <message>
-        <source>1,000 zPNY</source>
-        <translation>1,000 zPNY</translation>
-    </message>
-    <message>
         <source>Available</source>
         <translation>Beschikbaar</translation>
     </message>
@@ -5453,24 +4506,8 @@ Weet je zeker dat?
         <translation>In afwachting</translation>
     </message>
     <message>
-        <source>6.943 PNY</source>
-        <translation>6.943 PNY</translation>
-    </message>
-    <message>
         <source>Immature</source>
         <translation>Onverwerkt</translation>
-    </message>
-    <message>
-        <source>10 PNY</source>
-        <translation>10 PNY</translation>
-    </message>
-    <message>
-        <source>60 zPNY</source>
-        <translation>60 zPNY</translation>
-    </message>
-    <message>
-        <source>10 zPNY</source>
-        <translation>10 zPNY</translation>
     </message>
     <message>
         <source>Wallet Unlocked for staking</source>
@@ -5485,14 +4522,6 @@ Weet je zeker dat?
         <translation>Adres Gekopieerd</translation>
     </message>
     <message>
-        <source>Automint enabled</source>
-        <translation>Automunt ingeschakeld</translation>
-    </message>
-    <message>
-        <source>Automint disabled</source>
-        <translation>Automunt uitgeschakeld</translation>
-    </message>
-    <message>
         <source>Staking active</source>
         <translation>Staking actief</translation>
     </message>
@@ -5500,33 +4529,105 @@ Weet je zeker dat?
         <source>Staking not active</source>
         <translation>Staking niet actief</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s)</source>
-        <translation><numerusform>%n actieve verbinding</numerusform><numerusform>%n actieve verbindingen</numerusform></translation>
-    </message>
     <message>
-        <source>Synchronized</source>
-        <translation>Gesynchroniseerd</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n uur</numerusform><numerusform>%n uren</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n dag</numerusform><numerusform>%n dagen</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n week</numerusform><numerusform>%n weken</numerusform></translation>
+        <source>Synchronized - Block: %1</source>
+        <translation>Gesynchroniseerd - Block: %1</translation>
     </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 en %2</translation>
     </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n jaar</numerusform><numerusform>%n jaren</numerusform></translation>
+    <message>
+        <source>Wallet Upgrade</source>
+        <translation>Portemonneeupgrade</translation>
+    </message>
+    <message>
+        <source>Upgrading to HD wallet will improve
+the wallet's reliability and security.
+
+
+NOTE: after the upgrade, a new
+backup will be created.
+</source>
+        <translation>Upgrade naar HD portemonnee zal
+de portemonnee's betrouwbaarheid en veiligheid verbeteren.
+
+
+OPMERKING: na de upgrade, zal een
+nieuwe back-up aangemaakt worden.
+</translation>
+    </message>
+    <message>
+        <source>Upgrade Wallet</source>
+        <translation>Portemonnee upgraden</translation>
+    </message>
+    <message>
+        <source>Wallet unlock cancelled</source>
+        <translation>Portemonnee ontgrendeling geannuleerd </translation>
+    </message>
+    <message>
+        <source>Tor Active: %1</source>
+        <translation>Tor Actief: %1</translation>
+    </message>
+    <message>
+        <source>Tor Disabled</source>
+        <translation>Tor Uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>FAQ</source>
+        <translation>Veelgestelde vragen</translation>
+    </message>
+    <message>
+        <source>Wallet Locked</source>
+        <translation>Portemonnee Vergrendeld</translation>
+    </message>
+    <message>
+        <source>Available (Locked included)</source>
+        <translation>Beschikbaar (inclusief vergrendelde)</translation>
+    </message>
+    <message>
+        <source>The wallet has been successfully upgraded to HD.</source>
+        <translation>De portemonnee is succesvol geüpgraded naar HD.</translation>
+    </message>
+    <message>
+        <source>It is advised to make a backup.</source>
+        <translation>Het is geadviseerd om een back-up te maken.</translation>
+    </message>
+    <message>
+        <source>Do you wish to backup now?</source>
+        <translation>Wilt u nu een back-up maken?</translation>
+    </message>
+    <message>
+        <source>Backup Wallet</source>
+        <translation>Backup portemonnee</translation>
+    </message>
+    <message>
+        <source>Wallet Data (*.dat)</source>
+        <translation>Portemonneegegevens (*.dat)</translation>
+    </message>
+    <message>
+        <source>Backup created</source>
+        <translation>Back-up aangemaakt</translation>
+    </message>
+    <message>
+        <source>Backup creation failed</source>
+        <translation>Aanmaak back-up mislukt</translation>
+    </message>
+    <message>
+        <source>no file selected</source>
+        <translation>geen bestand geselecteerd</translation>
+    </message>
+    <message>
+        <source>Wallet upgraded successfully, but no backup created.</source>
+        <translation>Portemonnee succesvol geüpgraded, maar geen back-up aangemaakt.</translation>
+    </message>
+    <message>
+        <source>WARNING: remember to make a copy of your wallet.dat file!</source>
+        <translation>WAARSCHUWING: vergeet niet op je wallet.dat bestand te kopiëren!</translation>
+    </message>
+    <message>
+        <source>Upgrade Wallet Error</source>
+        <translation>Upgrade Portemonnee Error</translation>
     </message>
 </context>
 <context>
@@ -5538,10 +4639,6 @@ Weet je zeker dat?
 </context>
 <context>
     <name>TransactionDesc</name>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Open voor nog %n blok</numerusform><numerusform>Open voor nog %n blokken</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>Open tot %1</translation>
@@ -5602,10 +4699,6 @@ Weet je zeker dat?
         <source>, has not been successfully broadcast yet</source>
         <translation>, is nog niet succesvol uitgezonden</translation>
     </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, broadcast via %n node</numerusform><numerusform>, broadcast via %n nodes</numerusform></translation>
-    </message>
     <message>
         <source>Date</source>
         <translation>Datum</translation>
@@ -5645,10 +4738,6 @@ Weet je zeker dat?
     <message>
         <source>Credit</source>
         <translation>Credit</translation>
-    </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation><numerusform>Volgroeid in %n blok</numerusform><numerusform>volgroeid in %n blokken</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -5733,10 +4822,6 @@ Weet je zeker dat?
         <source>Address</source>
         <translation>Adres</translation>
     </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Open voor nog %n blok</numerusform><numerusform>Open voor nog %n blokken</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>Open tot %1</translation>
@@ -5782,64 +4867,8 @@ Weet je zeker dat?
         <translation>Ontvangen van</translation>
     </message>
     <message>
-        <source>Received via Obfuscation</source>
-        <translation>Verkregen via verduistering</translation>
-    </message>
-    <message>
-        <source>PNY Stake</source>
-        <translation>PNY Stake</translation>
-    </message>
-    <message>
-        <source>zPNY Stake</source>
-        <translation>zPNY Stake</translation>
-    </message>
-    <message>
-        <source>PNY Cold Stake</source>
-        <translation>PNY Cold Stake</translation>
-    </message>
-    <message>
-        <source>PNY Stake in behalf of</source>
-        <translation>PNY Stake in naam van</translation>
-    </message>
-    <message>
         <source>Stake delegation</source>
         <translation>Stake delegatie</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Verduistering denominatie</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Verduistering zijdelingse betaling</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verduistering maakt zijdelingse inputs</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verduistering creëert denominaties</translation>
-    </message>
-    <message>
-        <source>Converted PNY to zPNY</source>
-        <translation>Geconverteerde PNY naar zPNY</translation>
-    </message>
-    <message>
-        <source>Spent zPNY</source>
-        <translation>Bestede zPNY</translation>
-    </message>
-    <message>
-        <source>Received PNY from zPNY</source>
-        <translation>Ontvangen PNY van zPNY</translation>
-    </message>
-    <message>
-        <source>Minted Change as zPNY from zPNY Spend</source>
-        <translation>Gemint wisselgeld als zPNY van bestede zPNY</translation>
-    </message>
-    <message>
-        <source>Converted zPNY to PNY</source>
-        <translation>Geconverteerde zPNY naar PNY</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -5854,12 +4883,12 @@ Weet je zeker dat?
         <translation>Betaling naar jezelf</translation>
     </message>
     <message>
-        <source>Mined</source>
-        <translation>Mined</translation>
+        <source>Stake delegation spent by</source>
+        <translation>Stake delegatie gespendeerd door</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verduisterd</translation>
+        <source>Mined</source>
+        <translation>Mined</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -5913,36 +4942,8 @@ Weet je zeker dat?
         <translation>Transactie details</translation>
     </message>
     <message>
-        <source>ID:</source>
-        <translation>ID:</translation>
-    </message>
-    <message>
-        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
-        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
-    </message>
-    <message>
-        <source>Sending to: </source>
-        <translation>Versturen naar:</translation>
-    </message>
-    <message>
-        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
-        <translation>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
-    </message>
-    <message>
         <source>Total amount</source>
         <translation>Totale hoeveelheid</translation>
-    </message>
-    <message>
-        <source>2 PNY</source>
-        <translation>2 PNY</translation>
-    </message>
-    <message>
-        <source>Coin inputs:</source>
-        <translation>Munt invoeren:</translation>
-    </message>
-    <message>
-        <source>1 Inputs</source>
-        <translation>1 Invoer</translation>
     </message>
     <message>
         <source>Previous Transaction</source>
@@ -5953,52 +4954,52 @@ Weet je zeker dat?
         <translation>Outputindex</translation>
     </message>
     <message>
-        <source>Fee:</source>
-        <translation>Fee:</translation>
-    </message>
-    <message>
-        <source>0.0001 PNY</source>
-        <translation>0.0001 PNY</translation>
-    </message>
-    <message>
-        <source>Change address:</source>
-        <translation>Wijzig adres:</translation>
-    </message>
-    <message>
         <source>P7VFR83SQbie…BhjcWJtcfip5krte2Z </source>
         <translation>P7VFR83SQbie…BhjcWJtcfip5krte2Z </translation>
-    </message>
-    <message>
-        <source>Confirmations:</source>
-        <translation>Bevestigingen:</translation>
-    </message>
-    <message>
-        <source>12</source>
-        <translation>12</translation>
-    </message>
-    <message>
-        <source>Size:</source>
-        <translation>Grootte:</translation>
-    </message>
-    <message>
-        <source>2 kB</source>
-        <translation>2 kB</translation>
-    </message>
-    <message>
-        <source>Date:</source>
-        <translation>Datum:</translation>
     </message>
     <message>
         <source>May 25, 2017</source>
         <translation>25 Mei, 2017</translation>
     </message>
     <message>
-        <source>Status:</source>
-        <translation>Status:</translation>
+        <source>ID</source>
+        <translation>ID</translation>
+    </message>
+    <message>
+        <source>Sending to</source>
+        <translation>Versturen naar:</translation>
+    </message>
+    <message>
+        <source>Coin inputs</source>
+        <translation>Munt invoeringen</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Onkost</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Grootte</translation>
+    </message>
+    <message>
+        <source>Change address</source>
+        <translation>Wijzig adres</translation>
     </message>
     <message>
         <source>Spendable</source>
         <translation>Uitgeefbaar</translation>
+    </message>
+    <message>
+        <source>Confirmations</source>
+        <translation>Bevestigingen</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Date</source>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -6035,18 +5036,6 @@ Weet je zeker dat?
         <source>Form</source>
         <translation>Formulier</translation>
     </message>
-    <message>
-        <source>Received from Bob</source>
-        <translation>Ontvangen van Bob</translation>
-    </message>
-    <message>
-        <source>18/05/18</source>
-        <translation>18/05/18</translation>
-    </message>
-    <message>
-        <source>+0.000585 PNY</source>
-        <translation>+0.000585 PNY</translation>
-    </message>
 </context>
 <context>
     <name>WalletModel</name>
@@ -6054,44 +5043,9 @@ Weet je zeker dat?
         <source>Send Coins</source>
         <translation>Verzend Munten</translation>
     </message>
-    <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 PNY.</source>
-        <translation>SwiftTX ondersteunt geen verzendwaarden die zo hoog zijn. Transacties zijn momenteel beperkt tot %1 PNY.</translation>
-    </message>
-</context>
-<context>
-    <name>WalletPasswordDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialoog</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
-        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
-    </message>
-    <message>
-        <source>CANCEL</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation>Akkoord</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WelcomeContentWidget</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Dialoog</translation>
-    </message>
     <message>
         <source>1</source>
         <translation>1</translation>
@@ -6160,49 +5114,6 @@ PNY Core Portemonnee</translation>
     </message>
 </context>
 <context>
-    <name>ZPnyControlDialog</name>
-    <message>
-        <source>Select zPNY to Spend</source>
-        <translation>Selecteer zPNY om te besteden</translation>
-    </message>
-    <message>
-        <source>Coin Control</source>
-        <translation>Munt Controle</translation>
-    </message>
-    <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
-    </message>
-    <message>
-        <source>zPny</source>
-        <translation>zPny</translation>
-    </message>
-    <message>
-        <source>0.00 </source>
-        <translation>0.00 </translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Kwantiteit:</translation>
-    </message>
-    <message>
-        <source>Is Spendable</source>
-        <translation>Is Uitgeefbaar</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <source>Select/Deselect All</source>
-        <translation>Selecteer/Deselecteer Alles</translation>
-    </message>
-    <message>
-        <source>Select zPNY Denominations to Spend</source>
-        <translation>Selecteer zPNY Denominaties om te Besteden</translation>
-    </message>
-</context>
-<context>
     <name>pny-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
@@ -6223,10 +5134,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
         <translation>Bind naar het opgegeven adres om te luisteren naar JSON-RPC verbindingen. Gebruik [host]:poort notatie voor IPv6. Deze optie kan meerdere keren worden opgegeven (standaard: bind aan alle interfaces)</translation>
-    </message>
-    <message>
-        <source>Calculated accumulator checkpoint is not what is recorded by block index</source>
-        <translation>Het berekende accumulatie controlepunt is niet wat wordt geregistreerd door de blokindex</translation>
     </message>
     <message>
         <source>Cannot obtain a lock on data directory %s. PNY Core is probably already running.</source>
@@ -6257,24 +5164,8 @@ PNY Core Portemonnee</translation>
         <translation>Gedistribueerd onder de MIT software licentie, zie het bijgevoegde bestand COPYING of &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic Zerocoin minting from specific addresses (0-1, default: %u)</source>
-        <translation>Schakel automatische Zerocoin munting vanuit specifieke adressen in (0-1, standaard %u) </translation>
-    </message>
-    <message>
-        <source>Enable automatic wallet backups triggered after each zPNY minting (0-1, default: %u)</source>
-        <translation>Schakel automatische portemonnee back-ups in geactiveerd na elke geminte zPNY (0-1, standaard: %u)</translation>
-    </message>
-    <message>
         <source>Enable cold staking functionality (0-1, default: %u). Disabled if staking=0</source>
         <translation>Activeer cold staking functionaliteit (0-1, standaard: %u). Uitgeschakeld als staking=0</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for PNY inputs (0-1, default: %u)</source>
-        <translation>In- of uitschakelen staking functionaliteit voor PNY inputs (0-1, standaard: %u)</translation>
-    </message>
-    <message>
-        <source>Enable or disable staking functionality for zPNY inputs (0-1, default: %u)</source>
-        <translation>In- of uitschakelen staking functionaliteit voor zPNY inputs (0-1, standaard: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -6297,6 +5188,10 @@ PNY Core Portemonnee</translation>
         <translation>Fout: Niet ondersteund argument -socks gevonden. Het instellen van SOCKS versie is niet meer mogelijk, alleen SOCKS5 proxy's worden ondersteund.</translation>
     </message>
     <message>
+        <source>Exclude debugging information for a category. Can be used in conjunction with -debug=1 to output debug logs for all categories except one or more specified categories.</source>
+        <translation>Sluit informatie voor een categorie uit. Kan worden gebruikt in combinatie met -debug=1 om foutopsporingslogboeken uit te voeren voor alle categorieën behalve een of meer gespecificeerde categorieën.</translation>
+    </message>
+    <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
         <translation>Uitvoeren commando wanneer een relevante waarschuwing is ontvangen of we zien een echt lange fork (%s in cmd wordt vervangen door bericht)</translation>
     </message>
@@ -6307,14 +5202,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Execute command when the best block changes (%s in cmd is replaced by block hash)</source>
         <translation>Uitvoeren commando wanneer het beste blok verandert (%s in cmd is vervangen door block hash)</translation>
-    </message>
-    <message>
-        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Kosten (in PNY/Kb) kleiner dan dit worden beschouwd als zero fee voor heruitzending (standaard: %s)</translation>
-    </message>
-    <message>
-        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Kosten (in PNY/Kb) kleiner dan dit worden beschouwd als zero fee voor transactie verrichting (standaard: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -6335,10 +5222,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Ongeldige hoeveelheid voor -maxtxfee=&lt;amount&gt;: '%s' (moet ten minste de minimale vergoeding van %s zijn om hangende transacties te voorkomen)</translation>
-    </message>
-    <message>
-        <source>Keep the specified amount available for spending at all times (default: 0)</source>
-        <translation>Houd het gespecificeerde bedrag altijd beschikbaar voor uitgaven te allen tijde (standaard: 0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -6369,16 +5252,8 @@ PNY Core Portemonnee</translation>
         <translation>Aantal seconden om te voorkomen dat misdragende peers opnieuw connectoren (standaard: %u)</translation>
     </message>
     <message>
-        <source>Obfuscation uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.</source>
-        <translation>Verduistering maakt gebruik van exacte gedenomineerde bedragen om fondsen te verzenden, je zou misschien nog wat munten moeten anonimiseren.</translation>
-    </message>
-    <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Output debugging informatie (default: %u, verschaffen &lt;category&gt; is optioneel)</translation>
-    </message>
-    <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
-        <translation>Query voor peer adressen via DNS lookup, als er weinig adressen zijn (standaard: 1 tenzij -connect)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -6395,10 +5270,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: %d)</source>
         <translation>Stel maximale grootte van transacties met hoge prioriteit/low-fee in bytes in (standaard: %d)</translation>
-    </message>
-    <message>
-        <source>Set the number of included blocks to precompute per cycle. (minimum: %d) (maximum: %d) (default: %d)</source>
-        <translation>Stel het aantal ingesloten blokken in om vooraf te berekenen per cyclus. (minimum: %d) (maximum: %d) (standaard: %d)</translation>
     </message>
     <message>
         <source>Set the number of script verification threads (%u to %d, 0 = auto, &lt;0 = leave that many cores free, default: %d)</source>
@@ -6433,18 +5304,6 @@ PNY Core Portemonnee</translation>
         <translation>Niet mogelijk te binden aan %s op deze computer. PNY Core loopt waarschijnlijk al.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
-        <translation>Kan niet genoeg verduistering gedenomineerde fondsen voor deze transactie vinden.</translation>
-    </message>
-    <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 1000 PNY.</source>
-        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 1000 PNY.</translation>
-    </message>
-    <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 1000 PNY.</source>
-        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 1000 PNY.</translation>
-    </message>
-    <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
         <translation>Gebruik aparte SOCKS5 proxy om peers via Tor verborgen services te bereiken (standaard: %s)</translation>
     </message>
@@ -6455,10 +5314,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Waarschuwing: -paytxfee is zeer hoog ingesteld! Dit zijn de transactie kosten die je betaalt als je een transactie verstuurt.</translation>
-    </message>
-    <message>
-        <source>Warning: Peers are being disconnected due time differences. Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
-        <translation>Waarschuwing: Peers zijn afgesloten als gevolg van tijdsverschillen. Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd staat, werkt PNY Core niet goed.</translation>
     </message>
     <message>
         <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
@@ -6493,10 +5348,6 @@ PNY Core Portemonnee</translation>
         <translation>Je moet een masternodeprivkey opgeven in de configuratie. Raadpleeg de documentatie voor hulp.</translation>
     </message>
     <message>
-        <source>(16889 could be used only on mainnet)</source>
-        <translation>(16889 kan alleen op mainnet worden gebruikt)</translation>
-    </message>
-    <message>
         <source>(default: %s)</source>
         <translation>(standaard: %s)</translation>
     </message>
@@ -6505,16 +5356,8 @@ PNY Core Portemonnee</translation>
         <translation>(standaard: 1)</translation>
     </message>
     <message>
-        <source>(must be 16889 for mainnet)</source>
-        <translation>(moet 16889 voor mainnet zijn)</translation>
-    </message>
-    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Accepteer command line en JSON-RPC commando's</translation>
-    </message>
-    <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
-        <translation>Accepteer verbindingen van buitenaf (standaard: 1 als geen -proxy of -connect)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -6523,10 +5366,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Add a node to connect to and attempt to keep the connection open</source>
         <translation>Voeg een node toe om verbinding mee te maken en probeer de verbinding open te houden</translation>
-    </message>
-    <message>
-        <source>Adding Wrapped Serials supply...</source>
-        <translation>Toevoegen van Wrapped Serialvoorraad...</translation>
     </message>
     <message>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
@@ -6553,32 +5392,8 @@ PNY Core Portemonnee</translation>
         <translation>Block creatie opties:</translation>
     </message>
     <message>
-        <source>Calculating missing accumulators...</source>
-        <translation>Calculeren van ontbrekende accumulators...</translation>
-    </message>
-    <message>
         <source>Cannot downgrade wallet</source>
         <translation>Kan de portemonnee niet downgraden</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -bind address: '%s'</source>
-        <translation>Kan -bind adres niet oplossen: '%s'</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -externalip address: '%s'</source>
-        <translation>Kan -externalip adres niet oplossen: '%s'</translation>
-    </message>
-    <message>
-        <source>Cannot resolve -whitebind address: '%s'</source>
-        <translation>Kan -whitebind adres niet oplossen: '%s'</translation>
-    </message>
-    <message>
-        <source>CoinSpend: failed check</source>
-        <translation>CoinSpend: controle mislukt</translation>
-    </message>
-    <message>
-        <source>Connect only to the specified node(s)</source>
-        <translation>Verbind alleen met de opgegeven node(s)</translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
@@ -6613,10 +5428,6 @@ PNY Core Portemonnee</translation>
         <translation>Kan masternode.conf niet parsen</translation>
     </message>
     <message>
-        <source>Couldn't generate the accumulator witness</source>
-        <translation>Kon de accumulator witness niet genereren</translation>
-    </message>
-    <message>
         <source>Debugging/Testing options:</source>
         <translation>Debugging/Test opties:</translation>
     </message>
@@ -6647,14 +5458,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Done loading</source>
         <translation>Klaar met laden</translation>
-    </message>
-    <message>
-        <source>Enable automatic Zerocoin minting (0-1, default: %u)</source>
-        <translation>Zet automatische Zerocoin minting aan (0-1, standaard: %u)</translation>
-    </message>
-    <message>
-        <source>Enable precomputation of zPNY spends and stakes (0-1, default %u)</source>
-        <translation>Schakel de precomputatie van zPNY-uitgaven en stakes in (0-1, standaard %u) </translation>
     </message>
     <message>
         <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
@@ -6709,6 +5512,10 @@ PNY Core Portemonnee</translation>
         <translation>Error</translation>
     </message>
     <message>
+        <source>Error: </source>
+        <translation>Error: </translation>
+    </message>
+    <message>
         <source>Error: A fatal internal error occured, see debug.log for details</source>
         <translation>Fout: Er is een fatale interne fout opgetreden, zie debug.log voor details</translation>
     </message>
@@ -6725,24 +5532,12 @@ PNY Core Portemonnee</translation>
         <translation>Fout: Portemonnee vergrendeld, niet in staat om transactie te creëren!</translation>
     </message>
     <message>
-        <source>Failed to calculate accumulator checkpoint</source>
-        <translation>Kon het controlepunt van de accumulator niet berekenen</translation>
-    </message>
-    <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Niet gelukt om te luisteren op een poort. Gebruik -listen=0 als je dit wilt.</translation>
     </message>
     <message>
         <source>Failed to parse host:port string</source>
         <translation>Kan host: poortreeks niet parseren</translation>
-    </message>
-    <message>
-        <source>Failed to read block</source>
-        <translation>Mislukt om block te lezen</translation>
-    </message>
-    <message>
-        <source>Fee (in PNY/kB) to add to transactions you send (default: %s)</source>
-        <translation>Fee (in PNY/kB) om toe te voegen aan transacties die je verzendt (standaard: %s)</translation>
     </message>
     <message>
         <source>Force safe mode (default: %u)</source>
@@ -6797,28 +5592,8 @@ PNY Core Portemonnee</translation>
         <translation>Ongeldig -onion adres of hostnaam: '%s'</translation>
     </message>
     <message>
-        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ongeldige hoeveelheid voor -maxtxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -minrelaytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ongeldige hoeveelheid voor -minrelaytxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -mintxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ongeldige hoeveelheid voor -mintxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s' (must be at least %s)</source>
         <translation>Ongeldige hoeveelheid voor -paytxfee=&lt;amount&gt;: '%s' (moet tenminste %s zijn)</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -paytxfee=&lt;amount&gt;: '%s'</source>
-        <translation>Ongeldige hoeveelheid voor -paytxfee=&lt;amount&gt;: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid amount for -reservebalance=&lt;amount&gt;</source>
-        <translation>Ongeldige hoeveelheid voor -reservebalance=&lt;amount&gt;</translation>
     </message>
     <message>
         <source>Invalid amount</source>
@@ -6833,28 +5608,8 @@ PNY Core Portemonnee</translation>
         <translation>Ongeldige netmask opgegeven in -whitelist: '%s'</translation>
     </message>
     <message>
-        <source>Invalid port detected in masternode.conf</source>
-        <translation>Ongeldige poort gedetecteerd in masternode.conf</translation>
-    </message>
-    <message>
-        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
-        <translation>Percentage automatisch geminte Zerocoin (10-100, standaard: %u)</translation>
-    </message>
-    <message>
         <source>Recalculating PNY supply...</source>
         <translation>Hercalculatie van PNY aanbod...</translation>
-    </message>
-    <message>
-        <source>Recalculating minted ZPNY...</source>
-        <translation>Herberekenen van gemunte ZPNY....</translation>
-    </message>
-    <message>
-        <source>Recalculating spent ZPNY...</source>
-        <translation>Herberekenen van bestede ZPNY....</translation>
-    </message>
-    <message>
-        <source>Reindex the PNY and zPNY money supply statistics</source>
-        <translation>Indexeer de PNY- en zPNY-geldvoorraadstatistieken opnieuw</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -6867,10 +5622,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Selected coins value is less than payment target</source>
         <translation>Geselecteerde munt waarde is minder dan het betalingsdoel</translation>
-    </message>
-    <message>
-        <source>Support the zerocoin light node protocol (default: %u)</source>
-        <translation>Ondersteuning van het zerocoin light node protocol (standaard: %u)</translation>
     </message>
     <message>
         <source>SwiftX options:</source>
@@ -6905,14 +5656,6 @@ PNY Core Portemonnee</translation>
         <translation>Schakel SwiftX in, toon bevestigingen voor vergrendelde transacties (bool, standaard: %s)</translation>
     </message>
     <message>
-        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation>Fout: De transactie is afgewezen! Dit kan gebeuren als sommige munten in je portemonnee al waren uitgegeven, bijvoorbeeld als je een kopie van wallet.dat gebruikt en munten in de kopie waren besteed maar hier niet als zodanig gemarkeerd.</translation>
-    </message>
-    <message>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Fout: Deze transactie vereist transactiekosten van ten minste %s vanwege de hoeveelheid, de complexiteit of het gebruik van recent ontvangen fondsen!</translation>
-    </message>
-    <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
         <translation>Fout: Niet ondersteund argument -checklevel gevonden. Checklevel moet niveau 4 zijn.</translation>
     </message>
@@ -6927,14 +5670,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
         <translation>In zeldzame gevallen overschrijdt een besteding met 7 munten uw maximaal toegestane transactiegrootte. Probeer het opnieuw met 6 of minder munten</translation>
-    </message>
-    <message>
-        <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
-        <translation>Voorkeur denominatie voor automatisch minted Zerocoin (1/5/10/50/100/500/1000/5000), 0 voor geen voorkeur. standaard: %u)</translation>
-    </message>
-    <message>
-        <source>Specify custom backup path to add a copy of any automatic zPNY backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Specificeer aangepast back-up pad om een kopie van elke automatische zPNY back-up toe te voegen. Indien ingesteld als dir zal elke back-up een bestand genereren met een tijdstempel. Indien ingesteld als file zal elke back-up herschreven worden naar dat bestand. Indien backuppath ook is ingesteld zullen 4 back-ups gedaan worden.</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -6955,10 +5690,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Cannot create public spend input</source>
         <translation>Kon geen publiek besteedadres aanmaken</translation>
-    </message>
-    <message>
-        <source>CoinSpend: Accumulator witness does not verify</source>
-        <translation>CoinSpend: Accumulator witness controleert niet</translation>
     </message>
     <message>
         <source>Display the stake modifier calculations in the debug.log file.</source>
@@ -6997,10 +5728,6 @@ PNY Core Portemonnee</translation>
         <translation>Fout: geen geldige utxo!</translation>
     </message>
     <message>
-        <source>Failed to create mint</source>
-        <translation>Het is niet gelukt om mint te maken</translation>
-    </message>
-    <message>
         <source>Failed to find Zerocoins in wallet.dat</source>
         <translation>Niet gelukt om Zerocoins in wallet.dat te vinden.</translation>
     </message>
@@ -7021,12 +5748,12 @@ PNY Core Portemonnee</translation>
         <translation>Het serienummer van het muntstuk kan niet in de portemonnee worden geschreven</translation>
     </message>
     <message>
-        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
-        <translation>Houd maximaal &lt;n&gt;niet te verbinden transacties in het geheugen (standaard: %u)</translation>
+        <source>Invalid amount for -%s=&lt;amount&gt;: '%s'</source>
+        <translation>Ongeldige hoeveelheid voor -%s=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
-        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
-        <translation>Limiet grootte van signature cache naar &lt;n&gt; invoer (standaard: %u)</translation>
+        <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
+        <translation>Houd maximaal &lt;n&gt;niet te verbinden transacties in het geheugen (standaard: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -7043,6 +5770,10 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Loading addresses...</source>
         <translation>Adressen laden...</translation>
+    </message>
+    <message>
+        <source>Loading banlist...</source>
+        <translation>Banlijst aan het laden...</translation>
     </message>
     <message>
         <source>Loading block index...</source>
@@ -7065,10 +5796,6 @@ PNY Core Portemonnee</translation>
         <translation>Sporks laden...</translation>
     </message>
     <message>
-        <source>Loading wallet... (%3.2f %%)</source>
-        <translation>Portemonnee laden... (%3.2f %%)</translation>
-    </message>
-    <message>
         <source>Loading wallet...</source>
         <translation>Portemonnee aan het laden...</translation>
     </message>
@@ -7083,6 +5810,10 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
         <translation>Lookup (): ongeldig -proxy-adres of hostnaam: '%s'</translation>
+    </message>
+    <message>
+        <source>MNs synchronization pending...</source>
+        <translation>Synchronisatie van MN's in afwachting...</translation>
     </message>
     <message>
         <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
@@ -7125,6 +5856,10 @@ PNY Core Portemonnee</translation>
         <translation>Aantal aangepaste locatie back-ups om te behouden (standaard: %d)</translation>
     </message>
     <message>
+        <source>On first run, create a legacy wallet instead of a HD wallet</source>
+        <translation>Bij de initiële uitvoering, maak een legacy portemonnee aan in plaats van een HD portemonnee</translation>
+    </message>
+    <message>
         <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
         <translation>Accepteer alleen blockchain matching met ingebouwde controlepunten (standaard: %u)</translation>
     </message>
@@ -7141,6 +5876,10 @@ PNY Core Portemonnee</translation>
         <translation>Wachtwoord voor JSON-RPC connecties</translation>
     </message>
     <message>
+        <source>Peers are being disconnected due time differences.</source>
+        <translation>Peers worden verbroken vanwege tijdsverschillen.</translation>
+    </message>
+    <message>
         <source>Unable to find transaction containing mint %s</source>
         <translation>Kan geen transactie terugvinden die munting %s bevat</translation>
     </message>
@@ -7153,16 +5892,28 @@ PNY Core Portemonnee</translation>
         <translation>Gebruik block-spamfilter (standaard: %u)</translation>
     </message>
     <message>
-        <source>could not get lock on cs_spendcache</source>
-        <translation>kon niet op cs_spendcache terecht komen</translation>
-    </message>
-    <message>
         <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
         <translation>isValid (): ongeldig -proxy-adres of hostnaam: '%s'</translation>
     </message>
     <message>
         <source>Preparing for resync...</source>
         <translation>Voorbereiden van hersynchronisatie...</translation>
+    </message>
+    <message>
+        <source>Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
+        <translation>Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd ingesteld staat, werkt PNY Core niet goed.</translation>
+    </message>
+    <message>
+        <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
+        <translation>Geef de locatie van het foutopsporingslogboek op: dit kan een absoluut pad zijn of een pad ten opzichte van de gegevensmap (standaard: %s)</translation>
+    </message>
+    <message>
+        <source>Cannot resolve -%s address: '%s'</source>
+        <translation>Kan oplossing -%s niet voltooien voor adres: '%s'</translation>
+    </message>
+    <message>
+        <source>Cannot upgrade to HD wallet (already running HD support). Version: %d</source>
+        <translation>Kan niet upgraden naar een HD portemonnee (Voert alreeds HD ondersteuning uit). Versie: %d</translation>
     </message>
     <message>
         <source>Need destination or change address because change is not exact</source>
@@ -7195,14 +5946,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>Herstel blockchain index van huidige blk000??.dat bestanden</translation>
-    </message>
-    <message>
-        <source>Receive and display P2P network alerts (default: %u)</source>
-        <translation>Ontvang en laat P2P netwerkmeldingen zien (standaard: %u)</translation>
-    </message>
-    <message>
-        <source>Reindex the accumulator database</source>
-        <translation>Herindexeer de verzameldatabase</translation>
     </message>
     <message>
         <source>Relay and mine data carrier transactions (default: %u)</source>
@@ -7239,10 +5982,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation>Zend transacties als zero fee transacties indien mogelijk (standaard: %u)</translation>
-    </message>
-    <message>
-        <source>Session timed out.</source>
-        <translation>Sessie verlopen.</translation>
     </message>
     <message>
         <source>Set database cache size in megabytes (%d to %d, default: %d)</source>
@@ -7287,10 +6026,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
         <translation>Krimp debug.log bestand bij client startup (standaard: 1 wanneer geen -debug)</translation>
-    </message>
-    <message>
-        <source>Signing timed out.</source>
-        <translation>Ondertekening time out.</translation>
     </message>
     <message>
         <source>Signing transaction failed</source>
@@ -7349,10 +6084,6 @@ PNY Core Portemonnee</translation>
         <translation>Synchronisatie voltooid</translation>
     </message>
     <message>
-        <source>Synchronization pending...</source>
-        <translation>Synchronisatie in afwachting...</translation>
-    </message>
-    <message>
         <source>Synchronizing budgets...</source>
         <translation>Budgeten synchroniseren...</translation>
     </message>
@@ -7371,14 +6102,6 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Syncing zPNY wallet...</source>
         <translation>Synchroniseren zPNY portemonnee...</translation>
-    </message>
-    <message>
-        <source>The coin spend has been used</source>
-        <translation>De muntuitgaven zijn gebruikt</translation>
-    </message>
-    <message>
-        <source>The transaction did not verify</source>
-        <translation>De transactie heeft niet geverifieerd</translation>
     </message>
     <message>
         <source>This help message</source>
@@ -7445,6 +6168,10 @@ PNY Core Portemonnee</translation>
         <translation>Niet mogelijke om de initiële sleutel te genereren.</translation>
     </message>
     <message>
+        <source>Unable to generate keys</source>
+        <translation>Niet mogelijke om sleutels te genereren.</translation>
+    </message>
+    <message>
         <source>Unable to sign spork message, wrong key?</source>
         <translation>Kan sporkbericht niet tekenen, verkeerde sleutel?</translation>
     </message>
@@ -7455,6 +6182,10 @@ PNY Core Portemonnee</translation>
     <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Onbekend netwerk gespecificeerd in -onlynet: '%s'</translation>
+    </message>
+    <message>
+        <source>Unsupported logging category %s=%s.</source>
+        <translation>Niet-ondersteunde logboekcategorie %s=%s.</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
@@ -7545,6 +6276,10 @@ PNY Core Portemonnee</translation>
         <translation>ZeroMQ notificatie opties:</translation>
     </message>
     <message>
+        <source>Zerocoin minting available only on regtest</source>
+        <translation>Zerocoin munting alleen beschikbaar via regtest</translation>
+    </message>
+    <message>
         <source>Zerocoin options:</source>
         <translation>Zerocoin opties:</translation>
     </message>
@@ -7568,12 +6303,36 @@ PNY Core Portemonnee</translation>
         <translation>Zenden</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation>TextLabel</translation>
+        <source>PNY address or contact label</source>
+        <translation>PNY adres of contactlabel</translation>
     </message>
     <message>
-        <source>PushButton</source>
-        <translation>Druk Knop</translation>
+        <source>Amount</source>
+        <translation>Bedrag</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>Kosten aanpassen</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Alles wissen</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>Voeg bestemmeling toe</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>Totaal te versturen</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>Terugzetten naar standaardinstelling</translation>
+    </message>
+    <message>
+        <source>Include delegated</source>
+        <translation>Reken delegatie mee</translation>
     </message>
 </context>
 </TS>

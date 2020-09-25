@@ -1,7 +1,7 @@
 // Copyright (c) 2015 The Bitcoin Core developers
 // Copyright (c) 2017-2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,14 +22,6 @@ CScheduler::~CScheduler()
 {
     assert(nThreadsServicingQueue == 0);
 }
-
-
-#if BOOST_VERSION < 105000
-static boost::system_time toPosixTime(const boost::chrono::system_clock::time_point& t)
-{
-    return boost::posix_time::from_time_t(boost::chrono::system_clock::to_time_t(t));
-}
-#endif
 
 void CScheduler::serviceQueue()
 {
@@ -54,20 +46,12 @@ void CScheduler::serviceQueue()
             // Wait until either there is a new task, or until
             // the time of the first item on the queue:
 
-// wait_until needs boost 1.50 or later; older versions have timed_wait:
-#if BOOST_VERSION < 105000
-            while (!shouldStop() && !taskQueue.empty() &&
-                   newTaskScheduled.timed_wait(lock, toPosixTime(taskQueue.begin()->first))) {
-                // Keep waiting until timeout
-            }
-#else
             // Some boost versions have a conflicting overload of wait_until that returns void.
             // Explicitly use a template here to avoid hitting that overload.
             while (!shouldStop() && !taskQueue.empty() &&
                    newTaskScheduled.wait_until<>(lock, taskQueue.begin()->first) != boost::cv_status::timeout) {
                 // Keep waiting until timeout
             }
-#endif
             // If there are multiple threads, the queue can empty while we're waiting (another
             // thread may service the task we were waiting on).
             if (shouldStop() || taskQueue.empty())

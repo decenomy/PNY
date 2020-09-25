@@ -36,14 +36,14 @@ Package: pnyd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- PNY is a free open source peer-to-peer electronic cash system that
+ PNY is a free, open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
  Full transaction history is stored locally at each client.  This
- requires 10+ GB of space, slowly growing.
+ requires 18.5+ GB of space, slowly growing.
  .
  This package provides the daemon, pnyd, and the CLI tool
  pny-cli to interact with the daemon.
@@ -52,13 +52,13 @@ Package: pny-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- PNY is a free open source peer-to-peer electronic cash system that
+ PNY is a free, open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
  Full transaction history is stored locally at each client.  This
- requires 10+ GB of space, slowly growing.
+ requires 18.5+ GB of space, slowly growing.
  .
  This package provides Pny-Qt, a GUI for PNY based on Qt.

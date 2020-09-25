@@ -1,6 +1,6 @@
-// Copyright (c) 2019 The PIVX developers
-// Copyright (c) 2019 The CryptoDev developers
-// Copyright (c) 2019 The peony developers
+// Copyright (c) 2019-2020 The PIVX developers
+// Copyright (c) 2020 The CryptoDev developers
+// Copyright (c) 2020 The peony developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,14 +25,10 @@ LockUnlock::LockUnlock(QWidget *parent) :
     ui->pushButtonStaking->setProperty("cssClass", "btn-check-lock-sub-menu-staking");
     ui->pushButtonStaking->setStyleSheet("padding-left: 34px;");
 
-    ui->pushButtonUnlocked->setText(tr("Unlock Wallet"));
-    ui->pushButtonLocked->setText(tr("Lock Wallet"));
-    ui->pushButtonStaking->setText(tr("Staking Only"));
-
     // Connect
-    connect(ui->pushButtonUnlocked, SIGNAL(clicked()), this, SLOT(onUnlockClicked()));
-    connect(ui->pushButtonLocked, SIGNAL(clicked()), this, SLOT(onLockClicked()));
-    connect(ui->pushButtonStaking, SIGNAL(clicked()), this, SLOT(onStakingClicked()));
+    connect(ui->pushButtonUnlocked, &QPushButton::clicked, this, &LockUnlock::onUnlockClicked);
+    connect(ui->pushButtonLocked, &QPushButton::clicked, this, &LockUnlock::onLockClicked);
+    connect(ui->pushButtonStaking, &QPushButton::clicked, this, &LockUnlock::onStakingClicked);
 }
 
 LockUnlock::~LockUnlock()
@@ -40,14 +36,15 @@ LockUnlock::~LockUnlock()
     delete ui;
 }
 
-void LockUnlock::updateStatus(WalletModel::EncryptionStatus status){
-    switch (status){
+void LockUnlock::updateStatus(WalletModel::EncryptionStatus status)
+{
+    switch (status) {
         case WalletModel::EncryptionStatus::Unlocked:
             ui->pushButtonUnlocked->setChecked(true);
             ui->pushButtonLocked->setChecked(false);
             ui->pushButtonStaking->setChecked(false);
             break;
-        case WalletModel::EncryptionStatus::UnlockedForAnonymizationOnly:
+        case WalletModel::EncryptionStatus::UnlockedForStaking:
             ui->pushButtonUnlocked->setChecked(false);
             ui->pushButtonLocked->setChecked(false);
             ui->pushButtonStaking->setChecked(true);
@@ -62,33 +59,37 @@ void LockUnlock::updateStatus(WalletModel::EncryptionStatus status){
     }
 }
 
-void LockUnlock::onLockClicked(){
+void LockUnlock::onLockClicked()
+{
     lock = 0;
-    emit lockClicked(StateClicked::LOCK);
+    Q_EMIT lockClicked(StateClicked::LOCK);
 }
 
-void LockUnlock::onUnlockClicked(){
+void LockUnlock::onUnlockClicked()
+{
     lock = 1;
-    emit lockClicked(StateClicked::UNLOCK);
+    Q_EMIT lockClicked(StateClicked::UNLOCK);
 }
 
-void LockUnlock::onStakingClicked(){
+void LockUnlock::onStakingClicked()
+{
     lock = 2;
-    emit lockClicked(StateClicked::UNLOCK_FOR_STAKING);
+    Q_EMIT lockClicked(StateClicked::UNLOCK_FOR_STAKING);
 }
 
 void LockUnlock::enterEvent(QEvent *)
 {
     isOnHover = true;
-    emit Mouse_Entered();
+    Q_EMIT Mouse_Entered();
 }
 
 void LockUnlock::leaveEvent(QEvent *)
 {
     isOnHover = false;
-    emit Mouse_Leave();
+    Q_EMIT Mouse_Leave();
 }
 
-bool LockUnlock::isHovered(){
+bool LockUnlock::isHovered()
+{
     return isOnHover;
 }

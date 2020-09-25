@@ -13,7 +13,12 @@ Test the following RPCs:
 """
 
 from test_framework.test_framework import PnyTestFramework
-from test_framework.util import *
+from test_framework.util import (
+    assert_equal,
+    assert_raises_rpc_error,
+    connect_nodes,
+    Decimal,
+)
 
 
 class multidict(dict):
@@ -42,7 +47,7 @@ class RawTransactionsTest(PnyTestFramework):
 
     def setup_network(self, split=False):
         super().setup_network()
-        connect_nodes_bi(self.nodes,0,2)
+        connect_nodes(self.nodes[0], 2)
 
     def run_test(self):
 
@@ -82,7 +87,7 @@ class RawTransactionsTest(PnyTestFramework):
         #assert_raises_rpc_error(-8, "Data must be hexadecimal string", self.nodes[0].createrawtransaction, [], {'data': 'foo'})
         assert_raises_rpc_error(-5, "Invalid PNY address", self.nodes[0].createrawtransaction, [], {'foo': 0})
         #assert_raises_rpc_error(-3, "﻿Amount is not a number", self.nodes[0].createrawtransaction, [], {address: 'foo'})
-        assert_raises_rpc_error(-3, "Invalid amount", self.nodes[0].createrawtransaction, [], {address: -1})
+        assert_raises_rpc_error(-3, "Amount out of range", self.nodes[0].createrawtransaction, [], {address: -1})
         assert_raises_rpc_error(-8, "Invalid parameter, duplicated address: %s" % address, self.nodes[0].createrawtransaction, [], multidict([(address, 1), (address, 1)]))
 
         # Test `createrawtransaction` invalid `locktime`
