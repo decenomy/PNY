@@ -9,12 +9,12 @@
 #define UNUSED
 #endif
 static const char UNUSED *pny_strings[] = {
+QT_TRANSLATE_NOOP("pny-core", " mints deleted\n"),
+QT_TRANSLATE_NOOP("pny-core", " mints updated, "),
+QT_TRANSLATE_NOOP("pny-core", " unconfirmed transactions removed\n"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "
 "= drop tx meta data)"),
-QT_TRANSLATE_NOOP("pny-core", ""
-"Accept connections from outside (default: %u if no -proxy or -connect/-"
-"noconnect)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Allow JSON-RPC connections from specified source. Valid for <ip> are a "
 "single IP (e.g. 1.2.3.4), a network/netmask (e.g. 1.2.3.4/255.255.255.0) or "
@@ -30,22 +30,11 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "notation for IPv6. This option can be specified multiple times (default: "
 "bind to all interfaces)"),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Cannot find the Sapling parameters in the following directory:\n"
-"%s\n"
-"Please run 'sapling-fetch-params' or './util/fetch-params.sh' and then "
-"restart."),
-QT_TRANSLATE_NOOP("pny-core", ""
 "Cannot obtain a lock on data directory %s. PNY Core is probably already "
 "running."),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Cannot upgrade to Sapling wallet (already running Sapling support). Version: "
-"%d"),
-QT_TRANSLATE_NOOP("pny-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
 "exact finalized budget match to my generated budget. (string, default: auto)"),
-QT_TRANSLATE_NOOP("pny-core", ""
-"Connect only to the specified node(s); -noconnect or -connect=0 alone to "
-"disable automatic connections"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Continuously rate-limit free transactions to <n>*1000 bytes per minute "
 "(default:%u)"),
@@ -65,23 +54,13 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "Distributed under the MIT software license, see the accompanying file "
 "COPYING or <http://www.opensource.org/licenses/mit-license.php>."),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Do not accept transactions if any ancestor would have <n> or more in-mempool "
-"descendants (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", ""
-"Do not accept transactions if any ancestor would have more than <n> "
-"kilobytes of in-mempool descendants (default: %u)."),
-QT_TRANSLATE_NOOP("pny-core", ""
-"Do not accept transactions if number of in-mempool ancestors is <n> or more "
-"(default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", ""
-"Do not accept transactions whose size with all in-mempool ancestors exceeds "
-"<n> kilobytes (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", ""
-"Do not keep transactions in the mempool longer than <n> hours (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", ""
 "Enable SwiftX, show confirmations for locked transactions (bool, default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Enable cold staking functionality (0-1, default: %u). Disabled if staking=0"),
+QT_TRANSLATE_NOOP("pny-core", ""
+"Enable or disable staking functionality for PNY inputs (0-1, default: %u)"),
+QT_TRANSLATE_NOOP("pny-core", ""
+"Enable or disable staking functionality for zPNY inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Enable spork administration functionality with the appropriate private key."),
 QT_TRANSLATE_NOOP("pny-core", ""
@@ -91,6 +70,10 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "Error: Listening for incoming connections failed (listen returned error %s)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Error: The transaction is larger than the maximum allowed transaction size!"),
+QT_TRANSLATE_NOOP("pny-core", ""
+"Error: The transaction was rejected! This might happen if some of the coins "
+"in your wallet were already spent, such as if you used a copy of wallet.dat "
+"and coins were spent in the copy but not marked as spent here."),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Error: Unsupported argument -checklevel found. Checklevel must be level 4."),
 QT_TRANSLATE_NOOP("pny-core", ""
@@ -115,10 +98,10 @@ QT_TRANSLATE_NOOP("pny-core", ""
 QT_TRANSLATE_NOOP("pny-core", ""
 "Failed to find coin set amongst held coins with less than maxNumber of Spends"),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Fees (in %s/Kb) smaller than this are considered zero fee for relaying, "
-"mining and transaction creation (default: %s)"),
+"Fees (in PNY/Kb) smaller than this are considered zero fee for relaying "
+"(default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Fees (in %s/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in PNY/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -139,6 +122,8 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "Invalid amount for -maxtxfee=<amount>: '%s' (must be at least the minrelay "
 "fee of %s to prevent stuck transactions)"),
 QT_TRANSLATE_NOOP("pny-core", ""
+"Keep the specified amount available for spending at all times (default: 0)"),
+QT_TRANSLATE_NOOP("pny-core", ""
 "Log transaction priority and fee per kB when mining blocks (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Maintain a full transaction index, used by the getrawtransaction rpc call "
@@ -155,9 +140,6 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "Maximum total fees to use in a single wallet transaction, setting too low "
 "may abort large transactions (default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Minimum positive amount (in PNY) allowed by GUI and RPC for the stake split "
-"threshold (default: %s)"),
-QT_TRANSLATE_NOOP("pny-core", ""
 "Number of seconds to keep misbehaving peers from reconnecting (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Output debugging information (default: %u, supplying <category> is optional)"),
@@ -166,7 +148,7 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "is wrong PNY Core will not work properly."),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Query for peer addresses via DNS lookup, if low on addresses (default: 1 "
-"unless -connect/-noconnect)"),
+"unless -connect)"),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Randomize credentials for every proxy connection. This enables Tor stream "
 "isolation (default: %u)"),
@@ -218,9 +200,6 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
 QT_TRANSLATE_NOOP("pny-core", ""
-"WARNING: The transaction has been signed and recorded, so the wallet will "
-"try to re-send it. Use 'abandontransaction' to cancel it. (txid: %s)"),
-QT_TRANSLATE_NOOP("pny-core", ""
 "Warning: -maxtxfee is set very high! Fees this large could be paid on a "
 "single transaction."),
 QT_TRANSLATE_NOOP("pny-core", ""
@@ -236,12 +215,12 @@ QT_TRANSLATE_NOOP("pny-core", ""
 "Warning: We do not appear to fully agree with our peers! You may need to "
 "upgrade, or other nodes may need to upgrade."),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Warning: error reading %s! All keys read correctly, but transaction data or "
-"address book entries might be missing or incorrect."),
+"Warning: error reading wallet.dat! All keys read correctly, but transaction "
+"data or address book entries might be missing or incorrect."),
 QT_TRANSLATE_NOOP("pny-core", ""
-"Warning: wallet file corrupt, data salvaged! Original %s saved as %s in %s; "
-"if your balance or transactions are incorrect you should restore from a "
-"backup."),
+"Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as "
+"wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect "
+"you should restore from a backup."),
 QT_TRANSLATE_NOOP("pny-core", ""
 "Whitelist peers connecting from the given netmask or IP address. Can be "
 "specified multiple times."),
@@ -251,26 +230,27 @@ QT_TRANSLATE_NOOP("pny-core", ""
 QT_TRANSLATE_NOOP("pny-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("pny-core", "%s corrupt, salvage failed"),
+QT_TRANSLATE_NOOP("pny-core", "(16889 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("pny-core", "(default: %s)"),
-QT_TRANSLATE_NOOP("pny-core", "(must be %d for %s-net)"),
+QT_TRANSLATE_NOOP("pny-core", "(default: 1)"),
+QT_TRANSLATE_NOOP("pny-core", "(must be 16889 for mainnet)"),
 QT_TRANSLATE_NOOP("pny-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("pny-core", "Accept command line and JSON-RPC commands"),
+QT_TRANSLATE_NOOP("pny-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
 QT_TRANSLATE_NOOP("pny-core", "Accept public REST requests (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", "Active Masternode not initialized."),
 QT_TRANSLATE_NOOP("pny-core", "Add a node to connect to and attempt to keep the connection open"),
-QT_TRANSLATE_NOOP("pny-core", "Allow DNS lookups for -addnode, -seednode and -connect (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", "Allows deprecated RPC method(s) to be used"),
+QT_TRANSLATE_NOOP("pny-core", "Allow DNS lookups for -addnode, -seednode and -connect"),
 QT_TRANSLATE_NOOP("pny-core", "Always query for peer addresses via DNS lookup (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Append comment to the user agent string"),
 QT_TRANSLATE_NOOP("pny-core", "Attempt to force blockchain corruption recovery"),
-QT_TRANSLATE_NOOP("pny-core", "Attempt to recover private keys from a corrupt wallet file"),
+QT_TRANSLATE_NOOP("pny-core", "Attempt to recover private keys from a corrupt wallet.dat"),
 QT_TRANSLATE_NOOP("pny-core", "Automatically create Tor hidden service (default: %d)"),
 QT_TRANSLATE_NOOP("pny-core", "Block creation options:"),
-QT_TRANSLATE_NOOP("pny-core", "Can't generate a change-address key. Please call keypoolrefill first."),
 QT_TRANSLATE_NOOP("pny-core", "Cannot create public spend input"),
+QT_TRANSLATE_NOOP("pny-core", "Cannot downgrade wallet"),
 QT_TRANSLATE_NOOP("pny-core", "Cannot resolve -%s address: '%s'"),
-QT_TRANSLATE_NOOP("pny-core", "Change index out of range"),
+QT_TRANSLATE_NOOP("pny-core", "Cannot upgrade to HD wallet (already running HD support). Version: %d"),
+QT_TRANSLATE_NOOP("pny-core", "Connect only to the specified node(s)"),
 QT_TRANSLATE_NOOP("pny-core", "Connect through SOCKS5 proxy"),
 QT_TRANSLATE_NOOP("pny-core", "Connect to a node to retrieve peer addresses, and disconnect"),
 QT_TRANSLATE_NOOP("pny-core", "Connection options:"),
@@ -282,6 +262,7 @@ QT_TRANSLATE_NOOP("pny-core", "Could not parse masternode.conf"),
 QT_TRANSLATE_NOOP("pny-core", "Debugging/Testing options:"),
 QT_TRANSLATE_NOOP("pny-core", "Delete blockchain folders and resync from scratch"),
 QT_TRANSLATE_NOOP("pny-core", "Disable OS notifications for incoming transactions (default: %u)"),
+QT_TRANSLATE_NOOP("pny-core", "Disable safemode, override a real safe mode event (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Discover own IP address (default: 1 when listening and no -externalip)"),
 QT_TRANSLATE_NOOP("pny-core", "Display the stake modifier calculations in the debug.log file."),
 QT_TRANSLATE_NOOP("pny-core", "Display verbose coin stake messages in the debug.log file."),
@@ -298,33 +279,30 @@ QT_TRANSLATE_NOOP("pny-core", "Enable staking functionality (0-1, default: %u)")
 QT_TRANSLATE_NOOP("pny-core", "Enable the client to act as a masternode (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Error initializing block database"),
 QT_TRANSLATE_NOOP("pny-core", "Error initializing wallet database environment %s!"),
-QT_TRANSLATE_NOOP("pny-core", "Error loading %s: Wallet corrupted"),
-QT_TRANSLATE_NOOP("pny-core", "Error loading %s: Wallet requires newer version of PNY Core"),
-QT_TRANSLATE_NOOP("pny-core", "Error loading %s\n"),
 QT_TRANSLATE_NOOP("pny-core", "Error loading block database"),
+QT_TRANSLATE_NOOP("pny-core", "Error loading wallet.dat"),
+QT_TRANSLATE_NOOP("pny-core", "Error loading wallet.dat: Wallet corrupted"),
+QT_TRANSLATE_NOOP("pny-core", "Error loading wallet.dat: Wallet requires newer version of PNY Core"),
 QT_TRANSLATE_NOOP("pny-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("pny-core", "Error reading from database, shutting down."),
-QT_TRANSLATE_NOOP("pny-core", "Error upgrading chainstate database"),
 QT_TRANSLATE_NOOP("pny-core", "Error writing zerocoinDB to disk"),
 QT_TRANSLATE_NOOP("pny-core", "Error"),
-QT_TRANSLATE_NOOP("pny-core", "Error: -listen must be true if -masternode is set."),
-QT_TRANSLATE_NOOP("pny-core", "Error: -maxmempool must be at least %d MB"),
+QT_TRANSLATE_NOOP("pny-core", "Error: "),
 QT_TRANSLATE_NOOP("pny-core", "Error: A fatal internal error occured, see debug.log for details"),
 QT_TRANSLATE_NOOP("pny-core", "Error: A fatal internal error occurred, see debug.log for details"),
 QT_TRANSLATE_NOOP("pny-core", "Error: Disk space is low!"),
-QT_TRANSLATE_NOOP("pny-core", "Error: Invalid port %d for running a masternode."),
 QT_TRANSLATE_NOOP("pny-core", "Error: No valid utxo!"),
 QT_TRANSLATE_NOOP("pny-core", "Error: Unsupported argument -tor found, use -onion."),
 QT_TRANSLATE_NOOP("pny-core", "Error: Wallet locked, unable to create transaction!"),
-QT_TRANSLATE_NOOP("pny-core", "Failed to accept tx in the memory pool (reason: %s)\n"),
-QT_TRANSLATE_NOOP("pny-core", "Failed to find Zerocoins in wallet database"),
+QT_TRANSLATE_NOOP("pny-core", "Failed to find Zerocoins in wallet.dat"),
 QT_TRANSLATE_NOOP("pny-core", "Failed to listen on any port. Use -listen=0 if you want this."),
 QT_TRANSLATE_NOOP("pny-core", "Failed to parse host:port string"),
 QT_TRANSLATE_NOOP("pny-core", "Failed to parse public spend"),
+QT_TRANSLATE_NOOP("pny-core", "Failed to read block"),
 QT_TRANSLATE_NOOP("pny-core", "Failed to select a zerocoin"),
 QT_TRANSLATE_NOOP("pny-core", "Failed to wipe zerocoinDB"),
 QT_TRANSLATE_NOOP("pny-core", "Failed to write coin serial number into wallet"),
-QT_TRANSLATE_NOOP("pny-core", "Fee (in %s/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("pny-core", "Fee (in PNY/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Generate coins (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "How many blocks to check at startup (default: %u, 0 = all)"),
@@ -337,20 +315,15 @@ QT_TRANSLATE_NOOP("pny-core", "Information"),
 QT_TRANSLATE_NOOP("pny-core", "Initialization sanity check failed. PNY Core is shutting down."),
 QT_TRANSLATE_NOOP("pny-core", "Insufficient funds"),
 QT_TRANSLATE_NOOP("pny-core", "Insufficient funds."),
-QT_TRANSLATE_NOOP("pny-core", "Invalid -masternodeaddr address: %s"),
-QT_TRANSLATE_NOOP("pny-core", "Invalid -masternodeaddr port %d, only %d is supported on %s-net."),
 QT_TRANSLATE_NOOP("pny-core", "Invalid -onion address or hostname: '%s'"),
 QT_TRANSLATE_NOOP("pny-core", "Invalid amount for -%s=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("pny-core", "Invalid amount for -paytxfee=<amount>: '%s' (must be at least %s)"),
 QT_TRANSLATE_NOOP("pny-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("pny-core", "Invalid masternodeprivkey. Please see documenation."),
 QT_TRANSLATE_NOOP("pny-core", "Invalid netmask specified in -whitelist: '%s'"),
-QT_TRANSLATE_NOOP("pny-core", "Invalid port %d detected in masternode.conf"),
-QT_TRANSLATE_NOOP("pny-core", "Invalid status error."),
+QT_TRANSLATE_NOOP("pny-core", "Invalid port detected in masternode.conf"),
 QT_TRANSLATE_NOOP("pny-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", "Keep the transaction memory pool below <n> megabytes (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", "Keypool ran out, please call keypoolrefill first, or unlock the wallet."),
-QT_TRANSLATE_NOOP("pny-core", "Limit size of signature cache to <n> MiB (default: %u)"),
+QT_TRANSLATE_NOOP("pny-core", "Limit size of signature cache to <n> entries (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Line: %d"),
 QT_TRANSLATE_NOOP("pny-core", "Listen for JSON-RPC connections on <port> (default: %u or testnet: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Listen for connections on <port> (default: %u or testnet: %u)"),
@@ -368,17 +341,14 @@ QT_TRANSLATE_NOOP("pny-core", "Lookup(): Invalid -proxy address or hostname: '%s
 QT_TRANSLATE_NOOP("pny-core", "MNs synchronization pending..."),
 QT_TRANSLATE_NOOP("pny-core", "Maintain at most <n> connections to peers (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Masternode options:"),
-QT_TRANSLATE_NOOP("pny-core", "Masternodes are required to run on port %d for %s-net"),
 QT_TRANSLATE_NOOP("pny-core", "Maximum per-connection receive buffer, <n>*1000 bytes (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Maximum per-connection send buffer, <n>*1000 bytes (default: %u)"),
-QT_TRANSLATE_NOOP("pny-core", "Mining/Staking options:"),
 QT_TRANSLATE_NOOP("pny-core", "Mint did not make it into blockchain"),
 QT_TRANSLATE_NOOP("pny-core", "Need destination or change address because change is not exact"),
 QT_TRANSLATE_NOOP("pny-core", "Need to specify a port with -whitebind: '%s'"),
-QT_TRANSLATE_NOOP("pny-core", "No error"),
 QT_TRANSLATE_NOOP("pny-core", "Node relay options:"),
 QT_TRANSLATE_NOOP("pny-core", "Not enough file descriptors available."),
-QT_TRANSLATE_NOOP("pny-core", "Number of automatic wallet backups (default: %d)"),
+QT_TRANSLATE_NOOP("pny-core", "Number of automatic wallet backups (default: 10)"),
 QT_TRANSLATE_NOOP("pny-core", "Number of custom location backups to retain (default: %d)"),
 QT_TRANSLATE_NOOP("pny-core", "On first run, create a legacy wallet instead of a HD wallet"),
 QT_TRANSLATE_NOOP("pny-core", "Only accept block chain matching built-in checkpoints (default: %u)"),
@@ -395,13 +365,15 @@ QT_TRANSLATE_NOOP("pny-core", "Randomly drop 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("pny-core", "Randomly fuzz 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("pny-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("pny-core", "Recalculating PNY supply..."),
-QT_TRANSLATE_NOOP("pny-core", "Reindex the %s and z%s money supply statistics"),
+QT_TRANSLATE_NOOP("pny-core", "Reindex the PNY and zPNY money supply statistics"),
 QT_TRANSLATE_NOOP("pny-core", "Reindexing zerocoin database..."),
 QT_TRANSLATE_NOOP("pny-core", "Reindexing zerocoin failed"),
 QT_TRANSLATE_NOOP("pny-core", "Relay and mine data carrier transactions (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Relay non-P2SH multisig (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Rescan the block chain for missing wallet transactions"),
 QT_TRANSLATE_NOOP("pny-core", "Rescanning..."),
+QT_TRANSLATE_NOOP("pny-core", "ResetMintZerocoin finished: "),
+QT_TRANSLATE_NOOP("pny-core", "ResetSpentZerocoin finished: "),
 QT_TRANSLATE_NOOP("pny-core", "Run a thread to flush wallet periodically (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Run in the background as a daemon and accept commands"),
 QT_TRANSLATE_NOOP("pny-core", "Selected coins value is less than payment target"),
@@ -417,7 +389,6 @@ QT_TRANSLATE_NOOP("pny-core", "Set the number of threads to service RPC calls (d
 QT_TRANSLATE_NOOP("pny-core", "Sets the DB_PRIVATE flag in the wallet db environment (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Show all debugging options (usage: --help -help-debug)"),
 QT_TRANSLATE_NOOP("pny-core", "Shrink debug.log file on client startup (default: 1 when no -debug)"),
-QT_TRANSLATE_NOOP("pny-core", "Shutdown requested over the txs scan. Exiting."),
 QT_TRANSLATE_NOOP("pny-core", "Signing transaction failed"),
 QT_TRANSLATE_NOOP("pny-core", "Specify configuration file (default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", "Specify connection timeout in milliseconds (minimum: 1, default: %d)"),
@@ -426,9 +397,9 @@ QT_TRANSLATE_NOOP("pny-core", "Specify masternode configuration file (default: %
 QT_TRANSLATE_NOOP("pny-core", "Specify pid file (default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", "Specify wallet file (within data directory)"),
 QT_TRANSLATE_NOOP("pny-core", "Specify your own public address"),
-QT_TRANSLATE_NOOP("pny-core", "Specify zk params directory (default: %s)"),
 QT_TRANSLATE_NOOP("pny-core", "Spend Valid"),
 QT_TRANSLATE_NOOP("pny-core", "Spend unconfirmed change when sending transactions (default: %u)"),
+QT_TRANSLATE_NOOP("pny-core", "Staking options:"),
 QT_TRANSLATE_NOOP("pny-core", "Stop running after importing blocks from disk (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "SwiftX options:"),
 QT_TRANSLATE_NOOP("pny-core", "Synchronization failed"),
@@ -438,12 +409,9 @@ QT_TRANSLATE_NOOP("pny-core", "Synchronizing masternode winners..."),
 QT_TRANSLATE_NOOP("pny-core", "Synchronizing masternodes..."),
 QT_TRANSLATE_NOOP("pny-core", "Synchronizing sporks..."),
 QT_TRANSLATE_NOOP("pny-core", "Syncing zPNY wallet..."),
-QT_TRANSLATE_NOOP("pny-core", "The threshold value cannot be less than %s"),
 QT_TRANSLATE_NOOP("pny-core", "This help message"),
 QT_TRANSLATE_NOOP("pny-core", "This is experimental software."),
 QT_TRANSLATE_NOOP("pny-core", "This is intended for regression testing tools and app development."),
-QT_TRANSLATE_NOOP("pny-core", "This is not a masternode. 'local' option disabled."),
-QT_TRANSLATE_NOOP("pny-core", "This is not a masternode."),
 QT_TRANSLATE_NOOP("pny-core", "Threshold for disconnecting misbehaving peers (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Too many spends needed"),
 QT_TRANSLATE_NOOP("pny-core", "Tor control port password (default: empty)"),
@@ -452,13 +420,13 @@ QT_TRANSLATE_NOOP("pny-core", "Transaction Created"),
 QT_TRANSLATE_NOOP("pny-core", "Transaction Mint Started"),
 QT_TRANSLATE_NOOP("pny-core", "Transaction amount too small"),
 QT_TRANSLATE_NOOP("pny-core", "Transaction amounts must be positive"),
-QT_TRANSLATE_NOOP("pny-core", "Transaction canceled."),
 QT_TRANSLATE_NOOP("pny-core", "Transaction too large for fee policy"),
 QT_TRANSLATE_NOOP("pny-core", "Transaction too large"),
 QT_TRANSLATE_NOOP("pny-core", "Trying to spend an already spent serial #, try again."),
 QT_TRANSLATE_NOOP("pny-core", "Unable to bind to %s on this computer (bind returned error %s)"),
 QT_TRANSLATE_NOOP("pny-core", "Unable to find transaction containing mint %s"),
 QT_TRANSLATE_NOOP("pny-core", "Unable to find transaction containing mint, txHash: %s"),
+QT_TRANSLATE_NOOP("pny-core", "Unable to generate initial key"),
 QT_TRANSLATE_NOOP("pny-core", "Unable to generate keys"),
 QT_TRANSLATE_NOOP("pny-core", "Unable to sign spork message, wrong key?"),
 QT_TRANSLATE_NOOP("pny-core", "Unable to start HTTP server. See debug log for details."),
@@ -466,6 +434,8 @@ QT_TRANSLATE_NOOP("pny-core", "Unknown network specified in -onlynet: '%s'"),
 QT_TRANSLATE_NOOP("pny-core", "Unsupported logging category %s=%s."),
 QT_TRANSLATE_NOOP("pny-core", "Upgrade wallet to latest format"),
 QT_TRANSLATE_NOOP("pny-core", "Use UPnP to map the listening port (default: %u)"),
+QT_TRANSLATE_NOOP("pny-core", "Use UPnP to map the listening port (default: 1 when listening)"),
+QT_TRANSLATE_NOOP("pny-core", "Use a custom max chain reorganization depth (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Use block spam filter (default: %u)"),
 QT_TRANSLATE_NOOP("pny-core", "Use the test network"),
 QT_TRANSLATE_NOOP("pny-core", "User Agent comment (%s) contains unsafe characters."),
@@ -474,7 +444,6 @@ QT_TRANSLATE_NOOP("pny-core", "Value is below the smallest available denominatio
 QT_TRANSLATE_NOOP("pny-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("pny-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("pny-core", "Wallet %s resides outside data directory %s"),
-QT_TRANSLATE_NOOP("pny-core", "Wallet debugging/testing options:"),
 QT_TRANSLATE_NOOP("pny-core", "Wallet needed to be rewritten: restart PNY Core to complete"),
 QT_TRANSLATE_NOOP("pny-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("pny-core", "Wallet window title"),
@@ -490,4 +459,5 @@ QT_TRANSLATE_NOOP("pny-core", "Zerocoin minting available only on regtest"),
 QT_TRANSLATE_NOOP("pny-core", "Zerocoin options:"),
 QT_TRANSLATE_NOOP("pny-core", "isValid(): Invalid -proxy address or hostname: '%s'"),
 QT_TRANSLATE_NOOP("pny-core", "on startup"),
+QT_TRANSLATE_NOOP("pny-core", "wallet.dat corrupt, salvage failed"),
 };

@@ -21,7 +21,6 @@
 
 #include <QCloseEvent>
 #include <QDesktopWidget>
-#include <QScreen>
 
 #include <iostream>
 
@@ -50,7 +49,7 @@ Splash::Splash(Qt::WindowFlags f, const NetworkStyle* networkStyle) :
     QRect r(QPoint(), size());
     resize(r.size());
     setFixedSize(r.size());
-    move(QGuiApplication::primaryScreen()->geometry().center() - r.center());
+    move(QApplication::desktop()->screenGeometry().center() - r.center());
 
     subscribeToCoreSignals();
 }

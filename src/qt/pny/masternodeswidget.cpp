@@ -14,7 +14,6 @@
 
 #include "activemasternode.h"
 #include "clientmodel.h"
-#include "fs.h"
 #include "guiutil.h"
 #include "init.h"
 #include "masternode-sync.h"
@@ -25,6 +24,7 @@
 #include "askpassphrasedialog.h"
 #include "util.h"
 #include "qt/pny/optionbutton.h"
+#include <boost/filesystem.hpp>
 #include <iostream>
 #include <fstream>
 
@@ -94,20 +94,24 @@ MasterNodesWidget::MasterNodesWidget(PNYGUI *parent) :
     fontLight.setWeight(QFont::Light);
 
     /* Title */
+    ui->labelTitle->setText(tr("Masternodes"));
     setCssTitleScreen(ui->labelTitle);
     ui->labelTitle->setFont(fontLight);
+
+    ui->labelSubtitle1->setText(tr("Full nodes that incentivize node operators to perform the core consensus functions\nand vote on the treasury system receiving a periodic reward."));
     setCssSubtitleScreen(ui->labelSubtitle1);
 
     /* Buttons */
+    ui->pushButtonSave->setText(tr("Create Masternode Controller"));
     setCssBtnPrimary(ui->pushButtonSave);
     setCssBtnPrimary(ui->pushButtonStartAll);
     setCssBtnPrimary(ui->pushButtonStartMissing);
 
     /* Options */
-    ui->btnAbout->setTitleClassAndText("btn-title-grey", tr("What is a Masternode?"));
-    ui->btnAbout->setSubTitleClassAndText("text-subtitle", tr("FAQ explaining what Masternodes are"));
-    ui->btnAboutController->setTitleClassAndText("btn-title-grey", tr("What is a Controller?"));
-    ui->btnAboutController->setSubTitleClassAndText("text-subtitle", tr("FAQ explaining what is a Masternode Controller"));
+    ui->btnAbout->setTitleClassAndText("btn-title-grey", "What is a Masternode?");
+    ui->btnAbout->setSubTitleClassAndText("text-subtitle", "FAQ explaining what Masternodes are");
+    ui->btnAboutController->setTitleClassAndText("btn-title-grey", "What is a Controller?");
+    ui->btnAboutController->setSubTitleClassAndText("text-subtitle", "FAQ explaining what is a Masternode Controller");
 
     setCssProperty(ui->listMn, "container");
     ui->listMn->setItemDelegate(delegate);
@@ -118,6 +122,7 @@ MasterNodesWidget::MasterNodesWidget(PNYGUI *parent) :
 
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
+    ui->labelEmpty->setText(tr("No active Masternode yet"));
     setCssProperty(ui->labelEmpty, "text-empty");
 
     connect(ui->pushButtonSave, &QPushButton::clicked, this, &MasterNodesWidget::onCreateMNClicked);
@@ -290,7 +295,7 @@ bool MasterNodesWidget::startAll(QString& failText, bool onlyMissing)
             continue;
         }
 
-        if (!mnModel->isMNCollateralMature(mnAlias)) {
+        if(!mnModel->isMNCollateralMature(mnAlias)) {
             amountOfMnFailed++;
             continue;
         }
@@ -380,15 +385,14 @@ void MasterNodesWidget::onDeleteMNClicked()
 
     std::string strConfFile = "masternode.conf";
     std::string strDataDir = GetDataDir().string();
-    fs::path conf_file_path(strConfFile);
-    if (strConfFile != conf_file_path.filename().string()) {
+    if (strConfFile != boost::filesystem::basename(strConfFile) + boost::filesystem::extension(strConfFile)) {
         throw std::runtime_error(strprintf(_("masternode.conf %s resides outside data directory %s"), strConfFile, strDataDir));
     }
 
-    fs::path pathBootstrap = GetDataDir() / strConfFile;
-    if (fs::exists(pathBootstrap)) {
-        fs::path pathMasternodeConfigFile = GetMasternodeConfigFile();
-        fs::ifstream streamConfig(pathMasternodeConfigFile);
+    boost::filesystem::path pathBootstrap = GetDataDir() / strConfFile;
+    if (boost::filesystem::exists(pathBootstrap)) {
+        boost::filesystem::path pathMasternodeConfigFile = GetMasternodeConfigFile();
+        boost::filesystem::ifstream streamConfig(pathMasternodeConfigFile);
 
         if (!streamConfig.good()) {
             inform(tr("Invalid masternode.conf file"));
@@ -436,24 +440,27 @@ void MasterNodesWidget::onDeleteMNClicked()
         streamConfig.close();
 
         if (lineNumToRemove != -1) {
-            fs::path pathConfigFile = AbsPathForConfigVal(fs::path("masternode_temp.conf"));
-            FILE* configFile = fsbridge::fopen(pathConfigFile, "w");
+            boost::filesystem::path pathConfigFile("masternode_temp.conf");
+            if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
+            FILE* configFile = fopen(pathConfigFile.string().c_str(), "w");
             fwrite(lineCopy.c_str(), std::strlen(lineCopy.c_str()), 1, configFile);
             fclose(configFile);
 
-            fs::path pathOldConfFile = AbsPathForConfigVal(fs::path("old_masternode.conf"));
-            if (fs::exists(pathOldConfFile)) {
-                fs::remove(pathOldConfFile);
+            boost::filesystem::path pathOldConfFile("old_masternode.conf");
+            if (!pathOldConfFile.is_complete()) pathOldConfFile = GetDataDir() / pathOldConfFile;
+            if (boost::filesystem::exists(pathOldConfFile)) {
+                boost::filesystem::remove(pathOldConfFile);
             }
             rename(pathMasternodeConfigFile, pathOldConfFile);
 
-            fs::path pathNewConfFile = AbsPathForConfigVal(fs::path("masternode.conf"));
+            boost::filesystem::path pathNewConfFile("masternode.conf");
+            if (!pathNewConfFile.is_complete()) pathNewConfFile = GetDataDir() / pathNewConfFile;
             rename(pathConfigFile, pathNewConfFile);
 
             // Unlock collateral
             bool convertOK = false;
             unsigned int indexOut = outIndex.toUInt(&convertOK);
-            if (convertOK) {
+            if(convertOK) {
                 COutPoint collateralOut(uint256(txId.toStdString()), indexOut);
                 walletModel->unlockCoin(collateralOut);
             }
@@ -464,7 +471,7 @@ void MasterNodesWidget::onDeleteMNClicked()
             mnModel->removeMn(index);
             updateListState();
         }
-    } else {
+    } else{
         inform(tr("masternode.conf file doesn't exist"));
     }
 }
@@ -479,7 +486,7 @@ void MasterNodesWidget::onCreateMNClicked()
     }
 
     if (walletModel->getBalance() <= (COIN * GetMNCollateral(chainActive.Height()))) {
-        inform(tr("Not enough balance to create a masternode, 20,000 %1 required.").arg(CURRENCY_UNIT.c_str()));
+        inform(tr("Not enough balance to create a masternode, 20,000 PNY required."));
         return;
     }
     showHideOp(true);

@@ -15,11 +15,13 @@
 
 bool CMessageSigner::GetKeysFromSecret(const std::string& strSecret, CKey& keyRet, CPubKey& pubkeyRet)
 {
-    keyRet = DecodeSecret(strSecret);
-    if (!keyRet.IsValid())
-        return false;
+    CBitcoinSecret vchSecret;
 
+    if(!vchSecret.SetString(strSecret)) return false;
+
+    keyRet = vchSecret.GetKey();
     pubkeyRet = keyRet.GetPubKey();
+
     return true;
 }
 
@@ -66,7 +68,7 @@ bool CHashSigner::VerifyHash(const uint256& hash, const CKeyID& keyID, const std
 
     if(pubkeyFromSig.GetID() != keyID) {
         strErrorRet = strprintf("Keys don't match: pubkey=%s, pubkeyFromSig=%s, hash=%s, vchSig=%s",
-                EncodeDestination(keyID), EncodeDestination(pubkeyFromSig.GetID()),
+                CBitcoinAddress(keyID).ToString(), CBitcoinAddress(pubkeyFromSig.GetID()).ToString(),
                 hash.ToString(), EncodeBase64(&vchSig[0], vchSig.size()));
         return false;
     }
@@ -78,24 +80,39 @@ bool CHashSigner::VerifyHash(const uint256& hash, const CKeyID& keyID, const std
  *  Functions inherited by network signed-messages
  */
 
-bool CSignedMessage::Sign(const CKey& key, const CPubKey& pubKey)
+bool CSignedMessage::Sign(const CKey& key, const CPubKey& pubKey, const bool fNewSigs)
 {
-    nMessVersion = MessageVersion::MESS_VER_HASH;
     std::string strError = "";
-    uint256 hash = GetSignatureHash();
 
-    if(!CHashSigner::SignHash(hash, key, vchSig)) {
-        return error("%s : SignHash() failed", __func__);
-    }
+    if (fNewSigs) {
+        nMessVersion = MessageVersion::MESS_VER_HASH;
+        uint256 hash = GetSignatureHash();
 
-    if (!CHashSigner::VerifyHash(hash, pubKey, vchSig, strError)) {
-        return error("%s : VerifyHash() failed, error: %s", __func__, strError);
+        if(!CHashSigner::SignHash(hash, key, vchSig)) {
+            return error("%s : SignHash() failed", __func__);
+        }
+
+        if (!CHashSigner::VerifyHash(hash, pubKey, vchSig, strError)) {
+            return error("%s : VerifyHash() failed, error: %s", __func__, strError);
+        }
+
+    } else {
+        nMessVersion = MessageVersion::MESS_VER_STRMESS;
+        std::string strMessage = GetStrMessage();
+
+        if (!CMessageSigner::SignMessage(strMessage, vchSig, key)) {
+            return error("%s : SignMessage() failed", __func__);
+        }
+
+        if (!CMessageSigner::VerifyMessage(pubKey, vchSig, strMessage, strError)) {
+            return error("%s : VerifyMessage() failed, error: %s\n", __func__, strError);
+        }
     }
 
     return true;
 }
 
-bool CSignedMessage::Sign(const std::string strSignKey)
+bool CSignedMessage::Sign(const std::string strSignKey, const bool fNewSigs)
 {
     CKey key;
     CPubKey pubkey;
@@ -104,7 +121,7 @@ bool CSignedMessage::Sign(const std::string strSignKey)
         return error("%s : Invalid strSignKey", __func__);
     }
 
-    return Sign(key, pubkey);
+    return Sign(key, pubkey, fNewSigs);
 }
 
 bool CSignedMessage::CheckSignature(const CPubKey& pubKey) const

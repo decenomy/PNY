@@ -42,6 +42,7 @@ LoadingDialog::LoadingDialog(QWidget *parent) :
     ui->labelMovie->setMovie(movie);
     movie->start();
 
+    ui->labelMessage->setText(tr("Loading"));
     ui->labelMessage->setProperty("cssClass", "text-loading");
     ui->labelDots->setProperty("cssClass", "text-loading");
 }

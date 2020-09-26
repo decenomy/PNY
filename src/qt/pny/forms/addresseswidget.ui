@@ -68,14 +68,14 @@
             <item>
              <widget class="QLabel" name="labelTitle">
               <property name="text">
-               <string>Contacts</string>
+               <string>Send</string>
               </property>
              </widget>
             </item>
             <item alignment="Qt::AlignTop">
              <widget class="QLabel" name="labelSubtitle1">
               <property name="text">
-               <string>You can add a new one in the options menu to the side.</string>
+               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -279,7 +279,7 @@
                  <string notr="true"/>
                 </property>
                 <property name="text">
-                 <string>No contacts yet</string>
+                 <string>N/A</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -358,11 +358,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditName">
-               <property name="placeholderText">
-                <string notr="true">e.g. John Doe</string>
-               </property>
-              </widget>
+              <widget class="QLineEdit" name="lineEditName"/>
              </item>
             </layout>
            </item>
@@ -395,11 +391,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEditAddress">
-               <property name="placeholderText">
-                <string notr="true">e.g. D8FpnBdmahyJNRsVzoKzyFHbGjcUbX43QN</string>
-               </property>
-              </widget>
+              <widget class="QLineEdit" name="lineEditAddress"/>
              </item>
             </layout>
            </item>
@@ -449,7 +441,7 @@
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string>SAVE</string>
+                <string>OK</string>
                </property>
               </widget>
              </item>

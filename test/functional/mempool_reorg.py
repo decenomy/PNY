@@ -18,6 +18,8 @@ class MempoolCoinbaseTest(PnyTestFramework):
         self.num_nodes = 2
         self.extra_args = [["-checkmempool"]] * 2
 
+    alert_filename = None  # Set by setup_network
+
     def run_test(self):
         # Start with a 200 block chain
         assert_equal(self.nodes[0].getblockcount(), 200)
@@ -72,8 +74,9 @@ class MempoolCoinbaseTest(PnyTestFramework):
         spend_101_id = self.nodes[0].sendrawtransaction(spend_101_raw)
         spend_102_1_id = self.nodes[0].sendrawtransaction(spend_102_1_raw)
 
-        assert_equal(set(self.nodes[0].getrawmempool()), {spend_101_id, spend_102_1_id})
         self.sync_all()
+
+        assert_equal(set(self.nodes[0].getrawmempool()), {spend_101_id, spend_102_1_id})
 
         for node in self.nodes:
             node.invalidateblock(last_block[0])
@@ -88,7 +91,6 @@ class MempoolCoinbaseTest(PnyTestFramework):
 
         # mempool should be empty.
         assert_equal(set(self.nodes[0].getrawmempool()), set())
-        self.sync_all()
 
 if __name__ == '__main__':
     MempoolCoinbaseTest().main()

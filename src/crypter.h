@@ -11,13 +11,11 @@
 #include "allocators.h"
 #include "keystore.h"
 #include "serialize.h"
-#include "streams.h"
 
 class uint256;
 
 const unsigned int WALLET_CRYPTO_KEY_SIZE = 32;
 const unsigned int WALLET_CRYPTO_SALT_SIZE = 8;
-const unsigned int WALLET_CRYPTO_IV_SIZE = 16;
 
 /**
  * Private key encryption is done based on a CMasterKey,
@@ -51,7 +49,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(vchCryptedKey);
         READWRITE(vchSalt);
@@ -72,62 +70,52 @@ public:
 
 typedef std::vector<unsigned char, secure_allocator<unsigned char> > CKeyingMaterial;
 
-namespace wallet_crypto
-{
-    class TestCrypter;
-}
-
-class CSecureDataStream : public CBaseDataStream<CKeyingMaterial>
-{
-public:
-    explicit CSecureDataStream(int nTypeIn, int nVersionIn) : CBaseDataStream(nTypeIn, nVersionIn) { }
-
-    CSecureDataStream(const_iterator pbegin, const_iterator pend, int nTypeIn, int nVersionIn) :
-            CBaseDataStream(pbegin, pend, nTypeIn, nVersionIn) { }
-
-    CSecureDataStream(const vector_type& vchIn, int nTypeIn, int nVersionIn) :
-            CBaseDataStream(vchIn, nTypeIn, nVersionIn) { }
-};
-
 /** Encryption/decryption context with key information */
 class CCrypter
 {
-friend class wallet_crypto::TestCrypter; // for test access to chKey/chIV
 private:
-    std::vector<unsigned char, secure_allocator<unsigned char>> vchKey;
-    std::vector<unsigned char, secure_allocator<unsigned char>> vchIV;
+    unsigned char chKey[WALLET_CRYPTO_KEY_SIZE];
+    unsigned char chIV[WALLET_CRYPTO_KEY_SIZE];
     bool fKeySet;
-
-    int BytesToKeySHA512AES(const std::vector<unsigned char>& chSalt, const SecureString& strKeyData, int count, unsigned char *key,unsigned char *iv) const;
 
 public:
     bool SetKeyFromPassphrase(const SecureString& strKeyData, const std::vector<unsigned char>& chSalt, const unsigned int nRounds, const unsigned int nDerivationMethod);
-    bool Encrypt(const CKeyingMaterial& vchPlaintext, std::vector<unsigned char>& vchCiphertext) const;
-    bool Decrypt(const std::vector<unsigned char>& vchCiphertext, CKeyingMaterial& vchPlaintext) const;
+    bool Encrypt(const CKeyingMaterial& vchPlaintext, std::vector<unsigned char>& vchCiphertext);
+    bool Decrypt(const std::vector<unsigned char>& vchCiphertext, CKeyingMaterial& vchPlaintext);
     bool SetKey(const CKeyingMaterial& chNewKey, const std::vector<unsigned char>& chNewIV);
 
     void CleanKey()
     {
-        memory_cleanse(vchKey.data(), vchKey.size());
-        memory_cleanse(vchIV.data(), vchIV.size());
+        memory_cleanse(chKey, sizeof(chKey));
+        memory_cleanse(chIV, sizeof(chIV));
         fKeySet = false;
     }
 
     CCrypter()
     {
         fKeySet = false;
-        vchKey.resize(WALLET_CRYPTO_KEY_SIZE);
-        vchIV.resize(WALLET_CRYPTO_IV_SIZE);
+
+        // Try to keep the key data out of swap (and be a bit over-careful to keep the IV that we don't even use out of swap)
+        // Note that this does nothing about suspend-to-disk (which will put all our key data on disk)
+        // Note as well that at no point in this program is any attempt made to prevent stealing of keys by reading the memory of the running process.
+        LockedPageManager::Instance().LockRange(&chKey[0], sizeof chKey);
+        LockedPageManager::Instance().LockRange(&chIV[0], sizeof chIV);
     }
 
     ~CCrypter()
     {
         CleanKey();
+
+        LockedPageManager::Instance().UnlockRange(&chKey[0], sizeof chKey);
+        LockedPageManager::Instance().UnlockRange(&chIV[0], sizeof chIV);
     }
 };
 
 bool EncryptSecret(const CKeyingMaterial& vMasterKey, const CKeyingMaterial& vchPlaintext, const uint256& nIV, std::vector<unsigned char>& vchCiphertext);
 bool DecryptSecret(const CKeyingMaterial& vMasterKey, const std::vector<unsigned char>& vchCiphertext, const uint256& nIV, CKeyingMaterial& vchPlaintext);
+
+bool EncryptAES256(const SecureString& sKey, const SecureString& sPlaintext, const std::string& sIV, std::string& sCiphertext);
+bool DecryptAES256(const SecureString& sKey, const std::string& sCiphertext, const std::string& sIV, SecureString& sPlaintext);
 
 
 /** Keystore which keeps the private keys encrypted.
@@ -136,15 +124,13 @@ bool DecryptSecret(const CKeyingMaterial& vMasterKey, const std::vector<unsigned
 class CCryptoKeyStore : public CBasicKeyStore
 {
 private:
-    //! if fUseCrypto is true, mapKeys and mapSaplingSpendingKeys must be empty
+    //! if fUseCrypto is true, mapKeys must be empty
     //! if fUseCrypto is false, vMasterKey must be empty
     bool fUseCrypto;
 
 protected:
     // TODO: In the future, move this variable to the wallet class directly following upstream's structure.
     CKeyingMaterial vMasterKey;
-    // Sapling
-    CryptedSaplingSpendingKeyMap mapCryptedSaplingSpendingKeys;
 
     bool SetCrypted();
 
@@ -152,9 +138,6 @@ protected:
     bool EncryptKeys(CKeyingMaterial& vMasterKeyIn);
 
     CryptedKeyMap mapCryptedKeys;
-
-    // Unlock Sapling keys
-    bool UnlockSaplingKeys(const CKeyingMaterial& vMasterKeyIn, bool fDecryptionThoroughlyChecked);
 
 public:
     CCryptoKeyStore() : fUseCrypto(false) { }
@@ -192,7 +175,6 @@ public:
     bool GetPubKey(const CKeyID& address, CPubKey& vchPubKeyOut) const;
     void GetKeys(std::set<CKeyID>& setAddress) const
     {
-        LOCK(cs_KeyStore);
         if (!IsCrypted()) {
             CBasicKeyStore::GetKeys(setAddress);
             return;
@@ -204,14 +186,6 @@ public:
             mi++;
         }
     }
-
-    //! Sapling
-    virtual bool AddCryptedSaplingSpendingKey(
-            const libzcash::SaplingExtendedFullViewingKey &extfvk,
-            const std::vector<unsigned char> &vchCryptedSecret,
-            const libzcash::SaplingPaymentAddress &defaultAddr);
-    bool HaveSaplingSpendingKey(const libzcash::SaplingFullViewingKey &fvk) const;
-    bool GetSaplingSpendingKey(const libzcash::SaplingFullViewingKey &fvk, libzcash::SaplingExtendedSpendingKey &skOut) const;
 
     /**
      * Wallet status (encrypted, locked) changed.

@@ -11,13 +11,10 @@
 
 #include "main.h"
 #include "random.h"
-#include "script/sigcache.h"
 #include "txdb.h"
 #include "guiinterface.h"
 
 #include <boost/test/unit_test.hpp>
-
-std::unique_ptr<CConnman> g_connman;
 
 CClientUIInterface uiInterface;
 
@@ -32,21 +29,19 @@ BasicTestingSetup::BasicTestingSetup()
         RandomInit();
         ECC_Start();
         SetupEnvironment();
-        InitSignatureCache();
         fCheckBlockIndex = true;
         SelectParams(CBaseChainParams::MAIN);
 }
 BasicTestingSetup::~BasicTestingSetup()
 {
         ECC_Stop();
-        g_connman.reset();
 }
 
 TestingSetup::TestingSetup()
 {
         ClearDatadirCache();
         pathTemp = GetTempPath() / strprintf("test_pny_%lu_%i", (unsigned long)GetTime(), (int)(InsecureRandRange(100000)));
-        fs::create_directories(pathTemp);
+        boost::filesystem::create_directories(pathTemp);
         mapArgs["-datadir"] = pathTemp.string();
         pblocktree = new CBlockTreeDB(1 << 20, true);
         pcoinsdbview = new CCoinsViewDB(1 << 23, true);
@@ -60,8 +55,6 @@ TestingSetup::TestingSetup()
         nScriptCheckThreads = 3;
         for (int i=0; i < nScriptCheckThreads-1; i++)
             threadGroup.create_thread(&ThreadScriptCheck);
-        g_connman = std::unique_ptr<CConnman>(new CConnman(0x1337, 0x1337)); // Deterministic randomness for tests.
-        connman = g_connman.get();
         RegisterNodeSignals(GetNodeSignals());
 }
 
@@ -74,17 +67,7 @@ TestingSetup::~TestingSetup()
         delete pcoinsTip;
         delete pcoinsdbview;
         delete pblocktree;
-        fs::remove_all(pathTemp);
-}
-
-CTxMemPoolEntry TestMemPoolEntryHelper::FromTx(CMutableTransaction &tx, CTxMemPool *pool) {
-    CTransaction txn(tx);
-    bool hasNoDependencies = pool ? pool->HasNoInputsOf(tx) : hadNoDependencies;
-    // Hack to assume either its completely dependent on other mempool txs or not at all
-    CAmount inChainValue = hasNoDependencies ? txn.GetValueOut() : 0;
-
-    return CTxMemPoolEntry(txn, nFee, nTime, dPriority, nHeight,
-                           hasNoDependencies, inChainValue, spendsCoinbaseOrCoinstake, sigOpCount);
+        boost::filesystem::remove_all(pathTemp);
 }
 
 [[noreturn]] void Shutdown(void* parg)

@@ -20,9 +20,13 @@
 #include <sys/stat.h>
 #endif
 
+#include <boost/filesystem.hpp>
 #include <boost/thread.hpp>
 #include <boost/version.hpp>
 
+
+
+unsigned int nWalletDBUpdated;
 
 
 //
@@ -69,7 +73,7 @@ void CDBEnv::Close()
     EnvShutdown();
 }
 
-bool CDBEnv::Open(const fs::path& pathIn)
+bool CDBEnv::Open(const boost::filesystem::path& pathIn)
 {
     if (fDbEnvInit)
         return true;
@@ -77,13 +81,13 @@ bool CDBEnv::Open(const fs::path& pathIn)
     boost::this_thread::interruption_point();
 
     strPath = pathIn.string();
-    fs::path pathLogDir = pathIn / "database";
+    boost::filesystem::path pathLogDir = pathIn / "database";
     TryCreateDirectory(pathLogDir);
-    fs::path pathErrorFile = pathIn / "db.log";
+    boost::filesystem::path pathErrorFile = pathIn / "db.log";
     LogPrintf("CDBEnv::Open: LogDir=%s ErrorFile=%s\n", pathLogDir.string(), pathErrorFile.string());
 
     unsigned int nEnvFlags = 0;
-    if (GetBoolArg("-privdb", DEFAULT_WALLET_PRIVDB))
+    if (GetBoolArg("-privdb", true))
         nEnvFlags |= DB_PRIVATE;
 
     dbenv->set_lg_dir(pathLogDir.string().c_str());
@@ -92,7 +96,7 @@ bool CDBEnv::Open(const fs::path& pathIn)
     dbenv->set_lg_max(1048576);
     dbenv->set_lk_max_locks(40000);
     dbenv->set_lk_max_objects(40000);
-    dbenv->set_errfile(fsbridge::fopen(pathErrorFile, "a")); /// debug
+    dbenv->set_errfile(fopen(pathErrorFile.string().c_str(), "a")); /// debug
     dbenv->set_flags(DB_AUTO_COMMIT, 1);
     dbenv->set_flags(DB_TXN_WRITE_NOSYNC, 1);
     dbenv->log_set_config(DB_LOG_AUTO_REMOVE, 1);
@@ -454,7 +458,7 @@ void CDBEnv::Flush(bool fShutdown)
                 dbenv->log_archive(&listp, DB_ARCH_REMOVE);
                 Close();
                 if (!fMockDb)
-                    fs::remove_all(fs::path(strPath) / "database");
+                    boost::filesystem::remove_all(boost::filesystem::path(strPath) / "database");
             }
         }
     }

@@ -9,12 +9,12 @@
 
 #include "chainparamsbase.h"
 #include "clientversion.h"
-#include "fs.h"
 #include "rpc/client.h"
 #include "rpc/protocol.h"
 #include "util.h"
 #include "utilstrencodings.h"
 
+#include <boost/filesystem/operations.hpp>
 #include <stdio.h>
 
 #include <event2/event.h>
@@ -26,7 +26,7 @@
 
 #define _(x) std::string(x) /* Keep the _() around in case gettext or such will be used later to translate non-UI */
 
-static const char DEFAULT_RPCCONNECT[] = "127.0.0.1";
+
 static const int DEFAULT_HTTP_CLIENT_TIMEOUT=900;
 
 std::string HelpMessageCli()
@@ -34,12 +34,12 @@ std::string HelpMessageCli()
     std::string strUsage;
     strUsage += HelpMessageGroup(_("Options:"));
     strUsage += HelpMessageOpt("-?", _("This help message"));
-    strUsage += HelpMessageOpt("-conf=<file>", strprintf(_("Specify configuration file (default: %s)"), PNY_CONF_FILENAME));
+    strUsage += HelpMessageOpt("-conf=<file>", strprintf(_("Specify configuration file (default: %s)"), "pny.conf"));
     strUsage += HelpMessageOpt("-datadir=<dir>", _("Specify data directory"));
     strUsage += HelpMessageOpt("-testnet", _("Use the test network"));
     strUsage += HelpMessageOpt("-regtest", _("Enter regression test mode, which uses a special chain in which blocks can be "
                                              "solved instantly. This is intended for regression testing tools and app development."));
-    strUsage += HelpMessageOpt("-rpcconnect=<ip>", strprintf(_("Send commands to node running on <ip> (default: %s)"), DEFAULT_RPCCONNECT));
+    strUsage += HelpMessageOpt("-rpcconnect=<ip>", strprintf(_("Send commands to node running on <ip> (default: %s)"), "127.0.0.1"));
     strUsage += HelpMessageOpt("-rpcport=<port>", strprintf(_("Connect to JSON-RPC on <port> (default: %u or testnet: %u)"), 26788, 36788));
     strUsage += HelpMessageOpt("-rpcwait", _("Wait for RPC server to start"));
     strUsage += HelpMessageOpt("-rpcuser=<user>", _("Username for JSON-RPC connections"));
@@ -86,7 +86,7 @@ static bool AppInitRPC(int argc, char* argv[])
         fprintf(stdout, "%s", strUsage.c_str());
         return false;
     }
-    if (!fs::is_directory(GetDataDir(false))) {
+    if (!boost::filesystem::is_directory(GetDataDir(false))) {
         fprintf(stderr, "Error: Specified data directory \"%s\" does not exist.\n", mapArgs["-datadir"].c_str());
         return false;
     }
@@ -144,7 +144,7 @@ static void http_request_done(struct evhttp_request *req, void *ctx)
 
 UniValue CallRPC(const std::string& strMethod, const UniValue& params)
 {
-    std::string host = GetArg("-rpcconnect", DEFAULT_RPCCONNECT);
+    std::string host = GetArg("-rpcconnect", "127.0.0.1");
     int port = GetArg("-rpcport", BaseParams().RPCPort());
 
     // Create event base
@@ -184,7 +184,7 @@ UniValue CallRPC(const std::string& strMethod, const UniValue& params)
     evhttp_add_header(output_headers, "Authorization", (std::string("Basic ") + EncodeBase64(strRPCUserColonPass)).c_str());
 
     // Attach request data
-    std::string strRequest = JSONRPCRequestObj(strMethod, params, 1).write() + "\n";
+    std::string strRequest = JSONRPCRequest(strMethod, params, 1);
     struct evbuffer * output_buffer = evhttp_request_get_output_buffer(req);
     assert(output_buffer);
     evbuffer_add(output_buffer, strRequest.data(), strRequest.size());

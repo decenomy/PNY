@@ -13,7 +13,6 @@
 #include "legacy/stakemodifier.h"
 #include "script/interpreter.h"
 #include "util.h"
-#include "policy/policy.h"
 #include "stakeinput.h"
 #include "utilmoneystr.h"
 #include "zpnychain.h"
@@ -36,7 +35,7 @@ CStakeKernel::CStakeKernel(const CBlockIndex* const pindexPrev, CStakeInput* sta
     stakeValue(stakeInput->GetValue())
 {
     // Set kernel stake modifier
-    if (!Params().GetConsensus().NetworkUpgradeActive(pindexPrev->nHeight + 1, Consensus::UPGRADE_V3_4)) {
+    if (pindexPrev->nHeight + 1 < Params().GetConsensus().height_start_StakeModifierV2) {
         uint64_t nStakeModifier = 0;
         if (!GetOldStakeModifier(stakeInput, nStakeModifier))
             LogPrintf("%s : ERROR: Failed to get kernel stake modifier\n", __func__);
@@ -100,7 +99,7 @@ bool LoadStakeInput(const CBlock& block, const CBlockIndex* pindexPrev, std::uni
     } else {
         // check that is the actual parent block
         if (block.hashPrevBlock != pindexPrev->GetBlockHash())
-            return error("%s : previous block mismatch", __func__);
+            return error("%s : previous block mismatch");
     }
 
     // Check that this is a PoS block
@@ -187,7 +186,7 @@ bool CheckProofOfStake(const CBlock& block, std::string& strError, const CBlockI
     const CTxIn& txin = tx.vin[0];
     ScriptError serror;
     if (!VerifyScript(txin.scriptSig, stakePrevout.scriptPubKey, STANDARD_SCRIPT_VERIFY_FLAGS,
-             TransactionSignatureChecker(&tx, 0, stakePrevout.nValue), &serror)) {
+             TransactionSignatureChecker(&tx, 0), &serror)) {
         strError = strprintf("signature fails: %s", serror ? ScriptErrorString(serror) : "");
         return false;
     }

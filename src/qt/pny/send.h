@@ -16,6 +16,7 @@
 #include "qt/pny/sendcustomfeedialog.h"
 #include "walletmodel.h"
 #include "coincontroldialog.h"
+#include "zpnycontroldialog.h"
 #include "qt/pny/tooltipmenu.h"
 
 static const int MAX_SEND_POPUP_ENTRIES = 8;
@@ -61,12 +62,14 @@ protected:
     void showEvent(QShowEvent *event) override;
 
 private Q_SLOTS:
+    void onPNYSelected(bool _isPNY);
     void onSendClicked();
     void onContactsClicked(SendMultiRow* entry);
     void onMenuClicked(SendMultiRow* entry);
     void onAddEntryClicked();
     void clearEntries();
     void clearAll(bool fClearSettings = true);
+    void refreshView();
     void onCheckBoxChanged();
     void onContactMultiClicked();
     void onDeleteClicked();
@@ -92,15 +95,17 @@ private:
     // Current focus entry
     SendMultiRow* focusedEntry = nullptr;
 
+    bool isPNY = true;
     void resizeMenu();
     QString recipientsToString(QList<SendCoinsRecipient> recipients);
     SendMultiRow* createEntry();
     bool send(QList<SendCoinsRecipient> recipients);
+    bool sendZpny(QList<SendCoinsRecipient> recipients);
     void setFocusOnLastEntry();
     void showHideCheckBoxDelegations();
     void updateEntryLabels(QList<SendCoinsRecipient> recipients);
     void setCustomFeeSelected(bool isSelected, const CAmount& customFee = DEFAULT_TRANSACTION_FEE);
-    void setCoinControlPayAmounts();
+
 };
 
 #endif // SEND_H

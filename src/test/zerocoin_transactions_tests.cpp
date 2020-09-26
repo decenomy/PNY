@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test)
     CAmount nAmount = COIN;
 
     CZerocoinSpendReceipt receipt;
-    std::list<std::pair<CTxDestination, CAmount>> outputs;
+    std::list<std::pair<CBitcoinAddress*, CAmount>> outputs;
     pwalletMain->SpendZerocoin(nAmount, *wtx, receipt, vMints, outputs);
 
     BOOST_CHECK_MESSAGE(receipt.GetStatus() == ZPNY_TRX_FUNDS_PROBLEMS, strprintf("Failed Invalid Amount Check: %s", receipt.GetStatusMessage()));
@@ -225,13 +225,13 @@ BOOST_AUTO_TEST_CASE(zerocoin_public_spend_test)
     CMutableTransaction tx1, tx2, tx3;
     tx1.vout.resize(1);
     tx1.vout[0].nValue = 1*CENT;
-    tx1.vout[0].scriptPubKey = GetScriptForDestination(DecodeDestination("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q"));
+    tx1.vout[0].scriptPubKey = GetScriptForDestination(CBitcoinAddress("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q").Get());
     tx2.vout.resize(1);
     tx2.vout[0].nValue = 1*CENT;
-    tx2.vout[0].scriptPubKey = GetScriptForDestination(DecodeDestination("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q"));
+    tx2.vout[0].scriptPubKey = GetScriptForDestination(CBitcoinAddress("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q").Get());
     tx3.vout.resize(1);
     tx3.vout[0].nValue = 1*CENT;
-    tx3.vout[0].scriptPubKey = GetScriptForDestination(DecodeDestination("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q"));
+    tx3.vout[0].scriptPubKey = GetScriptForDestination(CBitcoinAddress("D9Ti4LEhF1n6dR2hGd2SyNADD51AVgva6q").Get());
 
     CTxIn in1, in2, in3;
 

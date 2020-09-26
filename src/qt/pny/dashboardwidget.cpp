@@ -46,13 +46,16 @@ DashboardWidget::DashboardWidget(PNYGUI* parent) :
     ui->left->setContentsMargins(0,0,0,0);
 
     // Title
+    ui->labelTitle2->setText(tr("Staking Rewards"));
     setCssTitleScreen(ui->labelTitle);
     setCssTitleScreen(ui->labelTitle2);
 
     /* Subtitle */
+    ui->labelSubtitle->setText(tr("You can view your account's history"));
     setCssSubtitleScreen(ui->labelSubtitle);
 
     // Staking Information
+    ui->labelMessage->setText(tr("Amount of PNY staked."));
     setCssSubtitleScreen(ui->labelMessage);
     setCssProperty(ui->labelSquarePny, "square-chart-pny");
     setCssProperty(ui->labelSquarezPny, "square-chart-zpny");
@@ -64,6 +67,9 @@ DashboardWidget::DashboardWidget(PNYGUI* parent) :
     fontBold.setWeight(QFont::Bold);
 
     setCssProperty(ui->labelChart, "legend-chart");
+
+    ui->labelAmountZpny->setText("0 zPNY");
+    ui->labelAmountPny->setText("0 PNY");
     setCssProperty(ui->labelAmountPny, "text-stake-pny-disable");
     setCssProperty(ui->labelAmountZpny, "text-stake-zpny-disable");
 
@@ -110,6 +116,8 @@ DashboardWidget::DashboardWidget(PNYGUI* parent) :
     ui->listTransactions->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listTransactions->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listTransactions->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->listTransactions->setLayoutMode(QListView::LayoutMode::Batched);
+    ui->listTransactions->setBatchSize(50);
     ui->listTransactions->setUniformItemSizes(true);
 
     // Sync Warning
@@ -121,13 +129,18 @@ DashboardWidget::DashboardWidget(PNYGUI* parent) :
     //Empty List
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-transactions");
+
+    ui->labelEmpty->setText(tr("No transactions yet"));
     setCssProperty(ui->labelEmpty, "text-empty");
     setCssProperty(ui->chartContainer, "container-chart");
     setCssProperty(ui->pushImgEmptyChart, "img-empty-staking-on");
 
+    ui->btnHowTo->setText(tr("How to get PNY"));
     setCssBtnSecondary(ui->btnHowTo);
 
+
     setCssProperty(ui->labelEmptyChart, "text-empty");
+    ui->labelMessageEmpty->setText(tr("You can verify the staking activity in the status bar at the top right of the wallet.\nIt will start automatically as soon as the wallet has enough confirmations on any unspent balances, and the wallet has synced."));
     setCssSubtitleScreen(ui->labelMessageEmpty);
 
     // Chart State
@@ -184,18 +197,7 @@ void DashboardWidget::loadWalletModel()
         filter->setFilterCaseSensitivity(Qt::CaseInsensitive);
         filter->setSortRole(Qt::EditRole);
         filter->setSourceModel(txModel);
-
-        // Read filter settings
-        QSettings settings;
-        int filterByType = settings.value("transactionType", TransactionFilterProxy::ALL_TYPES).toInt();
-
-        filter->setTypeFilter(filterByType); // Set filter
-        int filterIndex = ui->comboBoxSortType->findData(filterByType); // Find index
-        ui->comboBoxSortType->setCurrentIndex(filterIndex); // Set item in ComboBox
-
-        // Read sort settings
-        changeSort(settings.value("transactionSort", SortTx::DATE_DESC).toInt());
-
+        filter->sort(TransactionTableModel::Date, Qt::DescendingOrder);
         txHolder->setFilter(filter);
         ui->listTransactions->setModel(filter);
         ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
@@ -269,59 +271,39 @@ void DashboardWidget::updateDisplayUnit()
 void DashboardWidget::onSortChanged(const QString& value)
 {
     if (!filter) return;
-
-    if (!value.isNull()) {
-        changeSort(ui->comboBoxSort->currentIndex());
-    } else {
-        changeSort(SortTx::DATE_DESC);
-    }
-}
-
-void DashboardWidget::changeSort(int nSortIndex)
-{
-    int nColumnIndex = TransactionTableModel::Date;
+    int columnIndex = 0;
     Qt::SortOrder order = Qt::DescendingOrder;
+    if (!value.isNull()) {
+        switch (ui->comboBoxSort->itemData(ui->comboBoxSort->currentIndex()).toInt()) {
+            case SortTx::DATE_ASC:{
+                columnIndex = TransactionTableModel::Date;
+                order = Qt::AscendingOrder;
+                break;
+            }
+            case SortTx::DATE_DESC:{
+                columnIndex = TransactionTableModel::Date;
+                break;
+            }
+            case SortTx::AMOUNT_ASC:{
+                columnIndex = TransactionTableModel::Amount;
+                order = Qt::AscendingOrder;
+                break;
+            }
+            case SortTx::AMOUNT_DESC:{
+                columnIndex = TransactionTableModel::Amount;
+                break;
+            }
 
-    switch (nSortIndex) {
-        case SortTx::DATE_DESC:
-        {
-            nColumnIndex = TransactionTableModel::Date;
-            break;
-        }
-        case SortTx::DATE_ASC:
-        {
-            nColumnIndex = TransactionTableModel::Date;
-            order = Qt::AscendingOrder;
-            break;
-        }
-        case SortTx::AMOUNT_DESC:
-        {
-            nColumnIndex = TransactionTableModel::Amount;
-            break;
-        }
-        case SortTx::AMOUNT_ASC:
-        {
-            nColumnIndex = TransactionTableModel::Amount;
-            order = Qt::AscendingOrder;
-            break;
         }
     }
-
-    ui->comboBoxSort->setCurrentIndex(nSortIndex);
-    filter->sort(nColumnIndex, order);
+    filter->sort(columnIndex, order);
     ui->listTransactions->update();
-
-    // Store settings
-    QSettings settings;
-    settings.setValue("transactionSort", nSortIndex);
 }
 
 void DashboardWidget::onSortTypeChanged(const QString& value)
 {
     if (!filter) return;
-    int filterIndex = ui->comboBoxSortType->currentIndex();
-    int filterByType = ui->comboBoxSortType->itemData(filterIndex).toInt();
-
+    int filterByType = ui->comboBoxSortType->itemData(ui->comboBoxSortType->currentIndex()).toInt();
     filter->setTypeFilter(filterByType);
     ui->listTransactions->update();
 
@@ -388,9 +370,7 @@ void DashboardWidget::setChartShow(ChartShowType type)
     if (isChartInitialized) refreshChart();
 }
 
-const QStringList monthsNames = {QObject::tr("Jan"), QObject::tr("Feb"), QObject::tr("Mar"), QObject::tr("Apr"),
-                                 QObject::tr("May"), QObject::tr("Jun"), QObject::tr("Jul"), QObject::tr("Aug"),
-                                 QObject::tr("Sep"), QObject::tr("Oct"), QObject::tr("Nov"), QObject::tr("Dec")};
+const QStringList monthsNames = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
 void DashboardWidget::loadChart()
 {
@@ -664,8 +644,8 @@ void DashboardWidget::onChartRefreshed()
         axisX->clear();
     }
     // init sets
-    set0 = new QBarSet(CURRENCY_UNIT.c_str());
-    set1 = new QBarSet("z" + QString(CURRENCY_UNIT.c_str()));
+    set0 = new QBarSet("PNY");
+    set1 = new QBarSet("zPNY");
     set0->setColor(QColor(112,101,67));
     set1->setColor(QColor(207,200,175));
 
@@ -765,7 +745,7 @@ std::pair<int, int> DashboardWidget::getChartRange(QMap<int, std::pair<qint64, q
                 inform(tr("Error loading chart, invalid data"));
                 return std::make_pair(0, 0);
             }
-            std::sort(keys.begin(), keys.end());
+            qSort(keys);
             return std::make_pair(keys.first(), keys.last() + 1);
         }
         case MONTH:
@@ -791,22 +771,9 @@ void DashboardWidget::updateAxisX(const QStringList* args)
 
 void DashboardWidget::onChartArrowClicked(bool goLeft)
 {
-    bool updateMonth = false;
-    bool updateYear = false;
-    int dataenddate = getChartRange(chartData->amountsByCache).second;
-    QDate currentDate = QDate::currentDate();
     if (goLeft) {
         dayStart--;
         if (dayStart == 0) {
-            updateMonth = true;
-            if (monthFilter == 1) {
-                // Prev year
-                monthFilter = 12;
-                yearFilter--;
-                updateYear = true;
-            } else {
-                monthFilter--; // Prev month
-            }
             dayStart = QDate(yearFilter, monthFilter, 1).daysInMonth();
         }
     } else {
@@ -814,32 +781,9 @@ void DashboardWidget::onChartArrowClicked(bool goLeft)
         dayStart++;
         if (dayStart > dayInMonth) {
             dayStart = 1;
-            updateMonth = true;
-            if (monthFilter == 12) {
-                // Next year
-                monthFilter = 1;
-                yearFilter++;
-                updateYear = true;
-            } else {
-                monthFilter++; // Next month
-            }
         }
     }
-
     refreshChart();
-    //Check if data end day is current date and monthfilter is current month
-    bool fEndDayisCurrent = dataenddate  == currentDate.day() && monthFilter == currentDate.month();
-
-    if (updateMonth)
-        ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
-
-    if (updateYear)
-        ui->comboBoxYears->setCurrentText(QString::number(yearFilter));
-
-    // enable/disable the pushButtonChartRight.
-    ui->pushButtonChartRight->setEnabled(!fEndDayisCurrent);
-
-
 }
 
 void DashboardWidget::windowResizeEvent(QResizeEvent* event)

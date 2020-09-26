@@ -29,7 +29,7 @@ std::string COutPoint::ToStringShort() const
     return strprintf("%s-%u", hash.ToString().substr(0,64), n);
 }
 
-uint256 COutPoint::GetHash() const
+uint256 COutPoint::GetHash()
 {
     return Hash(BEGIN(hash), END(hash), BEGIN(n), END(n));
 }
@@ -69,7 +69,7 @@ std::string CTxIn::ToString() const
         else
             str += strprintf(", coinbase %s", HexStr(scriptSig));
     else
-        str += strprintf(", scriptSig=%s", HexStr(scriptSig).substr(0, 24));
+        str += strprintf(", scriptSig=%s", scriptSig.ToString().substr(0,24));
     if (nSequence != std::numeric_limits<unsigned int>::max())
         str += strprintf(", nSequence=%u", nSequence);
     str += ")";
@@ -110,9 +110,17 @@ bool CTxOut::IsZerocoinMint() const
     return scriptPubKey.IsZerocoinMint();
 }
 
+CAmount CTxOut::GetZerocoinMinted() const
+{
+    if (!IsZerocoinMint())
+        return CAmount(0);
+
+    return nValue;
+}
+
 std::string CTxOut::ToString() const
 {
-    return strprintf("CTxOut(nValue=%d.%08d, scriptPubKey=%s)", nValue / COIN, nValue % COIN, HexStr(scriptPubKey).substr(0,30));
+    return strprintf("CTxOut(nValue=%d.%08d, scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString().substr(0,30));
 }
 
 CMutableTransaction::CMutableTransaction() : nVersion(CTransaction::CURRENT_VERSION), nLockTime(0) {}
@@ -141,11 +149,6 @@ std::string CMutableTransaction::ToString() const
 void CTransaction::UpdateHash() const
 {
     *const_cast<uint256*>(&hash) = SerializeHash(*this);
-}
-
-size_t CTransaction::DynamicMemoryUsage() const
-{
-    return memusage::RecursiveDynamicUsage(vin) + memusage::RecursiveDynamicUsage(vout);
 }
 
 CTransaction::CTransaction() : nVersion(CTransaction::CURRENT_VERSION), vin(), vout(), nLockTime(0) { }
@@ -254,6 +257,35 @@ CAmount CTransaction::GetValueOut() const
     return nValueOut;
 }
 
+CAmount CTransaction::GetZerocoinMinted() const
+{
+    CAmount nValueOut = 0;
+    for (const CTxOut& txOut : vout) {
+        nValueOut += txOut.GetZerocoinMinted();
+    }
+
+    return  nValueOut;
+}
+
+bool CTransaction::UsesUTXO(const COutPoint out)
+{
+    for (const CTxIn& in : vin) {
+        if (in.prevout == out)
+            return true;
+    }
+
+    return false;
+}
+
+std::list<COutPoint> CTransaction::GetOutPoints() const
+{
+    std::list<COutPoint> listOutPoints;
+    uint256 txHash = GetHash();
+    for (unsigned int i = 0; i < vout.size(); i++)
+        listOutPoints.emplace_back(COutPoint(txHash, i));
+    return listOutPoints;
+}
+
 CAmount CTransaction::GetZerocoinSpent() const
 {
     CAmount nValueOut = 0;
@@ -265,6 +297,16 @@ CAmount CTransaction::GetZerocoinSpent() const
     }
 
     return nValueOut;
+}
+
+int CTransaction::GetZerocoinMintCount() const
+{
+    int nCount = 0;
+    for (const CTxOut& out : vout) {
+        if (out.IsZerocoinMint())
+            nCount++;
+    }
+    return nCount;
 }
 
 double CTransaction::ComputePriority(double dPriorityInputs, unsigned int nTxSize) const

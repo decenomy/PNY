@@ -820,11 +820,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEditName">
-            <property name="placeholderText">
-             <string notr="true">e.g. user_masternode</string>
-            </property>
-           </widget>
+           <widget class="QLineEdit" name="lineEditName"/>
           </item>
           <item>
            <spacer name="verticalSpacer_1_5">
@@ -949,11 +945,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEditIpAddress">
-            <property name="placeholderText">
-             <string notr="true">e.g. 18.255.255.255</string>
-            </property>
-           </widget>
+           <widget class="QLineEdit" name="lineEditIpAddress"/>
           </item>
           <item>
            <spacer name="verticalSpacer_1_8">
@@ -1063,7 +1055,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
-           <string>BACK</string>
+           <string>CANCEL</string>
           </property>
          </widget>
         </item>
@@ -1085,7 +1077,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
-           <string>NEXT</string>
+           <string>OK</string>
           </property>
          </widget>
         </item>

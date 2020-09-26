@@ -57,7 +57,7 @@
           <item>
            <widget class="QLabel" name="labelTitle">
             <property name="text">
-             <string>Console</string>
+             <string>TextLabel</string>
             </property>
            </widget>
           </item>
@@ -86,7 +86,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string>Open Debug File</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -108,7 +108,7 @@
              <enum>Qt::NoFocus</enum>
             </property>
             <property name="text">
-             <string>Command Line Options</string>
+             <string/>
             </property>
            </widget>
           </item>
@@ -230,9 +230,6 @@
               <width>45</width>
               <height>45</height>
              </size>
-            </property>
-            <property name="toolTip">
-             <string>Clear history</string>
             </property>
             <property name="text">
              <string notr="true">-</string>

@@ -9,12 +9,11 @@
 #ifndef BITCOIN_RPCPROTOCOL_H
 #define BITCOIN_RPCPROTOCOL_H
 
-#include "fs.h"
-
 #include <list>
 #include <map>
 #include <stdint.h>
 #include <string>
+#include <boost/filesystem.hpp>
 
 #include <univalue.h>
 
@@ -52,7 +51,6 @@ enum RPCErrorCode {
     RPC_VERIFY_REJECTED                 = -26, //! Transaction or block was rejected by network rules
     RPC_VERIFY_ALREADY_IN_CHAIN         = -27, //! Transaction already in chain
     RPC_IN_WARMUP                       = -28, //! Client still warming up
-    RPC_METHOD_DEPRECATED               = -32, //! RPC method is deprecated
 
     //! Aliases for backward compatibility
     RPC_TRANSACTION_ERROR               = RPC_VERIFY_ERROR,
@@ -66,30 +64,26 @@ enum RPCErrorCode {
     RPC_CLIENT_NODE_NOT_ADDED           = -24, //! Node has not been added before
     RPC_CLIENT_NODE_NOT_CONNECTED       = -29, //! Node to disconnect not found in connected nodes
     RPC_CLIENT_INVALID_IP_OR_SUBNET     = -30, //! Invalid IP/Subnet
-    RPC_CLIENT_P2P_DISABLED             = -31, //! No valid connection manager instance found
 
     //! Wallet errors
     RPC_WALLET_ERROR                    = -4, //! Unspecified problem with wallet (key not found etc.)
     RPC_WALLET_INSUFFICIENT_FUNDS       = -6, //! Not enough funds in wallet or account
-    RPC_WALLET_INVALID_LABEL_NAME       = -11, //! Invalid label name
+    RPC_WALLET_INVALID_ACCOUNT_NAME     = -11, //! Invalid account name
     RPC_WALLET_KEYPOOL_RAN_OUT          = -12, //! Keypool ran out, call keypoolrefill first
     RPC_WALLET_UNLOCK_NEEDED            = -13, //! Enter the wallet passphrase with walletpassphrase first
     RPC_WALLET_PASSPHRASE_INCORRECT     = -14, //! The wallet passphrase entered was incorrect
     RPC_WALLET_WRONG_ENC_STATE          = -15, //! Command given in wrong wallet encryption state (encrypting an encrypted wallet etc.)
     RPC_WALLET_ENCRYPTION_FAILED        = -16, //! Failed to encrypt the wallet
     RPC_WALLET_ALREADY_UNLOCKED         = -17, //! Wallet is already unlocked
-
-    //! Backwards compatible aliases
-    RPC_WALLET_INVALID_ACCOUNT_NAME = RPC_WALLET_INVALID_LABEL_NAME,
 };
 
-UniValue JSONRPCRequestObj(const std::string& strMethod, const UniValue& params, const UniValue& id);
+std::string JSONRPCRequest(const std::string& strMethod, const UniValue& params, const UniValue& id);
 UniValue JSONRPCReplyObj(const UniValue& result, const UniValue& error, const UniValue& id);
 std::string JSONRPCReply(const UniValue& result, const UniValue& error, const UniValue& id);
 UniValue JSONRPCError(int code, const std::string& message);
 
 /** Get name of RPC authentication cookie file */
-fs::path GetAuthCookieFile();
+boost::filesystem::path GetAuthCookieFile();
 /** Generate a new RPC authentication cookie and write it to disk */
 bool GenerateAuthCookie(std::string *cookie_out);
 /** Read the RPC authentication cookie from disk */

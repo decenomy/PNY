@@ -50,6 +50,8 @@ public:
         WatchonlyRole,
         /** Watch-only icon */
         WatchonlyDecorationRole,
+        /** Long description (HTML format) */
+        LongDescriptionRole,
         /** Address of transaction */
         AddressRole,
         /** Label of address related to transaction */

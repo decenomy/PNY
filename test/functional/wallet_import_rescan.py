@@ -26,7 +26,7 @@ import collections
 import enum
 import itertools
 
-Call = enum.Enum("Call", "single")
+Call = enum.Enum("Call", "single multi")
 Data = enum.Enum("Data", "address pub priv")
 Rescan = enum.Enum("Rescan", "no yes late_timestamp")
 
@@ -42,15 +42,16 @@ class Variant(collections.namedtuple("Variant", "call data rescan prune")):
 
     def do_import(self, timestamp):
         """Call one key import RPC."""
-        rescan = self.rescan == Rescan.yes
 
         if self.call == Call.single:
             if self.data == Data.address:
-                response = self.try_rpc(self.node.importaddress, self.address["address"], self.label, rescan)
+                response = self.try_rpc(self.node.importaddress, self.address["address"], self.label,
+                                               self.rescan == Rescan.yes)
             elif self.data == Data.pub:
-                response = self.try_rpc(self.node.importpubkey, self.address["pubkey"], self.label, rescan)
+                response = self.try_rpc(self.node.importpubkey, self.address["pubkey"], self.label,
+                                               self.rescan == Rescan.yes)
             elif self.data == Data.priv:
-                response = self.try_rpc(self.node.importprivkey, self.key, self.label, rescan)
+                response = self.try_rpc(self.node.importprivkey, self.key, self.label, self.rescan == Rescan.yes)
             assert_equal(response, None)
 
         elif self.call == Call.multi:
@@ -67,17 +68,24 @@ class Variant(collections.namedtuple("Variant", "call data rescan prune")):
             assert_equal(response, [{"success": True}])
 
     def check(self, txid=None, amount=None, confirmations=None):
-        """Verify that listreceivedbyaddress returns return expected values."""
+        """Verify that getbalance/listtransactions return expected values."""
 
-        addresses = self.node.listreceivedbyaddress(0, True, self.address['address'])
-        if self.expected_txs:
-            assert_equal(len(addresses[0]["txids"]), self.expected_txs)
+        balance = self.node.getbalance(self.label, 0, True)
+        assert_equal(balance, self.expected_balance)
+
+        txs = self.node.listtransactions(self.label, 10000, 0, True)
+        assert_equal(len(txs), self.expected_txs)
 
         if txid is not None:
-            address, = [ad for ad in addresses if txid in ad["txids"]]
-            assert_equal(address["address"], self.address["address"])
-            assert_equal(address["amount"], self.expected_balance)
-            assert_equal(address["confirmations"], confirmations)
+            tx, = [tx for tx in txs if tx["txid"] == txid]
+            assert_equal(tx["account"], self.label)
+            assert_equal(tx["address"], self.address["address"])
+            assert_equal(tx["amount"], amount)
+            assert_equal(tx["category"], "receive")
+            assert_equal(tx["label"], self.label)
+            assert_equal(tx["txid"], txid)
+            assert_equal(tx["confirmations"], confirmations)
+            assert_equal("trusted" not in tx, True)
             # Verify the transaction is correctly marked watchonly depending on
             # whether the transaction pays to an imported public key or
             # imported private key. The test setup ensures that transaction
@@ -85,9 +93,9 @@ class Variant(collections.namedtuple("Variant", "call data rescan prune")):
             # involvesWatchonly will be true if either the transaction output
             # or inputs are watchonly).
             if self.data != Data.priv:
-                assert_equal(address["involvesWatchonly"], True)
+                assert_equal(tx["involvesWatchonly"], True)
             else:
-                assert_equal("involvesWatchonly" not in address, True)
+                assert_equal("involvesWatchonly" not in tx, True)
 
 
 # List of Variants for each way a key or address could be imported.
@@ -111,7 +119,7 @@ class ImportRescanTest(PnyTestFramework):
         self.num_nodes = 2 + len(IMPORT_NODES)
 
     def setup_network(self):
-        extra_args = [["-addresstype=legacy",] for _ in range(self.num_nodes)]
+        extra_args = [["-addresstype=legacy"] for _ in range(self.num_nodes)]
         for i, import_node in enumerate(IMPORT_NODES, 2):
             if import_node.prune:
                 extra_args[i] += ["-prune=1"]
@@ -122,10 +130,11 @@ class ImportRescanTest(PnyTestFramework):
             connect_nodes(self.nodes[i], 0)
 
     def run_test(self):
-        # Create one transaction on node 0 with a unique amount for
+        # Create one transaction on node 0 with a unique amount and label for
         # each possible type of wallet import RPC.
         for i, variant in enumerate(IMPORT_VARIANTS):
-            variant.address = self.nodes[1].validateaddress(self.nodes[1].getnewaddress())
+            variant.label = "label {} {}".format(i, variant)
+            variant.address = self.nodes[1].validateaddress(self.nodes[1].getnewaddress(variant.label))
             variant.key = self.nodes[1].dumpprivkey(variant.address["address"])
             variant.initial_amount = 10 - (i + 1) / 4.0
             variant.initial_txid = self.nodes[0].sendtoaddress(variant.address["address"], variant.initial_amount)

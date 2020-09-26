@@ -27,19 +27,33 @@ NavMenuWidget::NavMenuWidget(PNYGUI *mainWindow, QWidget *parent) :
 
     // Buttons
     ui->btnDashboard->setProperty("name", "dash");
+    ui->btnDashboard->setText("HOME\n");
     ui->btnDashboard->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
     ui->btnSend->setProperty("name", "send");
     ui->btnSend->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    ui->btnReceive->setProperty("name", "receive");
-    ui->btnReceive->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    ui->btnSend->setText("SEND\n");
+
     ui->btnAddress->setProperty("name", "address");
+    ui->btnAddress->setText("CONTACTS\n");
     ui->btnAddress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
     ui->btnMaster->setProperty("name", "master");
+    ui->btnMaster->setText("MASTER\r\nNODES");
     ui->btnMaster->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
     ui->btnColdStaking->setProperty("name", "cold-staking");
+    ui->btnColdStaking->setText("COLD\r\nSTAKING");
     ui->btnColdStaking->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
     ui->btnSettings->setProperty("name", "settings");
+    ui->btnSettings->setText("SETTINGS\n");
     ui->btnSettings->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
+    ui->btnReceive->setProperty("name", "receive");
+    ui->btnReceive->setText("RECEIVE\n");
+    ui->btnReceive->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+
     btns = {ui->btnDashboard, ui->btnSend, ui->btnReceive, ui->btnAddress, ui->btnMaster, ui->btnColdStaking, ui->btnSettings, ui->btnColdStaking};
     onNavSelected(ui->btnDashboard, true);
 
@@ -57,8 +71,9 @@ NavMenuWidget::NavMenuWidget(PNYGUI *mainWindow, QWidget *parent) :
 }
 
 void NavMenuWidget::loadWalletModel() {
-    if (walletModel && walletModel->getOptionsModel()) {
-        ui->btnColdStaking->setVisible(walletModel->getOptionsModel()->isColdStakingScreenEnabled());
+    if (walletModel) {
+        if (walletModel->getOptionsModel())
+            ui->btnColdStaking->setVisible(walletModel->getOptionsModel()->isColdStakingScreenEnabled());
     }
 }
 

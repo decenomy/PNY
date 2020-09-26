@@ -12,9 +12,8 @@
 #include "pubkey.h"
 #include "uint256.h"
 #include "util.h"
-#include "wallet/wallet.h"
 
-#include "test/test_pny.h"
+#include "test/test_bitcoin.h"
 
 #include <boost/test/unit_test.hpp>
 
@@ -63,10 +62,6 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     CMutableTransaction tx,tx2;
     CScript script;
     uint256 hash;
-    TestMemPoolEntryHelper entry;
-    entry.nFee = 11;
-    entry.dPriority = 111.0;
-    entry.nHeight = 11;
 
     LOCK(cs_main);
     Checkpoints::fEnabled = false;
@@ -93,7 +88,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
         pblock->hashMerkleRoot = BlockMerkleRoot(*pblock);
         pblock->nNonce = blockinfo[i].nonce;
         CValidationState state;
-        BOOST_CHECK(ProcessNewBlock(state, NULL, pblock, connman));
+        BOOST_CHECK(ProcessNewBlock(state, NULL, pblock));
         BOOST_CHECK(state.IsValid());
         pblock->hashPrevBlock = pblock->GetHash();
     }
@@ -115,8 +110,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     {
         tx.vout[0].nValue -= 1000000;
         hash = tx.GetHash();
-        bool spendsCoinbase = (i == 0) ? true : false; // only first tx spends coinbase
-        mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(spendsCoinbase).FromTx(tx));
+        mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
         tx.vin[0].prevout.hash = hash;
     }
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
@@ -136,8 +130,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     {
         tx.vout[0].nValue -= 10000000;
         hash = tx.GetHash();
-        bool spendsCoinbase = (i == 0) ? true : false; // only first tx spends coinbase
-        mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(spendsCoinbase).FromTx(tx));
+        mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
         tx.vin[0].prevout.hash = hash;
     }
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
@@ -146,7 +139,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
 
     // orphan in mempool
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
     delete pblocktemplate;
     mempool.clear();
@@ -156,7 +149,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx.vin[0].prevout.hash = txFirst[1]->GetHash();
     tx.vout[0].nValue = 4900000000LL;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     tx.vin[0].prevout.hash = hash;
     tx.vin.resize(2);
     tx.vin[1].scriptSig = CScript() << OP_1;
@@ -164,7 +157,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx.vin[1].prevout.n = 0;
     tx.vout[0].nValue = 5900000000LL;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
     delete pblocktemplate;
     mempool.clear();
@@ -175,7 +168,7 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx.vin[0].scriptSig = CScript() << OP_0 << OP_1;
     tx.vout[0].nValue = 0;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(false).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
     delete pblocktemplate;
     mempool.clear();
@@ -188,12 +181,12 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     script = CScript() << OP_0;
     tx.vout[0].scriptPubKey = GetScriptForDestination(CScriptID(script));
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     tx.vin[0].prevout.hash = hash;
-    tx.vin[0].scriptSig = CScript() << std::vector<unsigned char>(script.begin(), script.end());
+    tx.vin[0].scriptSig = CScript() << (std::vector<unsigned char>)script;
     tx.vout[0].nValue -= 1000000;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(false).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
     delete pblocktemplate;
     mempool.clear();
@@ -204,10 +197,10 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx.vout[0].nValue = 4900000000LL;
     tx.vout[0].scriptPubKey = CScript() << OP_1;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     tx.vout[0].scriptPubKey = CScript() << OP_2;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
     delete pblocktemplate;
     mempool.clear();
@@ -233,8 +226,8 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx.vout[0].scriptPubKey = CScript() << OP_1;
     tx.nLockTime = chainActive.Tip()->nHeight+1;
     hash = tx.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx));
-    BOOST_CHECK(!CheckFinalTx(tx, LOCKTIME_MEDIAN_TIME_PAST));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx, 11, GetTime(), 111.0, 11));
+    BOOST_CHECK(!IsFinalTx(tx, chainActive.Tip()->nHeight + 1));
 
     // time locked
     tx2.vin.resize(1);
@@ -247,8 +240,8 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     tx2.vout[0].scriptPubKey = CScript() << OP_1;
     tx2.nLockTime = chainActive.Tip()->GetMedianTimePast()+1;
     hash = tx2.GetHash();
-    mempool.addUnchecked(hash, entry.Time(GetTime()).SpendsCoinbaseOrCoinstake(true).FromTx(tx2));
-    BOOST_CHECK(!CheckFinalTx(tx2, LOCKTIME_MEDIAN_TIME_PAST));
+    mempool.addUnchecked(hash, CTxMemPoolEntry(tx2, 11, GetTime(), 111.0, 11));
+    BOOST_CHECK(!IsFinalTx(tx2));
 
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
 
@@ -260,8 +253,8 @@ BOOST_AUTO_TEST_CASE(CreateNewBlock_validity)
     chainActive.Tip()->nHeight++;
     SetMockTime(chainActive.Tip()->GetMedianTimePast()+2);
 
-    BOOST_CHECK(CheckFinalTx(tx, LOCKTIME_MEDIAN_TIME_PAST));
-    BOOST_CHECK(CheckFinalTx(tx2, LOCKTIME_MEDIAN_TIME_PAST));
+    BOOST_CHECK(IsFinalTx(tx, chainActive.Tip()->nHeight + 1));
+    BOOST_CHECK(IsFinalTx(tx2));
 
     BOOST_CHECK(pblocktemplate = CreateNewBlock(scriptPubKey, pwalletMain, false));
     BOOST_CHECK_EQUAL(pblocktemplate->block.vtx.size(), 3);

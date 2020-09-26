@@ -53,8 +53,7 @@ public:
     void refreshBanlist()
     {
         banmap_t banMap;
-        if(g_connman)
-            g_connman->GetBanned(banMap);
+        CNode::GetBanned(banMap);
 
         cachedBanlist.clear();
         cachedBanlist.reserve(banMap.size());
@@ -152,7 +151,7 @@ QVariant BanTableModel::headerData(int section, Qt::Orientation orientation, int
 Qt::ItemFlags BanTableModel::flags(const QModelIndex &index) const
 {
     if(!index.isValid())
-        return Qt::NoItemFlags;
+        return 0;
 
     Qt::ItemFlags retval = Qt::ItemIsSelectable | Qt::ItemIsEnabled;
     return retval;

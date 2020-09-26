@@ -97,7 +97,7 @@
              <item>
               <widget class="QLabel" name="labelSubtitle">
                <property name="text">
-                <string>View your account's history</string>
+                <string>You can see here the history of your account</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -258,7 +258,7 @@
                   <string notr="true"/>
                  </property>
                  <property name="text">
-                  <string notr="true">N/A</string>
+                  <string>Warning</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
@@ -419,7 +419,7 @@
                <string notr="true"/>
               </property>
               <property name="text">
-               <string>No transactions yet</string>
+               <string>No transactions</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -454,7 +454,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string>How to get PNY</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -519,7 +519,7 @@
             <item>
              <widget class="QLabel" name="labelMessage">
               <property name="text">
-               <string>Amount of PNY staked.</string>
+               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -567,7 +567,7 @@
           <item>
            <widget class="QLabel" name="labelAmountPny">
             <property name="text">
-             <string notr="true">0 PNY</string>
+             <string>TextLabel</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -577,7 +577,7 @@
           <item>
            <widget class="QLabel" name="labelAmountZpny">
             <property name="text">
-             <string notr="true">0 zPNY</string>
+             <string>TextLabel</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -694,7 +694,7 @@
                 <item>
                  <widget class="QLabel" name="labelPny">
                   <property name="text">
-                   <string notr="true">PNY</string>
+                   <string>PNY</string>
                   </property>
                  </widget>
                 </item>
@@ -736,7 +736,7 @@
                 <item>
                  <widget class="QLabel" name="labelZpny">
                   <property name="text">
-                   <string notr="true">zPNY</string>
+                   <string>zPNY</string>
                   </property>
                  </widget>
                 </item>
@@ -923,7 +923,7 @@ margin:0px;</string>
            </item>
            <item alignment="Qt::AlignVCenter">
             <widget class="QWidget" name="containerSort" native="true">
-             <layout class="QHBoxLayout" name="horizontalLayout_61" stretch="3,2">
+             <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="3,2">
               <property name="spacing">
                <number>28</number>
               </property>
@@ -1291,7 +1291,7 @@ margin:0px;</string>
                  <string notr="true"/>
                 </property>
                 <property name="text">
-                 <string notr="true">N/A</string>
+                 <string>LabelText</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -1323,8 +1323,7 @@ margin:0px;</string>
 }</string>
              </property>
              <property name="text">
-              <string>You can verify the staking activity in the status bar at the top right of the wallet.
-It will start automatically as soon as the wallet has enough confirmations on any unspent balances, and the wallet has synced.</string>
+              <string>TextLabel</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>

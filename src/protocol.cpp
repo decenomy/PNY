@@ -9,6 +9,7 @@
 
 #include "protocol.h"
 
+#include "chainparams.h"
 #include "util.h"
 #include "utilstrencodings.h"
 
@@ -16,126 +17,41 @@
 #include <arpa/inet.h>
 #endif
 
-namespace NetMsgType
+static const char* ppszTypeName[] =
+    {
+        "ERROR",
+        "tx",
+        "block",
+        "filtered block",
+        "tx lock request",
+        "tx lock vote",
+        "spork",
+        "mn winner",
+        "mn scan error",
+        "mn budget vote",
+        "mn budget proposal",
+        "mn budget finalized",
+        "mn budget finalized vote",
+        "mn quorum",
+        "mn announce",
+        "mn ping"
+    };
+
+CMessageHeader::CMessageHeader()
 {
-const char* VERSION = "version";
-const char* VERACK = "verack";
-const char* ADDR = "addr";
-const char* INV = "inv";
-const char* GETDATA = "getdata";
-const char* MERKLEBLOCK = "merkleblock";
-const char* GETBLOCKS = "getblocks";
-const char* GETHEADERS = "getheaders";
-const char* TX = "tx";
-const char* HEADERS = "headers";
-const char* BLOCK = "block";
-const char* GETADDR = "getaddr";
-const char* MEMPOOL = "mempool";
-const char* PING = "ping";
-const char* PONG = "pong";
-const char* ALERT = "alert";
-const char* NOTFOUND = "notfound";
-const char* FILTERLOAD = "filterload";
-const char* FILTERADD = "filteradd";
-const char* FILTERCLEAR = "filterclear";
-const char* REJECT = "reject";
-const char* SENDHEADERS = "sendheaders";
-const char* IX = "ix";
-const char* IXLOCKVOTE = "txlvote";
-const char* SPORK = "spork";
-const char* GETSPORKS = "getsporks";
-const char* MNBROADCAST = "mnb";
-const char* MNPING = "mnp";
-const char* MNWINNER = "mnw";
-const char* GETMNWINNERS = "mnget";
-const char* BUDGETPROPOSAL = "mprop";
-const char* BUDGETVOTE = "mvote";
-const char* BUDGETVOTESYNC = "mnvs";
-const char* FINALBUDGET = "fbs";
-const char* FINALBUDGETVOTE = "fbvote";
-const char* SYNCSTATUSCOUNT = "ssc";
-const char* GETMNLIST = "dseg";
-}; // namespace NetMsgType
-
-static const char* ppszTypeName[] = {
-    "ERROR", // Should never occur
-    NetMsgType::TX,
-    NetMsgType::BLOCK,
-    "filtered block", // Should never occur
-    NetMsgType::IX,
-    NetMsgType::IXLOCKVOTE,
-    NetMsgType::SPORK,
-    NetMsgType::GETSPORKS,
-    NetMsgType::MNBROADCAST,
-    NetMsgType::MNPING,
-    NetMsgType::MNWINNER,
-    NetMsgType::GETMNWINNERS,
-    NetMsgType::GETMNLIST,
-    NetMsgType::BUDGETPROPOSAL,
-    NetMsgType::BUDGETVOTE,
-    NetMsgType::FINALBUDGET,
-    NetMsgType::FINALBUDGETVOTE
-};
-
-/** All known message types. Keep this in the same order as the list of
- * messages above and in protocol.h.
- */
-const static std::string allNetMessageTypes[] = {
-    NetMsgType::VERSION,
-    NetMsgType::VERACK,
-    NetMsgType::ADDR,
-    NetMsgType::INV,
-    NetMsgType::GETDATA,
-    NetMsgType::MERKLEBLOCK,
-    NetMsgType::GETBLOCKS,
-    NetMsgType::GETHEADERS,
-    NetMsgType::TX,
-    NetMsgType::HEADERS,
-    NetMsgType::BLOCK,
-    NetMsgType::GETADDR,
-    NetMsgType::MEMPOOL,
-    NetMsgType::PING,
-    NetMsgType::PONG,
-    NetMsgType::ALERT,
-    NetMsgType::NOTFOUND,
-    NetMsgType::FILTERLOAD,
-    NetMsgType::FILTERADD,
-    NetMsgType::FILTERCLEAR,
-    NetMsgType::REJECT,
-    NetMsgType::SENDHEADERS,
-    NetMsgType::IX,
-    NetMsgType::IXLOCKVOTE,
-    NetMsgType::SPORK,
-    NetMsgType::GETSPORKS,
-    NetMsgType::MNBROADCAST,
-    NetMsgType::MNPING,
-    NetMsgType::MNWINNER,
-    NetMsgType::GETMNWINNERS,
-    NetMsgType::GETMNLIST,
-    NetMsgType::BUDGETPROPOSAL,
-    NetMsgType::BUDGETVOTE,
-    NetMsgType::BUDGETVOTESYNC,
-    NetMsgType::FINALBUDGET,
-    NetMsgType::FINALBUDGETVOTE,
-    NetMsgType::SYNCSTATUSCOUNT
-};
-const static std::vector<std::string> allNetMessageTypesVec(allNetMessageTypes, allNetMessageTypes + ARRAYLEN(allNetMessageTypes));
-
-CMessageHeader::CMessageHeader(const MessageStartChars& pchMessageStartIn)
-{
-    memcpy(pchMessageStart, pchMessageStartIn, MESSAGE_START_SIZE);
+    memcpy(pchMessageStart, Params().MessageStart(), MESSAGE_START_SIZE);
     memset(pchCommand, 0, sizeof(pchCommand));
     nMessageSize = -1;
-    memset(pchChecksum, 0, CHECKSUM_SIZE);
+    nChecksum = 0;
 }
 
-CMessageHeader::CMessageHeader(const MessageStartChars& pchMessageStartIn, const char* pszCommand, unsigned int nMessageSizeIn)
+CMessageHeader::CMessageHeader(const char* pszCommand, unsigned int nMessageSizeIn)
 {
-    memcpy(pchMessageStart, pchMessageStartIn, MESSAGE_START_SIZE);
+    memcpy(pchMessageStart, Params().MessageStart(), MESSAGE_START_SIZE);
     memset(pchCommand, 0, sizeof(pchCommand));
     strncpy(pchCommand, pszCommand, COMMAND_SIZE);
     nMessageSize = nMessageSizeIn;
-    memset(pchChecksum, 0, CHECKSUM_SIZE);
+    nChecksum = 0;
 }
 
 std::string CMessageHeader::GetCommand() const
@@ -143,10 +59,10 @@ std::string CMessageHeader::GetCommand() const
     return std::string(pchCommand, pchCommand + strnlen(pchCommand, COMMAND_SIZE));
 }
 
-bool CMessageHeader::IsValid(const MessageStartChars& pchMessageStartIn) const
+bool CMessageHeader::IsValid() const
 {
     // Check start string
-    if (memcmp(pchMessageStart, pchMessageStartIn, MESSAGE_START_SIZE) != 0)
+    if (memcmp(pchMessageStart, Params().MessageStart(), MESSAGE_START_SIZE) != 0)
         return false;
 
     // Check the command string for errors
@@ -175,7 +91,7 @@ CAddress::CAddress() : CService()
     Init();
 }
 
-CAddress::CAddress(CService ipIn, ServiceFlags nServicesIn) : CService(ipIn)
+CAddress::CAddress(CService ipIn, uint64_t nServicesIn) : CService(ipIn)
 {
     Init();
     nServices = nServicesIn;
@@ -183,7 +99,7 @@ CAddress::CAddress(CService ipIn, ServiceFlags nServicesIn) : CService(ipIn)
 
 void CAddress::Init()
 {
-    nServices = NODE_NONE;
+    nServices = NODE_NETWORK;
     nTime = 100000000;
 }
 
@@ -240,9 +156,4 @@ const char* CInv::GetCommand() const
 std::string CInv::ToString() const
 {
     return strprintf("%s %s", GetCommand(), hash.ToString());
-}
-
-const std::vector<std::string>& getAllNetMessageTypes()
-{
-    return allNetMessageTypesVec;
 }

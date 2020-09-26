@@ -15,7 +15,6 @@
 #include "script/interpreter.h"
 #include "spork.h"               // for sporkManager
 #include "txdb.h"
-#include "upgrades.h"            // for IsActivationHeight
 #include "utilmoneystr.h"        // for FormatMoney
 
 
@@ -114,7 +113,7 @@ bool isBlockBetweenFakeSerialAttackRange(int nHeight)
 
 bool CheckPublicCoinSpendEnforced(int blockHeight, bool isPublicSpend)
 {
-    if (Params().GetConsensus().NetworkUpgradeActive(blockHeight, Consensus::UPGRADE_ZC_PUBLIC)) {
+    if (blockHeight >= Params().GetConsensus().height_start_ZC_PublicSpends) {
         // reject old coin spend
         if (!isPublicSpend) {
             return error("%s: failed to add block with older zc spend version", __func__);
@@ -155,7 +154,7 @@ bool ContextualCheckZerocoinSpendNoSerialCheck(const CTransaction& tx, const lib
 {
     const Consensus::Params& consensus = Params().GetConsensus();
     //Check to see if the zPNY is properly signed
-    if (consensus.NetworkUpgradeActive(nHeight, Consensus::UPGRADE_ZC_V2)) {
+    if (nHeight >= consensus.height_start_ZC_SerialsV2) {
         try {
             if (!spend->HasValidSignature())
                 return error("%s: V2 zPNY spend does not have a valid signature\n", __func__);
@@ -202,7 +201,7 @@ bool RecalculatePNYSupply(int nHeightStart, bool fSkipZpny)
         return false;
 
     CBlockIndex* pindex = chainActive[nHeightStart];
-    if (IsActivationHeight(nHeightStart, consensus, Consensus::UPGRADE_ZC))
+    //if (nHeightStart == consensus.height_start_ZC)
         //nMoneySupply = nMoneySupply;
 
     if (!fSkipZpny) {
@@ -253,7 +252,7 @@ bool RecalculatePNYSupply(int nHeightStart, bool fSkipZpny)
         nMoneySupply += (nValueOut - nValueIn);
 
         // Rewrite zpny supply too
-        if (!fSkipZpny && consensus.NetworkUpgradeActive(pindex->nHeight, Consensus::UPGRADE_ZC)) {
+        if (!fSkipZpny && pindex->nHeight >= consensus.height_start_ZC) {
             UpdateZPNYSupplyConnect(block, pindex, true);
         }
 
@@ -290,11 +289,12 @@ CAmount GetInvalidUTXOValue()
     for (auto out : invalid_out::setInvalidOutPoints) {
         bool fSpent = false;
         CCoinsViewCache cache(pcoinsTip);
-        const Coin& coin = cache.AccessCoin(out);
-        if(coin.IsSpent())
+        const CCoins *coins = cache.AccessCoins(out.hash);
+        if(!coins || !coins->IsAvailable(out.n))
             fSpent = true;
+
         if (!fSpent)
-            nValue += coin.out.nValue;
+            nValue += coins->vout[out.n].nValue;
     }
 
     return nValue;

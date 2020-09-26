@@ -20,12 +20,11 @@
 #include "utilstrencodings.h"
 #include "utiltime.h"
 
-#include <librustzcash.h>
-
 #include <stdarg.h>
-#include <thread>
 
 #include <boost/date_time/posix_time/posix_time.hpp>
+
+namespace fs = boost::filesystem;
 
 
 #ifndef WIN32
@@ -80,16 +79,14 @@
 #include <boost/algorithm/string/case_conv.hpp> // for to_lower()
 #include <boost/algorithm/string/join.hpp>
 #include <boost/algorithm/string/predicate.hpp> // for startswith() and endswith()
+#include <boost/filesystem.hpp>
+#include <boost/filesystem/fstream.hpp>
 #include <boost/program_options/detail/config_file.hpp>
 #include <boost/program_options/parsers.hpp>
 #include <boost/thread.hpp>
 #include <openssl/conf.h>
 #include <openssl/crypto.h>
 #include <openssl/rand.h>
-
-const char * const PNY_CONF_FILENAME = "pny.conf";
-const char * const PNY_PID_FILENAME = "pny.pid";
-const char * const PNY_MASTERNODE_CONF_FILENAME = "masternode.conf";
 
 
 // PNY only features
@@ -320,103 +317,7 @@ fs::path GetDefaultDataDir()
 
 static fs::path pathCached;
 static fs::path pathCachedNetSpecific;
-static fs::path zc_paramsPathCached;
 static RecursiveMutex csPathCached;
-
-static fs::path ZC_GetBaseParamsDir()
-{
-    // Copied from GetDefaultDataDir and adapter for zcash params.
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\PNYParams
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\PNYParams
-    // Mac: ~/Library/Application Support/PNYParams
-    // Unix: ~/.pny-params
-#ifdef WIN32
-    // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "PNYParams";
-#else
-    fs::path pathRet;
-    char* pszHome = getenv("HOME");
-    if (pszHome == NULL || strlen(pszHome) == 0)
-        pathRet = fs::path("/");
-    else
-        pathRet = fs::path(pszHome);
-#ifdef MAC_OSX
-    // Mac
-    pathRet /= "Library/Application Support";
-    TryCreateDirectory(pathRet);
-    return pathRet / "PNYParams";
-#else
-    // Unix
-    return pathRet / ".pny-params";
-#endif
-#endif
-}
-
-const fs::path &ZC_GetParamsDir()
-{
-    LOCK(csPathCached); // Reuse the same lock as upstream.
-
-    fs::path &path = zc_paramsPathCached;
-
-    // This can be called during exceptions by LogPrintf(), so we cache the
-    // value so we don't have to do memory allocations after that.
-    if (!path.empty())
-        return path;
-
-#ifdef USE_CUSTOM_PARAMS
-    path = fs::system_complete(PARAMS_DIR);
-#else
-    if (mapArgs.count("-paramsdir")) {
-        path = fs::system_complete(mapArgs["-paramsdir"]);
-        if (!fs::is_directory(path)) {
-            path = "";
-            return path;
-        }
-    } else {
-        path = ZC_GetBaseParamsDir();
-    }
-#endif
-
-    return path;
-}
-
-void initZKSNARKS()
-{
-    const fs::path& path = ZC_GetParamsDir();
-    fs::path sapling_spend = path / "sapling-spend.params";
-    fs::path sapling_output = path / "sapling-output.params";
-    fs::path sprout_groth16 = path / "sprout-groth16.params";
-
-    if (!(fs::exists(sapling_spend) &&
-          fs::exists(sapling_output) &&
-          fs::exists(sprout_groth16)
-    )) {
-        throw std::runtime_error("Sapling params don't exist");
-    }
-
-    static_assert(
-        sizeof(fs::path::value_type) == sizeof(codeunit),
-        "librustzcash not configured correctly");
-    auto sapling_spend_str = sapling_spend.native();
-    auto sapling_output_str = sapling_output.native();
-    auto sprout_groth16_str = sprout_groth16.native();
-
-    //LogPrintf("Loading Sapling (Spend) parameters from %s\n", sapling_spend.string().c_str());
-
-    librustzcash_init_zksnark_params(
-        reinterpret_cast<const codeunit*>(sapling_spend_str.c_str()),
-        sapling_spend_str.length(),
-        "8270785a1a0d0bc77196f000ee6d221c9c9894f55307bd9357c3f0105d31ca63991ab91324160d8f53e2bbd3c2633a6eb8bdf5205d822e7f3f73edac51b2b70c",
-        reinterpret_cast<const codeunit*>(sapling_output_str.c_str()),
-        sapling_output_str.length(),
-        "657e3d38dbb5cb5e7dd2970e8b03d69b4787dd907285b5a7f0790dcc8072f60bf593b32cc2d1c030e00ff5ae64bf84c5c3beb84ddc841d48264b4a171744d028",
-        reinterpret_cast<const codeunit*>(sprout_groth16_str.c_str()),
-        sprout_groth16_str.length(),
-        "e9b238411bd6c0ec4791e9d04245ec350c9c5744f5610dfcce4365d5ca49dfefd5054e371842b3f88fa1b9d7e8e075249b3ebabd167fa8b0f3161292d36c180a"
-    );
-
-    //std::cout << "### Sapling params initialized ###" << std::endl;
-}
 
 const fs::path& GetDataDir(bool fNetSpecific)
 {
@@ -454,14 +355,18 @@ void ClearDatadirCache()
 
 fs::path GetConfigFile()
 {
-    fs::path pathConfigFile(GetArg("-conf", PNY_CONF_FILENAME));
-    return AbsPathForConfigVal(pathConfigFile, false);
+    fs::path pathConfigFile(GetArg("-conf", "pny.conf"));
+    if (!pathConfigFile.is_complete())
+        pathConfigFile = GetDataDir(false) / pathConfigFile;
+
+    return pathConfigFile;
 }
 
 fs::path GetMasternodeConfigFile()
 {
-    fs::path pathConfigFile(GetArg("-mnconf", PNY_MASTERNODE_CONF_FILENAME));
-    return AbsPathForConfigVal(pathConfigFile);
+    fs::path pathConfigFile(GetArg("-mnconf", "masternode.conf"));
+    if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir() / pathConfigFile;
+    return pathConfigFile;
 }
 
 void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
@@ -470,7 +375,7 @@ void ReadConfigFile(std::map<std::string, std::string>& mapSettingsRet,
     fs::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good()) {
         // Create empty pny.conf if it does not exist
-        FILE* configFile = fsbridge::fopen(GetConfigFile(), "a");
+        FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
         return; // Nothing to read, so just return
@@ -503,13 +408,14 @@ fs::path AbsPathForConfigVal(const fs::path& path, bool net_specific)
 #ifndef WIN32
 fs::path GetPidFile()
 {
-    fs::path pathPidFile(GetArg("-pid", PNY_PID_FILENAME));
-    return AbsPathForConfigVal(pathPidFile);
+    fs::path pathPidFile(GetArg("-pid", "pnyd.pid"));
+    if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
+    return pathPidFile;
 }
 
 void CreatePidFile(const fs::path& path, pid_t pid)
 {
-    FILE* file = fsbridge::fopen(path, "w");
+    FILE* file = fopen(path.string().c_str(), "w");
     if (file) {
         fprintf(file, "%d\n", pid);
         fclose(file);
@@ -659,7 +565,25 @@ fs::path GetSpecialFolderPath(int nFolder, bool fCreate)
 
 fs::path GetTempPath()
 {
+#if BOOST_FILESYSTEM_VERSION == 3
     return fs::temp_directory_path();
+#else
+    // TODO: remove when we don't support filesystem v2 anymore
+    fs::path path;
+#ifdef WIN32
+    char pszPath[MAX_PATH] = "";
+
+    if (GetTempPathA(MAX_PATH, pszPath))
+        path = fs::path(pszPath);
+#else
+    path = fs::path("/tmp");
+#endif
+    if (path.empty() || !fs::is_directory(path)) {
+        LogPrintf("GetTempPath(): failed to find temp path\n");
+        return fs::path("");
+    }
+    return path;
+#endif
 }
 
 double double_safe_addition(double fValue, double fIncrement)
@@ -703,7 +627,7 @@ void SetupEnvironment()
     // The path locale is lazy initialized and to avoid deinitialization errors
     // in multithreading environments, it is set explicitly by the main thread.
     // A dummy locale is used to extract the internal default locale, used by
-    // fs::path, which is then used to explicitly imbue the path.
+    // boost::filesystem::path, which is then used to explicitly imbue the path.
     std::locale loc = fs::path::imbue(std::locale::classic());
     fs::path::imbue(loc);
 }
@@ -731,9 +655,4 @@ void SetThreadPriority(int nPriority)
     setpriority(PRIO_PROCESS, 0, nPriority);
 #endif // PRIO_THREAD
 #endif // WIN32
-}
-
-int GetNumCores()
-{
-    return std::thread::hardware_concurrency();
 }

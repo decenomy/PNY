@@ -185,6 +185,7 @@ void CzPNYWallet::SyncWithChain(bool fGenerateMintPool)
 {
     uint32_t nLastCountUsed = 0;
     bool found = true;
+    CWalletDB walletdb(wallet->strWalletFile);
 
     std::set<uint256> setAddedTx;
     while (found) {
@@ -263,19 +264,12 @@ void CzPNYWallet::SyncWithChain(bool fGenerateMintPool)
                 if (!setAddedTx.count(txHash)) {
                     CBlock block;
                     CWalletTx wtx(wallet, tx);
-                    if (pindex && ReadBlockFromDisk(block, pindex)) {
-                        int posInBlock;
-                        for (posInBlock = 0; posInBlock < (int)block.vtx.size(); posInBlock++) {
-                            if (wtx.GetHash() == txHash) {
-                                wtx.SetMerkleBranch(pindex, posInBlock);
-                                break;
-                            }
-                        }
-                    }
+                    if (pindex && ReadBlockFromDisk(block, pindex))
+                        wtx.SetMerkleBranch(block);
 
                     //Fill out wtx so that a transaction record can be created
                     wtx.nTimeReceived = pindex->GetBlockTime();
-                    wallet->AddToWallet(wtx);
+                    wallet->AddToWallet(wtx, false, &walletdb);
                     setAddedTx.insert(txHash);
                 }
 
@@ -327,18 +321,12 @@ bool CzPNYWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const 
         CWalletTx wtx(wallet, txSpend);
         CBlockIndex* pindex = chainActive[nHeightTx];
         CBlock block;
-        if (ReadBlockFromDisk(block, pindex)) {
-            int posInBlock;
-            for (posInBlock = 0; posInBlock < (int) block.vtx.size(); posInBlock++) {
-                if (wtx.GetHash() == txidSpend) {
-                    wtx.SetMerkleBranch(pindex, posInBlock);
-                    break;
-                }
-            }
-        }
+        if (ReadBlockFromDisk(block, pindex))
+            wtx.SetMerkleBranch(block);
 
         wtx.nTimeReceived = pindex->nTime;
-        wallet->AddToWallet(wtx);
+        CWalletDB walletdb(wallet->strWalletFile);
+        wallet->AddToWallet(wtx, false, &walletdb);
     }
 
     // Add to zpnyTracker which also adds to database

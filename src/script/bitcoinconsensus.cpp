@@ -25,7 +25,7 @@ public:
     m_remaining(txToLen)
     {}
 
-    void read(char* pch, size_t nSize)
+    TxInputStream& read(char* pch, size_t nSize)
     {
         if (nSize > m_remaining)
             throw std::ios_base::failure(std::string(__func__) + ": end of data");
@@ -39,17 +39,15 @@ public:
         memcpy(pch, m_data, nSize);
         m_remaining -= nSize;
         m_data += nSize;
+        return *this;
     }
 
     template<typename T>
     TxInputStream& operator>>(T& obj)
     {
-        ::Unserialize(*this, obj);
+        ::Unserialize(*this, obj, m_type, m_version);
         return *this;
     }
-
-    int GetVersion() const { return m_version; }
-    int GetType() const { return m_type; }
 
 private:
     const int m_type;
@@ -84,7 +82,7 @@ int bitcoinconsensus_verify_script(const unsigned char *scriptPubKey, unsigned i
         stream >> tx;
         if (nIn >= tx.vin.size())
             return set_error(err, bitcoinconsensus_ERR_TX_INDEX);
-        if (GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION) != txToLen)
+        if (tx.GetSerializeSize(SER_NETWORK, PROTOCOL_VERSION) != txToLen)
             return set_error(err, bitcoinconsensus_ERR_TX_SIZE_MISMATCH);
 
          // Regardless of the verification result, the tx did not error.

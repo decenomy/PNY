@@ -211,6 +211,11 @@ void FindMints(std::vector<CMintMeta> vMintsToFind, std::vector<CMintMeta>& vMin
     }
 }
 
+int GetZerocoinStartHeight()
+{
+    return Params().GetConsensus().height_start_ZC;
+}
+
 bool GetZerocoinMint(const CBigNum& bnPubcoin, uint256& txHash)
 {
     txHash = UINT256_ZERO;
@@ -264,7 +269,7 @@ std::string ReindexZerocoinDB()
     for (auto& denom : libzerocoin::zerocoinDenomList) mapZerocoinSupply.insert(std::make_pair(denom, 0));
 
     const Consensus::Params& consensus = Params().GetConsensus();
-    const int zc_start_height = consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight;
+    const int zc_start_height = GetZerocoinStartHeight();
     CBlockIndex* pindex = chainActive[zc_start_height];
     std::vector<std::pair<libzerocoin::CoinSpend, uint256> > vSpendInfo;
     std::vector<std::pair<libzerocoin::PublicCoin, uint256> > vMintInfo;
@@ -316,8 +321,7 @@ std::string ReindexZerocoinDB()
                                 continue;
 
                             CValidationState state;
-                            const bool v1params = !consensus.NetworkUpgradeActive(pindex->nHeight, Consensus::UPGRADE_ZC_V2);
-                            libzerocoin::PublicCoin coin(consensus.Zerocoin_Params(v1params));
+                            libzerocoin::PublicCoin coin(consensus.Zerocoin_Params(pindex->nHeight < consensus.height_start_ZC_SerialsV2));
                             TxOutToPublicCoin(out, coin, state);
                             vMintInfo.push_back(std::make_pair(coin, txid));
                         }
@@ -422,7 +426,7 @@ bool UpdateZPNYSupplyConnect(const CBlock& block, CBlockIndex* pindex, bool fJus
     AssertLockHeld(cs_main);
 
     const Consensus::Params& consensus = Params().GetConsensus();
-    if (!consensus.NetworkUpgradeActive(pindex->nHeight, Consensus::UPGRADE_ZC))
+    if (pindex->nHeight < consensus.height_start_ZC)
         return true;
 
     //Add mints to zPNY supply (mints are forever disabled after last checkpoint)
@@ -437,17 +441,15 @@ bool UpdateZPNYSupplyConnect(const CBlock& block, CBlockIndex* pindex, bool fJus
                 if (pwalletMain->IsMyMint(m.GetValue())) {
                     pwalletMain->UpdateMint(m.GetValue(), pindex->nHeight, m.GetTxHash(), m.GetDenomination());
                     // Add the transaction to the wallet
-                    int posInBlock = 0;
-                    for (posInBlock = 0; posInBlock < (int)block.vtx.size(); posInBlock++) {
-                        auto& tx = block.vtx[posInBlock];
+                    for (auto& tx : block.vtx) {
                         uint256 txid = tx.GetHash();
                         if (setAddedToWallet.count(txid))
                             continue;
                         if (txid == m.GetTxHash()) {
                             CWalletTx wtx(pwalletMain, tx);
                             wtx.nTimeReceived = block.GetBlockTime();
-                            wtx.SetMerkleBranch(pindex, posInBlock);
-                            pwalletMain->AddToWallet(wtx);
+                            wtx.SetMerkleBranch(block);
+                            pwalletMain->AddToWallet(wtx, false, nullptr);
                             setAddedToWallet.insert(txid);
                         }
                     }
@@ -483,7 +485,7 @@ bool UpdateZPNYSupplyDisconnect(const CBlock& block, CBlockIndex* pindex)
     AssertLockHeld(cs_main);
 
     const Consensus::Params& consensus = Params().GetConsensus();
-    if (!consensus.NetworkUpgradeActive(pindex->nHeight, Consensus::UPGRADE_ZC))
+    if (pindex->nHeight < consensus.height_start_ZC)
         return true;
 
     // Undo Update Wrapped Serials amount

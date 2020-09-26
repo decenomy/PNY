@@ -6,6 +6,10 @@
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>My Address</source>
+        <translation>Mój adres</translation>
+    </message>
+    <message>
         <source>Address</source>
         <translation>Adres</translation>
     </message>
@@ -18,8 +22,8 @@
         <translation>ANULUJ</translation>
     </message>
     <message>
-        <source>SAVE</source>
-        <translation>ZAPISZ</translation>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -29,8 +33,16 @@
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -39,6 +51,10 @@
     <message>
         <source>Set a label for the selected address</source>
         <translation>Ustaw etykietę dla wybranego adresu</translation>
+    </message>
+    <message>
+        <source>Enter a name for the address (e.g Exchange)</source>
+        <translation>Wpisz nazwę adresu (np. Exchange)</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -154,7 +170,7 @@
     <name>AddressLabelRow</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Bob Allen</source>
@@ -192,7 +208,19 @@
     <name>AddressesWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Formulasz</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Wyślij</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Contact name</source>
@@ -201,6 +229,10 @@
     <message>
         <source>Enter address</source>
         <translation>Podaj adres</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -213,6 +245,14 @@
     <message>
         <source>No contacts yet</source>
         <translation>Brak Kontaktów</translation>
+    </message>
+    <message>
+        <source>e.g. John Doe</source>
+        <translation>np. John Doe</translation>
+    </message>
+    <message>
+        <source>Enter PNY address</source>
+        <translation>Wpisz adres PNY</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -341,12 +381,20 @@ do stakingu</translation>
         <translation>Jeśli zaszyfrujesz swój portfel i zgubisz hasło, zrobisz to</translation>
     </message>
     <message>
+        <source>LOSE ALL OF YOUR PNY</source>
+        <translation>UTRACIE SWOJE PNY</translation>
+    </message>
+    <message>
         <source>ENCRYPT</source>
         <translation>SZYFROWANIE</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>WARNING: The Caps Lock key is on!</source>
+        <translation>OSTRZEŻENIE: Klawisz Caps Lock jest włączony!</translation>
     </message>
     <message>
         <source>PNY will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PNYs from being stolen by malware infecting your computer.</source>
@@ -416,7 +464,7 @@ do stakingu</translation>
     </message>
     <message>
         <source>Savings</source>
-        <translation>Oszczędności</translation>
+        <translation>oszczędności</translation>
     </message>
     <message>
         <source>0,00 PNY</source>
@@ -645,10 +693,6 @@ do stakingu</translation>
         <translation>przekazane do %1 dla cold staking</translation>
     </message>
     <message>
-        <source>Select All</source>
-        <translation>Zaznacz wszystko</translation>
-    </message>
-    <message>
         <source>no</source>
         <translation>nie</translation>
     </message>
@@ -677,6 +721,10 @@ do stakingu</translation>
         <translation>Ta etykieta zmienia kolor na czerwony, jeśli odbiorca otrzymuje mniej niż %1.</translation>
     </message>
     <message>
+        <source>Can vary +/- %1 upny per input.</source>
+        <translation>Zmienia się +/- %1 upny</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(brak etykiety)</translation>
     </message>
@@ -693,7 +741,15 @@ do stakingu</translation>
     <name>ColdStakingWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Tytuł</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>Owner address (optional, if empty a new address will be created)</source>
@@ -702,6 +758,14 @@ do stakingu</translation>
     <message>
         <source>Total Staking:</source>
         <translation>Razem Staking:</translation>
+    </message>
+    <message>
+        <source>List of delegated balance by address</source>
+        <translation>Lista przekazanych sald według adresu</translation>
+    </message>
+    <message>
+        <source>No balance delegated</source>
+        <translation>Brak salda delegowanego</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -774,10 +838,6 @@ stake w Twoim imieniu, podczas gdy klucze są bezpiecznie offline.</translation>
         <translation>Cold staking jest wyłączony przez sieć</translation>
     </message>
     <message>
-        <source>Coin Control</source>
-        <translation>Kontrola monet</translation>
-    </message>
-    <message>
         <source>Invalid entry</source>
         <translation>Niewłaściwy wpis</translation>
     </message>
@@ -820,6 +880,10 @@ Czy chcesz kontynuować?</translation>
     <message>
         <source>Coins delegated</source>
         <translation>Monety przekazane</translation>
+    </message>
+    <message>
+        <source>You don't have any PNY to select.</source>
+        <translation>Nie masz żadnych PNY-ów do wyboru.</translation>
     </message>
     <message>
         <source>Cannot perform operation, wallet locked</source>
@@ -906,6 +970,14 @@ adres</translation>
         <source>Form</source>
         <translation>Formularz</translation>
     </message>
+    <message>
+        <source>Bob Allen</source>
+        <translation>Bob Allen</translation>
+    </message>
+    <message>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
+    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -918,12 +990,36 @@ adres</translation>
         <translation>Transakcje</translation>
     </message>
     <message>
+        <source>You can see here the history of your account</source>
+        <translation>Możesz zobaczyć tutaj historię swojego konta</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Ostrzeżenie</translation>
+    </message>
+    <message>
+        <source>No transactions</source>
+        <translation>Brak transakcji</translation>
+    </message>
+    <message>
         <source>Staking Rewards</source>
         <translation>Nagroda Staking</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
         <source>Staking statistics</source>
         <translation>Staking statystyka</translation>
+    </message>
+    <message>
+        <source>PNY</source>
+        <translation>PNY</translation>
+    </message>
+    <message>
+        <source>zPNY</source>
+        <translation>zPNY</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -946,6 +1042,14 @@ adres</translation>
         <translation>Filtruj według</translation>
     </message>
     <message>
+        <source>LabelText</source>
+        <translation>Tekst etykiety</translation>
+    </message>
+    <message>
+        <source>You can view your account's history</source>
+        <translation>Możesz zobaczyć historię swojego konta</translation>
+    </message>
+    <message>
         <source>Amount of PNY staked.</source>
         <translation>Ilość PNY i zPNY staked.</translation>
     </message>
@@ -956,6 +1060,10 @@ adres</translation>
     <message>
         <source>No transactions yet</source>
         <translation>Brak transakcji</translation>
+    </message>
+    <message>
+        <source>How to get PNY</source>
+        <translation>Jak zdobyć PNY lub zPNY</translation>
     </message>
     <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
@@ -993,15 +1101,23 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <name>DefaultDialog</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
+        <source>Text Label</source>
+        <translation>Etykieta tekstowa</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>SAVE</source>
+        <translation>ZAPISZ</translation>
     </message>
 </context>
 <context>
@@ -1063,7 +1179,7 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <name>ExpandableButton</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
 </context>
 <context>
@@ -1211,7 +1327,7 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <name>LoadingDialog</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>TextLabel</source>
@@ -1230,7 +1346,7 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <name>LockUnlock</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Unlock Wallet</source>
@@ -1251,7 +1367,7 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <source>Form</source>
         <translation>Formularz</translation>
     </message>
-    </context>
+</context>
 <context>
     <name>MasterNodeWizardDialog</name>
     <message>
@@ -1319,6 +1435,18 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
         <translation>Wpisz adres IP</translation>
     </message>
     <message>
+        <source>CANCEL</source>
+        <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>e.g user_masternode</source>
+        <translation>np. user_masternode</translation>
+    </message>
+    <message>
         <source>NEXT</source>
         <translation>KOLEJNY</translation>
     </message>
@@ -1382,6 +1510,14 @@ Rozpocznie się automatycznie, gdy portfel będzie miał wystarczającą liczbę
     <message>
         <source>Form</source>
         <translation>Formularz</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Start All</source>
@@ -1476,10 +1612,6 @@ i głosuj na system skarbu otrzymujący okresową nagrodę.</translation>
         <translation>Remote Masternode Data</translation>
     </message>
     <message>
-        <source>What is a Masternode?</source>
-        <translation>Co to jest Masternode?</translation>
-    </message>
-    <message>
         <source>You are just about to export the required data to run a Masternode
 on a remote server to your clipboard.
 
@@ -1528,6 +1660,10 @@ Jesteś pewny?</translation>
         <translation>Nie można utworzyć kontrolera Masternode, portfel zablokowany</translation>
     </message>
     <message>
+        <source>Not enough balance to create a masternode, 10,000 PNY required.</source>
+        <translation>Nie wystarczające saldo do utworzenia masternode, wymagane 10000 PNY.</translation>
+    </message>
+    <message>
         <source>Error creating masternode</source>
         <translation>Błąd podczas tworzenia masternode</translation>
     </message>
@@ -1547,8 +1683,16 @@ Jesteś pewny?</translation>
         <translation>Klucz publiczny:</translation>
     </message>
     <message>
+        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
+        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
+    </message>
+    <message>
         <source>Address: </source>
         <translation>Adres:</translation>
+    </message>
+    <message>
+        <source>127.0.0.2:43223</source>
+        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1567,15 +1711,31 @@ Jesteś pewny?</translation>
         <translation>Stan:</translation>
     </message>
     <message>
+        <source>MISSING</source>
+        <translation>BRAKUJĄCY</translation>
+    </message>
+    <message>
         <source>Export data to run the Masternode on a remote server</source>
         <translation>Wyeksportuj dane, aby uruchomić Masternode na zdalnym serwerze</translation>
     </message>
-    </context>
+</context>
 <context>
     <name>MyAddressRow</name>
     <message>
         <source>Form</source>
         <translation>Formularz</translation>
+    </message>
+    <message>
+        <source>Savings</source>
+        <translation>Oszczędności</translation>
+    </message>
+    <message>
+        <source>Jan. 19, 2019</source>
+        <translation>St. 19, 2019</translation>
+    </message>
+    <message>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
     </message>
 </context>
 <context>
@@ -1640,7 +1800,11 @@ Jesteś pewny?</translation>
     <name>OptionButton</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
 </context>
 <context>
@@ -1998,6 +2162,10 @@ Typ: %3
 Adres: %4
 </translation>
     </message>
+    <message>
+        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
+        <translation>Wystąpił błąd krytyczny. PNY nie może już działać bezpiecznie i zakończy działanie.</translation>
+    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -2106,6 +2274,131 @@ Adres: %4
     </message>
 </context>
 <context>
+    <name>PrivacyWidget</name>
+    <message>
+        <source>Form</source>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Tytuł</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Naciśnij przycisk</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Privacy</source>
+        <translation>Prywatność</translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation>Konwertować</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Mint</translation>
+    </message>
+    <message>
+        <source>Minting zPNY anonymizes your PNY by removing any
+transaction history, making transactions untraceable </source>
+        <translation>Minting zPNY anonimizuje Twój PNY, usuwając
+historie transakcji, dzięki czemu transakcje są niemożliwe do śledzenia</translation>
+    </message>
+    <message>
+        <source>Mint new zPNY or convert back to PNY</source>
+        <translation>Utwórz nowy zPNY lub przekonwertuj z powrotem na PNY</translation>
+    </message>
+    <message>
+        <source>Last zPNY Movements</source>
+        <translation>Ostatnie ruchy zPNY</translation>
+    </message>
+    <message>
+        <source>No transactions yet</source>
+        <translation>Brak transakcji</translation>
+    </message>
+    <message>
+        <source>Mint zPNY</source>
+        <translation>Mint zPNY</translation>
+    </message>
+    <message>
+        <source>Enter amount of PNY to mint into zPNY</source>
+        <translation>Wprowadź ilość PNY do konwersji na zPNY</translation>
+    </message>
+    <message>
+        <source>Convert back to PNY</source>
+        <translation>Powróć do PNY</translation>
+    </message>
+    <message>
+        <source>Enter amount of zPNY to convert back into PNY</source>
+        <translation>Wprowadź kwotę zPNY, aby ponownie zamienić na PNY</translation>
+    </message>
+    <message>
+        <source>Zerocoin</source>
+        <translation>Zerocoin</translation>
+    </message>
+    <message>
+        <source>zPNY is currently undergoing maintenance</source>
+        <translation>zPNY jest obecnie w trakcie konserwacji</translation>
+    </message>
+    <message>
+        <source>You need to unlock the wallet to be able to %1 zPNY</source>
+        <translation>Musisz odblokować portfel, aby móc %1 zPNY</translation>
+    </message>
+    <message>
+        <source>convert</source>
+        <translation>konwertuj</translation>
+    </message>
+    <message>
+        <source>mint</source>
+        <translation>mint</translation>
+    </message>
+    <message>
+        <source>Invalid value</source>
+        <translation>niewłaściwa wartość</translation>
+    </message>
+    <message>
+        <source>zPNY minted successfully</source>
+        <translation>ZPNY udało się wybić</translation>
+    </message>
+    <message>
+        <source>zPNY converted back to PNY</source>
+        <translation>zPNY ponownie przekonwertowany na PNY</translation>
+    </message>
+    <message>
+        <source>You don't have any PNY to select.</source>
+        <translation>Nie masz żadnych PNY-ów do wyboru.</translation>
+    </message>
+    <message>
+        <source>Rescan Mints</source>
+        <translation>Skanuj ponownie Mints</translation>
+    </message>
+    <message>
+        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
+        <translation>Twoje mints zerocoin będą skanowane przez blockchain od zera</translation>
+    </message>
+    <message>
+        <source>Reset Spent zPNY</source>
+        <translation>Zresetuj wydane zPNY</translation>
+    </message>
+    <message>
+        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
+        <translation>Twoje wydatki na zerocoiny zostaną zeskanowane przez blockchain od zera</translation>
+    </message>
+    <message>
+        <source>Total %1</source>
+        <translation>Ogółem %1</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
@@ -2154,10 +2447,6 @@ Adres: %4
     <message>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
-    </message>
-    <message>
-        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
-        <translation>Wystąpił błąd krytyczny. PNY nie może już działać bezpiecznie i zakończy działanie.</translation>
     </message>
     <message>
         <source>PNY Core</source>
@@ -2218,6 +2507,10 @@ Adres: %4
     <message>
         <source>Contacts</source>
         <translation>Kontakty</translation>
+    </message>
+    <message>
+        <source>Delegators</source>
+        <translation>Delegaci</translation>
     </message>
     <message>
         <source>Staking Contacts</source>
@@ -2291,7 +2584,7 @@ Adres: %4
         <source>by Date</source>
         <translation>według daty</translation>
     </message>
-    </context>
+</context>
 <context>
     <name>RPCConsole</name>
     <message>
@@ -2706,12 +2999,20 @@ Adres: %4
         <translation>Dialog</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>Mój adres</translation>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -2719,6 +3020,10 @@ Adres: %4
     <message>
         <source>Form</source>
         <translation>Formularz</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>No address</source>
@@ -2739,6 +3044,14 @@ Adres: %4
     <message>
         <source>Receive</source>
         <translation>Otrzymaj</translation>
+    </message>
+    <message>
+        <source>Scan the QR code or copy the address to receive PNY.</source>
+        <translation>Zeskanuj kod QR lub skopiuj adres, aby otrzymać PNY.</translation>
+    </message>
+    <message>
+        <source>No address </source>
+        <translation>Brak adresu</translation>
     </message>
     <message>
         <source>No available address, try unlocking the wallet</source>
@@ -2831,12 +3144,24 @@ Adres: %4
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>New Request Payment</source>
+        <translation>Nowa prośba o płatność</translation>
+    </message>
+    <message>
+        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
+        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do </translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Ilość</translation>
     </message>
     <message>
         <source>PNY</source>
         <translation>PNY</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -2855,6 +3180,10 @@ Adres: %4
         <translation>ANULUJ</translation>
     </message>
     <message>
+        <source>REQUEST</source>
+        <translation>ŻĄDANIE</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>Etykieta</translation>
     </message>
@@ -2865,6 +3194,10 @@ Adres: %4
     <message>
         <source>New Payment Request</source>
         <translation>Nowa prośba o płatność</translation>
+    </message>
+    <message>
+        <source>Instead of sharing only a PNY address, you can create a payment request, bundling up more information.</source>
+        <translation>Zamiast udostępniać tylko adres PNY, możesz utworzyć żądanie płatności, łącząc więcej informacji.</translation>
     </message>
     <message>
         <source>Enter a label for the address</source>
@@ -2894,11 +3227,7 @@ Adres: %4
         <source>Amount (optional)</source>
         <translation>Kwota (opcjonalnie)</translation>
     </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation>nieprawidłowa kwota</translation>
-    </message>
-    </context>
+</context>
 <context>
     <name>SendChangeAddressDialog</name>
     <message>
@@ -2906,8 +3235,20 @@ Adres: %4
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
+        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>ANULUJ</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
@@ -2929,12 +3270,20 @@ Adres: %4
         <source>Invalid address</source>
         <translation>Nieprawidłowy adres</translation>
     </message>
-    </context>
+</context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
         <translation>Formularz</translation>
+    </message>
+    <message>
+        <source>Transaction Details</source>
+        <translation>Szczegóły Transakcji</translation>
+    </message>
+    <message>
+        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
+        <translation>Dostosuj opłatę transakcyjną według własnych upodobań, w zależności od wartości opłaty Twoja transakcja zostanie uwzględniona lub nie w łańcuchu bloków.</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2957,8 +3306,16 @@ Adres: %4
         <translation>ANULUJ</translation>
     </message>
     <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
         <source>Customize Fee</source>
         <translation>Dostosuj opłatę</translation>
+    </message>
+    <message>
+        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain.</source>
+        <translation>Dostosuj opłatę transakcyjną, w zależności od wartości opłaty Twoja transakcja może zostać uwzględniona szybciej w blockchain.</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -2989,7 +3346,11 @@ Adres: %4
     <name>SendMultiRow</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>Enter address</source>
@@ -3003,8 +3364,56 @@ Adres: %4
 <context>
     <name>SendWidget</name>
     <message>
+        <source>Send</source>
+        <translation>Wyślij</translation>
+    </message>
+    <message>
+        <source>You can transfer public coins (PNY) or private coins (zPNY)</source>
+        <translation>Możesz przelewać monety publiczne (PNY) lub monety prywatne (zPNY)</translation>
+    </message>
+    <message>
+        <source>Select coin type to spend</source>
+        <translation>Wybierz typ monety do wydania</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Ilość</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>Dostosuj opłatę</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Wyczyść wszystko</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>Dodaj odbiorcę</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>Przywróć ustawienia domyślne</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>Łącznie do wysłania</translation>
+    </message>
+    <message>
+        <source>Send PNY</source>
+        <translation>Wyślij PNY</translation>
+    </message>
+    <message>
+        <source>Send zPNY</source>
+        <translation>Wyślij zPNY</translation>
+    </message>
+    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>Suma pozostała z wybranego UTXO</translation>
+    </message>
+    <message>
+        <source>Total remaining</source>
+        <translation>Pozostała suma</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -3027,6 +3436,10 @@ Czy chcesz kontynuować?</translation>
         <translation>Osiągnięto maksymalną liczbę wyjść</translation>
     </message>
     <message>
+        <source>PNY address or contact label</source>
+        <translation>Adres PNY lub etykieta kontaktowa</translation>
+    </message>
+    <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Nieprawidłowy wpis, poprzednie wpisy muszą być ważne przed dodaniem nowego</translation>
     </message>
@@ -3036,7 +3449,7 @@ Czy chcesz kontynuować?</translation>
     </message>
     <message>
         <source>Invalid entry</source>
-        <translation>Niewłaściwy wpis</translation>
+        <translation>niewłaściwy wpis</translation>
     </message>
     <message>
         <source>No set recipients</source>
@@ -3063,6 +3476,54 @@ Monety te nie będą już cold-staked.</translation>
         <translation>Transakcja wysłana</translation>
     </message>
     <message>
+        <source>Spend Zerocoin</source>
+        <translation>Wydaj Zerocoin</translation>
+    </message>
+    <message>
+        <source>zPNY is currently undergoing maintenance.</source>
+        <translation>zPNY jest obecnie w trakcie konserwacji.</translation>
+    </message>
+    <message>
+        <source>Coin control mint not found</source>
+        <translation>Nie znaleziono mint kontroli monet</translation>
+    </message>
+    <message>
+        <source>Sending %1 to address %2
+</source>
+        <translation>Wysyłanie %1 na adres %2
+</translation>
+    </message>
+    <message>
+        <source>Sending %1 to addresses:
+%2</source>
+        <translation>Wysyłanie %1 na adres:
+%2</translation>
+    </message>
+    <message>
+        <source>zPNY transaction sent!</source>
+        <translation>Transakcja zPNY wysłana!</translation>
+    </message>
+    <message>
+        <source>Version 1 zPNY require a security level of 100 to successfully spend.</source>
+        <translation>Wersja 1 zPNY wymaga poziomu bezpieczeństwa 100, aby pomyślnie wydać.</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>Za dużo wejść (</translation>
+    </message>
+    <message>
+        <source>) needed.
+Maximum allowed: </source>
+        <translation>) potrzebne.
+Maksymalna dozwolona:</translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>
+Albo wybierz wyższe nominały (potrzeba mniej wejść) albo zmniejsz kwotę do wydania.</translation>
+    </message>
+    <message>
         <source>Address label update failed for address: %1</source>
         <translation>Aktualizacja etykiety adresu nie powiodła się dla adresu: %1</translation>
     </message>
@@ -3079,12 +3540,12 @@ Monety te nie będą już cold-staked.</translation>
         <translation>Ustawiona Opłata %1</translation>
     </message>
     <message>
-        <source>Coin Control</source>
-        <translation>Kontrola monet</translation>
+        <source>You don't have any PNY to select.</source>
+        <translation>Nie masz żadnych PNY-ów do wyboru.</translation>
     </message>
     <message>
-        <source>Open URI</source>
-        <translation>Otwórz URI</translation>
+        <source>You don't have any zPNY in your balance to select.</source>
+        <translation>Nie masz w swoim bilansie żadnego zPNY do wyboru.</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -3127,15 +3588,35 @@ Monety te nie będą już cold-staked.</translation>
     <name>SettingsBackupWallet</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>Backup Wallet </source>
+        <translation>Utworzyć kopię zapasową Portfela</translation>
     </message>
     <message>
         <source>Change Wallet Passphrase</source>
         <translation>Zmień hasło portfela</translation>
     </message>
     <message>
+        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
+Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
+        <translation>To odszyfruje całe dane portfela i zaszyfruje je z powrotem za pomocą nowego hasła.
+Pamiętaj, aby zapisać i bezpiecznie przechowywać, w przeciwnym razie możesz stracić dostęp do swoich funduszy.</translation>
+    </message>
+    <message>
         <source>Where</source>
         <translation>Gdzie</translation>
+    </message>
+    <message>
+        <source>Keep your wallet safe by doing regular backups and storing your backup file externally.
+This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device.</source>
+        <translation>Dbaj o bezpieczeństwo swojego portfela, wykonując regularne kopie zapasowe i przechowując plik kopii zapasowej na zewnątrz.
+Ta opcja tworzy plik wallet.dat, którego można użyć do odzyskania całego salda (transakcji i adresów) na innym urządzeniu.</translation>
     </message>
     <message>
         <source>Select folder...</source>
@@ -3170,11 +3651,27 @@ Monety te nie będą już cold-staked.</translation>
     <name>SettingsBitToolWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Naciśnij przycisk</translation>
+    </message>
+    <message>
+        <source>Decrypt Address Result</source>
+        <translation>Odszyfruj adres</translation>
     </message>
     <message>
         <source>Import Address</source>
         <translation>Adres importu</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Wyczyść</translation>
     </message>
     <message>
         <source>BIP38 Tool</source>
@@ -3199,6 +3696,10 @@ Monety te nie będą już cold-staked.</translation>
     <message>
         <source>Passphrase</source>
         <translation>Hasło</translation>
+    </message>
+    <message>
+        <source>Enter a passphrase </source>
+        <translation>Wpisz hasło</translation>
     </message>
     <message>
         <source>Decrypted address result</source>
@@ -3313,7 +3814,11 @@ Monety te nie będą już cold-staked.</translation>
     <name>SettingsConsoleWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>Console</source>
@@ -3322,6 +3827,10 @@ Monety te nie będą już cold-staked.</translation>
     <message>
         <source>Console input</source>
         <translation>Wejście konsoli</translation>
+    </message>
+    <message>
+        <source>Command Line Options </source>
+        <translation>Opcje wiersza poleceń</translation>
     </message>
     <message>
         <source>Open Debug File</source>
@@ -3359,6 +3868,10 @@ Sprawdź, czy zainstalowałeś określony edytor tekstu.</translation>
     <message>
         <source>Form</source>
         <translation>Formularz</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>Hide stake charts in the dashboard</source>
@@ -3520,7 +4033,15 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
     <name>SettingsFaqWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Naciśnij przycisk</translation>
     </message>
     <message>
         <source>1) What is PNY?</source>
@@ -3529,6 +4050,40 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
     <message>
         <source>2) Why are my PNY unspendable?</source>
         <translation>2) Dlaczego mojego PNY nie można wydać?</translation>
+    </message>
+    <message>
+        <source>3) PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation>3) Prywatność PNY? Co to jest Zerocoin (zPNY)?</translation>
+    </message>
+    <message>
+        <source>4) Why are my zPNY unspendable?</source>
+        <translation>4) Dlaczego mojego zPNY nie można wydać?</translation>
+    </message>
+    <message>
+        <source>5) Why did my wallet convert the balance
+    into zPNY automatically?</source>
+        <translation>5) Dlaczego mój portfel przeliczył saldo
+do zPNY automatycznie?</translation>
+    </message>
+    <message>
+        <source>6) How do I receive PNY/zPNY?</source>
+        <translation>6) Jak otrzymać PNY / zPNY?</translation>
+    </message>
+    <message>
+        <source>7) How do I stake PNY/zPNY?</source>
+        <translation>7) Jak robić stake PNY / zPNY?</translation>
+    </message>
+    <message>
+        <source>8) Where I should go if I need support?</source>
+        <translation>8) Gdzie powinienem iść, jeśli potrzebuję wsparcia?</translation>
+    </message>
+    <message>
+        <source>9) What is a Masternode?</source>
+        <translation>9) Co to jest Masternode?</translation>
+    </message>
+    <message>
+        <source>10) What is a Masternode Controller?</source>
+        <translation>10) Co to jest kontroler Masternode?</translation>
     </message>
     <message>
         <source>1</source>
@@ -3551,16 +4106,40 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
         <translation>3</translation>
     </message>
     <message>
+        <source>PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation>Prywatność PNY? Co to jest Zerocoin (zPNY)?</translation>
+    </message>
+    <message>
         <source>4</source>
         <translation>4</translation>
+    </message>
+    <message>
+        <source>Why are my zPNY unspendable?</source>
+        <translation>Dlaczego mojego zPNY nie można wydać?</translation>
     </message>
     <message>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
+        <source>Why did my wallet convert the balance into zPNY automatically?</source>
+        <translation>Dlaczego mój portfel automatycznie przeliczył saldo na zPNY?</translation>
+    </message>
+    <message>
         <source>6</source>
         <translation>6</translation>
+    </message>
+    <message>
+        <source>How do I receive PNY/zPNY?</source>
+        <translation>Jak otrzymać PNY / zPNY?</translation>
+    </message>
+    <message>
+        <source>7</source>
+        <translation>7</translation>
+    </message>
+    <message>
+        <source>How do I stake PNY/zPNY?</source>
+        <translation>Jak robić stake PNY / zPNY?</translation>
     </message>
     <message>
         <source>Where should I go if I need support?</source>
@@ -3573,6 +4152,18 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
     <message>
         <source>What is a Masternode Controller?</source>
         <translation>Co to jest kontroler Masternode?</translation>
+    </message>
+    <message>
+        <source>8</source>
+        <translation>8</translation>
+    </message>
+    <message>
+        <source>9</source>
+        <translation>9</translation>
+    </message>
+    <message>
+        <source>10</source>
+        <translation>10</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -3702,7 +4293,11 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
     <name>SettingsMainOptionsWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>Window</source>
@@ -3711,6 +4306,10 @@ Wystąpił błąd podczas próby zapisania listy adresów w %1. Proszę spróbuj
     <message>
         <source>Customize the application window options</source>
         <translation>Dostosuj opcje okna aplikacji</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -3771,7 +4370,7 @@ Jesteś pewny?
     <name>SettingsMultisendDialog</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Transaction Details</source>
@@ -3928,6 +4527,14 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Formularz</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Wyczyść</translation>
+    </message>
+    <message>
         <source>Sign/Verify Message</source>
         <translation>Podpisz / zweryfikuj wiadomość</translation>
     </message>
@@ -3954,6 +4561,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <message>
         <source>Enter address</source>
         <translation>Podaj adres</translation>
+    </message>
+    <message>
+        <source>Write message</source>
+        <translation>Napisz wiadomość</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -4036,7 +4647,19 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <name>SettingsWalletOptionsWidget</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
+    </message>
+    <message>
+        <source>RadioButton</source>
+        <translation>Przycisk wyboru</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4055,6 +4678,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Dostosuj wewnętrzne opcje portfela</translation>
     </message>
     <message>
+        <source>Stake split threshold:</source>
+        <translation>Próg podziału stawki 'stake' :</translation>
+    </message>
+    <message>
         <source>Spend unconfirmed change</source>
         <translation>Wydaj niepotwierdzoną resztę</translation>
     </message>
@@ -4067,12 +4694,16 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Dostosuj opcje sieciowe węzła</translation>
     </message>
     <message>
-        <source>Enter port</source>
-        <translation>Wpisz port</translation>
+        <source>Proxy IP:</source>
+        <translation>Adres IP serwera proxy:</translation>
     </message>
     <message>
         <source>Enter proxy IP</source>
         <translation>Wprowadź adres IP serwera proxy</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Port:</translation>
     </message>
     <message>
         <source>Map port using UPnP</source>
@@ -4081,6 +4712,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <message>
         <source>Allow incoming connections</source>
         <translation>Zezwól na przychodzące połączenia</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>Połącz przez serwer proxy SOCKS5 (domyślny serwer proxy):</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -4098,20 +4733,48 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
         <translation>Formularz</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
+    </message>
+    <message>
         <source>Wallet Repair</source>
         <translation>Naprawa portfela</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
+        <translation>Poniższe przyciski ponownie uruchomią portfel z opcjami wiersza polecenia, aby naprawić ten portfel, naprawić problemy z uszkodzonymi plikami blockchain lub brakującymi / nieaktualnymi transakcjami.</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Próba odzyskania kluczy prywatnych z uszkodzonego pliku wallet.dat.</translation>
+    </message>
+    <message>
+        <source>Rescan the blockchain for missing wallet transactions.</source>
+        <translation>Ponownie skanuj łańcuch bloków w poszukiwaniu brakujących transakcji portfela.</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
+        <translation>Odzyskaj transakcje z blockchain (zachowaj meta-dane, np. Właściciela konta).</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>Odzyskaj transakcje z blockchain (niezachowuj metadanych).</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>Uaktualnij portfel do najnowszego formatu podczas uruchamiania. (Uwaga: to NIE jest aktualizacja samego portfela)</translation>
     </message>
     <message>
-        <source>Salvage wallet</source>
-        <translation>Odzyskaj portfel</translation>
+        <source>Rebuild blockchain index from current blk000???.dat files.</source>
+        <translation>Odbuduj indeks blockchain z bieżących plików blk000???.dat.</translation>
     </message>
     <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation>Próba odzyskania kluczy prywatnych z uszkodzonego wallet.dat</translation>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Usuwa wszystkie lokalne foldery blockchain, aby portfel synchronizował się od początku.</translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>Odzyskaj portfel</translation>
     </message>
     <message>
         <source>Rescan blockchain file</source>
@@ -4132,6 +4795,10 @@ Zaznacz jedno lub oba pola wyboru, aby wysłać stake i / lub nagrode masternode
     <message>
         <source>Rebuild index</source>
         <translation>Przebuduj indeks</translation>
+    </message>
+    <message>
+        <source>Delete local blockchain </source>
+        <translation>Usuń lokalny łańcuch bloków</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -4304,7 +4971,7 @@ Jesteś pewny?
     <name>SnackBar</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Contact Stored</source>
@@ -4315,7 +4982,7 @@ Jesteś pewny?
     <name>Splash</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Loading…</source>
@@ -4329,6 +4996,26 @@ Jesteś pewny?
 <context>
     <name>SplashScreen</name>
     <message>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>Wersja %1</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>Twórcy Bitcoin Core</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>Twórcy Dash Core</translation>
+    </message>
+    <message>
+        <source>The PNY Core developers</source>
+        <translation>Twórcy PNY Core</translation>
+    </message>
+    <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
@@ -4337,7 +5024,7 @@ Jesteś pewny?
     <name>TooltipMenu</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Copy</source>
@@ -4360,7 +5047,7 @@ Jesteś pewny?
     <name>TopBar</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Available</source>
@@ -4394,13 +5081,33 @@ Jesteś pewny?
         <source>Staking not active</source>
         <translation>Staking nieaktywny</translation>
     </message>
+    <message numerus="yes">
+        <source>%n active connection(s)</source>
+        <translation><numerusform>%n aktywnych połączeń</numerusform><numerusform>%n aktywnych połączeń</numerusform><numerusform>%n aktywnych połączeń</numerusform><numerusform>%n aktywnych połączeń</numerusform></translation>
+    </message>
     <message>
         <source>Synchronized - Block: %1</source>
         <translation>Zsynchronizowano - Blok: %1</translation>
     </message>
+    <message numerus="yes">
+        <source>%n hour(s)</source>
+        <translation><numerusform>%n godzin</numerusform><numerusform>%n godzin</numerusform><numerusform>%n godzin</numerusform><numerusform>%n godzin</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s)</source>
+        <translation><numerusform>%n dni</numerusform><numerusform>%n dni</numerusform><numerusform>%n dni</numerusform><numerusform>%n dni</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <source>%n week(s)</source>
+        <translation><numerusform>%n tygodni</numerusform><numerusform>%n tygodni</numerusform><numerusform>%n tygodni</numerusform><numerusform>%n tygodni</numerusform></translation>
+    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 i %2</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n year(s)</source>
+        <translation><numerusform>%n lat</numerusform><numerusform>%n lat</numerusform><numerusform>%n lat</numerusform><numerusform>%n lat</numerusform></translation>
     </message>
     <message>
         <source>Wallet Upgrade</source>
@@ -4437,14 +5144,6 @@ kopia zapasowa zostanie utworzona.
     <message>
         <source>Tor Disabled</source>
         <translation>Tor Nieaktywny</translation>
-    </message>
-    <message>
-        <source>FAQ</source>
-        <translation>FAQ</translation>
-    </message>
-    <message>
-        <source>Wallet Locked</source>
-        <translation>Portfel zablokowany</translation>
     </message>
     <message>
         <source>Available (Locked included)</source>
@@ -4504,6 +5203,10 @@ kopia zapasowa zostanie utworzona.
 </context>
 <context>
     <name>TransactionDesc</name>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>Otwórz dla %n następnych bloków</numerusform><numerusform>Otwórz dla %n następnych bloków</numerusform><numerusform>Otwórz dla %n następnych bloków</numerusform><numerusform>Otwórz dla %n następnych bloków</numerusform></translation>
+    </message>
     <message>
         <source>Open until %1</source>
         <translation>Otwórz od %1</translation>
@@ -4564,6 +5267,10 @@ kopia zapasowa zostanie utworzona.
         <source>, has not been successfully broadcast yet</source>
         <translation>, nie udało się jeszcze nadać</translation>
     </message>
+    <message numerus="yes">
+        <source>, broadcast through %n node(s)</source>
+        <translation><numerusform>, nadawane przez %n węzłów</numerusform><numerusform>, nadawane przez %n węzłów</numerusform><numerusform>, nadawane przez %n węzłów</numerusform><numerusform>, nadawane przez %n węzłów</numerusform></translation>
+    </message>
     <message>
         <source>Date</source>
         <translation>Data</translation>
@@ -4603,6 +5310,10 @@ kopia zapasowa zostanie utworzona.
     <message>
         <source>Credit</source>
         <translation>Kredyt</translation>
+    </message>
+    <message numerus="yes">
+        <source>matures in %n more block(s)</source>
+        <translation><numerusform>dojrzewa za %n bloków</numerusform><numerusform>dojrzewa za %n bloków</numerusform><numerusform>dojrzewa za %n bloków</numerusform><numerusform>dojrzewa za %n bloków</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -4687,6 +5398,10 @@ kopia zapasowa zostanie utworzona.
         <source>Address</source>
         <translation>Adres</translation>
     </message>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>Otwórz dla %n następnych bloków</numerusform><numerusform>Otwórz dla %n następnych bloków</numerusform><numerusform>Otwórz dla %n następnych bloków</numerusform><numerusform>Otwórz dla %n następnych bloków</numerusform></translation>
+    </message>
     <message>
         <source>Open until %1</source>
         <translation>Otwórz od %1</translation>
@@ -4732,8 +5447,40 @@ kopia zapasowa zostanie utworzona.
         <translation>Otrzymane od</translation>
     </message>
     <message>
+        <source>PNY Stake</source>
+        <translation>PNY Stake</translation>
+    </message>
+    <message>
+        <source>zPNY Stake</source>
+        <translation>zPNY Stake</translation>
+    </message>
+    <message>
+        <source>PNY Cold Stake</source>
+        <translation>PNY Cold Stake</translation>
+    </message>
+    <message>
         <source>Stake delegation</source>
         <translation>Delegacja Stake</translation>
+    </message>
+    <message>
+        <source>Converted PNY to zPNY</source>
+        <translation>przekonwertowany PNY to zPNY</translation>
+    </message>
+    <message>
+        <source>Spent zPNY</source>
+        <translation>Wydaj zPNY</translation>
+    </message>
+    <message>
+        <source>Received PNY from zPNY</source>
+        <translation>Otrzymano PNY z zPNY</translation>
+    </message>
+    <message>
+        <source>Minted Change as zPNY from zPNY Spend</source>
+        <translation>Reszta Minted jako zPNY z Wysyłki zPNY</translation>
+    </message>
+    <message>
+        <source>Converted zPNY to PNY</source>
+        <translation>przekonwertowany zPNY to PNY</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4746,6 +5493,10 @@ kopia zapasowa zostanie utworzona.
     <message>
         <source>Payment to yourself</source>
         <translation>Zapłata dla siebie</translation>
+    </message>
+    <message>
+        <source>PNY Stake on behalf of</source>
+        <translation>PNY Stake w imieniu</translation>
     </message>
     <message>
         <source>Stake delegation spent by</source>
@@ -4800,7 +5551,7 @@ kopia zapasowa zostanie utworzona.
     <name>TxDetailDialog</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
     </message>
     <message>
         <source>Transaction Details</source>
@@ -4899,7 +5650,19 @@ kopia zapasowa zostanie utworzona.
     <name>TxRow</name>
     <message>
         <source>Form</source>
-        <translation>Formularz</translation>
+        <translation>Forma</translation>
+    </message>
+    <message>
+        <source>Received from Bob</source>
+        <translation>Otrzymane od Boba</translation>
+    </message>
+    <message>
+        <source>18/05/18</source>
+        <translation>18/05/18</translation>
+    </message>
+    <message>
+        <source>+0.000585 PNY</source>
+        <translation>+0.000585 PNY</translation>
     </message>
 </context>
 <context>
@@ -4908,7 +5671,11 @@ kopia zapasowa zostanie utworzona.
         <source>Send Coins</source>
         <translation>Wyślij monety</translation>
     </message>
-    </context>
+    <message>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 PNY.</source>
+        <translation>SwiftX nie obsługuje wysyłania wysokich wartości. Transakcje są obecnie ograniczone do %1 PNY.</translation>
+    </message>
+</context>
 <context>
     <name>WelcomeContentWidget</name>
     <message>
@@ -4975,6 +5742,49 @@ Portfel PNY Core</translation>
     </message>
 </context>
 <context>
+    <name>ZPnyControlDialog</name>
+    <message>
+        <source>Select zPNY to Spend</source>
+        <translation>Wybierz zPNY do wydania</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Kontrola monet</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Naciśnij przycisk</translation>
+    </message>
+    <message>
+        <source>zPny</source>
+        <translation>zPny</translation>
+    </message>
+    <message>
+        <source>0.00 </source>
+        <translation>0.00 </translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Ilość:</translation>
+    </message>
+    <message>
+        <source>Is Spendable</source>
+        <translation>do wydania</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>Wybierz / Odznacz wszystko</translation>
+    </message>
+    <message>
+        <source>Select zPNY Denominations to Spend</source>
+        <translation>Wybierz nominały zPNY do wydania</translation>
+    </message>
+</context>
+<context>
     <name>pny-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
@@ -5029,6 +5839,14 @@ Portfel PNY Core</translation>
         <translation>Włącz funkcję cold staking (0-1, domyślnie: %u). Wyłączone jeśli staking=0</translation>
     </message>
     <message>
+        <source>Enable or disable staking functionality for PNY inputs (0-1, default: %u)</source>
+        <translation>Włączanie lub wyłączanie funkcji stake dla przychodzących PNY (0-1, domyślnie:%u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zPNY inputs (0-1, default: %u)</source>
+        <translation>Włączanie lub wyłączanie funkcji staking dla nowych zPNY (0-1, domyślnie: %u)</translation>
+    </message>
+    <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>Włącz funkcję zarządzania sporkami za pomocą odpowiedniego klucza prywatnego.</translation>
     </message>
@@ -5065,6 +5883,14 @@ Portfel PNY Core</translation>
         <translation>Wykonaj polecenie, gdy najlepszy blok zostanie zmieniony ( %s w cmd zostanie zastąpione hash blokiem)</translation>
     </message>
     <message>
+        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Opłaty za przekazywanie (w PNY/Kb) mniejsze od tej są uznawane za opłaty zerowe (domyślnie: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Opłaty za tworzenie transakcji (w PNY/Kb) mniejsze od tej są uznawane za opłaty zerowe (domyślnie: %s)</translation>
+    </message>
+    <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>Opróżniaj dziennik z pamięci dysku co &lt;n&gt; megabajtów (domyślnie:%u)</translation>
     </message>
@@ -5083,6 +5909,10 @@ Portfel PNY Core</translation>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Nieprawidłowa kwota dla -maxtxfee=&lt;amount&gt;: „%s” (musi być co najmniej minimalną opłatą %s, aby zapobiec zablokowanym transakcjom)</translation>
+    </message>
+    <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>Zawsze utrzymuj określoną kwotę przeznaczoną na wydatki (domyślnie: 0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -5115,6 +5945,10 @@ Portfel PNY Core</translation>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Informacje o debugowaniu wyjścia (domyślnie: %u, dostarczanie &lt;category&gt; jest opcjonalne)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Zapytanie o adresy peer za pomocą DNS lookup, jeśli adresy są low (domyślnie: 1 chyba, że -connect)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -5209,6 +6043,10 @@ Portfel PNY Core</translation>
         <translation>Musisz określić masternodeprivkey w konfiguracji. Aby uzyskać pomoc, zapoznaj się z dokumentacją.</translation>
     </message>
     <message>
+        <source>(16889 could be used only on mainnet)</source>
+        <translation>(16889 może być używany tylko w sieci mainnet)</translation>
+    </message>
+    <message>
         <source>(default: %s)</source>
         <translation>(domyślnie:  %s)</translation>
     </message>
@@ -5217,8 +6055,16 @@ Portfel PNY Core</translation>
         <translation>(domyślnie: 1)</translation>
     </message>
     <message>
+        <source>(must be 16889 for mainnet)</source>
+        <translation>(musi być 16889 dla mainnetu)</translation>
+    </message>
+    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Zaakceptuj polecenia linii poleceń i JSON-RPC</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>Akceptuj połączenia z zewnątrz (domyślnie: 1 jeśli nie -proxy lub -connect)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -5255,6 +6101,10 @@ Portfel PNY Core</translation>
     <message>
         <source>Cannot downgrade wallet</source>
         <translation>Nie można cofnąć wersji portfela</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>Połącz tylko z określonym węzłem (węzłami)</translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
@@ -5401,6 +6251,14 @@ Portfel PNY Core</translation>
         <translation>Nie można przeanalizować host:port string</translation>
     </message>
     <message>
+        <source>Failed to read block</source>
+        <translation>Nie można odczytać bloku</translation>
+    </message>
+    <message>
+        <source>Fee (in PNY/kB) to add to transactions you send (default: %s)</source>
+        <translation>Opłata (w PNY/kB) dodawana do wysyłanych transakcji (domyślnie: %s)</translation>
+    </message>
+    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Wymuś tryb bezpieczny (domyślnie: %u)</translation>
     </message>
@@ -5469,8 +6327,16 @@ Portfel PNY Core</translation>
         <translation>Nieprawidłowa netmask podana w -whitelist: '%s'</translation>
     </message>
     <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Nieprawidłowy port wykryty w masternode.conf</translation>
+    </message>
+    <message>
         <source>Recalculating PNY supply...</source>
         <translation>Przeliczanie podaży PNY ...</translation>
+    </message>
+    <message>
+        <source>Reindex the PNY and zPNY money supply statistics</source>
+        <translation>Ponownie oblicz statystyki podaży pieniądza PNY i zPNY</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5515,6 +6381,10 @@ Portfel PNY Core</translation>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>Włącz SwiftX, pokaż potwierdzenia zablokowanych transakcji (bool, domyślnie: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Błąd: transakcja została odrzucona! Może się tak zdarzyć, jeśli niektóre monety w portfelu zostały już wydane, np. Jeśli użyłeś kopii portfela. Monety zostały wydane w kopii, ale nie zostały oznaczone jako wydane tutaj.</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -5615,6 +6485,10 @@ Portfel PNY Core</translation>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>Zachowaj &lt;n&gt; najczęściej używanych transakcji w pamięci (domyślnie: %u)</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Ogranicz rozmiar pamięci podręcznej podpisu do &lt;n&gt; wpisów (domyślnie: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -6164,36 +7038,16 @@ Portfel PNY Core</translation>
         <translation>Wyślij</translation>
     </message>
     <message>
-        <source>PNY address or contact label</source>
-        <translation>Adres PNY lub etykieta kontaktowa</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Ilość</translation>
-    </message>
-    <message>
-        <source>Customize fee</source>
-        <translation>Dostosuj opłatę</translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation>Wyczyść wszystko</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>Dodaj odbiorcę</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>Łącznie do wysłania</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>Przywróć ustawienia domyślne</translation>
+        <source>TextLabel</source>
+        <translation>TekstZakładka</translation>
     </message>
     <message>
         <source>Include delegated</source>
         <translation>Uwzględnij delegowane</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Naciśnij przycisk</translation>
     </message>
 </context>
 </TS>

@@ -9,13 +9,14 @@
 
 
 #include "clientversion.h"
-#include "fs.h"
 #include "main.h"
 #include "utiltime.h"
 #include "test/test_pny.h"
 
 #include <cstdio>
 
+#include <boost/filesystem/operations.hpp>
+#include <boost/filesystem/path.hpp>
 #include <boost/test/unit_test.hpp>
 
 
@@ -23,6 +24,7 @@ BOOST_FIXTURE_TEST_SUITE(CheckBlock_tests, BasicTestingSetup)
 
 bool read_block(const std::string& filename, CBlock& block)
 {
+    namespace fs = boost::filesystem;
     fs::path testFile = fs::current_path() / "data" / filename;
 #ifdef TEST_DATA_DIR
     if (!fs::exists(testFile))

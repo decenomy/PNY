@@ -274,7 +274,7 @@ bool BIP38_Decrypt(std::string strPassphrase, std::string strEncryptedKey, uint2
     CKey k;
     k.Set(privKey.begin(), privKey.end(), fCompressed);
     CPubKey pubkey = k.GetPubKey();
-    std::string address = EncodeDestination(pubkey.GetID());
+    std::string address = CBitcoinAddress(pubkey.GetID()).ToString();
 
     return strAddressHash == AddressToBip38Hash(address);
 }

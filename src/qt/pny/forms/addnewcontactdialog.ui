@@ -89,7 +89,7 @@
            <string notr="true">padding-left:24px;</string>
           </property>
           <property name="text">
-           <string>Edit Contact</string>
+           <string>TextLabel</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -166,7 +166,7 @@
         <item>
          <widget class="QLabel" name="labelMessage">
           <property name="text">
-           <string>Set a label for the selected address</string>
+           <string>TextLabel</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -198,11 +198,7 @@
            <number>10</number>
           </property>
           <item>
-           <widget class="QLineEdit" name="lineEditName">
-            <property name="placeholderText">
-             <string>Enter a label for the address (e.g. Exchange)</string>
-            </property>
-           </widget>
+           <widget class="QLineEdit" name="lineEditName"/>
           </item>
          </layout>
         </item>
@@ -267,7 +263,7 @@
            <enum>Qt::NoFocus</enum>
           </property>
           <property name="text">
-           <string>SAVE</string>
+           <string>OK</string>
           </property>
          </widget>
         </item>

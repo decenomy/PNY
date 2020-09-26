@@ -92,7 +92,7 @@
            <string notr="true">padding-left:24px;</string>
           </property>
           <property name="text">
-           <string>New Payment Request</string>
+           <string>New Request Payment</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -210,7 +210,7 @@
              </size>
             </property>
             <property name="text">
-             <string>Instead of sharing only a PNY address, you can create a payment request, bundling up more information</string>
+             <string>Lorem ipsum dolor sit amet, consectur cling elit, sed do </string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -288,9 +288,6 @@
                     <width>16777215</width>
                     <height>50</height>
                    </size>
-                  </property>
-                  <property name="placeholderText">
-                   <string notr="true">0.00</string>
                   </property>
                  </widget>
                 </item>
@@ -379,7 +376,7 @@
                </size>
               </property>
               <property name="text">
-               <string>Label</string>
+               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -396,9 +393,6 @@
                 <width>16777215</width>
                 <height>50</height>
                </size>
-              </property>
-              <property name="placeholderText">
-               <string>Enter a label for the address</string>
               </property>
              </widget>
             </item>
@@ -440,7 +434,7 @@
                </size>
               </property>
               <property name="text">
-               <string>Description (optional)</string>
+               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -457,9 +451,6 @@
                 <width>16777215</width>
                 <height>50</height>
                </size>
-              </property>
-              <property name="placeholderText">
-               <string>Enter description</string>
               </property>
              </widget>
             </item>
@@ -681,7 +672,7 @@
             <enum>Qt::NoFocus</enum>
            </property>
            <property name="text">
-            <string>GENERATE</string>
+            <string>REQUEST</string>
            </property>
           </widget>
          </item>

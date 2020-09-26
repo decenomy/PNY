@@ -10,7 +10,6 @@
 #define BITCOIN_QT_TRANSACTIONRECORD_H
 
 #include "amount.h"
-#include "script/script.h"
 #include "uint256.h"
 
 #include <QList>
@@ -25,7 +24,7 @@ class TransactionStatus
 {
 public:
     TransactionStatus() : countsForBalance(false), sortKey(""),
-                          matures_in(0), status(Unconfirmed), depth(0), open_for(0), cur_num_blocks(-1)
+                          matures_in(0), status(Offline), depth(0), open_for(0), cur_num_blocks(-1)
     {
     }
 
@@ -34,11 +33,13 @@ public:
         /// Normal (sent/received) transactions
         OpenUntilDate,  /**< Transaction not yet final, waiting for date */
         OpenUntilBlock, /**< Transaction not yet final, waiting for block */
+        Offline,        /**< Not sent to any other nodes **/
         Unconfirmed,    /**< Not yet mined into a block **/
         Confirming,     /**< Confirmed, but waiting for the recommended number of confirmations **/
         Conflicted,     /**< Conflicts with other transaction or mempool **/
         /// Generated (mined) transactions
         Immature,       /**< Mined but waiting for maturity */
+        MaturesWarning, /**< Transaction will likely not mature because no nodes have confirmed */
         NotAccepted     /**< Mined but not accepted */
     };
 
@@ -121,30 +122,6 @@ public:
     static QList<TransactionRecord> decomposeTransaction(const CWallet* wallet, const CWalletTx& wtx);
 
     /// Helpers
-    static bool decomposeCoinStake(const CWallet* wallet, const CWalletTx& wtx,
-                                   const CAmount& nCredit, const CAmount& nDebit, bool fZSpendFromMe,
-                                   QList<TransactionRecord>& parts);
-
-    static bool decomposeZcSpendTx(const CWallet* wallet, const CWalletTx& wtx,
-                                    const CAmount& nCredit, const CAmount& nDebit, bool fZSpendFromMe,
-                                    QList<TransactionRecord>& parts);
-
-    static bool decomposeP2CS(const CWallet* wallet, const CWalletTx& wtx,
-                                    const CAmount& nCredit, const CAmount& nDebit,
-                                    QList<TransactionRecord>& parts);
-
-    static bool decomposeCreditTransaction(const CWallet* wallet, const CWalletTx& wtx,
-                                    QList<TransactionRecord>& parts);
-
-    static bool decomposeSendToSelfTransaction(const CWalletTx& wtx, const CAmount& nCredit,
-                                    const CAmount& nDebit, bool involvesWatchAddress,
-                                    QList<TransactionRecord>& parts);
-
-    static bool decomposeDebitTransaction(const CWallet* wallet, const CWalletTx& wtx,
-                                                      const CAmount& nDebit, bool involvesWatchAddress,
-                                                      QList<TransactionRecord>& parts);
-
-    static std::string getValueOrReturnEmpty(const std::map<std::string, std::string>& mapValue, const std::string& key);
     static bool ExtractAddress(const CScript& scriptPubKey, bool fColdStake, std::string& addressStr);
     static void loadHotOrColdStakeOrContract(const CWallet* wallet, const CWalletTx& wtx,
                                             TransactionRecord& record, bool isContract = false);

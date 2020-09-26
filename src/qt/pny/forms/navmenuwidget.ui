@@ -167,8 +167,7 @@ background-color:transparent;
              </size>
             </property>
             <property name="text">
-             <string>HOME
-</string>
+             <string/>
             </property>
             <property name="iconSize">
              <size>
@@ -196,8 +195,7 @@ background-color:transparent;
              </size>
             </property>
             <property name="text">
-             <string>SEND
-</string>
+             <string/>
             </property>
             <property name="iconSize">
              <size>
@@ -222,8 +220,7 @@ background-color:transparent;
              </size>
             </property>
             <property name="text">
-             <string>RECEIVE
-</string>
+             <string/>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -242,8 +239,7 @@ background-color:transparent;
              </size>
             </property>
             <property name="text">
-             <string>CONTACTS
-</string>
+             <string/>
             </property>
             <property name="iconSize">
              <size>
@@ -268,8 +264,7 @@ background-color:transparent;
              </size>
             </property>
             <property name="text">
-             <string>MASTER
-NODES</string>
+             <string/>
             </property>
             <property name="iconSize">
              <size>
@@ -294,8 +289,7 @@ NODES</string>
              </size>
             </property>
             <property name="text">
-             <string>COLD
-STAKING</string>
+             <string/>
             </property>
             <property name="iconSize">
              <size>
@@ -320,8 +314,7 @@ STAKING</string>
              </size>
             </property>
             <property name="text">
-             <string>SETTINGS
-</string>
+             <string/>
             </property>
             <property name="iconSize">
              <size>

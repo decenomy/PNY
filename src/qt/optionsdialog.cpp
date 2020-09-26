@@ -45,7 +45,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     /* Main elements init */
     ui->databaseCache->setMinimum(nMinDbCache);
     ui->databaseCache->setMaximum(nMaxDbCache);
-    ui->threadsScriptVerif->setMinimum(-GetNumCores());
+    ui->threadsScriptVerif->setMinimum(-(int)boost::thread::hardware_concurrency());
     ui->threadsScriptVerif->setMaximum(MAX_SCRIPTCHECK_THREADS);
 
     /* Network elements init */
@@ -69,9 +69,12 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     ui->tabWidget->removeTab(ui->tabWidget->indexOf(ui->tabWindow));
 #endif
 
-    /* remove Wallet tab in case of -disablewallet */
+    /* remove Wallet tab and zPny options in case of -disablewallet */
     if (!enableWallet) {
         ui->tabWidget->removeTab(ui->tabWidget->indexOf(ui->tabWallet));
+
+        ui->verticalZpnyOptionsWidget->hide();
+        ui->verticalZpnyDisplayWidget->hide();
     }
 
     /* Display elements init */
@@ -98,7 +101,7 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     ui->preferredDenom->addItem(QString("5000"), QVariant("5000"));
 
     /* Theme selector external themes */
-    fs::path pathAddr = GetDataDir() / "themes";
+    boost::filesystem::path pathAddr = GetDataDir() / "themes";
     QDir dir(pathAddr.string().c_str());
     dir.setFilter(QDir::Dirs | QDir::NoSymLinks | QDir::NoDotAndDotDot);
     QFileInfoList list = dir.entryInfoList();
@@ -304,11 +307,10 @@ void OptionsDialog::updateHideOrphans(bool fHide)
 void OptionsDialog::doProxyIpChecks(QValidatedLineEdit* pUiProxyIp, QLineEdit* pUiProxyPort)
 {
     const std::string strAddrProxy = pUiProxyIp->text().toStdString();
-    const int nProxyPort = pUiProxyPort->text().toInt();
-    CService addrProxy(LookupNumeric(strAddrProxy.c_str(), nProxyPort));
+    CService addrProxy;
 
     // Check for a valid IPv4 / IPv6 address
-    if (!(fProxyIpValid = addrProxy.IsValid())) {
+    if (!(fProxyIpValid = LookupNumeric(strAddrProxy.c_str(), addrProxy))) {
         disableOkButton();
         pUiProxyIp->setValid(false);
         ui->statusLabel->setStyleSheet("QLabel { color: red; }");
@@ -316,7 +318,7 @@ void OptionsDialog::doProxyIpChecks(QValidatedLineEdit* pUiProxyIp, QLineEdit* p
         return;
     }
     // Check proxy port
-    if (!pUiProxyPort->hasAcceptableInput()) {
+    if (!pUiProxyPort->hasAcceptableInput()){
         disableOkButton();
         ui->statusLabel->setStyleSheet("QLabel { color: red; }");
         ui->statusLabel->setText(tr("The supplied proxy port is invalid."));

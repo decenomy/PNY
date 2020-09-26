@@ -62,15 +62,14 @@
             <item>
              <widget class="QLabel" name="labelTitle">
               <property name="text">
-               <string>BIP38 Tool</string>
+               <string>TextLabel</string>
               </property>
              </widget>
             </item>
             <item>
              <widget class="QLabel" name="labelSubtitle1">
               <property name="text">
-               <string>Encrypt your PNY addresses (key pair actually) using BIP38 encryption.
-Using this mechanism you can share your keys without middle-man risk, only need to store your passphrase safely</string>
+               <string>TextLabel</string>
               </property>
               <property name="wordWrap">
                <bool>true</bool>
@@ -134,7 +133,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string>Encrypt</string>
+                <string/>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -162,7 +161,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string>Decrypt</string>
+                <string/>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -267,7 +266,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                       </size>
                      </property>
                      <property name="text">
-                      <string>Encrypted key</string>
+                      <string>TextLabel</string>
                      </property>
                     </widget>
                    </item>
@@ -284,9 +283,6 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                        <width>16777215</width>
                        <height>50</height>
                       </size>
-                     </property>
-                     <property name="placeholderText">
-                      <string>Enter a encrypted key</string>
                      </property>
                     </widget>
                    </item>
@@ -324,7 +320,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                     </size>
                    </property>
                    <property name="text">
-                    <string>Passphrase</string>
+                    <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
@@ -341,9 +337,6 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                      <width>16777215</width>
                      <height>50</height>
                     </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Enter a passphrase</string>
                    </property>
                   </widget>
                  </item>
@@ -404,7 +397,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                      </size>
                     </property>
                     <property name="text">
-                     <string>Decrypted address result</string>
+                     <string>Decrypt Address Result</string>
                     </property>
                    </widget>
                   </item>
@@ -439,9 +432,6 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                          <width>16777215</width>
                          <height>50</height>
                         </size>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Decrypted Address</string>
                        </property>
                       </widget>
                      </item>
@@ -545,7 +535,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                     </size>
                    </property>
                    <property name="text">
-                    <string>CLEAR</string>
+                    <string>Clear</string>
                    </property>
                   </widget>
                  </item>
@@ -580,7 +570,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                     </size>
                    </property>
                    <property name="text">
-                    <string>DECRYPT KEY</string>
+                    <string>PushButton</string>
                    </property>
                   </widget>
                  </item>
@@ -657,7 +647,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                   </size>
                  </property>
                  <property name="text">
-                  <string>PNY address</string>
+                  <string>TextLabel</string>
                  </property>
                 </widget>
                </item>
@@ -668,9 +658,6 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                    <width>0</width>
                    <height>50</height>
                   </size>
-                 </property>
-                 <property name="placeholderText">
-                  <string>Enter address</string>
                  </property>
                 </widget>
                </item>
@@ -731,7 +718,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                     </size>
                    </property>
                    <property name="text">
-                    <string>Passphrase</string>
+                    <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
@@ -748,9 +735,6 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                      <width>16777215</width>
                      <height>50</height>
                     </size>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Enter passphrase</string>
                    </property>
                   </widget>
                  </item>
@@ -817,7 +801,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                   </size>
                  </property>
                  <property name="text">
-                  <string>Encrypted Key</string>
+                  <string>TextLabel</string>
                  </property>
                 </widget>
                </item>
@@ -829,9 +813,6 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                    <height>50</height>
                   </size>
                  </property>
-                 <property name="placeholderText">
-                  <string>Encrypted Key</string>
-                 </property>
                 </widget>
                </item>
               </layout>
@@ -840,7 +821,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
             <item>
              <widget class="QLabel" name="statusLabel_ENC">
               <property name="text">
-               <string notr="true">N/A</string>
+               <string>TextLabel</string>
               </property>
              </widget>
             </item>
@@ -893,7 +874,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>CLEAR ALL</string>
+                 <string>Clear</string>
                 </property>
                </widget>
               </item>
@@ -931,7 +912,7 @@ Using this mechanism you can share your keys without middle-man risk, only need 
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>ENCRYPT</string>
+                 <string/>
                 </property>
                </widget>
               </item>

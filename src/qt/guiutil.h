@@ -10,7 +10,6 @@
 
 #include "amount.h"
 #include "askpassphrasedialog.h"
-#include "fs.h"
 
 #include <QEvent>
 #include <QHeaderView>
@@ -21,6 +20,7 @@
 #include <QTableView>
 #include <QTableWidget>
 
+#include <boost/filesystem.hpp>
 
 class QValidatedLineEdit;
 class SendCoinsRecipient;
@@ -95,7 +95,7 @@ void copyEntryData(QAbstractItemView* view, int column, int role = Qt::EditRole)
        @param[in] role    Data role to extract from the model
        @see  TransactionView::copyLabel, TransactionView::copyAmount, TransactionView::copyAddress
      */
-QVariant getEntryData(QAbstractItemView *view, int column, int role);
+QString getEntryData(QAbstractItemView *view, int column, int role);
 
 void setClipboard(const QString& str);
 
@@ -237,10 +237,10 @@ QString loadStyleSheet();
 bool isExternal(QString theme);
 
 /* Convert QString to OS specific boost path through UTF-8 */
-fs::path qstringToBoostPath(const QString& path);
+boost::filesystem::path qstringToBoostPath(const QString& path);
 
 /* Convert OS specific boost path to QString through UTF-8 */
-QString boostPathToQString(const fs::path& path);
+QString boostPathToQString(const boost::filesystem::path& path);
 
 /* Convert seconds into a QString with days, hours, mins, secs */
 QString formatDurationStr(int secs);

@@ -37,7 +37,7 @@ public:
     AccumulatorProofOfKnowledge() {};
     ADD_SERIALIZE_METHODS;
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(C_e); READWRITE(C_u); READWRITE(C_r); READWRITE(st_1); READWRITE(st_2); READWRITE(st_3);
         READWRITE(t_1); READWRITE(t_2); READWRITE(t_3); READWRITE(t_4); READWRITE(s_alpha); READWRITE(s_beta);
@@ -60,7 +60,7 @@ public:
     SerialNumberSignatureOfKnowledge(){};
     ADD_SERIALIZE_METHODS;
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(s_notprime);
         READWRITE(sprime);
@@ -79,7 +79,7 @@ public:
     CommitmentProofOfKnowledge() {};
     ADD_SERIALIZE_METHODS;
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(S1); READWRITE(S2); READWRITE(S3); READWRITE(challenge);
     }
@@ -127,7 +127,7 @@ public:
 
     ADD_SERIALIZE_METHODS;
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(denomination);
         READWRITE(ptxHash);

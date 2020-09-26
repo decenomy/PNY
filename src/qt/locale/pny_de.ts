@@ -6,8 +6,8 @@
         <translation>Dialog</translation>
     </message>
     <message>
-        <source>New Address</source>
-        <translation>Neue Adresse</translation>
+        <source>My Address</source>
+        <translation>Meine Adresse</translation>
     </message>
     <message>
         <source>Address</source>
@@ -15,15 +15,15 @@
     </message>
     <message>
         <source>PushButton</source>
-        <translation>Schaltfläche</translation>
+        <translation>Druckknopf</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ABBRECHEN</translation>
     </message>
     <message>
-        <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -33,8 +33,16 @@
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>ABBRECHEN</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -45,12 +53,12 @@
         <translation>Der ausgewählten Adresse eine Bezeichnung zuweisen</translation>
     </message>
     <message>
-        <source>Enter a label for the address (e.g. Exchange)</source>
-        <translation>Gib eine Bezeichnung für die Adresse ein (z.B. Börse)</translation>
+        <source>Enter a name for the address (e.g Exchange)</source>
+        <translation>Einen Namen für diese Adresse eingeben (z.B. Exchange)</translation>
     </message>
     <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>Edit label for the selected address:
@@ -203,12 +211,28 @@
         <translation>Formular</translation>
     </message>
     <message>
+        <source>Send</source>
+        <translation>Schicken</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>k.A.</translation>
+    </message>
+    <message>
         <source>Contact name</source>
         <translation>Kontaktname</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Adresse einfügen</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -223,16 +247,16 @@
         <translation>Noch keine Kontakte</translation>
     </message>
     <message>
+        <source>e.g. John Doe</source>
+        <translation>z.B. John Doe</translation>
+    </message>
+    <message>
+        <source>Enter PNY address</source>
+        <translation>PNY Adresse eingeben</translation>
+    </message>
+    <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
-    </message>
-    <message>
-        <source>Add new contact</source>
-        <translation>Neuen Kontakt hinzufügen</translation>
-    </message>
-    <message>
-        <source>Generate a new address to receive tokens.</source>
-        <translation>Erzeuge eine neue Adresse, um Token zu empfangen</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>Invalid Contact Address</source>
@@ -303,7 +327,7 @@ Sind Sie sicher?</translation>
     </message>
     <message>
         <source>PushButton</source>
-        <translation>Schaltfläche</translation>
+        <translation>Druckknopf</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -355,12 +379,20 @@ for staking</source>
         <translation>Wenn Sie ihr Wallet verschlüsseln und Ihre Passphrase verlieren, werden Sie</translation>
     </message>
     <message>
+        <source>LOSE ALL OF YOUR PNY</source>
+        <translation>ALLE IHRE PNY VERLIEREN</translation>
+    </message>
+    <message>
         <source>ENCRYPT</source>
         <translation>VERSCHLÜSSELN</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ABBRECHEN</translation>
+    </message>
+    <message>
+        <source>WARNING: The Caps Lock key is on!</source>
+        <translation>WARNUNG: CAPS LOCK IST EINGESCHALTET</translation>
     </message>
     <message>
         <source>PNY will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PNYs from being stolen by malware infecting your computer.</source>
@@ -373,18 +405,6 @@ for staking</source>
     <message>
         <source>Wallet encrypted</source>
         <translation>Wallet verschlüsselt</translation>
-    </message>
-    <message>
-        <source>WARNING:</source>
-        <translation>Warnung:</translation>
-    </message>
-    <message>
-        <source>The caps lock key is on!</source>
-        <translation>Die Feststelltaste (Caps lock) ist eingeschaltet!</translation>
-    </message>
-    <message>
-        <source>Passphrases do not match!</source>
-        <translation>Die Passphrasen stimmen nicht überein!</translation>
     </message>
     <message>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
@@ -405,10 +425,6 @@ for staking</source>
     <message>
         <source>The supplied passphrases do not match.</source>
         <translation>Die eingegebenen Passphrasen stimmen nicht überein.</translation>
-    </message>
-    <message>
-        <source>LOSE ALL OF YOUR COINS</source>
-        <translation>VERLUST ALL IHRER MÜNZEN</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
@@ -671,16 +687,8 @@ for staking</source>
         <translation>ja</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 u%2 per input.</source>
-        <translation>Kann +/- %1u%2 pro Eingabe variieren.</translation>
-    </message>
-    <message>
         <source>delegated to %1 for cold staking</source>
         <translation>%1 für Cold Staking zugewiesen</translation>
-    </message>
-    <message>
-        <source>Select All</source>
-        <translation>Alle anwählen</translation>
     </message>
     <message>
         <source>no</source>
@@ -711,6 +719,10 @@ for staking</source>
         <translation>Diese Bezeichnung wird rot, wenn ein Empfänger einen Betrag erhält, der kleiner ist als %1.</translation>
     </message>
     <message>
+        <source>Can vary +/- %1 upny per input.</source>
+        <translation>Kann um +/- %1 upny pro Eingang variieren.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(keine Bezeichnung)</translation>
     </message>
@@ -730,12 +742,28 @@ for staking</source>
         <translation>Formular</translation>
     </message>
     <message>
+        <source>Title</source>
+        <translation>Titel</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
         <source>Owner address (optional, if empty a new address will be created)</source>
         <translation>Adresse des Besitzers (Optional, wenn leer, wird eine neue Adresse erzeugt)</translation>
     </message>
     <message>
         <source>Total Staking:</source>
         <translation>Gesamtmenge Staking</translation>
+    </message>
+    <message>
+        <source>List of delegated balance by address</source>
+        <translation>Auflistung zugewiesener Bilanz nach Adresse</translation>
+    </message>
+    <message>
+        <source>No balance delegated</source>
+        <translation>Keine Bilanz zugewiesen</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -803,36 +831,6 @@ stake on your behalf, while you keep the keys securely offline.</source>
         <translation>Zuweisung konnte nicht gesendet werden. Ihr Wallet ist verschlossen.</translation>
     </message>
     <message>
-        <source>Cold staking is networkely disabled</source>
-        <translation>Cold staking ist ausgeschaltet</translation>
-    </message>
-    <message>
-        <source>Coin Control</source>
-        <translation>Coinverwaltung</translation>
-    </message>
-    <message>
-        <source>Select %1 outputs to delegate.</source>
-        <translation>Wählen Sie %1 Outputs für die Zuweisung</translation>
-    </message>
-    <message>
-        <source>Create Cold Staking Address</source>
-        <translation>Erzeuge Cold Staking Adresse</translation>
-    </message>
-    <message>
-        <source>Creates an address to receive delegated coins
-and stake them on their owner's behalf.</source>
-        <translation>Erzeugte eine Adresse für den Empfang von zugewiesenen Münzen
-und stakt diese für den Besitzer.</translation>
-    </message>
-    <message>
-        <source>My Cold Staking Addresses</source>
-        <translation>Meine Cold Staking Adresse</translation>
-    </message>
-    <message>
-        <source>List your own cold staking addresses.</source>
-        <translation>Listen Sie Ihre eigenen Cold Staking Adressen auf.</translation>
-    </message>
-    <message>
         <source>Invalid entry</source>
         <translation>Ungültiger Eintrag</translation>
     </message>
@@ -876,8 +874,8 @@ Möchten Sie fortfahren?</translation>
         <translation>Coins zugewiesen</translation>
     </message>
     <message>
-        <source>You don't have any %1 to select.</source>
-        <translation>Sie haben keine %1 für die Auswahl.</translation>
+        <source>You don't have any PNY to select.</source>
+        <translation>Sie haben keine PNY zum Auswählen</translation>
     </message>
     <message>
         <source>Cannot perform operation, wallet locked</source>
@@ -963,6 +961,14 @@ address</source>
         <source>Form</source>
         <translation>Formular</translation>
     </message>
+    <message>
+        <source>Bob Allen</source>
+        <translation>Bob Allen</translation>
+    </message>
+    <message>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
+    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -975,20 +981,36 @@ address</source>
         <translation>Transaktion</translation>
     </message>
     <message>
+        <source>You can see here the history of your account</source>
+        <translation>Hier können Sie den Verlauf des Kontos einsehen</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Warnung</translation>
+    </message>
+    <message>
+        <source>No transactions</source>
+        <translation>Keine Transaktionen</translation>
+    </message>
+    <message>
         <source>Staking Rewards</source>
         <translation>Staking Entschädigung</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
         <source>Staking statistics</source>
         <translation>Staking Statistiken</translation>
     </message>
     <message>
-        <source>View your account's history</source>
-        <translation>Verlauf des Accounts ansehen</translation>
+        <source>PNY</source>
+        <translation>PNY</translation>
     </message>
     <message>
-        <source>How to get PNY</source>
-        <translation>Wie erhalte ich PNY</translation>
+        <source>zPNY</source>
+        <translation>zPNY</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -1011,6 +1033,14 @@ address</source>
         <translation>Filtern nach</translation>
     </message>
     <message>
+        <source>LabelText</source>
+        <translation>Text für die Bezeichnung</translation>
+    </message>
+    <message>
+        <source>You can view your account's history</source>
+        <translation>Der Link zum Verlauf des Accounts</translation>
+    </message>
+    <message>
         <source>Amount of PNY staked.</source>
         <translation>Wieviele PNY und z PNY am Staken sind.</translation>
     </message>
@@ -1023,10 +1053,14 @@ address</source>
         <translation>Bisher keine Transaktionen</translation>
     </message>
     <message>
+        <source>How to get PNY</source>
+        <translation>Wie bekommt man PNY oder zPNY</translation>
+    </message>
+    <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
 It will start automatically as soon as the wallet has enough confirmations on any unspent balances, and the wallet has synced.</source>
-        <translation>In der Statusbar der Wallet oben rechts können Sie sehen, ob Staking aktiviert wurde.
-Das Staking wird automatisch gestartet, sobald die Wallet genügend Bestätigungen für alle nicht ausgegebenen Guthaben hat und die Wallet synchronisiert ist.</translation>
+        <translation>In der Statusbar der Wallet oben rechts können Sie sehen, ob staking aktiviert wurde.
+Die staking Aktivität wird automatisch gestartet, sobald die Wallet genügend Bestätigungen für alle nicht ausgegebenen Guthaben hat und die Wallet synchronisiert ist.</translation>
     </message>
     <message>
         <source>You have no staking rewards</source>
@@ -1034,7 +1068,7 @@ Das Staking wird automatisch gestartet, sobald die Wallet genügend Bestätigung
     </message>
     <message>
         <source>No charts library</source>
-        <translation>Keine Chart Bibliothek</translation>
+        <translation>Keine Grafik Bibliothek</translation>
     </message>
     <message>
         <source>Loading chart..</source>
@@ -1060,12 +1094,20 @@ Das Staking wird automatisch gestartet, sobald die Wallet genügend Bestätigung
         <translation>Formular</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>OK</translation>
+        <source>Transaction Details</source>
+        <translation>Transaktionsdetails</translation>
+    </message>
+    <message>
+        <source>Text Label</source>
+        <translation>Text Bezeichnung</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ABBRECHEN</translation>
+    </message>
+    <message>
+        <source>SAVE</source>
+        <translation>SICHERN</translation>
     </message>
 </context>
 <context>
@@ -1142,7 +1184,7 @@ Das Staking wird automatisch gestartet, sobald die Wallet genügend Bestätigung
     </message>
     <message>
         <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
-        <translation>Verzeichnis existiert bereits. Fügen Sie %1 hinzu, wenn Sie beabsichtigen, hier ein neues Verzeichnis anzulegen.</translation>
+        <translation>Verzeichnis existiert bereits. Fügen Sie %1 an, wenn Sie beabsichtigen hier ein neues Verzeichnis anzulegen.</translation>
     </message>
     <message>
         <source>Path already exists, and is not a directory.</source>
@@ -1315,14 +1357,6 @@ Das Staking wird automatisch gestartet, sobald die Wallet genügend Bestätigung
         <source>Form</source>
         <translation>Formular</translation>
     </message>
-    <message>
-        <source>Collateral tx not found</source>
-        <translation>Kollateraltransaktion nicht gefunden</translation>
-    </message>
-    <message>
-        <source>Status: %1</source>
-        <translation>Status: %1</translation>
-    </message>
 </context>
 <context>
     <name>MasterNodeWizardDialog</name>
@@ -1360,8 +1394,8 @@ Das Staking wird automatisch gestartet, sobald die Wallet genügend Bestätigung
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;To create a PNY Masternode you must dedicate 10,000 PNY (the unit of PNY) to the network (however, these coins are still yours and will never leave your possession). &lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;You can deactivate the node and unlock the coins at any time.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Um einen PNY Masternode zu erzeugen, müssen Sie 10.000 PNY (die Einheit von PNY) dem Netzwerk zuweisen (diese Coins sind weiterhin Ihre und Sie werden Ihren Besitz nicht verlassen)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;
-Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>Um einen PNY Masternode zu erzeugen, müssen Sie 10.000 PNY (die Einheit von PNY) dem Netzwerk zuweisen (diese Coins sind weiterhin Ihre und Sie werden Ihren Besitz nicht verlassen)
+Sie können den Node jederzeit deaktivieren und die Coins entriegeln.</translation>
     </message>
     <message>
         <source>Set Masternode Name</source>
@@ -1381,15 +1415,27 @@ Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A transaction of 10,000 PNY will be made&lt;/p&gt;&lt;p&gt;to a new empty address in your wallet.&lt;/p&gt;&lt;p&gt;The Address is labeled under the master node's name.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Eine Transaktion von 10'000 PNY wird erzugt&lt;/p&gt;&lt;p&gt; und an eine leere Adresse in Ihrer Wallet gesendet.&lt;/p&gt;&lt;p&gt;Die Adresse wird beschriftet mit dem Namen des Masternodes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Eine Transaktion von 10'000 PNY wird gemacht&lt;/p&gt;&lt;p&gt;auf eine leere Adresse in Ihrer Wallet.&lt;/p&gt;&lt;p&gt;Die Adresse wird beschriftet mit dem Namen des Masternodes.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Address of the node that must always be online running the actual master node.</source>
-        <translation>Adresse des Nodes, welche immer online sein muss, um den Master Node darüber laufen zu lassen.</translation>
+        <translation>Adresse des Nodes, welche immer online sein muss um den Master Node darüber laufen zu lassen.</translation>
     </message>
     <message>
         <source>Enter IP address</source>
         <translation>IP-Adresse eingeben</translation>
+    </message>
+    <message>
+        <source>CANCEL</source>
+        <translation>ABBRECHEN</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>e.g user_masternode</source>
+        <translation>z.B Benutzer_masternode</translation>
     </message>
     <message>
         <source>NEXT</source>
@@ -1405,15 +1451,11 @@ Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&
     </message>
     <message>
         <source>IP or port cannot be empty</source>
-        <translation>IP und Port dürfen nicht leer sein</translation>
+        <translation>IP und port dürfen nicht leer sein</translation>
     </message>
     <message>
         <source>Invalid IP address</source>
         <translation>Ungültige IP Adresse</translation>
-    </message>
-    <message>
-        <source>Unknown error</source>
-        <translation>Unbekannter Fehler</translation>
     </message>
     <message>
         <source>Prepare master node failed.
@@ -1438,16 +1480,12 @@ Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&
 
 %1</source>
         <translation>Kollateral konnte nicht gesendet werden
-
-%1</translation>
-    </message>
-    <message>
-        <source>walletModel not set</source>
-        <translation>Wallet Modell nicht gesetzt</translation>
+%1
+</translation>
     </message>
     <message>
         <source>Invalid masternode.conf file</source>
-        <translation>Ungültige masternode.conf Datei</translation>
+        <translation>Ungültiges masternode.conf file</translation>
     </message>
     <message>
         <source>Error parsing masternode.conf file</source>
@@ -1455,7 +1493,7 @@ Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
-        <translation>masternode.conf Datei existiert nicht</translation>
+        <translation>masternode.conf File existiert nicht</translation>
     </message>
 </context>
 <context>
@@ -1463,6 +1501,14 @@ Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&
     <message>
         <source>Form</source>
         <translation>Formular</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>k.A.</translation>
     </message>
     <message>
         <source>Start All</source>
@@ -1479,7 +1525,7 @@ Sie können den Node jederzeit deaktivieren und die Coins entriegeln.&lt;/p&gt;&
     <message>
         <source>Full nodes that incentivize node operators to perform the core consensus functions
 and vote on the treasury system receiving a periodic reward.</source>
-        <translation>Full Nodes, die Node-Betreibern einen Anreiz bieten, die Konsensfunktionen zu betreiben und in dem Treasury-System mit abstimmen, erhalten periodisch eine Belohnung.</translation>
+        <translation>Full Nodes, die Node Betreibern einen Anreiz bieten, die Kern Konsensfunktionen zu betreiben und in dem Treasury System mit abstimmen, erhalten periodisch eine Belohnung.</translation>
     </message>
     <message>
         <source>Create Masternode Controller</source>
@@ -1487,7 +1533,7 @@ and vote on the treasury system receiving a periodic reward.</source>
     </message>
     <message>
         <source>No active Masternode yet</source>
-        <translation>Bisher keine aktiven Masternodes</translation>
+        <translation>Keine aktiven Masternodes bis jetzt</translation>
     </message>
     <message>
         <source>Start</source>
@@ -1557,28 +1603,8 @@ Please wait few more minutes (masternode collaterals require %1 confirmations).<
         <translation>Masternode Daten in die Zwischenablage kopiert</translation>
     </message>
     <message>
-        <source>Not enough balance to create a masternode, 10,000 %1 required.</source>
-        <translation>Nicht genügend Coins für die Erzeugung eines Masternodes vorhanden, 10.000 %1 erforderlich.</translation>
-    </message>
-    <message>
         <source>Remote Masternode Data</source>
         <translation>Remote Masternode Daten</translation>
-    </message>
-    <message>
-        <source>What is a Masternode?</source>
-        <translation>Was ist ein Masternode?</translation>
-    </message>
-    <message>
-        <source>FAQ explaining what Masternodes are</source>
-        <translation>FAQ erklärt, was Masternodes sind</translation>
-    </message>
-    <message>
-        <source>What is a Controller?</source>
-        <translation>Was ist ein Controller?</translation>
-    </message>
-    <message>
-        <source>FAQ explaining what is a Masternode Controller</source>
-        <translation>FAQ erklärt, was ein Masternode Controller ist</translation>
     </message>
     <message>
         <source>You are just about to export the required data to run a Masternode
@@ -1589,13 +1615,14 @@ You will only have to paste the data in the pny.conf file
 of your remote server and start it, then start the Masternode using
 this controller wallet (select the Masternode in the list and press "start").
 </source>
-        <translation>Sie sind dabei die erforderlichen Daten, um einen Masternode auf einem externen Server laufen zu lassen,
+        <translation>Sie sind dabei die erforderlichen Daten,
+um einen Masternode auf einem externen Server laufen zu lassen,
 in die Zwischenablage zu kopieren.
 
 
-SIe müssen lediglich die Daten in die pny.conf Datei Ihres externen Servers einfügen,
+SIe müssen lediglich die Daten in das pny.conf-File ihres externen Servers einfügen,
 die Pny-wallet starten, um dann von der Kontrollwallet aus
-ihren Masternode zu starten (Wählen Sie den Masternode in der Liste aus und drücken SIe "Start").
+ihren Masternode zu starten.
 </translation>
     </message>
     <message>
@@ -1614,7 +1641,7 @@ Sind sie sicher?</translation>
     </message>
     <message>
         <source>Invalid masternode.conf file</source>
-        <translation>Ungültige masternode.conf Datei</translation>
+        <translation>Ungültiges masternode.conf file</translation>
     </message>
     <message>
         <source>Error parsing masternode.conf file</source>
@@ -1622,11 +1649,15 @@ Sind sie sicher?</translation>
     </message>
     <message>
         <source>masternode.conf file doesn't exists</source>
-        <translation>masternode.conf Datei existiert nicht</translation>
+        <translation>masternode.conf File existiert nicht</translation>
     </message>
     <message>
         <source>Cannot create Masternode controller, wallet locked</source>
         <translation>Konnte keinen Masternode Controller erzeugen, das Wallet ist verriegelt</translation>
+    </message>
+    <message>
+        <source>Not enough balance to create a masternode, 10,000 PNY required.</source>
+        <translation>Nicht genügend Guthaben um einen Masternode zu erstellen, 10'000 PNY werden benötigt.</translation>
     </message>
     <message>
         <source>Error creating masternode</source>
@@ -1648,8 +1679,16 @@ Sind sie sicher?</translation>
         <translation>Öffentlicher Schlüssel:</translation>
     </message>
     <message>
+        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
+        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
+    </message>
+    <message>
         <source>Address: </source>
         <translation>IP-Adresse:</translation>
+    </message>
+    <message>
+        <source>127.0.0.2:43223</source>
+        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1668,16 +1707,12 @@ Sind sie sicher?</translation>
         <translation>Status:</translation>
     </message>
     <message>
+        <source>MISSING</source>
+        <translation>FEHLEND</translation>
+    </message>
+    <message>
         <source>Export data to run the Masternode on a remote server</source>
-        <translation>Exportieren der Daten, um Masternode auf externem Server auszuführen</translation>
-    </message>
-    <message>
-        <source>Masternode public key copied</source>
-        <translation>Public Key des Masternodes kopiert</translation>
-    </message>
-    <message>
-        <source>Collateral tx id copied</source>
-        <translation>Transaktions-ID des Kollaterals kopiert</translation>
+        <translation>Ausgabe der Daten, um Masternode auf externem Server auszuführen</translation>
     </message>
 </context>
 <context>
@@ -1686,54 +1721,24 @@ Sind sie sicher?</translation>
         <source>Form</source>
         <translation>Formular</translation>
     </message>
+    <message>
+        <source>Savings</source>
+        <translation>Erspartes</translation>
+    </message>
+    <message>
+        <source>Jan. 19, 2019</source>
+        <translation>Jan. 19, 2019</translation>
+    </message>
+    <message>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
+    </message>
 </context>
 <context>
     <name>NavMenuWidget</name>
     <message>
         <source>Form</source>
         <translation>Formular</translation>
-    </message>
-    <message>
-        <source>HOME
-</source>
-        <translation>HAUPT
-</translation>
-    </message>
-    <message>
-        <source>SEND
-</source>
-        <translation>SENDEN
-</translation>
-    </message>
-    <message>
-        <source>RECEIVE
-</source>
-        <translation>EMPFANGEN
-</translation>
-    </message>
-    <message>
-        <source>CONTACTS
-</source>
-        <translation>KONTAKTE
-</translation>
-    </message>
-    <message>
-        <source>MASTER
-NODES</source>
-        <translation>MASTER
-NODES</translation>
-    </message>
-    <message>
-        <source>COLD
-STAKING</source>
-        <translation>COLD
-STAKING</translation>
-    </message>
-    <message>
-        <source>SETTINGS
-</source>
-        <translation>EINSTELLUNGEN
-</translation>
     </message>
     <message>
         <source>V 1.0.0</source>
@@ -1793,6 +1798,10 @@ STAKING</translation>
         <source>Form</source>
         <translation>Formular</translation>
     </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
@@ -1802,7 +1811,7 @@ STAKING</translation>
     </message>
     <message>
         <source>&amp;Main</source>
-        <translation>&amp;Haupt</translation>
+        <translation>&amp;Main</translation>
     </message>
     <message>
         <source>Size of &amp;database cache</source>
@@ -1818,7 +1827,7 @@ STAKING</translation>
     </message>
     <message>
         <source>(0 = auto, &lt;0 = leave that many cores free)</source>
-        <translation>(0 = auto, &lt;0 = lasse soviele Kerne frei)</translation>
+        <translation>(0 = auto, &lt;0 = leave that many cores free)</translation>
     </message>
     <message>
         <source>W&amp;allet</source>
@@ -1826,15 +1835,15 @@ STAKING</translation>
     </message>
     <message>
         <source>If you disable the spending of unconfirmed change, the change from a transaction&lt;br/&gt;cannot be used until that transaction has at least one confirmation.&lt;br/&gt;This also affects how your balance is computed.</source>
-        <translation>Wenn Sie das Ausgeben von unbestätigtem Wechselgeld deaktivieren, so kann das Wechselgeld von einer Transaktion &lt;br/&gt;nicht verwendet werden, bis mindestens eine Bestätigung vorliegt.&lt;br/&gt;Dies hat auch Auswirkungen auf Ihre Bilanzberechnung.</translation>
+        <translation>Wenn Sie das Ausgeben von unbestätigten Wechselgeld deaktivieren, so kann das Wechselgeld von einer Transaktion &lt;br/&gt;nicht verwendet werden, bis mindestens eine Bestätigung vorliegt.&lt;br/&gt;Dies hat auch Auswirkungen auf ihre Bilanzberechnung.</translation>
     </message>
     <message>
         <source>Automatically open the PNY client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatisches öffnen des PNY-Client-Port im Router. Dies funktioniert nur, wenn Ihr Router UPnP unterstützt und es eingeschaltet ist.</translation>
+        <translation>Automatisches öffnen des PNY-Client-Port im Router. Dies funktioniert nur, wenn ihr Router UPnP unterstützt und es eingeschaltet ist.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
-        <translation>Verbindungen von Außen zulassen</translation>
+        <translation>Verbindungen von Aussen zulassen</translation>
     </message>
     <message>
         <source>Allow incoming connections</source>
@@ -1956,7 +1965,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
     </message>
     <message>
         <source>Show only a tray icon after minimizing the window.</source>
-        <translation>Zeige nur eine Symbolkachel nach der Fensterminimierung.</translation>
+        <translation>Zeige nur ein Symbolkachel nach der Fensterminimierung.</translation>
     </message>
     <message>
         <source>&amp;Minimize to the tray instead of the taskbar</source>
@@ -2052,7 +2061,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
-        <translation>Neustart des Clients erforderlich, um Änderungen zu aktivieren.</translation>
+        <translation>Client Neustart erforderlich, um Änderungen zu aktivieren.</translation>
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
@@ -2064,7 +2073,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
     </message>
     <message>
         <source>The supplied proxy address is invalid.</source>
-        <translation>Die eingegebene PROXY-Adresse ist ungültig.</translation>
+        <translation>Die eingegeben PROXY-Adresse ist ungültig.</translation>
     </message>
     <message>
         <source>The supplied proxy port is invalid.</source>
@@ -2091,11 +2100,11 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
-        <translation>&amp;Anzeigen / Verbergen</translation>
+        <translation>&amp;Anzeigen / Verstecken</translation>
     </message>
     <message>
         <source>Show or hide the main Window</source>
-        <translation>Das Hauptfenster anzeigen oder verbergen</translation>
+        <translation>Das Hauptfenster anzeigen oder verstecken</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -2146,8 +2155,11 @@ Address: %4
         <translation>Datum: %1
 Betrag: %2
 Typ: %3
-Adresse: %4
-</translation>
+Adresse: %4</translation>
+    </message>
+    <message>
+        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
+        <translation>Ein fataler Fehler ist aufgetreten. PNY kann nicht länger sicher fortfahren und wird geschlossen</translation>
     </message>
 </context>
 <context>
@@ -2257,6 +2269,130 @@ Adresse: %4
     </message>
 </context>
 <context>
+    <name>PrivacyWidget</name>
+    <message>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Titel</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Druckknopf</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>k.A.</translation>
+    </message>
+    <message>
+        <source>Privacy</source>
+        <translation>Privatsphäre</translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation>Umwandeln</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Prägen</translation>
+    </message>
+    <message>
+        <source>Minting zPNY anonymizes your PNY by removing any
+transaction history, making transactions untraceable </source>
+        <translation>Das Prägen von zPNY anonymisiert Ihre PNY, indem es die Transaktionshistorie entfernt und Transaktionen so nicht rückverfolgbar macht.</translation>
+    </message>
+    <message>
+        <source>Mint new zPNY or convert back to PNY</source>
+        <translation>Präge neue zPNY oder einlösen für PNY</translation>
+    </message>
+    <message>
+        <source>Last zPNY Movements</source>
+        <translation>letzte zPNY Bewegungen</translation>
+    </message>
+    <message>
+        <source>No transactions yet</source>
+        <translation>Keine Transaktionen</translation>
+    </message>
+    <message>
+        <source>Mint zPNY</source>
+        <translation>zPNY prägen</translation>
+    </message>
+    <message>
+        <source>Enter amount of PNY to mint into zPNY</source>
+        <translation>Gebe eine Anzahl PNY ein, um sie in zPNY zu wechseln</translation>
+    </message>
+    <message>
+        <source>Convert back to PNY</source>
+        <translation>Konvertiere zPNY zurück zu PNY</translation>
+    </message>
+    <message>
+        <source>Enter amount of zPNY to convert back into PNY</source>
+        <translation>Geben Sie die Menge zPNY ein, die in PNY umgewandelt werden sollen</translation>
+    </message>
+    <message>
+        <source>Zerocoin</source>
+        <translation>Zerocoin</translation>
+    </message>
+    <message>
+        <source>zPNY is currently undergoing maintenance</source>
+        <translation>zPNY wird momentan überarbeitet</translation>
+    </message>
+    <message>
+        <source>You need to unlock the wallet to be able to %1 zPNY</source>
+        <translation>Sie müssen Ihr Wallet entriegeln, um %1 zPNY zu</translation>
+    </message>
+    <message>
+        <source>convert</source>
+        <translation>Umwandeln</translation>
+    </message>
+    <message>
+        <source>mint</source>
+        <translation>Prägen</translation>
+    </message>
+    <message>
+        <source>Invalid value</source>
+        <translation>Ungültiger Wert</translation>
+    </message>
+    <message>
+        <source>zPNY minted successfully</source>
+        <translation>zPNY erfolgreich geprägt</translation>
+    </message>
+    <message>
+        <source>zPNY converted back to PNY</source>
+        <translation>zPNY zurück in PNY konvertiert</translation>
+    </message>
+    <message>
+        <source>You don't have any PNY to select.</source>
+        <translation>Sie haben keine PNY zu wählen</translation>
+    </message>
+    <message>
+        <source>Rescan Mints</source>
+        <translation>Prägungen erneut scannen</translation>
+    </message>
+    <message>
+        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
+        <translation>Ihre zerocoin Prägungen werden von Beginn der Blockchain gescannt</translation>
+    </message>
+    <message>
+        <source>Reset Spent zPNY</source>
+        <translation>Ausgegebene zPNY erneut senden</translation>
+    </message>
+    <message>
+        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
+        <translation>Ihre Zerocoin-Ausgaben werden von Beginn der Blockchain gescannt</translation>
+    </message>
+    <message>
+        <source>Total %1</source>
+        <translation>Gesamt %1</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
@@ -2307,10 +2443,6 @@ Adresse: %4
         <translation>%1 Ms</translation>
     </message>
     <message>
-        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
-        <translation>Ein fataler Fehler ist aufgetreten. PNY kann nicht länger sicher fortfahren und wird geschlossen</translation>
-    </message>
-    <message>
         <source>PNY Core</source>
         <translation>PNY Core</translation>
     </message>
@@ -2347,10 +2479,6 @@ Adresse: %4
         <translation>Delegierter</translation>
     </message>
     <message>
-        <source>Delegable</source>
-        <translation>zuweisbar</translation>
-    </message>
-    <message>
         <source>Cold Staking</source>
         <translation>Cold Staking</translation>
     </message>
@@ -2375,24 +2503,12 @@ Adresse: %4
         <translation>Kontakte</translation>
     </message>
     <message>
+        <source>Delegators</source>
+        <translation>Delegierte</translation>
+    </message>
+    <message>
         <source>Staking Contacts</source>
         <translation>Staking Kontakte</translation>
-    </message>
-    <message>
-        <source>Date desc</source>
-        <translation>Datum herabsteigend</translation>
-    </message>
-    <message>
-        <source>Date asc</source>
-        <translation>Datum aufsteigend</translation>
-    </message>
-    <message>
-        <source>Amount desc</source>
-        <translation>Menge herabsteigend</translation>
-    </message>
-    <message>
-        <source>Amount asc</source>
-        <translation>Menge aufsteigend</translation>
     </message>
     <message>
         <source>Received</source>
@@ -2445,58 +2561,6 @@ Adresse: %4
     <message>
         <source>by Date</source>
         <translation>nach Datum</translation>
-    </message>
-    <message>
-        <source>Jan</source>
-        <translation>Januar</translation>
-    </message>
-    <message>
-        <source>Feb</source>
-        <translation>Februar</translation>
-    </message>
-    <message>
-        <source>Mar</source>
-        <translation>März</translation>
-    </message>
-    <message>
-        <source>Apr</source>
-        <translation>April</translation>
-    </message>
-    <message>
-        <source>May</source>
-        <translation>Mai</translation>
-    </message>
-    <message>
-        <source>Jun</source>
-        <translation>Juni</translation>
-    </message>
-    <message>
-        <source>Jul</source>
-        <translation>Juli</translation>
-    </message>
-    <message>
-        <source>Aug</source>
-        <translation>August</translation>
-    </message>
-    <message>
-        <source>Sep</source>
-        <translation>September</translation>
-    </message>
-    <message>
-        <source>Oct</source>
-        <translation>Oktober</translation>
-    </message>
-    <message>
-        <source>Nov</source>
-        <translation>November</translation>
-    </message>
-    <message>
-        <source>Dec</source>
-        <translation>Dezember</translation>
-    </message>
-    <message>
-        <source>Address with no label</source>
-        <translation>Adresse ohne Bezeichnung</translation>
     </message>
 </context>
 <context>
@@ -2913,16 +2977,20 @@ Adresse: %4
         <translation>Dialog</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>Meine Adresse</translation>
+        <source>Transaction Details</source>
+        <translation>Transaktionsdetails</translation>
     </message>
     <message>
-        <source>COPY</source>
-        <translation>KOPIEREN</translation>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>ABBRECHEN</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -2932,12 +3000,12 @@ Adresse: %4
         <translation>Formular</translation>
     </message>
     <message>
-        <source>No address</source>
-        <translation>Keine Adresse</translation>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>Scan the QR code or copy the address to receive PNY</source>
-        <translation>Scannen Sie den QR Code oder kopieren Sie die Adresse, um PNY zu erhalten</translation>
+        <source>No address</source>
+        <translation>Keine Adresse</translation>
     </message>
     <message>
         <source>Add Label</source>
@@ -2956,20 +3024,12 @@ Adresse: %4
         <translation>Empfangen</translation>
     </message>
     <message>
-        <source>My Addresses</source>
-        <translation>Meine Adressen</translation>
+        <source>Scan the QR code or copy the address to receive PNY.</source>
+        <translation>QR-Code scannen oder Adresse kopieren um PNY zu erhalten.</translation>
     </message>
     <message>
-        <source>List your own addresses</source>
-        <translation>Eigenen Adressen auflisten</translation>
-    </message>
-    <message>
-        <source>Create Request</source>
-        <translation>Zahlungsanweisung erstellen</translation>
-    </message>
-    <message>
-        <source>Request payment with a fixed amount</source>
-        <translation>Zahlungsanweisung mit festem Betrag erstellen</translation>
+        <source>No address </source>
+        <translation>Keine Adresse</translation>
     </message>
     <message>
         <source>No available address, try unlocking the wallet</source>
@@ -3062,6 +3122,14 @@ Adresse: %4
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>New Request Payment</source>
+        <translation>Neue Zahlung anfordern</translation>
+    </message>
+    <message>
+        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
+        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do </translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Betrag</translation>
     </message>
@@ -3070,8 +3138,8 @@ Adresse: %4
         <translation>PNY</translation>
     </message>
     <message>
-        <source>Instead of sharing only a PNY address, you can create a payment request, bundling up more information</source>
-        <translation>Anstatt nur Ihre PNY Adresse zu teilen, können Sie eine Zahlungsanweisung erstellen, die mehr Information enthält</translation>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
         <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -3090,6 +3158,10 @@ Adresse: %4
         <translation>ABBRECHEN</translation>
     </message>
     <message>
+        <source>REQUEST</source>
+        <translation>Anfordern</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>Bezeichnung</translation>
     </message>
@@ -3100,6 +3172,10 @@ Adresse: %4
     <message>
         <source>New Payment Request</source>
         <translation>Neue Bezahlung anfordern</translation>
+    </message>
+    <message>
+        <source>Instead of sharing only a PNY address, you can create a payment request, bundling up more information.</source>
+        <translation>Anstatt nur eine PNY Adresse zu teilen, können Sie eine Zahlung anfordern, die mehr Informationen enthält.</translation>
     </message>
     <message>
         <source>Enter a label for the address</source>
@@ -3129,22 +3205,6 @@ Adresse: %4
         <source>Amount (optional)</source>
         <translation>Betrag (optional)</translation>
     </message>
-    <message>
-        <source>Address label cannot be empty</source>
-        <translation>Adressbezeichnung kann nicht leer sein</translation>
-    </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation>Ungültiger Betrag</translation>
-    </message>
-    <message>
-        <source>Request for </source>
-        <translation>Zahlungsanweisung für</translation>
-    </message>
-    <message>
-        <source>Cold Staking Address Generated</source>
-        <translation>Cold Staking Adresse erzeugt</translation>
-    </message>
 </context>
 <context>
     <name>SendChangeAddressDialog</name>
@@ -3153,8 +3213,20 @@ Adresse: %4
         <translation>Dialog</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>Transaktionsdetails</translation>
+    </message>
+    <message>
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
+        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>ABBRECHEN</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
@@ -3166,7 +3238,7 @@ Adresse: %4
     </message>
     <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>RESET</source>
@@ -3176,16 +3248,20 @@ Adresse: %4
         <source>Invalid address</source>
         <translation>Ungültige Adresse</translation>
     </message>
-    <message>
-        <source>Cannot use cold staking addresses for change</source>
-        <translation>Eine Cold Staking Adresse kann nicht für Wechselgelder verwendet werden</translation>
-    </message>
 </context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
         <translation>Formular</translation>
+    </message>
+    <message>
+        <source>Transaction Details</source>
+        <translation>Transaktionsdetails</translation>
+    </message>
+    <message>
+        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
+        <translation>Passen Sie die Transaktionsgebühr nach Ihrem Befinden an. Abhängig von der Gebühr wird ihre Transaktion in die Blockchain eingefügt oder vom Netzwerk zurückgewiesen</translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -3200,10 +3276,6 @@ Adresse: %4
         <translation>0.00 KB</translation>
     </message>
     <message>
-        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain</source>
-        <translation>Passen Sie die Transaktionsgebühr an. Abhängig von ihrer Höhe wird Ihre Transaktion schneller in die Blockchain eingefügt</translation>
-    </message>
-    <message>
         <source>Custom</source>
         <translation>Benutzerdefiniert:</translation>
     </message>
@@ -3212,8 +3284,16 @@ Adresse: %4
         <translation>ABBRECHEN</translation>
     </message>
     <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
         <source>Customize Fee</source>
         <translation>Benutzerdefinierte Gebühr</translation>
+    </message>
+    <message>
+        <source>Customize the transaction fee, depending on the fee value your transaction might be included faster in the blockchain.</source>
+        <translation>Passen Sie die Transaktionsgebühr an. Abhängig von der Gebühr kann Ihre Transaktion schneller in die Blockchain eingefügt werden.</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -3229,7 +3309,7 @@ Adresse: %4
     </message>
     <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>Fee too high. Must be below: %1</source>
@@ -3247,12 +3327,12 @@ Adresse: %4
         <translation>Formular</translation>
     </message>
     <message>
-        <source>Enter address</source>
-        <translation>Adresse einfügen</translation>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>Address label (optional)</source>
-        <translation>Adressbezeichnung (Optional)</translation>
+        <source>Enter address</source>
+        <translation>Adresse einfügen</translation>
     </message>
     <message>
         <source>Enter label</source>
@@ -3262,8 +3342,56 @@ Adresse: %4
 <context>
     <name>SendWidget</name>
     <message>
+        <source>Send</source>
+        <translation>Schicken</translation>
+    </message>
+    <message>
+        <source>You can transfer public coins (PNY) or private coins (zPNY)</source>
+        <translation>Sie können öffentliche Coins (PNY) oder private Coins (zPNY) transferieren</translation>
+    </message>
+    <message>
+        <source>Select coin type to spend</source>
+        <translation>Wähle Coin zum ausgeben</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Betrag</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>Benutzerdefinierte Gebühr</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Alles löschen</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>Füge Empfänger hinzu</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>Auf Voreinstellungen zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>Totalbetrag zum Senden</translation>
+    </message>
+    <message>
+        <source>Send PNY</source>
+        <translation>Sende PNY</translation>
+    </message>
+    <message>
+        <source>Send zPNY</source>
+        <translation>Sende zPNY</translation>
+    </message>
+    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>Verbleibender Gesamtbetrag von der ausgewählten UTXO</translation>
+    </message>
+    <message>
+        <source>Total remaining</source>
+        <translation>Verbleibender Gesamtbetrag</translation>
     </message>
     <message>
         <source>Warning!</source>
@@ -3285,16 +3413,16 @@ Möchten Sie fortfahren?</translation>
         <translation>Maximale Anzahl an Outputs erreicht</translation>
     </message>
     <message>
+        <source>PNY address or contact label</source>
+        <translation>PNY Adresse oder Kontaktbezeichnung</translation>
+    </message>
+    <message>
         <source>Invalid entry, previous entries must be valid before add a new one</source>
         <translation>Ungültige Eingabe, vorangehende Eingaben müssen gültig sein bevor eine neue angefügt werden kann</translation>
     </message>
     <message>
-        <source>Possibly spend coins delegated for cold-staking (currently available: %1</source>
-        <translation>Möglicherweise für das Cold Staking ausgegebene Münzen (bisher verfügbar: %1</translation>
-    </message>
-    <message>
         <source>Invalid entry</source>
-        <translation>Ungültiger Eintrag</translation>
+        <translation>Ungültige Eingabe</translation>
     </message>
     <message>
         <source>No set recipients</source>
@@ -3320,6 +3448,52 @@ Transaktion gibt eine cold-staking Zuweisung aus und macht diese nichtig. Diese 
         <translation>Transaktion geschickt</translation>
     </message>
     <message>
+        <source>Spend Zerocoin</source>
+        <translation>Überweise Zerocoin</translation>
+    </message>
+    <message>
+        <source>zPNY is currently undergoing maintenance.</source>
+        <translation>zPNY unterliegt momentan Wartungsarbeiten.</translation>
+    </message>
+    <message>
+        <source>Coin control mint not found</source>
+        <translation>Coin control mint nicht gefunden</translation>
+    </message>
+    <message>
+        <source>Sending %1 to address %2
+</source>
+        <translation>Sende %1 an Adresse %2</translation>
+    </message>
+    <message>
+        <source>Sending %1 to addresses:
+%2</source>
+        <translation>Sende %1 an Adressen %2</translation>
+    </message>
+    <message>
+        <source>zPNY transaction sent!</source>
+        <translation>zPNY Transaktion ausgeführt</translation>
+    </message>
+    <message>
+        <source>Version 1 zPNY require a security level of 100 to successfully spend.</source>
+        <translation>Version 1 zPNY benötigen eine Sicherheitsstufe von 100 um erfolgreich ausgegeben werden zu können.</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>Zu viele Eingaben (</translation>
+    </message>
+    <message>
+        <source>) needed.
+Maximum allowed: </source>
+        <translation>) benötigt.
+Maximal erlaubt:</translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>
+Präge entweder höhere Stückelungen (damit weniger Eingaben benötigt werdenn) oder reduziere die aufzuwendende Menge.</translation>
+    </message>
+    <message>
         <source>Address label update failed for address: %1</source>
         <translation>Update fpr Adressbezeichnung der Adresse %1 gescheitert</translation>
     </message>
@@ -3336,36 +3510,12 @@ Transaktion gibt eine cold-staking Zuweisung aus und macht diese nichtig. Diese 
         <translation>Benutzerdefinierte Gebühr %1</translation>
     </message>
     <message>
-        <source>Coin Control</source>
-        <translation>Coinverwaltung</translation>
+        <source>You don't have any PNY to select.</source>
+        <translation>Sie haben keine PNY zu wählen</translation>
     </message>
     <message>
-        <source>Select the source of the coins</source>
-        <translation>Wählen Sie die Quelle der Münzen</translation>
-    </message>
-    <message>
-        <source>Change Address</source>
-        <translation>Wechseladresse</translation>
-    </message>
-    <message>
-        <source>Customize the change address</source>
-        <translation>Wechseladresse anpassen</translation>
-    </message>
-    <message>
-        <source>Open URI</source>
-        <translation>URI öffnen</translation>
-    </message>
-    <message>
-        <source>Parse a payment request</source>
-        <translation>Zahlungsanweisung parsen</translation>
-    </message>
-    <message>
-        <source>Unlocked remaining</source>
-        <translation>Verbleibende entsperren</translation>
-    </message>
-    <message>
-        <source>You don't have any %1 to select.</source>
-        <translation>Sie haben keine %1 für die Auswahl.</translation>
+        <source>You don't have any zPNY in your balance to select.</source>
+        <translation>Sie haben keine zPNY zum Auswählen</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -3411,8 +3561,21 @@ Transaktion gibt eine cold-staking Zuweisung aus und macht diese nichtig. Diese 
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>Backup Wallet </source>
+        <translation>Backup Wallet</translation>
+    </message>
+    <message>
         <source>Change Wallet Passphrase</source>
         <translation>Wallet Passwort ändern</translation>
+    </message>
+    <message>
+        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
+Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
+        <translation>Dies wird die Walletdatei entschlüsseln und mit einer neuen Passphrase verschlüsseln. Bedenken Sie, diese aufzuschreiben und sicher zu verwahren. Andernfalls können Sie den Zugriff auf Ihr Vermögen verlieren</translation>
     </message>
     <message>
         <source>Where</source>
@@ -3420,19 +3583,13 @@ Transaktion gibt eine cold-staking Zuweisung aus und macht diese nichtig. Diese 
     </message>
     <message>
         <source>Keep your wallet safe by doing regular backups and storing your backup file externally.
-This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device</source>
-        <translation>Halten Sie Ihre Wallet durch regelmäßige Backups sicher und speichern Sie Ihr Backup extern.
-Diese Option erzeugt eine Wallet.dat Datei, die für die WIederherstellung ihrer Bilanz (Transaktionen und Adressen) auf einem anderen Gerät genutzt werden kann </translation>
+This option creates a wallet.dat file that can be used to recover your whole balance (transactions and addresses) on another device.</source>
+        <translation>Halten Sie Ihr Wallet durch regelmäßiges Backup sicher und speichern Sie diese auf einem externen Gerät ab.
+Diese Option erzeugt eine wallet.dat Datei, die sie nutzen können, um Ihr Vermögen (Transaktionen und Adressen) auf einem anderen Gerät vollständig wiederherzustellen.</translation>
     </message>
     <message>
         <source>Select folder...</source>
         <translation>Ordner auswählen</translation>
-    </message>
-    <message>
-        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
-Remember to write it down and store it safely, otherwise you might lose access to your funds</source>
-        <translation>Dies wird alle Daten des Wallets entschlüsseln und mit einer neuen Passphrase verschlüsseln.
-Vergewissern SIe sich, diese aufzuschreiben und sicher zu verwahren, andernfalls können Sie den Zugriff auf Ihre Münzen verlieren.</translation>
     </message>
     <message>
         <source>Change Passphrase</source>
@@ -3466,18 +3623,28 @@ Vergewissern SIe sich, diese aufzuschreiben und sicher zu verwahren, andernfalls
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Druckknopf</translation>
+    </message>
+    <message>
+        <source>Decrypt Address Result</source>
+        <translation>Entschlüssel Adressergebnisse</translation>
+    </message>
+    <message>
         <source>Import Address</source>
         <translation>Adresse importieren</translation>
     </message>
     <message>
-        <source>BIP38 Tool</source>
-        <translation>BIP 38 Werkzeug</translation>
+        <source>Clear</source>
+        <translation>Clear</translation>
     </message>
     <message>
-        <source>Encrypt your PNY addresses (key pair actually) using BIP38 encryption.
-Using this mechanism you can share your keys without middle-man risk, only need to store your passphrase safely</source>
-        <translation>Verschlüsseln Sie Ihre PNY Adressen mit der Verschlüsselung nach BIP38 (Schlüsselpaare).
-Damit können Sie ihre Schlüssel sicher ohne Middle-Man Risiko teilen. Sie müssen nur Ihre Passphrase sicher aufbewahren.</translation>
+        <source>BIP38 Tool</source>
+        <translation>BIP 38 Werkzeug</translation>
     </message>
     <message>
         <source>Encrypt</source>
@@ -3500,16 +3667,16 @@ Damit können Sie ihre Schlüssel sicher ohne Middle-Man Risiko teilen. Sie müs
         <translation>Passphrase</translation>
     </message>
     <message>
+        <source>Enter a passphrase </source>
+        <translation>Gib eine Passphrase ein</translation>
+    </message>
+    <message>
         <source>Decrypted address result</source>
         <translation>Ergebnisse entschlüsselter Adressen</translation>
     </message>
     <message>
         <source>Decrypted Address</source>
         <translation>Entschlüsselte Adresse</translation>
-    </message>
-    <message>
-        <source>DECRYPT KEY</source>
-        <translation>CHIFFRE ZUR ENTSCHLÜSSELUNG</translation>
     </message>
     <message>
         <source>PNY address</source>
@@ -3534,10 +3701,6 @@ Damit können Sie ihre Schlüssel sicher ohne Middle-Man Risiko teilen. Sie müs
     <message>
         <source>CLEAR ALL</source>
         <translation>ALLES LÖSCHEN</translation>
-    </message>
-    <message>
-        <source>Enter a passphrase</source>
-        <translation>Geben Sie eine Passphrase ein</translation>
     </message>
     <message>
         <source>CLEAR</source>
@@ -3619,6 +3782,10 @@ Damit können Sie ihre Schlüssel sicher ohne Middle-Man Risiko teilen. Sie müs
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
         <source>Console</source>
         <translation>Konsole</translation>
     </message>
@@ -3627,12 +3794,12 @@ Damit können Sie ihre Schlüssel sicher ohne Middle-Man Risiko teilen. Sie müs
         <translation>Konsoleneingabe</translation>
     </message>
     <message>
-        <source>Open Debug File</source>
-        <translation>Öffne Debug-Datei</translation>
+        <source>Command Line Options </source>
+        <translation>Befehlszeilenoptionen</translation>
     </message>
     <message>
-        <source>Command Line Options</source>
-        <translation>Optionen für die Kommandozeile</translation>
+        <source>Open Debug File</source>
+        <translation>Öffne Debug-Datei</translation>
     </message>
     <message>
         <source>Clear history</source>
@@ -3665,6 +3832,10 @@ Verify that you have installed a predetermined text editor.</source>
     <message>
         <source>Form</source>
         <translation>Formular</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
         <source>Hide stake charts in the dashboard</source>
@@ -3708,7 +3879,7 @@ Verify that you have installed a predetermined text editor.</source>
     </message>
     <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>default</source>
@@ -3829,6 +4000,14 @@ Es gab ein Problem bei dem Versuch die Adressen unter %1 zu speichern. Bitte ver
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Druckknopf</translation>
+    </message>
+    <message>
         <source>1) What is PNY?</source>
         <translation>1) Was ist PNY?</translation>
     </message>
@@ -3837,8 +4016,37 @@ Es gab ein Problem bei dem Versuch die Adressen unter %1 zu speichern. Bitte ver
         <translation>2) Wieso kann ich meine PNY nicht ausgeben?</translation>
     </message>
     <message>
-        <source>https://peonycoin.io/</source>
-        <translation>https://peonycoin.io/</translation>
+        <source>3) PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation>3) PNY Privatsphäre? Was ist ein Zercoin (zPNY)?</translation>
+    </message>
+    <message>
+        <source>4) Why are my zPNY unspendable?</source>
+        <translation>4) Wieso kann ich meine zPNY nicht ausgeben?</translation>
+    </message>
+    <message>
+        <source>5) Why did my wallet convert the balance
+    into zPNY automatically?</source>
+        <translation>5) Wieso hat meine Wallet automatisch das Guthaben in zPNY gewechselt?</translation>
+    </message>
+    <message>
+        <source>6) How do I receive PNY/zPNY?</source>
+        <translation>6) Wie empfange ich PNY/zPNY?</translation>
+    </message>
+    <message>
+        <source>7) How do I stake PNY/zPNY?</source>
+        <translation>7) Wie stake ich PNY/zPNY?</translation>
+    </message>
+    <message>
+        <source>8) Where I should go if I need support?</source>
+        <translation>8) Wo sollte ich hingehen, wenn ich ein Problem habe?</translation>
+    </message>
+    <message>
+        <source>9) What is a Masternode?</source>
+        <translation>9) Was ist ein Masternode?</translation>
+    </message>
+    <message>
+        <source>10) What is a Masternode Controller?</source>
+        <translation>10) Was ist ein Masternode Controller?</translation>
     </message>
     <message>
         <source>1</source>
@@ -3892,28 +4100,181 @@ PNY nutzt einen PoS Konsensalgorithmus, der es den Besitzern von PNY erlaubt, an
         <translation>3</translation>
     </message>
     <message>
-        <source>How do I stake PNY?</source>
-        <translation>Wie stake ich PNY?</translation>
+        <source>PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation>PNY Privatsphäre? Was ist ein Zercoin (zPNY)?</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;"&gt;&lt;li align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Make sure your wallet is completely synchronized and you are using the latest release. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;You must have a balance of PNY with a minimum of 600 confirmations. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Your wallet must stay online and be unlocked for staking purposes. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Once all those steps are followed staking should be enabled. &lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state &amp;quot;Staking Enabled&amp;quot; to indicate it is staking. Using the command line interface (pny-cli); the command &lt;span style=" font-style:italic;"&gt;getstakingstatus&lt;/span&gt; will confirm that staking is active. &lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;ol style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; -qt-list-indent: 1;"&gt;&lt;li align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Stellen Sie sicher, dass Ihre Wallet komplett synchronisiert ist und Sie die neueste Version verwenden.&lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Sie müssen einige PNY mit mindestens 600 Bestätigungen halten.&lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Ihre Wallt muss online und über den gesamten Staking Prozess entriegelt sein.&lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Sobald Sie all diese Schritte befolgen, sollte das Staking ermöglicht sein.&lt;/li&gt;&lt;li align="justify" style=" margin-top:0px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Sie können den Status des Stakings einsehen, indem Sie mit der Maus über das Paket Symbol in der oberen Reihe links ziehen. Das Paket wird aufleuchten und anzeigen: &amp;quot;Staking Enabled&amp;quot; , um Staking anzuzeigen. In der Kommandozeile (pny-cli) zeigt der Befehl &lt;span style=" font-style:italic;"&gt;getstakingstatus&lt;/span&gt; den Status an.&lt;/li&gt;&lt;/ol&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           zPNY is an optional privacy-centric method of coin mixing on the
+                           PNY blockchain. Basically all your transactions cannot be tracked
+                           on to any block explorer. You can read more about the technicals in the
+                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;
+                           "PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+zPNY ist eine optionale Methode zur Mischung von Münzen auf der PNY Blockchain, deren Fokus auf Privatsphäre liegt. Im Grunde können all Ihre Transaktionen nicht auf einem Blockexplorer verfolgt werden. Hier  finden Sie mehr über die Technik heraus.
+&lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;
+"PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;
+&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
+        <source>Why are my zPNY unspendable?</source>
+        <translation>Wieso kann ich meine zPNY nicht ausgeben?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           After minting, zPNY will require 20 confirmations as well as 1
+                           additional mint of the same denomination on the network to
+                           become eligible for spending.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>Nach der Prägung - dem Minting - benötigen zPNY 20 Bestätigungen und eine weitere Prägung gleichen Nennwerts, bevor diese für Zahlungen geeignet sind.</translation>
+    </message>
+    <message>
         <source>5</source>
         <translation>5</translation>
+    </message>
+    <message>
+        <source>Why did my wallet convert the balance into zPNY automatically?</source>
+        <translation>Wieso hat meine Wallet automatisch das Guthaben in zPNY gewechselt?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           By default the PNY wallet will convert 10% of your entire PNY
+                           balance to zPNY to assist the network. If you do not wish to
+                           stake zPNY or take advantage of the privacy benefit it brings,
+                           you can disable the automatic minting in your PNY wallet by
+                           going to Settings-&gt;Options and deselecting “Enable zPNY Automint”.
+                           If you are not making use of the PNY-QT or GUI you can simply open
+                           your pny.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
+                           marks and restart your wallet to disable automint.&lt;/p&gt;
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           You can read more about zPNY in the
+                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt; "PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;.
+                           If you would like to keep and stake your zPNY, please read the "How do I stake"
+                           section of the FAQ below.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;In den Standardeinstellungen werden 10% Ihrer PNY zu zPNY konvertiert, um das Netzwerk zu unterstützen. Wenn nicht zPNY staken wollen oder nicht von den Vorteilen in der Privatsphäre, die dies bringt, profitieren wollen, können Sie das automatische Prägen in Ihrem PNY Wallet ausschalten. Gehen Sie hierfür zu Einstellungen-&gt; Optionen und schalten Sie "zPNY Autoprägung" ab.
+Wenn Sie von PNY-QT oder der GUI keinen Gebrauch machen, können Sie einfach Ihre pny.conf Datei geöffnet lassen und die Zeile &lt;i&gt;enablezeromint=0&lt;/i&gt; ohne die Anführungszeichen hizufügen. Starten Sie dann Ihr Wallet neu, um die Autoprägung abzustellen.&lt;/p&gt;&lt;/p&gt;&lt;p align="justify"&gt; 
+Erfahren Sie mehr über zPNY in dem &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;"PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;
+Wenn Sie Ihr zPNY weiterhin staken wollen, lesen Sie bitte die Sektion "Wie stake ich"
+in den FAQs&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;.</translation>
     </message>
     <message>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
+        <source>How do I receive PNY/zPNY?</source>
+        <translation>Wie empfange ich PNY/zPNY?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           zPNY can be spent and sent to any PNY address. The receiver will
+                           receive standard PNY but the origin of the PNY is anonymized by the zPNY Protocol.
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           If you want more zPNY you will need to mint your balance in the “Privacy” tab.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+zPNY können zu jeder PNY Adresse gesendet werden. Der Empfänger wird die standardmäßigen PNY erhalten, aber der Ursprung der PNY ist durch das  zPNY Protokoll anonymisiert.
+&lt;/p&gt;&lt;p align="justify"&gt;
+Wenn Sie mehr zPNY wollen, müssen Sie in ihrem "Privatsphäre" Tab mehr prägen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>7</source>
+        <translation>7</translation>
+    </message>
+    <message>
+        <source>How do I stake PNY/zPNY?</source>
+        <translation>Wie stake ich PNY/zPNY?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           To Stake PNY:
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           &lt;ol&gt;&lt;li&gt;
+                           Make sure your wallet is completely synchronized and you are using the latest release.
+                           &lt;li&gt;
+                           You must have a balance of PNY with a minimum of 600 confirmations.
+                           &lt;li&gt;
+                           Your wallet must stay online and be unlocked for staking purposes.
+                           &lt;li&gt;
+                           Once all those steps are followed staking should be enabled.
+                           &lt;li&gt;
+                           You can see the status of staking in the wallet by mousing over the package icon in the row on the top left of the wallet interface. There package will be lit up and will state "Staking Enabled" to indicate it is staking.  Using the command line interface (pny-cli); the command &lt;i&gt;getstakingstatus&lt;/i&gt; will confirm that staking is active.
+                           &lt;/li&gt;&lt;/ol&gt;
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           To Stake zPNY:
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           &lt;ol&gt;&lt;li&gt;
+                           Make sure your wallet is completely synchronized and you are using the latest release.
+                           &lt;li&gt;
+                           Your newly minted or existing zPNY balance must have a minimum of 200 confirmations.
+                           &lt;li&gt;
+                           Your wallet must stay online and be unlocked for anonymization and staking purposes.
+                           Staking should now be enabled.
+                           &lt;/li&gt;&lt;/ol&gt;
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+Um PNY zu staken:&lt;/p&gt;&lt;p align="justify"&gt;
+&lt;ol&gt;&lt;li&gt;
+Stellen Sie sicher, dass Ihr Wallet komplett synchronisiert ist und Sie die aktuellste Version verwenden.
+&lt;li&gt;
+Sie müssen eine Mindestmenge an PNY mit 600 Bestätigungen halten
+&lt;li&gt;
+Zu Stakingzwecken muss Ihr Wallet online und entriegelt bleiben
+&lt;li&gt;
+Wenn diese Bedingungen erfüllt sind, sollte Staking möglich sein.&lt;li&gt;
+Sie können den Status in dem Wallet sehen, wenn Sie mit der Maus über das "Paket"-Icon in der oberen Zeile fahren. Das Paket wird aufleuchten und "Staking eingeschaltet" anzeigen, um den Stakingporzess anzuzeigen. In der Kommandozeile wird Ihnen der Befehl (pny-cli);&lt;i&gt;getstaking&lt;/i&gt;bestätigen, dass das Staking aktiv ist. 
+&lt;/li&gt;&lt;/ol&gt;
+&lt;/p&gt;&lt;p align="justify"&gt;
+Um zPNY zu staken:
+&lt;/p&gt;&lt;p align="justify"&gt;
+&lt;ol&gt;&lt;li&gt;
+Stellen Sie sicher, dass Ihr Wallet komplett synchronisiert ist und Sie die aktuellste Version verwenden.
+&lt;li&gt;
+Ihre neu erzeugten zPNY oder Ihre vorhandenen zPNY müssen mindestens 200 Bestätigungen aufweisen.
+&lt;li&gt;
+Zu Stakingzwecken muss Ihr Wallet online und entriegelt bleiben.
+&lt;/li&gt;&lt;/ol&gt;
+&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
         <source>Where should I go if I need support?</source>
         <translation>An wen kann ich mich wenden, wenn ich Hilfe benötige?</translation>
+    </message>
+    <message>
+        <source>What is a Masternode?</source>
+        <translation>Was ist ein Masternode?</translation>
+    </message>
+    <message>
+        <source>What is a Masternode Controller?</source>
+        <translation>Was ist ein Masternode Controller?</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Ein Masternode Controller Wallet ist, wo die 10.000 PNY Kollateral verweilen können, während ein Controller-Remote Masternode Setup erfolgt. Es ist ein Wallet, das remote Masternode Wallet(s) aktiviert und Ihnen erlaubt, ihre Kollateral-Münzen offline zu halten, während der remote Masternode online bleibt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
+    </message>
+    <message>
+        <source>8</source>
+        <translation>8</translation>
     </message>
     <message>
         <source>
@@ -3921,7 +4282,7 @@ PNY nutzt einen PoS Konsensalgorithmus, der es den Besitzern von PNY erlaubt, an
                            We have support channels in most of our official chat groups, for example
                            &lt;a style='color: #cfc8af' href='https://discord.peonycoin.io'&gt;
                            #support in our Discord&lt;/a&gt;.
-                           If you prefer to submit a ticket, You can do so at
+                           If you prefer to submit a ticket, One can be
                            &lt;a style='color: #cfc8af' href='https://PNY.freshdesk.com'&gt;
                            our Freshdesk support site&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
@@ -3937,36 +4298,16 @@ unsere Support-Seite.&lt;/a&gt;
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>What is a Masternode?</source>
-        <translation>Was ist ein Masternode?</translation>
+        <source>9</source>
+        <translation>9</translation>
     </message>
     <message>
-        <source>What is a Masternode Controller?</source>
-        <translation>Was ist ein Masternode Controller?</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;A Masternode Controller wallet is where the 10,000 PNY collateral can reside during a Controller-Remote masternode setup. It is a wallet that can activate the remote masternode wallet(s) and allows you to keep your collateral coins offline while the remote masternode remains online. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;Ein Masternode Controller Wallet ist, wo die 10.000 PNY Kollateral verweilen können, während ein Controller-Remote Masternode Setup erfolgt. Es ist ein Wallet, das remote Masternode Wallet(s) aktiviert und Ihnen erlaubt, ihre Kollateral-Münzen offline zu halten, während der remote Masternode online bleibt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt; </translation>
+        <source>10</source>
+        <translation>10</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
         <translation>Häufig gestellte Fragen</translation>
-    </message>
-    <message>
-        <source>3) How do I stake PNY?</source>
-        <translation>3) Wie stake ich PNY?</translation>
-    </message>
-    <message>
-        <source>4) Where I should go if I need support?</source>
-        <translation>4) An wen soll ich mich wenden, wenn ich Hilfe benötige?</translation>
-    </message>
-    <message>
-        <source>5) What is a Masternode?</source>
-        <translation>5) Was ist ein Masternode?</translation>
-    </message>
-    <message>
-        <source>6) What is a Masternode Controller?</source>
-        <translation>6) Was ist ein Masternode Controller?</translation>
     </message>
     <message>
         <source>You can read more here</source>
@@ -4095,12 +4436,20 @@ unsere Support-Seite.&lt;/a&gt;
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
         <source>Customize the application window options</source>
         <translation>Optionen des Anwendungsfensters anpassen</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>Checkbox</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -4112,15 +4461,11 @@ unsere Support-Seite.&lt;/a&gt;
     </message>
     <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>Main</source>
         <translation>Main</translation>
-    </message>
-    <message>
-        <source>Customize the main application options</source>
-        <translation>Die Optionen der Hauptanwendung anpassen</translation>
     </message>
     <message>
         <source>Size of database cache</source>
@@ -4180,7 +4525,7 @@ Sind Sie sicher?</translation>
     </message>
     <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>New recipient for multisend</source>
@@ -4322,6 +4667,14 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Clear</translation>
+    </message>
+    <message>
         <source>Sign/Verify Message</source>
         <translation>Signiere/Verifiziere Nachricht</translation>
     </message>
@@ -4332,10 +4685,6 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
     <message>
         <source>Verify</source>
         <translation>Verifiziere</translation>
-    </message>
-    <message>
-        <source>Write message here...</source>
-        <translation>Hier eine Nachricht schreiben...</translation>
     </message>
     <message>
         <source>Select mode</source>
@@ -4352,6 +4701,10 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
     <message>
         <source>Enter address</source>
         <translation>Adresse einfügen</translation>
+    </message>
+    <message>
+        <source>Write message</source>
+        <translation>Nachricht schreiben</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -4437,6 +4790,18 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>Checkbox</translation>
+    </message>
+    <message>
+        <source>RadioButton</source>
+        <translation>RadioButton</translation>
+    </message>
+    <message>
         <source>Reset to default</source>
         <translation>Auf Voreinstellungen zurücksetzen</translation>
     </message>
@@ -4453,8 +4818,8 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
         <translation>Interne Optionen des Wallets anpassen</translation>
     </message>
     <message>
-        <source>Stake split threshold</source>
-        <translation>Stake split Schwelle</translation>
+        <source>Stake split threshold:</source>
+        <translation>Staff Split-Schwelle:</translation>
     </message>
     <message>
         <source>Spend unconfirmed change</source>
@@ -4469,36 +4834,28 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
         <translation>Optionen des Node-Netzwerks anpassen</translation>
     </message>
     <message>
-        <source>Connect through SOCKS5 proxy (default proxy)</source>
-        <translation>Über SOCKS5 Proxy verbinden (standard)</translation>
-    </message>
-    <message>
-        <source>Proxy IP</source>
-        <translation>Proxy IP</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <source>Enter port</source>
-        <translation>Port eingeben</translation>
+        <source>Proxy IP:</source>
+        <translation>Proxy IP:</translation>
     </message>
     <message>
         <source>Enter proxy IP</source>
         <translation>Proxy IP eingeben</translation>
     </message>
     <message>
-        <source>Map port using UPnP</source>
-        <translation>Port mittels UPnP mappen</translation>
+        <source>Port:</source>
+        <translation>Port</translation>
     </message>
     <message>
         <source>Allow incoming connections</source>
         <translation>Eingehende Verbindungen erlauben</translation>
     </message>
     <message>
+        <source>Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>Durch SOCKS5 Verbinden (Standardmäßiger Proxy):</translation>
+    </message>
+    <message>
         <source>SAVE</source>
-        <translation>SPEICHERN</translation>
+        <translation>SICHERN</translation>
     </message>
     <message>
         <source>Options reset succeed</source>
@@ -4512,32 +4869,52 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
         <translation>Formular</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
+    </message>
+    <message>
         <source>Wallet Repair</source>
         <translation>Wallet Reparatur</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
+        <translation>Durch die unteren Buttons wird das Wallet mit den Kommandozeilen Optionen für die Reparatur dieses Wallets, zur Behebung von Fehlern mit beschädigten Blockchain Datein oder zur Behebung fehlender/obsolter Transaktionen neu gestartet</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Versuche, private Schlüssel aus einer beschädigten wallet.dat wiederherzustellen.</translation>
+    </message>
+    <message>
+        <source>Rescan the blockchain for missing wallet transactions.</source>
+        <translation>Blockchain nach fehlenden Transaktionen durchsuchen</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
+        <translation>Transaktionen aus Blockchain wiederherstellen (Behalte Metadaten wie Account Besitzer)</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>Wiederherstellung von Transaktionen aus der Blockchain (verwerfe Meta-Daten)</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>Upgrade das Wallet zum aktuellen Format bei Start-up. (Bedenke: Dies updated nicht das Wallet selbst)</translation>
     </message>
     <message>
-        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions</source>
-        <translation>Der untere Knopf wird das Wallet mit den Kommandozeilenoptionen für die Reparatur, die Problembehebung beschädigter Blockchaindatein oder das Beheben fehlender/osbsolter Transaktionen neu starten.</translation>
+        <source>Rebuild blockchain index from current blk000???.dat files.</source>
+        <translation>Rekonstruiere Blockchain Index aus blk000???.dat Datein</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Löscht alle lokalen Blockchain-Ordner damit das Wallet sich von Grund auf synchronisiert.</translation>
     </message>
     <message>
         <source>Salvage wallet</source>
         <translation>Wallet Rettung</translation>
     </message>
     <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation>Versuche private Schlüssel aus fehlerhafter wallet.dat wiederherzustellen.</translation>
-    </message>
-    <message>
         <source>Rescan blockchain file</source>
         <translation>Blockchain Datei erneut scannen</translation>
-    </message>
-    <message>
-        <source>Rescan the blockchain for missing wallet transactions</source>
-        <translation>Blockchain nochmals scannen um fehlende Transaktionen zu laden</translation>
     </message>
     <message>
         <source>Recover transactions 1</source>
@@ -4556,16 +4933,8 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
         <translation>Index neu aufbauen</translation>
     </message>
     <message>
-        <source>Rebuild blockchain index from current blk000???.dat files</source>
-        <translation>Baue den Blockchain-Index mithilfe der aktuellen blk000??.dat Datei erneut auf</translation>
-    </message>
-    <message>
-        <source>Delete local blockchain</source>
-        <translation>Lokale Blockchain-Daten löschen</translation>
-    </message>
-    <message>
-        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch</source>
-        <translation>Löscht sämtliche Blockchain-Daten, die Wallet wird komplett neu syncronisiert</translation>
+        <source>Delete local blockchain </source>
+        <translation>Lokale Blockchain löschen</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -4672,15 +5041,11 @@ Aktivieren Sie eine oder beide Checkboxen, um Stake oder Masternode Rewards zu s
     </message>
     <message>
         <source>Client restart required to activate changes.</source>
-        <translation>Neustart des Clients erforderlich, um Änderungen zu aktivieren.</translation>
+        <translation>Client Neustart erforderlich, um Änderungen zu aktivieren.</translation>
     </message>
     <message>
         <source>Client will be shutdown, do you want to proceed?</source>
         <translation>Der Client wird heruntergefahren, wollen Sie fortfahren?</translation>
-    </message>
-    <message>
-        <source>Stake Split too low, it shall be either &gt;= %1 or equal to 0 (to disable stake splitting)</source>
-        <translation>Stake split zu klein, es sollte besser &gt;= %1 oder gleich 0 (zum deaktivieren des Stake splittings)</translation>
     </message>
     <message>
         <source>Restart required</source>
@@ -4765,6 +5130,26 @@ Sind Sie sicher?</translation>
 <context>
     <name>SplashScreen</name>
     <message>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>Version %1</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>Die Bitcoin Core Entwickler</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>Die Dash Core Entwickler</translation>
+    </message>
+    <message>
+        <source>The PNY Core developers</source>
+        <translation>Die PNY Core Entwickler</translation>
+    </message>
+    <message>
         <source>[testnet]</source>
         <translation>[Testnetzwerk]</translation>
     </message>
@@ -4830,10 +5215,6 @@ Sind Sie sicher?</translation>
         <source>Staking not active</source>
         <translation>Staking nicht aktiv</translation>
     </message>
-    <message numerus="yes">
-        <source>%n active connection(s)</source>
-        <translation><numerusform>%n aktive Verbindung(en)</numerusform><numerusform>%n aktive Verbindung(en)</numerusform></translation>
-    </message>
     <message>
         <source>Synchronized - Block: %1</source>
         <translation>Synchronisierter Block:%1</translation>
@@ -4891,54 +5272,6 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
     <message>
         <source>Tor Disabled</source>
         <translation>Tor ausgeschaltet</translation>
-    </message>
-    <message>
-        <source>FAQ</source>
-        <translation>FAQ</translation>
-    </message>
-    <message>
-        <source>Upgrade to HD Wallet</source>
-        <translation>Zur HD Wlattet upgraden</translation>
-    </message>
-    <message>
-        <source>No Connection</source>
-        <translation>Keine Verbindung</translation>
-    </message>
-    <message>
-        <source>Staking Disabled</source>
-        <translation>Staking ausgeschaltet</translation>
-    </message>
-    <message>
-        <source>Cold Staking Disabled</source>
-        <translation>Cold Staking deaktiviert</translation>
-    </message>
-    <message>
-        <source> %54 Synchronizing..</source>
-        <translation>%54 Synchronisiert</translation>
-    </message>
-    <message>
-        <source>Light Theme</source>
-        <translation>Helles Theme</translation>
-    </message>
-    <message>
-        <source>Dark Theme</source>
-        <translation>Dunkles Theme</translation>
-    </message>
-    <message>
-        <source>Wallet Locked </source>
-        <translation>Wallet gesperrt</translation>
-    </message>
-    <message>
-        <source>Wallet Locked</source>
-        <translation>Wallet gesperrt</translation>
-    </message>
-    <message>
-        <source>Wallet Unlocked</source>
-        <translation>Wallet entsperrt</translation>
-    </message>
-    <message>
-        <source>Wallet Unencrypted</source>
-        <translation>Wallet unverschlüsselt</translation>
     </message>
     <message>
         <source>Available (Locked included)</source>
@@ -5064,7 +5397,7 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
     </message>
     <message numerus="yes">
         <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, Broadcast durch %n Nodes</numerusform><numerusform>, Broadcast durch %n Nodes</numerusform></translation>
+        <translation><numerusform>, über %n Knoten übertragen</numerusform><numerusform>, über %n Knoten übertragen</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -5242,24 +5575,40 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
         <translation>Empfangen von</translation>
     </message>
     <message>
-        <source>%1 Stake</source>
-        <translation>%1 Stake</translation>
+        <source>PNY Stake</source>
+        <translation>PNY Stake</translation>
     </message>
     <message>
-        <source>z%1 Stake</source>
-        <translation>z%1 Stake</translation>
+        <source>zPNY Stake</source>
+        <translation>zPNY Stake</translation>
     </message>
     <message>
-        <source>%1 Cold Stake</source>
-        <translation>%1 Cold Stake</translation>
-    </message>
-    <message>
-        <source>%1 Stake on behalf of</source>
-        <translation>%1 Stake im Auftrag von</translation>
+        <source>PNY Cold Stake</source>
+        <translation>PNY Cold Stake</translation>
     </message>
     <message>
         <source>Stake delegation</source>
         <translation>Stake Zuweisung</translation>
+    </message>
+    <message>
+        <source>Converted PNY to zPNY</source>
+        <translation>Umgewandeltes PNY zu zPNY</translation>
+    </message>
+    <message>
+        <source>Spent zPNY</source>
+        <translation>Ausgegebene zPNY</translation>
+    </message>
+    <message>
+        <source>Received PNY from zPNY</source>
+        <translation>Empfangene PNY von zPNY</translation>
+    </message>
+    <message>
+        <source>Minted Change as zPNY from zPNY Spend</source>
+        <translation>Geprägtes zPNY Wechselgeld aus zPNY Überweisung</translation>
+    </message>
+    <message>
+        <source>Converted zPNY to PNY</source>
+        <translation>Umgewandeltes zPNY zu PNY</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -5274,24 +5623,16 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
         <translation>Eigenüberweisung</translation>
     </message>
     <message>
+        <source>PNY Stake on behalf of</source>
+        <translation>PNY Stake im Auftrag von</translation>
+    </message>
+    <message>
         <source>Stake delegation spent by</source>
         <translation>Stake Zuweisung ausgegeben durch</translation>
     </message>
     <message>
         <source>Mined</source>
         <translation>Erarbeitet</translation>
-    </message>
-    <message>
-        <source>Converted %1 to z%1</source>
-        <translation>z%1 zu %1 konvertiert</translation>
-    </message>
-    <message>
-        <source>Received %1 from z%1</source>
-        <translation>%1 empfangen von z%1</translation>
-    </message>
-    <message>
-        <source>Converted z%1 to %1</source>
-        <translation>Konvertiere z%1 zu %1</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -5394,7 +5735,7 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
     </message>
     <message>
         <source>Confirmations</source>
-        <translation>Bestätigungen</translation>
+        <translation>Betätigungen</translation>
     </message>
     <message>
         <source>Status</source>
@@ -5429,10 +5770,6 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
         <translation>ID kopiert</translation>
     </message>
     <message>
-        <source>Delegating to</source>
-        <translation>Delegieren zu</translation>
-    </message>
-    <message>
         <source>Unknown</source>
         <translation>Unbekannt</translation>
     </message>
@@ -5443,6 +5780,18 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
         <source>Form</source>
         <translation>Formular</translation>
     </message>
+    <message>
+        <source>Received from Bob</source>
+        <translation>Von Bob empfangen</translation>
+    </message>
+    <message>
+        <source>18/05/18</source>
+        <translation>18/05/18</translation>
+    </message>
+    <message>
+        <source>+0.000585 PNY</source>
+        <translation>+0.000585 PNY</translation>
+    </message>
 </context>
 <context>
     <name>WalletModel</name>
@@ -5451,16 +5800,8 @@ BEDENKEN SIE: Nach dem Upgrade wird ein neues Backup erstellt.
         <translation>PNYs überweisen</translation>
     </message>
     <message>
-        <source>Transaction creation failed!
-%1</source>
-        <translation>Transaktionserstellung fehlgeschlagen!
-%1</translation>
-    </message>
-    <message>
-        <source>The size of the transaction is too big.
-Select fewer inputs with coin control.</source>
-        <translation>Die Transaktionsgröße ist zu groß.
-Wählen Sie weniger Eingänge über coin control aus.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 PNY.</source>
+        <translation>Swift Transaktionen unterstützen das senden solch hoher Beträge noch nicht. Transaktionen sind momentan auf %1 PNY begrenzt.</translation>
     </message>
 </context>
 <context>
@@ -5532,6 +5873,49 @@ PNY Core Wallet</source>
     </message>
 </context>
 <context>
+    <name>ZPnyControlDialog</name>
+    <message>
+        <source>Select zPNY to Spend</source>
+        <translation>Wählen Sie die zPNY aus, die Sie ausgeben möchten</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Coinverwaltung</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Druckknopf</translation>
+    </message>
+    <message>
+        <source>zPny</source>
+        <translation>zPNY</translation>
+    </message>
+    <message>
+        <source>0.00 </source>
+        <translation>0.00</translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Anzahl:</translation>
+    </message>
+    <message>
+        <source>Is Spendable</source>
+        <translation>ist aufwendbar</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>Alle Aus-/Abwählen</translation>
+    </message>
+    <message>
+        <source>Select zPNY Denominations to Spend</source>
+        <translation>Auswahl des zPNY Nennwerts für das Ausgaben</translation>
+    </message>
+</context>
+<context>
     <name>pny-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
@@ -5586,6 +5970,14 @@ PNY Core Wallet</source>
         <translation>Ermögliche Cold Staking Funktionalität (0-1, standardmäßig: %u). Ausgeschaltet, wenn staking=0</translation>
     </message>
     <message>
+        <source>Enable or disable staking functionality for PNY inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für PNY Eingänge (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zPNY inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für zPNY Eingänge (0-1, default: %u)</translation>
+    </message>
+    <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>Aktiviere die Funktionalität der Spork-Administration mit dem entsprechenden privaten Schlüssel.</translation>
     </message>
@@ -5622,6 +6014,14 @@ PNY Core Wallet</source>
         <translation>Befehl ausführen, wenn sich der beste Block ändert (%s in cmd wird durch Blockhash ersetzt)</translation>
     </message>
     <message>
+        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebühren (in PNY/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Gebühren (in PNY/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
+    </message>
+    <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>Flusht die Datenbankaktivität vom Speicherpool auf das Festplattenprotokoll alle &lt;n&gt; Megabytes (default: %u)</translation>
     </message>
@@ -5642,16 +6042,16 @@ PNY Core Wallet</source>
         <translation>Ungültiger Betrag für -maxtxfee=&lt;amount&gt;: '%s' (muss mindestens die minrelay Gebühr von %s sein, um Transaktionsstau zu vermeiden)</translation>
     </message>
     <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>Behalte jeder Zeit den angegebenen Betrag für die Ausgaben (default: 0)</translation>
+    </message>
+    <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
         <translation>Priorität der Protokolltransaktion und Gebühr pro kB wenn Blöcke geschürft werden (default: %u)</translation>
     </message>
     <message>
         <source>Maintain a full transaction index, used by the getrawtransaction rpc call (default: %u)</source>
         <translation>Pflege einen vollständigen Transaktionsindex, der von getrawtransaction rpc call verwendet wird. (default: %u)</translation>
-    </message>
-    <message>
-        <source>Maximum average size of an index occurrence in the block spam filter (default: %u)</source>
-        <translation>Maximale Größe der Indexliste im Blockspamfilter (Standard: %u)</translation>
     </message>
     <message>
         <source>Maximum size of data in data carrier transactions we relay and mine (default: %u)</source>
@@ -5672,6 +6072,10 @@ PNY Core Wallet</source>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Debug-Informationen ausgeben (Standard: %u, die Bereitstellung von &lt;category&gt; ist optional)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Abfrage von Gegenstellen-Adressen per DNS-Lookup, falls wenige Adressen verfügbar sind (Standard: 1, ausser -connect ist aktiviert)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -5766,6 +6170,10 @@ PNY Core Wallet</source>
         <translation>Sie müssen einen privaten Masternode-Schlüssel in der Konfiguration festlegen. Bitte nutzen Sie die Dokumentation zwecks Hilfe.</translation>
     </message>
     <message>
+        <source>(16889 could be used only on mainnet)</source>
+        <translation>(16889 kann nur im Mainnet verwendet werden)</translation>
+    </message>
+    <message>
         <source>(default: %s)</source>
         <translation>(default: %s)</translation>
     </message>
@@ -5774,8 +6182,16 @@ PNY Core Wallet</source>
         <translation>(default: 1)</translation>
     </message>
     <message>
+        <source>(must be 16889 for mainnet)</source>
+        <translation>(muss im Mainnet 16889 sein)</translation>
+    </message>
+    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Akzeptiere Kommandozeilen- und JSON-RPC- Eingaben</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>Akzeptiere Verbindungen von aussen (Standard: 1 , falls -proxy oder -connect nicht genutzt wird)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -5812,6 +6228,10 @@ PNY Core Wallet</source>
     <message>
         <source>Cannot downgrade wallet</source>
         <translation>Wallet downgrade nicht möglich</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>Nur mit den aufgeführten Node(s) verbinden</translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
@@ -5958,6 +6378,14 @@ PNY Core Wallet</source>
         <translation>Fehler beim Analysieren von host: port string</translation>
     </message>
     <message>
+        <source>Failed to read block</source>
+        <translation>Block konnte nicht gelesen werden</translation>
+    </message>
+    <message>
+        <source>Fee (in PNY/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gebühr (in PNY/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
+    </message>
+    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Erzwinge Safe-Mode (Standard: %u)</translation>
     </message>
@@ -6026,8 +6454,16 @@ PNY Core Wallet</source>
         <translation>Fehlerhafte Netzmaske in -whitelist festgelegt: '%s'</translation>
     </message>
     <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>Ungültiger Port in masternode.conf entdeckt</translation>
+    </message>
+    <message>
         <source>Recalculating PNY supply...</source>
         <translation>Bestimme PNY Bestand erneut...</translation>
+    </message>
+    <message>
+        <source>Reindex the PNY and zPNY money supply statistics</source>
+        <translation>Die Geldmengenstatistik PNY und zPNY neu indizieren</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -6072,6 +6508,10 @@ PNY Core Wallet</source>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>Swifttx aktivieren, Bestätigungen für gesperrte Transaktionen anzeigen (bool, default: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>Fehler: Die Transaktion wurde abgelehnt! Dies könnte passieren, wenn einige Coins in deiner Wallet schon ausgegeben wurden, als  wenn du eine Kopie von der wallet.dat benutzt hättest. Coins wurden in der Kopie verbracht, aber hier nicht als verbracht markiert.</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -6172,6 +6612,10 @@ PNY Core Wallet</source>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>Halte höchstens &lt;n&gt; unverbindbare Transaktionen im Speicher (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>Begrenze die Größe des Signatur Cache auf &lt;n&gt; Einträge (Standard: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -6318,48 +6762,12 @@ PNY Core Wallet</source>
         <translation>Vorbereitung für die Resynchronisierung ...</translation>
     </message>
     <message>
-        <source>Accept connections from outside (default: 1 if no -proxy or -connect/-noconnect)</source>
-        <translation>Akzeptiere Verbindungen von aussen (Standard: 1 , falls -proxy oder -connect nicht genutzt wird)</translation>
-    </message>
-    <message>
-        <source>Do not keep transactions in the mempool longer than &lt;n&gt; hours (default: %u)</source>
-        <translation>Die Transaktionen werden nicht länger als &lt;n&gt; Stunden im Mempool aufbewahrt (Standard: %u).</translation>
-    </message>
-    <message>
-        <source>Fees (in %s/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Gebühren (in %s/Kb), die kleiner als diese sind, gelten für die Transaktionserstellung als Gebührenfei (Standard: %s).</translation>
-    </message>
-    <message>
-        <source>Minimum positive amount (in PNY) allowed by GUI and RPC for the stake split threshold (default: %s)</source>
-        <translation>Minimaler positiver Betrag (in PNY), der von GUI und RPC für den Stake split Schwellenwert zugelassen wird (Standard: %s)</translation>
-    </message>
-    <message>
         <source>Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
         <translation>Bitte stellen Sie sicher, das vom Computer verwendete Zeit und Datumangaben korrekt sind! Wenn ihr System falsche Zeitangaben nutzt, wird PNY Core nicht korrekt funktionieren.</translation>
     </message>
     <message>
-        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect/-noconnect)</source>
-        <translation>Abfrage von Gegenstellen-Adressen per DNS-Lookup, falls wenige Adressen verfügbar sind (Standard: 1, ausser -connect/-noconnect ist aktiviert)</translation>
-    </message>
-    <message>
         <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
         <translation>Spezifizieren Sie den Speicherpfad der Debug Log Datei: Dies kann ein absoluter oder ein relativer Pfad zu dem Verzeichnis sein. (Standardmäßig: %s)</translation>
-    </message>
-    <message>
-        <source>WARNING: The transaction has been signed and recorded, so the wallet will try to re-send it. Use 'abandontransaction' to cancel it. (txid: %s)</source>
-        <translation>WARNUNG: Die Transaktion wurde signiert und aufgezeichnet, sodass das Wallet versucht, sie erneut zu senden. Verwenden Sie 'abandontransaction', um den Vorgang abzubrechen. (txid: %s)</translation>
-    </message>
-    <message>
-        <source>(must be %d for %s-net)</source>
-        <translation>(muss %d für %s-net sein)</translation>
-    </message>
-    <message>
-        <source>Active Masternode not initialized.</source>
-        <translation>Aktive Masternode nicht initialisiert</translation>
-    </message>
-    <message>
-        <source>Allows deprecated RPC method(s) to be used</source>
-        <translation>Erlaubt die Verwendung veralteter RPC-Methode(n)</translation>
     </message>
     <message>
         <source>Cannot resolve -%s address: '%s'</source>
@@ -6370,50 +6778,8 @@ PNY Core Wallet</source>
         <translation>Konnte nicht zum HD Wallet upgraden (HD support läuft bereits). Version: %d</translation>
     </message>
     <message>
-        <source>Change index out of range</source>
-        <translation>Ändert den Index außerhalb des Bereichs</translation>
-    </message>
-    <message>
-        <source>Error: -listen must be true if -masternode is set.</source>
-        <translation> 
-Fehler: -listen muss true sein, wenn -masternode gesetzt ist</translation>
-    </message>
-    <message>
-        <source>Error: Invalid port %d for running a masternode.</source>
-        <translation>Fehler: Üngültiger Port %d für das Betreiben des Masternodes.</translation>
-    </message>
-    <message>
-        <source>Failed to accept tx in the memory pool (reason: %s)
-</source>
-        <translation>Fehler beim Akzeptieren von tx im Speicherpool (Grund:%s)</translation>
-    </message>
-    <message>
-        <source>Invalid -masternodeaddr address: %s</source>
-        <translation>Ungültige -masternodeaddr Adresse: %s</translation>
-    </message>
-    <message>
-        <source>Invalid -masternodeaddr port %d, only %d is supported on %s-net.</source>
-        <translation>Ungültiger -masternodeaddr Port %d, nur Port %d  wird von %s-net unterstützt.</translation>
-    </message>
-    <message>
-        <source>Invalid port %d detected in masternode.conf</source>
-        <translation>Ungültiger port %d in masternode.conf entdeckt</translation>
-    </message>
-    <message>
-        <source>Invalid status error.</source>
-        <translation>Ungültiger Status Fehler</translation>
-    </message>
-    <message>
-        <source>Masternodes are required to run on port %d for %s-net</source>
-        <translation>Masternode Port %d ist für %s-net erforderlich</translation>
-    </message>
-    <message>
         <source>Need destination or change address because change is not exact</source>
         <translation>Benötige Zieladresse oder Wechseladresse, weil der Wechsel nicht exakt ist</translation>
-    </message>
-    <message>
-        <source>No error</source>
-        <translation>Kein Fehler</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
@@ -6442,10 +6808,6 @@ Fehler: -listen muss true sein, wenn -masternode gesetzt ist</translation>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>Baue den Blockchain-Index mithilfe der aktuellen blk000??.dat Datei erneut auf</translation>
-    </message>
-    <message>
-        <source>Reindex the %s and z%s money supply statistics</source>
-        <translation>Indiziere die Geldmengenstatistik %s und z%s neu</translation>
     </message>
     <message>
         <source>Relay and mine data carrier transactions (default: %u)</source>
@@ -6604,11 +6966,6 @@ Fehler: -listen muss true sein, wenn -masternode gesetzt ist</translation>
         <translation>Synchronisiere zPNY Wallet... </translation>
     </message>
     <message>
-        <source>The threshold value cannot be less than %s</source>
-        <translation> 
-Der Schwellenwert darf nicht kleiner sein als %s</translation>
-    </message>
-    <message>
         <source>This help message</source>
         <translation>Dieser Hilfetext</translation>
     </message>
@@ -6619,14 +6976,6 @@ Der Schwellenwert darf nicht kleiner sein als %s</translation>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Dies ist für Regressionstest-Tools und Anwendungsentwicklung gedacht.</translation>
-    </message>
-    <message>
-        <source>This is not a masternode. 'local' option disabled.</source>
-        <translation>Dies ist kein Masternode. Option 'lokal' deaktiviert.</translation>
-    </message>
-    <message>
-        <source>This is not a masternode.</source>
-        <translation>Dies ist keine Masternode</translation>
     </message>
     <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
@@ -6659,10 +7008,6 @@ Der Schwellenwert darf nicht kleiner sein als %s</translation>
     <message>
         <source>Transaction amounts must be positive</source>
         <translation>Transaktionsbeträge müssen positiv sein</translation>
-    </message>
-    <message>
-        <source>Transaction canceled.</source>
-        <translation>Transaktion abgebrochen</translation>
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
@@ -6820,40 +7165,16 @@ Der Schwellenwert darf nicht kleiner sein als %s</translation>
         <translation>Schicken</translation>
     </message>
     <message>
-        <source>Send public coins (PNY)</source>
-        <translation>Sende öffentliche Coins (PNY)</translation>
-    </message>
-    <message>
-        <source>PNY address or contact label</source>
-        <translation>PNY Adresse oder Kontaktbezeichnung</translation>
-    </message>
-    <message>
-        <source>Amount</source>
-        <translation>Betrag</translation>
-    </message>
-    <message>
-        <source>Customize fee</source>
-        <translation>Benutzerdefinierte Gebühr</translation>
-    </message>
-    <message>
-        <source>Clear all</source>
-        <translation>Alles löschen</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>Füge Empfänger hinzu</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>Totalbetrag zum Senden</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>Auf Voreinstellungen zurücksetzen</translation>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
         <source>Include delegated</source>
         <translation>Schließe Zugewiesene mit ein</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Druckknopf</translation>
     </message>
 </context>
 </TS>

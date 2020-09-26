@@ -62,7 +62,6 @@ BASE_SCRIPTS= [
     # vv Tests less than 5m vv
     'wallet_zapwallettxes.py',                  # ~ 300 sec
     'p2p_time_offset.py',                       # ~ 267 sec
-    'rpc_fundrawtransaction.py',                # ~ 260 sec
     'mining_pos_coldStaking.py',                # ~ 215 sec
     'mining_pos_reorg.py',                      # ~ 212 sec
     'wallet_abandonconflict.py',                # ~ 212 sec
@@ -86,20 +85,17 @@ BASE_SCRIPTS= [
     'mining_pos_fakestake.py',                  # ~ 113 sec
     'feature_reindex.py',                       # ~ 110 sec
     'interface_http.py',                        # ~ 105 sec
-    'wallet_listtransactions.py',               # ~ 97 sec
+    'rpc_listtransactions.py',                  # ~ 97 sec
     'mempool_reorg.py',                         # ~ 92 sec
-    'sapling_wallet_persistence.py',            # ~ 90 sec
     'wallet_encryption.py',                     # ~ 89 sec
     'wallet_keypool.py',                        # ~ 88 sec
     'wallet_dump.py',                           # ~ 83 sec
     'rpc_net.py',                               # ~ 83 sec
     'rpc_bip38.py',                             # ~ 82 sec
-    'rpc_deprecated.py',                        # ~ 80 sec
     'interface_bitcoin_cli.py',                 # ~ 80 sec
-    'mempool_packages.py',                      # ~ 63 sec
 
     # vv Tests less than 60s vv
-    'wallet_labels.py',                         # ~ 57 sec
+    'wallet_accounts.py',                       # ~ 57 sec
     'rpc_signmessage.py',                       # ~ 54 sec
     'mempool_resurrect.py',                     # ~ 51 sec
     'rpc_budget.py',                            # ~ 50 sec
@@ -108,18 +104,19 @@ BASE_SCRIPTS= [
     'rpc_decodescript.py',                      # ~ 50 sec
     'rpc_blockchain.py',                        # ~ 50 sec
     'wallet_disable.py',                        # ~ 50 sec
-    'mining_v5_upgrade.py',                     # ~ 48 sec
     'feature_help.py',                          # ~ 30 sec
 
     # Don't append tests at the end to avoid merge conflicts
     # Put them in a random line within the section that fits their approximate run-time
     # 'feature_block.py',
+    # 'rpc_fundrawtransaction.py',
     # 'wallet_importmulti.py',
     # 'mempool_limit.py', # We currently don't limit our mempool_reorg
     # 'interface_zmq.py',
     # 'rpc_getchaintips.py',
     # 'mempool_persist.py',
     # 'rpc_users.py',
+    # 'rpc_deprecated.py',
     # 'p2p_mempool.py',
     # 'mining_prioritisetransaction.py',
     # 'p2p_invalid_block.py',
@@ -141,7 +138,7 @@ EXTENDED_SCRIPTS = [
     # These tests are not run by the travis build process.
     # Longest test should go first, to favor running tests in parallel
     # vv Tests less than 20m vv
-    'feature_fee_estimation.py',                # ~ 360 sec
+    #'feature_fee_estimation.py',
     # vv Tests less than 5m vv
     # vv Tests less than 2m vv
     #'p2p_timeouts.py',
@@ -173,11 +170,9 @@ LEGACY_SKIP_TESTS = [
     'rpc_blockchain.py',
     'rpc_budget.py',
     'rpc_decodescript.py',
-    'rpc_fundrawtransaction.py',
     'rpc_net.py',
     'rpc_signmessage.py',
     'rpc_spork.py',
-    'sapling_wallet_persistence.py',
     'wallet_hd.py',         # no HD tests for pre-HD wallets
     'wallet_upgrade.py',    # can't upgrade to pre-HD wallet
 ]
@@ -540,7 +535,7 @@ def check_script_prefixes():
     # convention don't immediately cause the tests to fail.
     LEEWAY = 10
 
-    good_prefixes_re = re.compile("(example|feature|interface|mempool|mining|p2p|rpc|wallet|zerocoin|sapling)_")
+    good_prefixes_re = re.compile("(example|feature|interface|mempool|mining|p2p|rpc|wallet|zerocoin)_")
     bad_script_names = [script for script in ALL_SCRIPTS if good_prefixes_re.match(script) is None]
 
     if len(bad_script_names) > 0:

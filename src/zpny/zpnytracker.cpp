@@ -451,7 +451,7 @@ std::set<CMintMeta> CzPNYTracker::ListMints(bool fUnusedOnly, bool fMatureOnly, 
         for (auto& dMint : listDeterministicDB) {
             if (fExcludeV1 && dMint.GetVersion() < 2)
                 continue;
-            Add(dMint, false, false, wallet->getZWallet());
+            Add(dMint, false, false, wallet->zwalletMain);
         }
         LogPrint(BCLog::LEGACYZC, "%s: added %d dzpny from DB\n", __func__, listDeterministicDB.size());
     }

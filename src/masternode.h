@@ -51,7 +51,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(vin);
         READWRITE(blockHash);
@@ -71,7 +71,6 @@ public:
     uint256 GetSignatureHash() const override { return GetHash(); }
     std::string GetStrMessage() const override;
     const CTxIn GetVin() const override  { return vin; };
-    bool IsNull() { return blockHash.IsNull() || vin.prevout.IsNull(); }
 
     bool CheckAndUpdate(int& nDos, bool fRequireEnabled = true, bool fCheckSigTimeOnly = false);
     void Relay();
@@ -95,7 +94,6 @@ public:
         swap(*this, from);
         return *this;
     }
-
     friend bool operator==(const CMasternodePing& a, const CMasternodePing& b)
     {
         return a.vin == b.vin && a.blockHash == b.blockHash;
@@ -134,8 +132,12 @@ public:
     CService addr;
     CPubKey pubKeyCollateralAddress;
     CPubKey pubKeyMasternode;
+    CPubKey pubKeyCollateralAddress1;
+    CPubKey pubKeyMasternode1;
     int activeState;
     int64_t sigTime; //mnb message time
+    int cacheInputAge;
+    int cacheInputAgeBlock;
     bool unitTest;
     bool allowFreeTx;
     int protocolVersion;
@@ -169,6 +171,8 @@ public:
         swap(first.activeState, second.activeState);
         swap(first.sigTime, second.sigTime);
         swap(first.lastPing, second.lastPing);
+        swap(first.cacheInputAge, second.cacheInputAge);
+        swap(first.cacheInputAgeBlock, second.cacheInputAgeBlock);
         swap(first.unitTest, second.unitTest);
         swap(first.allowFreeTx, second.allowFreeTx);
         swap(first.protocolVersion, second.protocolVersion);
@@ -196,7 +200,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         LOCK(cs);
 
@@ -209,6 +213,8 @@ public:
         READWRITE(protocolVersion);
         READWRITE(activeState);
         READWRITE(lastPing);
+        READWRITE(cacheInputAge);
+        READWRITE(cacheInputAgeBlock);
         READWRITE(unitTest);
         READWRITE(allowFreeTx);
         READWRITE(nLastDsq);
@@ -231,26 +237,36 @@ public:
     {
         now == -1 ? now = GetAdjustedTime() : now;
 
-        return lastPing.IsNull() ? false : now - lastPing.sigTime < seconds;
+        return (lastPing == CMasternodePing()) ? false : now - lastPing.sigTime < seconds;
     }
 
     void Disable()
     {
-        LOCK(cs);
         sigTime = 0;
         lastPing = CMasternodePing();
     }
 
     bool IsEnabled()
     {
-        return WITH_LOCK(cs, return activeState == MASTERNODE_ENABLED);
+        return activeState == MASTERNODE_ENABLED;
+    }
+
+    int GetMasternodeInputAge()
+    {
+        if (chainActive.Tip() == NULL) return 0;
+
+        if (cacheInputAge == 0) {
+            cacheInputAge = GetInputAge(vin);
+            cacheInputAgeBlock = chainActive.Tip()->nHeight;
+        }
+
+        return cacheInputAge + (chainActive.Tip()->nHeight - cacheInputAgeBlock);
     }
 
     std::string Status()
     {
         std::string strStatus = "ACTIVE";
 
-        LOCK(cs);
         if (activeState == CMasternode::MASTERNODE_ENABLED) strStatus = "ENABLED";
         if (activeState == CMasternode::MASTERNODE_EXPIRED) strStatus = "EXPIRED";
         if (activeState == CMasternode::MASTERNODE_VIN_SPENT) strStatus = "VIN_SPENT";
@@ -288,14 +304,14 @@ public:
     void Relay();
 
     // special sign/verify
-    bool Sign(const CKey& key, const CPubKey& pubKey);
-    bool Sign(const std::string strSignKey);
+    bool Sign(const CKey& key, const CPubKey& pubKey, const bool fNewSigs);
+    bool Sign(const std::string strSignKey, const bool fNewSigs);
     bool CheckSignature() const;
 
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(vin);
         READWRITE(addr);
@@ -313,7 +329,7 @@ public:
     /// Create Masternode broadcast, needs to be relayed manually after that
     static bool Create(CTxIn vin, CService service, CKey keyCollateralAddressNew, CPubKey pubKeyCollateralAddressNew, CKey keyMasternodeNew, CPubKey pubKeyMasternodeNew, std::string& strErrorRet, CMasternodeBroadcast& mnbRet);
     static bool Create(std::string strService, std::string strKey, std::string strTxHash, std::string strOutputIndex, std::string& strErrorRet, CMasternodeBroadcast& mnbRet, bool fOffline = false);
-    static bool CheckDefaultPort(CService service, std::string& strErrorRet, const std::string& strContext);
+    static bool CheckDefaultPort(std::string strService, std::string& strErrorRet, std::string strContext);
 };
 
 #endif

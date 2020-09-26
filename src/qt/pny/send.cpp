@@ -18,7 +18,9 @@
 #include "addresstablemodel.h"
 #include "coincontrol.h"
 #include "script/standard.h"
+#include "zpny/deterministicmint.h"
 #include "openuridialog.h"
+#include "zpnycontroldialog.h"
 
 SendWidget::SendWidget(PNYGUI* parent) :
     PWidget(parent),
@@ -41,33 +43,58 @@ SendWidget::SendWidget(PNYGUI* parent) :
     fontLight.setWeight(QFont::Light);
 
     /* Title */
+    ui->labelTitle->setText(tr("Send"));
     setCssProperty(ui->labelTitle, "text-title-screen");
     ui->labelTitle->setFont(fontLight);
 
+    /* Button Group */
+    ui->pushLeft->setText("PNY");
+    setCssProperty(ui->pushLeft, "btn-check-left");
+    ui->pushLeft->setChecked(true);
+    ui->pushRight->setVisible(false);
+    setCssProperty(ui->pushRight, "btn-check-right");
+
     /* Subtitle */
+    ui->labelSubtitle1->setVisible(false);
     setCssProperty(ui->labelSubtitle1, "text-subtitle");
 
-    /* Address - Amount*/
-    setCssProperty({ui->labelSubtitleAddress, ui->labelSubtitleAmount}, "text-title");
+    ui->labelSubtitle2->setVisible(false);
+    setCssProperty(ui->labelSubtitle2, "text-subtitle");
+
+    /* Address */
+    ui->labelSubtitleAddress->setText(tr("PNY address or contact label"));
+    setCssProperty(ui->labelSubtitleAddress, "text-title");
+
+
+    /* Amount */
+    ui->labelSubtitleAmount->setText(tr("Amount"));
+    setCssProperty(ui->labelSubtitleAmount, "text-title");
 
     /* Buttons */
+    ui->pushButtonFee->setText(tr("Customize fee"));
     setCssBtnSecondary(ui->pushButtonFee);
+
+    ui->pushButtonClear->setText(tr("Clear all"));
     setCssProperty(ui->pushButtonClear, "btn-secundary-clear");
+
+    ui->pushButtonAddRecipient->setText(tr("Add recipient"));
     setCssProperty(ui->pushButtonAddRecipient, "btn-secundary-add");
+
     setCssBtnPrimary(ui->pushButtonSave);
+    ui->pushButtonReset->setText(tr("Reset to default"));
     setCssBtnSecondary(ui->pushButtonReset);
 
     // Coin control
-    ui->btnCoinControl->setTitleClassAndText("btn-title-grey", tr("Coin Control"));
-    ui->btnCoinControl->setSubTitleClassAndText("text-subtitle", tr("Select the source of the coins"));
+    ui->btnCoinControl->setTitleClassAndText("btn-title-grey", "Coin Control");
+    ui->btnCoinControl->setSubTitleClassAndText("text-subtitle", "Select the source of the coins.");
 
     // Change address option
-    ui->btnChangeAddress->setTitleClassAndText("btn-title-grey", tr("Change Address"));
-    ui->btnChangeAddress->setSubTitleClassAndText("text-subtitle", tr("Customize the change address"));
+    ui->btnChangeAddress->setTitleClassAndText("btn-title-grey", "Change Address");
+    ui->btnChangeAddress->setSubTitleClassAndText("text-subtitle", "Customize the change address.");
 
     // Uri
-    ui->btnUri->setTitleClassAndText("btn-title-grey", tr("Open URI"));
-    ui->btnUri->setSubTitleClassAndText("text-subtitle", tr("Parse a payment request"));
+    ui->btnUri->setTitleClassAndText("btn-title-grey", "Open URI");
+    ui->btnUri->setSubTitleClassAndText("text-subtitle", "Parse a payment request.");
 
     connect(ui->pushButtonFee, &QPushButton::clicked, this, &SendWidget::onChangeCustomFeeClicked);
     connect(ui->btnCoinControl, &OptionButton::clicked, this, &SendWidget::onCoinControlClicked);
@@ -81,11 +108,15 @@ SendWidget::SendWidget(PNYGUI* parent) :
 
 
     // Total Send
+    ui->labelTitleTotalSend->setText(tr("Total to send"));
     setCssProperty(ui->labelTitleTotalSend, "text-title");
+
+    ui->labelAmountSend->setText("0.00 PNY");
     setCssProperty(ui->labelAmountSend, "text-body1");
 
     // Total Remaining
     setCssProperty(ui->labelTitleTotalRemaining, "text-title");
+
     setCssProperty(ui->labelAmountRemaining, "text-body1");
 
     // Icon Send
@@ -110,11 +141,19 @@ SendWidget::SendWidget(PNYGUI* parent) :
     setCustomFeeSelected(false);
 
     // Connect
+    connect(ui->pushLeft, &QPushButton::clicked, [this](){onPNYSelected(true);});
+    connect(ui->pushRight,  &QPushButton::clicked, [this](){onPNYSelected(false);});
     connect(ui->pushButtonSave, &QPushButton::clicked, this, &SendWidget::onSendClicked);
     connect(ui->pushButtonAddRecipient, &QPushButton::clicked, this, &SendWidget::onAddEntryClicked);
     connect(ui->pushButtonClear, &QPushButton::clicked, [this](){clearAll(true);});
+}
 
-    coinControlDialog = new CoinControlDialog();
+void SendWidget::refreshView()
+{
+    const bool isChecked = ui->pushLeft->isChecked();
+    ui->pushButtonSave->setText(isChecked ? tr("Send PNY") : tr("Send zPNY"));
+    ui->pushButtonAddRecipient->setVisible(isChecked);
+    refreshAmounts();
 }
 
 void SendWidget::refreshAmounts()
@@ -128,25 +167,28 @@ void SendWidget::refreshAmounts()
             total += amount;
     }
 
+    bool isZpny = ui->pushRight->isChecked();
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
 
-    ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit, false));
+    ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit, isZpny));
 
     CAmount totalAmount = 0;
-    if (coinControlDialog->coinControl->HasSelected()) {
+    if (CoinControlDialog::coinControl->HasSelected()) {
         // Set remaining balance to the sum of the coinControl selected inputs
-        totalAmount = walletModel->getBalance(coinControlDialog->coinControl) - total;
+        totalAmount = walletModel->getBalance(CoinControlDialog::coinControl) - total;
         ui->labelTitleTotalRemaining->setText(tr("Total remaining from the selected UTXO"));
     } else {
-        // Wallet's unlocked balance
-        totalAmount = walletModel->getUnlockedBalance(nullptr, fDelegationsChecked) - total;
-        ui->labelTitleTotalRemaining->setText(tr("Unlocked remaining"));
+        // Wallet's balance
+        totalAmount = (isZpny ?
+                walletModel->getZerocoinBalance() :
+                walletModel->getBalance(nullptr, fDelegationsChecked)) - total;
+        ui->labelTitleTotalRemaining->setText(tr("Total remaining"));
     }
     ui->labelAmountRemaining->setText(
             GUIUtil::formatBalance(
                     totalAmount,
                     nDisplayUnit,
-                    false
+                    isZpny
                     )
     );
     // show or hide delegations checkbox if need be
@@ -165,7 +207,6 @@ void SendWidget::loadClientModel()
 void SendWidget::loadWalletModel()
 {
     if (walletModel) {
-        coinControlDialog->setModel(walletModel);
         if (walletModel->getOptionsModel()) {
             // display unit
             nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
@@ -184,8 +225,8 @@ void SendWidget::loadWalletModel()
             setCustomFeeSelected(true, nCustomFee);
         }
 
-        // Refresh
-        refreshAmounts();
+        // Refresh view
+        refreshView();
 
         // TODO: This only happen when the coin control features are modified in other screen, check before do this if the wallet has another screen modifying it.
         // Coin Control
@@ -212,7 +253,7 @@ void SendWidget::onResetSettings()
 
 void SendWidget::onResetCustomOptions(bool fRefreshAmounts)
 {
-    coinControlDialog->coinControl->SetNull();
+    CoinControlDialog::coinControl->SetNull();
     ui->btnChangeAddress->setActive(false);
     ui->btnCoinControl->setActive(false);
     if (ui->checkBoxDelegations->isChecked()) ui->checkBoxDelegations->setChecked(false);
@@ -303,17 +344,18 @@ void SendWidget::setFocusOnLastEntry()
 
 void SendWidget::showHideCheckBoxDelegations()
 {
-    // Show checkbox only when there is any available owned delegation and
-    // coincontrol is not selected.
-    const bool isCControl = coinControlDialog->coinControl->HasSelected();
+    // Show checkbox only when there is any available owned delegation,
+    // coincontrol is not selected, and we are trying to spend PNY (not zPNY)
+    const bool isZpny = ui->pushRight->isChecked();
+    const bool isCControl = CoinControlDialog::coinControl->HasSelected();
     const bool hasDel = cachedDelegatedBalance > 0;
 
-    const bool showCheckBox = !isCControl && hasDel;
+    const bool showCheckBox = !isZpny && !isCControl && hasDel;
     ui->checkBoxDelegations->setVisible(showCheckBox);
     if (showCheckBox)
         ui->checkBoxDelegations->setToolTip(
                 tr("Possibly spend coins delegated for cold-staking (currently available: %1").arg(
-                        GUIUtil::formatBalance(cachedDelegatedBalance, nDisplayUnit, false))
+                        GUIUtil::formatBalance(cachedDelegatedBalance, nDisplayUnit, isZpny))
         );
 }
 
@@ -340,6 +382,8 @@ void SendWidget::onSendClicked()
         return;
     }
 
+    bool sendPny = ui->pushLeft->isChecked();
+
     WalletModel::UnlockContext ctx(walletModel->requestUnlock());
     if (!ctx.isValid()) {
         // Unlock wallet was cancelled
@@ -347,7 +391,7 @@ void SendWidget::onSendClicked()
         return;
     }
 
-    if (send(recipients)) {
+    if ((sendPny) ? send(recipients) : sendZpny(recipients)) {
         updateEntryLabels(recipients);
     }
     setFocusOnLastEntry();
@@ -359,7 +403,7 @@ bool SendWidget::send(QList<SendCoinsRecipient> recipients)
     WalletModelTransaction currentTransaction(recipients);
     WalletModel::SendCoinsReturn prepareStatus;
 
-    prepareStatus = walletModel->prepareTransaction(currentTransaction, coinControlDialog->coinControl, fDelegationsChecked);
+    prepareStatus = walletModel->prepareTransaction(currentTransaction, CoinControlDialog::coinControl, fDelegationsChecked);
 
     // process prepareStatus and on error generate message shown to user
     GuiTransactionsUtils::ProcessSendCoinsReturnAndInform(
@@ -413,6 +457,98 @@ bool SendWidget::send(QList<SendCoinsRecipient> recipients)
     return false;
 }
 
+bool SendWidget::sendZpny(QList<SendCoinsRecipient> recipients)
+{
+    if (!walletModel || !walletModel->getOptionsModel())
+        return false;
+
+    if (sporkManager.IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
+        Q_EMIT message(tr("Spend Zerocoin"), tr("zPNY is currently undergoing maintenance."), CClientUIInterface::MSG_ERROR);
+        return false;
+    }
+
+    std::list<std::pair<CBitcoinAddress*, CAmount>> outputs;
+    CAmount total = 0;
+    for (SendCoinsRecipient rec : recipients) {
+        total += rec.amount;
+        outputs.push_back(std::pair<CBitcoinAddress*, CAmount>(new CBitcoinAddress(rec.address.toStdString()),rec.amount));
+    }
+
+    // use mints from zPNY selector if applicable
+    std::vector<CMintMeta> vMintsToFetch;
+    std::vector<CZerocoinMint> vMintsSelected;
+    if (!ZPnyControlDialog::setSelectedMints.empty()) {
+        vMintsToFetch = ZPnyControlDialog::GetSelectedMints();
+
+        for (auto& meta : vMintsToFetch) {
+            CZerocoinMint mint;
+            if (!walletModel->getMint(meta.hashSerial, mint)) {
+                inform(tr("Coin control mint not found"));
+                return false;
+            }
+            vMintsSelected.emplace_back(mint);
+        }
+    }
+
+    QString sendBody = outputs.size() == 1 ?
+            tr("Sending %1 to address %2\n")
+            .arg(BitcoinUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), total, false, BitcoinUnits::separatorAlways))
+            .arg(recipients.first().address)
+            :
+           tr("Sending %1 to addresses:\n%2")
+           .arg(BitcoinUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), total, false, BitcoinUnits::separatorAlways))
+           .arg(recipientsToString(recipients));
+
+    bool ret = false;
+    Q_EMIT message(
+            tr("Spend Zerocoin"),
+            sendBody,
+            CClientUIInterface::MSG_INFORMATION | CClientUIInterface::BTN_MASK | CClientUIInterface::MODAL,
+            &ret);
+
+    if (!ret) return false;
+
+    CZerocoinSpendReceipt receipt;
+
+    std::string changeAddress = "";
+    if (!boost::get<CNoDestination>(&CoinControlDialog::coinControl->destChange)) {
+        changeAddress = CBitcoinAddress(CoinControlDialog::coinControl->destChange).ToString();
+    } else {
+        changeAddress = walletModel->getAddressTableModel()->getAddressToShow().toStdString();
+    }
+
+    if (walletModel->sendZpny(
+            vMintsSelected,
+            receipt,
+            outputs,
+            changeAddress
+    )
+            ) {
+        inform(tr("zPNY transaction sent!"));
+        ZPnyControlDialog::setSelectedMints.clear();
+        clearAll(false);
+        return true;
+    } else {
+        QString body;
+        if (receipt.GetStatus() == ZPNY_SPEND_V1_SEC_LEVEL) {
+            body = tr("Version 1 zPNY require a security level of 100 to successfully spend.");
+        } else {
+            int nNeededSpends = receipt.GetNeededSpends(); // Number of spends we would need for this transaction
+            const int nMaxSpends = Params().GetConsensus().ZC_MaxSpendsPerTx; // Maximum possible spends for one zPNY transaction
+            if (nNeededSpends > nMaxSpends) {
+                body = tr("Too much inputs (") + QString::number(nNeededSpends, 10) +
+                       tr(") needed.\nMaximum allowed: ") + QString::number(nMaxSpends, 10);
+                body += tr(
+                        "\nEither mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.");
+            } else {
+                body = QString::fromStdString(receipt.GetStatusMessage());
+            }
+        }
+        Q_EMIT message("zPNY transaction failed", body, CClientUIInterface::MSG_ERROR);
+        return false;
+    }
+}
+
 QString SendWidget::recipientsToString(QList<SendCoinsRecipient> recipients)
 {
     QString s = "";
@@ -429,7 +565,7 @@ void SendWidget::updateEntryLabels(QList<SendCoinsRecipient> recipients)
         if (!label.isNull()) {
             QString labelOld = walletModel->getAddressTableModel()->labelForAddress(rec.address);
             if (label.compare(labelOld) != 0) {
-                CTxDestination dest = DecodeDestination(rec.address.toStdString());
+                CTxDestination dest = CBitcoinAddress(rec.address.toStdString()).Get();
                 if (!walletModel->updateAddressBookLabels(dest, label.toStdString(),
                                                           this->walletModel->isMine(dest) ?
                                                                   AddressBook::AddressBookPurpose::RECEIVE :
@@ -444,32 +580,28 @@ void SendWidget::updateEntryLabels(QList<SendCoinsRecipient> recipients)
     }
 }
 
+
 void SendWidget::onChangeAddressClicked()
 {
     showHideOp(true);
     SendChangeAddressDialog* dialog = new SendChangeAddressDialog(window, walletModel);
-    if (IsValidDestination(coinControlDialog->coinControl->destChange)) {
-        dialog->setAddress(QString::fromStdString(EncodeDestination(coinControlDialog->coinControl->destChange)));
+    if (!boost::get<CNoDestination>(&CoinControlDialog::coinControl->destChange)) {
+        dialog->setAddress(QString::fromStdString(CBitcoinAddress(CoinControlDialog::coinControl->destChange).ToString()));
     }
+    if (openDialogWithOpaqueBackgroundY(dialog, window, 3, 5)) {
+        CBitcoinAddress address(dialog->getAddress().toStdString());
 
-    CTxDestination destChange = (openDialogWithOpaqueBackgroundY(dialog, window, 3, 5) ?
-                                 dialog->getDestination() : CNoDestination());
-
-    if (!IsValidDestination(destChange)) {
-        // no change address set
-        ui->btnChangeAddress->setActive(false);
-    } else {
-        // Ask confirmation if external address
-        if (!walletModel->isMine(destChange) && !ask(tr("Warning!"),
-                tr("The change address doesn't belong to this wallet.\n\nDo you want to continue?"))) {
-            dialog->deleteLater();
+        // Ask if it's what the user really wants
+        if (!walletModel->isMine(address) &&
+            !ask(tr("Warning!"), tr("The change address doesn't belong to this wallet.\n\nDo you want to continue?"))) {
             return;
         }
+        CoinControlDialog::coinControl->destChange = address.Get();
         ui->btnChangeAddress->setActive(true);
     }
-
-    // save change address in coin control
-    coinControlDialog->coinControl->destChange = destChange;
+    // check if changeAddress has been reset to NoDestination (or wasn't set at all)
+    if (boost::get<CNoDestination>(&CoinControlDialog::coinControl->destChange))
+        ui->btnChangeAddress->setActive(false);
     dialog->deleteLater();
 }
 
@@ -523,24 +655,30 @@ void SendWidget::onChangeCustomFeeClicked()
 
 void SendWidget::onCoinControlClicked()
 {
-    if (walletModel->getBalance() > 0) {
-        coinControlDialog->refreshDialog();
-        setCoinControlPayAmounts();
-        coinControlDialog->exec();
-        ui->btnCoinControl->setActive(coinControlDialog->coinControl->HasSelected());
-        refreshAmounts();
+    if (isPNY) {
+        if (walletModel->getBalance() > 0) {
+            if (!coinControlDialog) {
+                coinControlDialog = new CoinControlDialog();
+                coinControlDialog->setModel(walletModel);
+            } else {
+                coinControlDialog->refreshDialog();
+            }
+            coinControlDialog->exec();
+            ui->btnCoinControl->setActive(CoinControlDialog::coinControl->HasSelected());
+            refreshAmounts();
+        } else {
+            inform(tr("You don't have any PNY to select."));
+        }
     } else {
-        inform(tr("You don't have any %1 to select.").arg(CURRENCY_UNIT.c_str()));
-    }
-}
-
-void SendWidget::setCoinControlPayAmounts()
-{
-    if (!coinControlDialog) return;
-    coinControlDialog->clearPayAmounts();
-    QMutableListIterator<SendMultiRow*> it(entries);
-    while (it.hasNext()) {
-        coinControlDialog->addPayAmount(it.next()->getAmountValue());
+        if (walletModel->getZerocoinBalance() > 0) {
+            ZPnyControlDialog *zPnyControl = new ZPnyControlDialog(this);
+            zPnyControl->setModel(walletModel);
+            zPnyControl->exec();
+            ui->btnCoinControl->setActive(!ZPnyControlDialog::setSelectedMints.empty());
+            zPnyControl->deleteLater();
+        } else {
+            inform(tr("You don't have any zPNY in your balance to select."));
+        }
     }
 }
 
@@ -556,6 +694,14 @@ void SendWidget::onCheckBoxChanged()
         fDelegationsChecked = checked;
         refreshAmounts();
     }
+}
+
+void SendWidget::onPNYSelected(bool _isPNY)
+{
+    isPNY = _isPNY;
+    setCssProperty(coinIcon, _isPNY ? "coin-icon-pny" : "coin-icon-zpny");
+    refreshView();
+    updateStyle(coinIcon);
 }
 
 void SendWidget::onContactsClicked(SendMultiRow* entry)
@@ -650,7 +796,7 @@ void SendWidget::onContactMultiClicked()
             inform(tr("Invalid address"));
             return;
         }
-        CTxDestination pnyAdd = DecodeDestination(address.toStdString());
+        CBitcoinAddress pnyAdd = CBitcoinAddress(address.toStdString());
         if (walletModel->isMine(pnyAdd)) {
             inform(tr("Cannot store your own address as contact"));
             return;
@@ -671,7 +817,7 @@ void SendWidget::onContactMultiClicked()
             if (label == dialog->getLabel()) {
                 return;
             }
-            if (walletModel->updateAddressBookLabels(pnyAdd, dialog->getLabel().toStdString(),
+            if (walletModel->updateAddressBookLabels(pnyAdd.Get(), dialog->getLabel().toStdString(),
                     AddressBook::AddressBookPurpose::SEND)) {
                 inform(tr("New Contact Stored"));
             } else {
@@ -740,11 +886,10 @@ void SendWidget::setCustomFeeSelected(bool isSelected, const CAmount& customFee)
 
 void SendWidget::changeTheme(bool isLightTheme, QString& theme)
 {
-    coinControlDialog->setStyleSheet(theme);
+    if (coinControlDialog) coinControlDialog->setStyleSheet(theme);
 }
 
 SendWidget::~SendWidget()
 {
     delete ui;
-    delete coinControlDialog;
 }

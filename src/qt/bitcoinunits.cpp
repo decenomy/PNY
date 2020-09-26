@@ -57,28 +57,27 @@ QString BitcoinUnits::id(int unit)
 
 QString BitcoinUnits::name(int unit, bool isZpny)
 {
-    const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
     QString z = "";
     if(isZpny) z = "z";
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
         case PNY:
-            return z + CURR_UNIT;
+            return z + QString("PNY");
         case mPNY:
-            return z + QString("m") + CURR_UNIT;
+            return z + QString("mPNY");
         case uPNY:
-            return z + QString::fromUtf8("μ") + CURR_UNIT;
+            return z + QString::fromUtf8("μPNY");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
         case PNY:
-            return z + QString("t") + CURR_UNIT;
+            return z + QString("tPNY");
         case mPNY:
-            return z + QString("mt") + CURR_UNIT;
+            return z + QString("mtPNY");
         case uPNY:
-            return z + QString::fromUtf8("μt") + CURR_UNIT;
+            return z + QString::fromUtf8("μtPNY");
         default:
             return QString("???");
         }
@@ -87,26 +86,25 @@ QString BitcoinUnits::name(int unit, bool isZpny)
 
 QString BitcoinUnits::description(int unit)
 {
-    const QString CURR_UNIT = QString(CURRENCY_UNIT.c_str());
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
         case PNY:
-            return CURR_UNIT;
+            return QString("PNY");
         case mPNY:
-            return QString("Milli-") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-PNY (1 / 1" THIN_SP_UTF8 "000)");
         case uPNY:
-            return QString("Micro-") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-PNY (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
         case PNY:
-            return QString("Test") + CURR_UNIT;
+            return QString("TestPNYs");
         case mPNY:
-            return QString("Milli-Test") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-TestPNY (1 / 1" THIN_SP_UTF8 "000)");
         case uPNY:
-            return QString("Micro-Test") + CURR_UNIT + QString(" (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-TestPNY (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }

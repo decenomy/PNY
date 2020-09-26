@@ -6,6 +6,10 @@
         <translation>Diyalog</translation>
     </message>
     <message>
+        <source>My Address</source>
+        <translation>Adresim</translation>
+    </message>
+    <message>
         <source>Address</source>
         <translation>Adres</translation>
     </message>
@@ -18,8 +22,8 @@
         <translation>İPTAL</translation>
     </message>
     <message>
-        <source>SAVE</source>
-        <translation>KAYDET</translation>
+        <source>OK</source>
+        <translation>TAMAM</translation>
     </message>
 </context>
 <context>
@@ -29,8 +33,16 @@
         <translation>Diyalog</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>TAMAM</translation>
     </message>
     <message>
         <source>Edit Contact</source>
@@ -39,6 +51,10 @@
     <message>
         <source>Set a label for the selected address</source>
         <translation>Seçili adres için etiket belirleyin</translation>
+    </message>
+    <message>
+        <source>Enter a name for the address (e.g Exchange)</source>
+        <translation>Adres için isim girin (örn. Borsa)</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -195,12 +211,28 @@
         <translation>Form</translation>
     </message>
     <message>
+        <source>Send</source>
+        <translation>Gönder</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
         <source>Contact name</source>
         <translation>Kişi İsmi</translation>
     </message>
     <message>
         <source>Enter address</source>
         <translation>Adres girin</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>TAMAM</translation>
     </message>
     <message>
         <source>Contacts</source>
@@ -213,6 +245,14 @@
     <message>
         <source>No contacts yet</source>
         <translation>Girilmiş bağlantı yok</translation>
+    </message>
+    <message>
+        <source>e.g. John Doe</source>
+        <translation>örn. Ad Soyad</translation>
+    </message>
+    <message>
+        <source>Enter PNY address</source>
+        <translation>Bir PNY adresi girin</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -340,12 +380,20 @@ Stake için kaldırın</translation>
         <translation>Cüzdanınızı şifreler ve şifreyi kaybederseniz</translation>
     </message>
     <message>
+        <source>LOSE ALL OF YOUR PNY</source>
+        <translation>BUTUN PNY 'LERI KAYBEDERSINIZ</translation>
+    </message>
+    <message>
         <source>ENCRYPT</source>
         <translation>ŞİFRELE</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>WARNING: The Caps Lock key is on!</source>
+        <translation>UYARI: Caps Lock tuşu açık!</translation>
     </message>
     <message>
         <source>PNY will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PNYs from being stolen by malware infecting your computer.</source>
@@ -640,10 +688,6 @@ Stake için kaldırın</translation>
         <translation>soğuk stakin  için %1'e devredildi</translation>
     </message>
     <message>
-        <source>Select All</source>
-        <translation>Tümünü Seç</translation>
-    </message>
-    <message>
         <source>no</source>
         <translation>hayır</translation>
     </message>
@@ -672,6 +716,10 @@ Stake için kaldırın</translation>
         <translation>Herhangi bir alıcı %1 'den küçük bir miktar alırsa, bu etiket kırmızıya döner.</translation>
     </message>
     <message>
+        <source>Can vary +/- %1 upny per input.</source>
+        <translation>Her giriş için +/- %1 upny farkedebilir.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(etiket yok)</translation>
     </message>
@@ -691,12 +739,28 @@ Stake için kaldırın</translation>
         <translation>Form</translation>
     </message>
     <message>
+        <source>Title</source>
+        <translation>Başlık</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Owner address (optional, if empty a new address will be created)</source>
         <translation>Sahibinin adresi (isteğe bağlı, boş ise yeni bir adres oluşturulur)</translation>
     </message>
     <message>
         <source>Total Staking:</source>
         <translation>Toplam Staking:</translation>
+    </message>
+    <message>
+        <source>List of delegated balance by address</source>
+        <translation>Delege edilmiş tutarların adrese göre listesi </translation>
+    </message>
+    <message>
+        <source>No balance delegated</source>
+        <translation>Delege edilmiş tutar bulunmuyor</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -753,10 +817,6 @@ anahtarları çevrimdışı bir şekilde güvenli tutarken, kendi adınıza stak
         <translation>Soğuk Stakeleme ağ üzerinde etkin değil</translation>
     </message>
     <message>
-        <source>Coin Control</source>
-        <translation>Koin kontrolü</translation>
-    </message>
-    <message>
         <source>Invalid entry</source>
         <translation>Geçersiz giriş</translation>
     </message>
@@ -795,6 +855,10 @@ Devam etmek istiyor musunuz?</translation>
     <message>
         <source>Coins delegated</source>
         <translation>Koinler delege edildi</translation>
+    </message>
+    <message>
+        <source>You don't have any PNY to select.</source>
+        <translation>Seçebileceğiniz PNY'iniz bulunmuyor</translation>
     </message>
     <message>
         <source>URI copied to clipboard</source>
@@ -877,6 +941,14 @@ kopyala</translation>
         <source>Form</source>
         <translation>Form</translation>
     </message>
+    <message>
+        <source>Bob Allen</source>
+        <translation>Bob Allen</translation>
+    </message>
+    <message>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
+    </message>
 </context>
 <context>
     <name>DashboardWidget</name>
@@ -889,12 +961,36 @@ kopyala</translation>
         <translation>İşlemler</translation>
     </message>
     <message>
+        <source>You can see here the history of your account</source>
+        <translation>Burada hesabınızın geçmişini görebilirsiniz.</translation>
+    </message>
+    <message>
+        <source>Warning</source>
+        <translation>Uyarı</translation>
+    </message>
+    <message>
+        <source>No transactions</source>
+        <translation>İşlem bulunmuyor</translation>
+    </message>
+    <message>
         <source>Staking Rewards</source>
         <translation>Stake ödülleri</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Staking statistics</source>
         <translation>Stake İstatistikleri</translation>
+    </message>
+    <message>
+        <source>PNY</source>
+        <translation>PNY</translation>
+    </message>
+    <message>
+        <source>zPNY</source>
+        <translation>zPNY</translation>
     </message>
     <message>
         <source>Sort by</source>
@@ -917,6 +1013,14 @@ kopyala</translation>
         <translation>Filtrele</translation>
     </message>
     <message>
+        <source>LabelText</source>
+        <translation>LabelText</translation>
+    </message>
+    <message>
+        <source>You can view your account's history</source>
+        <translation>Hesap geçmişinizde görebilirsiniz</translation>
+    </message>
+    <message>
         <source>Amount of PNY staked.</source>
         <translation>Stake edilmiş PNY ve zPNY miktarı</translation>
     </message>
@@ -927,6 +1031,10 @@ kopyala</translation>
     <message>
         <source>No transactions yet</source>
         <translation>İşlem bulunmuyor</translation>
+    </message>
+    <message>
+        <source>How to get PNY</source>
+        <translation>PNY veya zPNY nasıl alınır</translation>
     </message>
     <message>
         <source>You can verify the staking activity in the status bar at the top right of the wallet.
@@ -966,12 +1074,20 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>Form</translation>
     </message>
     <message>
-        <source>OK</source>
-        <translation>TAMAM</translation>
+        <source>Transaction Details</source>
+        <translation>İşlem Detayları</translation>
+    </message>
+    <message>
+        <source>Text Label</source>
+        <translation>Etiket Yazısı</translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>SAVE</source>
+        <translation>KAYDET</translation>
     </message>
 </context>
 <context>
@@ -1217,7 +1333,7 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <source>Form</source>
         <translation>Form</translation>
     </message>
-    </context>
+</context>
 <context>
     <name>MasterNodeWizardDialog</name>
     <message>
@@ -1265,6 +1381,18 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>IP adresini girin</translation>
     </message>
     <message>
+        <source>CANCEL</source>
+        <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>TAMAM</translation>
+    </message>
+    <message>
+        <source>e.g user_masternode</source>
+        <translation>örn. kullanıcı_masternode</translation>
+    </message>
+    <message>
         <source>NEXT</source>
         <translation>İLERİ</translation>
     </message>
@@ -1298,6 +1426,14 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
     <message>
         <source>Form</source>
         <translation>Form</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
     </message>
     <message>
         <source>Masternodes</source>
@@ -1341,10 +1477,6 @@ and vote on the treasury system receiving a periodic reward.</source>
     <message>
         <source>Remote Masternode Data</source>
         <translation>Uzak Masternode Bilgisi</translation>
-    </message>
-    <message>
-        <source>What is a Masternode?</source>
-        <translation>Masternode nedir?</translation>
     </message>
     <message>
         <source>You are just about to export the required data to run a Masternode
@@ -1391,6 +1523,10 @@ Emin misiniz?</translation>
         <translation> masternode.conf dosyası bulunamadı</translation>
     </message>
     <message>
+        <source>Not enough balance to create a masternode, 10,000 PNY required.</source>
+        <translation>Masternode yaratmak için yetersiz bakiye, 10,000 PNY gerekmektedir.</translation>
+    </message>
+    <message>
         <source>Error creating masternode</source>
         <translation>Masternode yaratma hatası</translation>
     </message>
@@ -1406,8 +1542,16 @@ Emin misiniz?</translation>
         <translation>Public Key:</translation>
     </message>
     <message>
+        <source>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</source>
+        <translation>492526e7fa3c810b35016...40a5df85ee227ab00b1156994</translation>
+    </message>
+    <message>
         <source>Address: </source>
         <translation>Adres</translation>
+    </message>
+    <message>
+        <source>127.0.0.2:43223</source>
+        <translation>127.0.0.2:43223</translation>
     </message>
     <message>
         <source>Collaterall tx id:</source>
@@ -1425,12 +1569,28 @@ Emin misiniz?</translation>
         <source>Status:</source>
         <translation>Durum:</translation>
     </message>
+    <message>
+        <source>MISSING</source>
+        <translation>EKSİK</translation>
+    </message>
     </context>
 <context>
     <name>MyAddressRow</name>
     <message>
         <source>Form</source>
         <translation>Form</translation>
+    </message>
+    <message>
+        <source>Savings</source>
+        <translation>Birikimler</translation>
+    </message>
+    <message>
+        <source>Jan. 19, 2019</source>
+        <translation>Ocak. 12,2019</translation>
+    </message>
+    <message>
+        <source>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</source>
+        <translation>DN6i46dytMPVhV1JMGZFuQBh7BZZ6nNLox</translation>
     </message>
 </context>
 <context>
@@ -1496,6 +1656,10 @@ Emin misiniz?</translation>
     <message>
         <source>Form</source>
         <translation>Form</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
     </message>
 </context>
 <context>
@@ -1853,6 +2017,10 @@ Tip: %3
 Adres: %4
 </translation>
     </message>
+    <message>
+        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
+        <translation>Onarılamaz bir hata oluştu. PNY güvenli bir şekilde çalışamaz, kapanacaktır.</translation>
+    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1961,6 +2129,122 @@ Adres: %4
     </message>
 </context>
 <context>
+    <name>PrivacyWidget</name>
+    <message>
+        <source>Form</source>
+        <translation>Form</translation>
+    </message>
+    <message>
+        <source>Title</source>
+        <translation>Başlık</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Butona Basın</translation>
+    </message>
+    <message>
+        <source>N/A</source>
+        <translation>N/A</translation>
+    </message>
+    <message>
+        <source>Privacy</source>
+        <translation>Gizlilik</translation>
+    </message>
+    <message>
+        <source>Convert</source>
+        <translation>Dönüştür</translation>
+    </message>
+    <message>
+        <source>Mint</source>
+        <translation>Mint</translation>
+    </message>
+    <message>
+        <source>Minting zPNY anonymizes your PNY by removing any
+transaction history, making transactions untraceable </source>
+        <translation>zPNY mintleme işlemi PNY'lerinizin işlem geçmişini siler, işlemleri takip edilemez yapar</translation>
+    </message>
+    <message>
+        <source>Mint new zPNY or convert back to PNY</source>
+        <translation>Yeni zPNY mintle veya PNY'e geri dönüştür</translation>
+    </message>
+    <message>
+        <source>No transactions yet</source>
+        <translation>İşlem bulunmuyor</translation>
+    </message>
+    <message>
+        <source>Mint zPNY</source>
+        <translation>Mint ZPNY</translation>
+    </message>
+    <message>
+        <source>Enter amount of PNY to mint into zPNY</source>
+        <translation>zPNY'e mintlenmek için dönüştürülecek PNY miktarını gir</translation>
+    </message>
+    <message>
+        <source>Convert back to PNY</source>
+        <translation>PNY'e geri dönüştür</translation>
+    </message>
+    <message>
+        <source>Enter amount of zPNY to convert back into PNY</source>
+        <translation>PNY'e geri dönüştürülecek zPNY miktarını gir</translation>
+    </message>
+    <message>
+        <source>Zerocoin</source>
+        <translation>Zerocoin</translation>
+    </message>
+    <message>
+        <source>zPNY is currently undergoing maintenance</source>
+        <translation>zPNY şu anda bakımdadır</translation>
+    </message>
+    <message>
+        <source>You need to unlock the wallet to be able to %1 zPNY</source>
+        <translation>%1 zPNY yapabilmek için cüzdanınızın kilidini kaldırmalısınız</translation>
+    </message>
+    <message>
+        <source>convert</source>
+        <translation>dönüştür</translation>
+    </message>
+    <message>
+        <source>mint</source>
+        <translation>mint</translation>
+    </message>
+    <message>
+        <source>Invalid value</source>
+        <translation>Geçersiz değer</translation>
+    </message>
+    <message>
+        <source>zPNY minted successfully</source>
+        <translation>zPNY minting başarılı</translation>
+    </message>
+    <message>
+        <source>zPNY converted back to PNY</source>
+        <translation>zPNY PNY'e dönüştürüldü</translation>
+    </message>
+    <message>
+        <source>You don't have any PNY to select.</source>
+        <translation>Seçebileceğiniz PNY'iniz bulunmuyor</translation>
+    </message>
+    <message>
+        <source>Rescan Mints</source>
+        <translation>Mint'leri tekrar tara</translation>
+    </message>
+    <message>
+        <source>Your zerocoin mints are going to be scanned from the blockchain from scratch</source>
+        <translation>Zerocoin mintleriniz sıfırdan blockchain üzerinde taranacaktır</translation>
+    </message>
+    <message>
+        <source>Your zerocoin spends are going to be scanned from the blockchain from scratch</source>
+        <translation>Zerocoin mintleriniz sıfırdan blockchain üzerinde taranacaktır</translation>
+    </message>
+    <message>
+        <source>Total %1</source>
+        <translation>Toplam %1</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
@@ -2005,10 +2289,6 @@ Adres: %4
     <message>
         <source>%1 ms</source>
         <translation>%1 ms</translation>
-    </message>
-    <message>
-        <source>A fatal error occurred. PNY can no longer continue safely and will quit.</source>
-        <translation>Onarılamaz bir hata oluştu. PNY güvenli bir şekilde çalışamaz, kapanacaktır.</translation>
     </message>
     <message>
         <source>PNY Core</source>
@@ -2505,12 +2785,20 @@ Adres: %4
         <translation>Diyalog</translation>
     </message>
     <message>
-        <source>My Address</source>
-        <translation>Adresim</translation>
+        <source>Transaction Details</source>
+        <translation>İşlem Detayları</translation>
+    </message>
+    <message>
+        <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
+        <translation>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </translation>
     </message>
     <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>TAMAM</translation>
     </message>
 </context>
 <context>
@@ -2518,6 +2806,10 @@ Adres: %4
     <message>
         <source>Form</source>
         <translation>Form</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>No address</source>
@@ -2538,6 +2830,14 @@ Adres: %4
     <message>
         <source>Receive</source>
         <translation>Al</translation>
+    </message>
+    <message>
+        <source>Scan the QR code or copy the address to receive PNY.</source>
+        <translation>PNY almak için QR kodunu okutun veya adresi kopyalayın</translation>
+    </message>
+    <message>
+        <source>No address </source>
+        <translation>Adres bulunmuyor</translation>
     </message>
     <message>
         <source>No available address, try unlocking the wallet</source>
@@ -2622,12 +2922,24 @@ Adres: %4
         <translation>Diyalog</translation>
     </message>
     <message>
+        <source>New Request Payment</source>
+        <translation>Yeni Ödeme Talebi</translation>
+    </message>
+    <message>
+        <source>Lorem ipsum dolor sit amet, consectur cling elit, sed do </source>
+        <translation>Lorem ipsum dolor sit amet, consectur cling elit, sed do </translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Miktar</translation>
     </message>
     <message>
         <source>PNY</source>
         <translation>PNY</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>P7VFR83SQbiezrW72hjcWJtcfip5krte2Z </source>
@@ -2644,6 +2956,10 @@ Adres: %4
     <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>REQUEST</source>
+        <translation>TALEP ET</translation>
     </message>
     <message>
         <source>Label</source>
@@ -2669,10 +2985,6 @@ Adres: %4
         <source>New Cold Staking Address</source>
         <translation>Yeni Stakeleme Adresi</translation>
     </message>
-    <message>
-        <source>Invalid amount</source>
-        <translation>Geçersiz miktar</translation>
-    </message>
     </context>
 <context>
     <name>SendChangeAddressDialog</name>
@@ -2681,8 +2993,20 @@ Adres: %4
         <translation>Diyalog</translation>
     </message>
     <message>
+        <source>Transaction Details</source>
+        <translation>İşlem Detayları</translation>
+    </message>
+    <message>
+        <source>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</source>
+        <translation>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</translation>
+    </message>
+    <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>TAMAM</translation>
     </message>
     <message>
         <source>Custom Change Address</source>
@@ -2700,12 +3024,20 @@ Adres: %4
         <source>Invalid address</source>
         <translation>Geçersiz adres</translation>
     </message>
-    </context>
+</context>
 <context>
     <name>SendCustomFeeDialog</name>
     <message>
         <source>Form</source>
         <translation>Form</translation>
+    </message>
+    <message>
+        <source>Transaction Details</source>
+        <translation>İşlem Detayları</translation>
+    </message>
+    <message>
+        <source>Customize the transaction fee at your to your liking, depending on the fee value your transaction will be included or not in the blockchain.</source>
+        <translation>İsteğiniz gibi transfer masrafını değiştirebilirsiniz, belirlediğiniz değere göre blockchaine yazılır veya yazılmaz. </translation>
     </message>
     <message>
         <source>Recommended</source>
@@ -2722,6 +3054,10 @@ Adres: %4
     <message>
         <source>CANCEL</source>
         <translation>İPTAL</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>TAMAM</translation>
     </message>
     <message>
         <source>Customize Fee</source>
@@ -2751,6 +3087,10 @@ Adres: %4
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Enter address</source>
         <translation>Adres girin</translation>
     </message>
@@ -2758,8 +3098,56 @@ Adres: %4
 <context>
     <name>SendWidget</name>
     <message>
+        <source>Send</source>
+        <translation>Gönder</translation>
+    </message>
+    <message>
+        <source>You can transfer public coins (PNY) or private coins (zPNY)</source>
+        <translation>Açık koin PNY veya gizli koin zPNY transfer edebilirsiniz</translation>
+    </message>
+    <message>
+        <source>Select coin type to spend</source>
+        <translation>Harcayacağınız koin tipini seçin</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Miktar</translation>
+    </message>
+    <message>
+        <source>Customize fee</source>
+        <translation>Masrafı değiştir</translation>
+    </message>
+    <message>
+        <source>Clear all</source>
+        <translation>Hepsini temizle</translation>
+    </message>
+    <message>
+        <source>Add recipient</source>
+        <translation>Alıcı Ekle</translation>
+    </message>
+    <message>
+        <source>Reset to default</source>
+        <translation>Varsayılana konumlandır</translation>
+    </message>
+    <message>
+        <source>Total to send</source>
+        <translation>Gönderilecek toplam</translation>
+    </message>
+    <message>
+        <source>Send PNY</source>
+        <translation>PNY Gönder</translation>
+    </message>
+    <message>
+        <source>Send zPNY</source>
+        <translation>zPNY gönder</translation>
+    </message>
+    <message>
         <source>Total remaining from the selected UTXO</source>
         <translation>Seçili UTXO'dan kalan toplam</translation>
+    </message>
+    <message>
+        <source>Total remaining</source>
+        <translation>Toplam kalan</translation>
     </message>
     <message>
         <source>Customize Fee</source>
@@ -2802,6 +3190,54 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
         <translation>Ödeme gönderildi</translation>
     </message>
     <message>
+        <source>Spend Zerocoin</source>
+        <translation>Zerocoin Harca</translation>
+    </message>
+    <message>
+        <source>zPNY is currently undergoing maintenance.</source>
+        <translation>zPNY halen bakımda.</translation>
+    </message>
+    <message>
+        <source>Coin control mint not found</source>
+        <translation>Koin kontrolü min bulunamadı</translation>
+    </message>
+    <message>
+        <source>Sending %1 to address %2
+</source>
+        <translation>%1 adresinden %2 adresine gönderiliyor
+</translation>
+    </message>
+    <message>
+        <source>Sending %1 to addresses:
+%2</source>
+        <translation>%1 adresinden
+%2 adreslerine gönderiliyor</translation>
+    </message>
+    <message>
+        <source>zPNY transaction sent!</source>
+        <translation>zPNY ödemesi gönderildi</translation>
+    </message>
+    <message>
+        <source>Version 1 zPNY require a security level of 100 to successfully spend.</source>
+        <translation>Versiyon 1 olan zPNY'lerin başarıyla harcanabilmesi için güvenlik seviyesinin 100 olması gerekiyor.</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>Çok fazla girdi (</translation>
+    </message>
+    <message>
+        <source>) needed.
+Maximum allowed: </source>
+        <translation>) gerekli.
+Maksimum bırakılan: </translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>
+Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama miktarını azaltın.</translation>
+    </message>
+    <message>
         <source>Address label update failed for address: %1</source>
         <translation>%1 adresi için adres etiketi güncellemesi başarısız oldu</translation>
     </message>
@@ -2818,12 +3254,12 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
         <translation>Belirlenmiş masraf %1</translation>
     </message>
     <message>
-        <source>Coin Control</source>
-        <translation>Koin kontrolü</translation>
+        <source>You don't have any PNY to select.</source>
+        <translation>Seçebileceğiniz PNY'iniz bulunmuyor</translation>
     </message>
     <message>
-        <source>Open URI</source>
-        <translation>Open URI</translation>
+        <source>You don't have any zPNY in your balance to select.</source>
+        <translation>Bakiyenizde seçebileceğiniz zPNY'iniz bulunmuyor</translation>
     </message>
     <message>
         <source>No contacts available, you can go to the contacts screen and add some there!</source>
@@ -2869,8 +3305,22 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>Backup Wallet </source>
+        <translation>Cüzdanı Yedekle</translation>
+    </message>
+    <message>
         <source>Change Wallet Passphrase</source>
         <translation>Cüzdan Parolasını Değiştir</translation>
+    </message>
+    <message>
+        <source>This will decrypt the whole wallet data and encrypt it back with the new passphrase.
+Remember to write it down and store it safely, otherwise you might lose access to your funds.</source>
+        <translation>Bu işlem tüm bilginin şifresini çözecek ve yeni parola ile şifreleyecektir.
+Paranıza erişiminizi kaybetmemek için yazmayı ve güvenli bir yerde saklamayı unutmayın.</translation>
     </message>
     <message>
         <source>Where</source>
@@ -2908,8 +3358,24 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Butona Basın</translation>
+    </message>
+    <message>
+        <source>Decrypt Address Result</source>
+        <translation>Adres Şifre Çözüm Sonucu</translation>
+    </message>
+    <message>
         <source>Import Address</source>
         <translation>Adres içe aktar</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Temizle</translation>
     </message>
     <message>
         <source>BIP38 Tool</source>
@@ -2934,6 +3400,10 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
     <message>
         <source>Passphrase</source>
         <translation>Parola</translation>
+    </message>
+    <message>
+        <source>Enter a passphrase </source>
+        <translation>Bir Parola gir</translation>
     </message>
     <message>
         <source>Decrypted address result</source>
@@ -3043,12 +3513,20 @@ Bu koinler artık soğuk stakelenmeyecektir.</translation>
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Console</source>
         <translation>Konsol</translation>
     </message>
     <message>
         <source>Console input</source>
         <translation>Konsol Girişi</translation>
+    </message>
+    <message>
+        <source>Command Line Options </source>
+        <translation>Komut Satırı Seçenekleri</translation>
     </message>
     <message>
         <source>Open Debug File</source>
@@ -3082,6 +3560,10 @@ Verify that you have installed a predetermined text editor.</source>
     <message>
         <source>Form</source>
         <translation>Form</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -3182,12 +3664,46 @@ Verify that you have installed a predetermined text editor.</source>
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Butona Basın</translation>
+    </message>
+    <message>
         <source>1) What is PNY?</source>
         <translation>1)PNY nedir?</translation>
     </message>
     <message>
         <source>2) Why are my PNY unspendable?</source>
         <translation>2) PNY'lerim neden harcanabilir değil?</translation>
+    </message>
+    <message>
+        <source>3) PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation>3)PNY gizliliği? Zerocoin (zPNY) nedir?</translation>
+    </message>
+    <message>
+        <source>4) Why are my zPNY unspendable?</source>
+        <translation>4)  zPNY'lerim neden harcanabilir değil?</translation>
+    </message>
+    <message>
+        <source>5) Why did my wallet convert the balance
+    into zPNY automatically?</source>
+        <translation>5)Neden cüzdanım bakiyemi otomatik olarak
+zPNY'e dönüştürdü?</translation>
+    </message>
+    <message>
+        <source>6) How do I receive PNY/zPNY?</source>
+        <translation>6) Nasıl PNY/zPNY alabilirim?</translation>
+    </message>
+    <message>
+        <source>7) How do I stake PNY/zPNY?</source>
+        <translation>7) Nasıl PNY/zPNY staking yapabilirim?</translation>
+    </message>
+    <message>
+        <source>8) Where I should go if I need support?</source>
+        <translation>8) Yardıma ihtiyacım olduğunda nereye gitmeliyim?</translation>
     </message>
     <message>
         <source>1</source>
@@ -3260,20 +3776,137 @@ bu sayede PNY sahipleri blok ödülü kazanımına katılabilmektedir
         <translation>3</translation>
     </message>
     <message>
+        <source>PNY privacy? What is Zerocoin (zPNY)?</source>
+        <translation>PNY gizliliği? Zerocoin (zPNY) nedir?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           zPNY is an optional privacy-centric method of coin mixing on the
+                           PNY blockchain. Basically all your transactions cannot be tracked
+                           on to any block explorer. You can read more about the technicals in the
+                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;
+                           "PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           zPNY PNY blockchaini üzerinde koinleri karıştırmak için kullanılan
+gizlilik-odaklı opsiyonel bir metoddur. Temel olarak işlemleriniz
+ hiçbir tarayıcı tarafından takip edilemez. Teknik detayları
+ hakkında daha çok bilgi almak için
+                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt;
+                           "PNY Zerocoin (zPNY) Teknik Makalesi"&lt;/a&gt;.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </translation>
+    </message>
+    <message>
         <source>4</source>
         <translation>4</translation>
+    </message>
+    <message>
+        <source>Why are my zPNY unspendable?</source>
+        <translation>zPNY'lerim neden harcanabilir değil?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           After minting, zPNY will require 20 confirmations as well as 1
+                           additional mint of the same denomination on the network to
+                           become eligible for spending.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           Mint işlemi sonrasında, zPNY'lerin harcanabilir duruma gelmesi
+ için 20 onay alması ve kendisiyle aynı
+ bölüme sahip fazladan 1 mint'e ihtiyaç vardır.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </translation>
     </message>
     <message>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
+        <source>Why did my wallet convert the balance into zPNY automatically?</source>
+        <translation>Neden cüzdanım bakiyemi otomatik olarak zPNY'e dönüştürdü?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           By default the PNY wallet will convert 10% of your entire PNY
+                           balance to zPNY to assist the network. If you do not wish to
+                           stake zPNY or take advantage of the privacy benefit it brings,
+                           you can disable the automatic minting in your PNY wallet by
+                           going to Settings-&gt;Options and deselecting “Enable zPNY Automint”.
+                           If you are not making use of the PNY-QT or GUI you can simply open
+                           your pny.conf file and add &lt;i&gt;enablezeromint=0&lt;/i&gt; Without the quotation
+                           marks and restart your wallet to disable automint.&lt;/p&gt;
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           You can read more about zPNY in the
+                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt; "PNY Zerocoin (zPNY) Technical Paper"&lt;/a&gt;.
+                           If you would like to keep and stake your zPNY, please read the "How do I stake"
+                           section of the FAQ below.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           PNY cüzdanınız ağa destek olmak için varsayılan olarak tüm PNY bakiyenizin 10% 'unu zPNY'e dönüştürecektir. Getirdiği gizlilik avantajını istemiyor veya zPNY stakelemek istemiyorsanız cüzdanınızın otomint özelliğini Ayarlar-&gt;Seçenekler içindeki “zPNY Otomint etkin” seçeneğini değiştirerek devredışı bırakabilirsiniz. PNYQT veya GUI kullanmıyorsanız, pny.conf dosyası içine  &lt;i&gt;enablezeromint=0&lt;/i&gt; ifadesini tırnak işareti olmadan girerek devredışı bırakabilirsiniz. &lt;/p&gt;
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           Teknik detayları hakkında daha çok bilgi almak için
+                           &lt;a style='color: #cfc8af' href='https://peonycoin.io/zpny/'&gt; "PNY Zerocoin (zPNY) Teknik Makalesi"&lt;/a&gt;.
+                           zPNY'lerinizi tutmak ve stakelemek istiyorsanız, lütfen SSS kısmındaki "Nasıl Stake yaparım"
+kısmını okuyunuz.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </translation>
+    </message>
+    <message>
         <source>6</source>
         <translation>6</translation>
     </message>
     <message>
+        <source>How do I receive PNY/zPNY?</source>
+        <translation>Nasıl PNY/zPNY alabilirim?</translation>
+    </message>
+    <message>
+        <source>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           zPNY can be spent and sent to any PNY address. The receiver will
+                           receive standard PNY but the origin of the PNY is anonymized by the zPNY Protocol.
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           If you want more zPNY you will need to mint your balance in the “Privacy” tab.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </source>
+        <translation>
+                           &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
+                           zPNY herhangi bir PNY adresine gönderilerek harcanabilir.
+                           Alıcı standart PNY alacaktır fakat PNY kaynağı
+zPNY Protokolü ile anonimleştirilmiş olacaktır.
+                           &lt;/p&gt;&lt;p align="justify"&gt;
+                           Daha fazla zPNY istiyorsanız, "Gizlilik" tabından bakiyenizi mintlemeniz gerekecektir.
+                           &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                         </translation>
+    </message>
+    <message>
+        <source>7</source>
+        <translation>7</translation>
+    </message>
+    <message>
+        <source>How do I stake PNY/zPNY?</source>
+        <translation>Nasıl PNY/zPNY staking yapabilirim?</translation>
+    </message>
+    <message>
         <source>What is a Masternode?</source>
         <translation>Masternode nedir?</translation>
+    </message>
+    <message>
+        <source>8</source>
+        <translation>8</translation>
+    </message>
+    <message>
+        <source>9</source>
+        <translation>9</translation>
     </message>
     <message>
         <source>
@@ -3360,6 +3993,10 @@ işletim maliyetleri sonrası pasif bir gelir sunar.
                            &lt;/ul&gt;
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </translation>
+    </message>
+    <message>
+        <source>10</source>
+        <translation>10</translation>
     </message>
     <message>
         <source>Frequently Asked Questions</source>
@@ -3452,12 +4089,20 @@ işletim maliyetleri sonrası pasif bir gelir sunar.
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Window</source>
         <translation>Pencere</translation>
     </message>
     <message>
         <source>Customize the application window options</source>
         <translation>Uygulama Penceresi seçeneklerini değiştir</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
     </message>
     <message>
         <source>Reset to default</source>
@@ -3659,6 +4304,14 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>Clear</source>
+        <translation>Temizle</translation>
+    </message>
+    <message>
         <source>Sign/Verify Message</source>
         <translation>Mesaj İmza/Onay</translation>
     </message>
@@ -3766,6 +4419,18 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
+        <source>CheckBox</source>
+        <translation>CheckBox</translation>
+    </message>
+    <message>
+        <source>RadioButton</source>
+        <translation>RadioButton</translation>
+    </message>
+    <message>
         <source>Reset to default</source>
         <translation>Varsayılana konumlandır</translation>
     </message>
@@ -3782,6 +4447,10 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Cüzdan içi opsiyonları özelleştir</translation>
     </message>
     <message>
+        <source>Stake split threshold:</source>
+        <translation>Stake bölme eşiği</translation>
+    </message>
+    <message>
         <source>Spend unconfirmed change</source>
         <translation>Onaylanmamış tutarı harca</translation>
     </message>
@@ -3794,8 +4463,16 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Düğüm ağ opsiyonlarını özelleştir</translation>
     </message>
     <message>
+        <source>Proxy IP:</source>
+        <translation>Proksi IP:</translation>
+    </message>
+    <message>
         <source>Enter proxy IP</source>
         <translation>Proksi IP'sini gir</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Port:</translation>
     </message>
     <message>
         <source>Map port using UPnP</source>
@@ -3804,6 +4481,10 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     <message>
         <source>Allow incoming connections</source>
         <translation>Gelen bağlantılara izin ver</translation>
+    </message>
+    <message>
+        <source>Connect through SOCKS5 proxy (default proxy):</source>
+        <translation>SOCKS5 proksisi üzerinden bağlan (varsayılan proksi)</translation>
     </message>
     <message>
         <source>SAVE</source>
@@ -3821,20 +4502,48 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
         <translation>Form</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Wallet Repair</source>
         <translation>Cüzdan Onarımı</translation>
+    </message>
+    <message>
+        <source>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions.</source>
+        <translation>Aşağıdaki düğmeleri kullanarak cüzdanı tekrar başlattığınızda cüzdan onarımı, bozuk blockchain dosyaları veya eksik/süresi geçmiş işlemlerden kaynaklı hataları düzeltmek için komut satırı opsiyonlarıyla açılacaktır.</translation>
+    </message>
+    <message>
+        <source>Attempt to recover private keys from a corrupt wallet.dat.</source>
+        <translation>Bozuk bir wallet.dat'tan özel anahtarları kurtarmayı deneyin.</translation>
+    </message>
+    <message>
+        <source>Rescan the blockchain for missing wallet transactions.</source>
+        <translation>Eksik cüzdan transferleri için blockchaini tekrar tara.</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (keep-meta-data, e.g. account owner).</source>
+        <translation>Blockchainden işlemleri kurtarın (meta verileri koru, örn. hesap sahibi)</translation>
+    </message>
+    <message>
+        <source>Recover transactions from blockchain (drop meta-data).</source>
+        <translation>İşlemleri blok zincirini kullanarak kurtarın (meta verileri bırakın).</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</source>
         <translation>Cüzdanı başlangıçta en yeni formata yükseltin. (Not: Bu, cüzdanın kendisinin güncellemesi değildir!)</translation>
     </message>
     <message>
-        <source>Salvage wallet</source>
-        <translation>Kurtarma cüzdanı</translation>
+        <source>Rebuild blockchain index from current blk000???.dat files.</source>
+        <translation>Blok zinciri dizinini mevcut blk000 ?? dat dosyalarından yeniden oluştur.</translation>
     </message>
     <message>
-        <source>Attempt to recover private keys from a corrupt wallet.dat</source>
-        <translation>Bozuk wallet.dat dosyasından gizli anahtarları kurtar</translation>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Cüzdan sıfırdan eşleştirmek için tüm yerel blok zincir klasörlerini siler.</translation>
+    </message>
+    <message>
+        <source>Salvage wallet</source>
+        <translation>Kurtarma cüzdanı</translation>
     </message>
     <message>
         <source>Rescan blockchain file</source>
@@ -3855,6 +4564,10 @@ Check one or both of the check boxes to send on stake and/or masternode rewards<
     <message>
         <source>Rebuild index</source>
         <translation>Dizini yeniden oluştur</translation>
+    </message>
+    <message>
+        <source>Delete local blockchain </source>
+        <translation>Yerel Blockchain'i sil</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -4048,6 +4761,26 @@ Emin misiniz?
 <context>
     <name>SplashScreen</name>
     <message>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
+    </message>
+    <message>
+        <source>Version %1</source>
+        <translation>Version %1</translation>
+    </message>
+    <message>
+        <source>The Bitcoin Core developers</source>
+        <translation>The Bitcoin Core developers</translation>
+    </message>
+    <message>
+        <source>The Dash Core developers</source>
+        <translation>The Dash Core developers</translation>
+    </message>
+    <message>
+        <source>The PNY Core developers</source>
+        <translation>The PNY Core developers</translation>
+    </message>
+    <message>
         <source>[testnet]</source>
         <translation>[testnet]</translation>
     </message>
@@ -4116,14 +4849,6 @@ Emin misiniz?
     <message>
         <source>%1 and %2</source>
         <translation>%1 ve %2</translation>
-    </message>
-    <message>
-        <source>FAQ</source>
-        <translation>SSS</translation>
-    </message>
-    <message>
-        <source>Wallet Locked</source>
-        <translation>Cüzdan Kilitlendi</translation>
     </message>
     <message>
         <source>Backup Wallet</source>
@@ -4379,8 +5104,40 @@ Emin misiniz?
         <translation>Tarafından alındı</translation>
     </message>
     <message>
+        <source>PNY Stake</source>
+        <translation>PNY Stake</translation>
+    </message>
+    <message>
+        <source>zPNY Stake</source>
+        <translation>zPNY Stake</translation>
+    </message>
+    <message>
+        <source>PNY Cold Stake</source>
+        <translation>PNY Soğuk Stake</translation>
+    </message>
+    <message>
         <source>Stake delegation</source>
         <translation>Stake delegasyonu</translation>
+    </message>
+    <message>
+        <source>Converted PNY to zPNY</source>
+        <translation>PNY'den zPNY'e dönüştürülen</translation>
+    </message>
+    <message>
+        <source>Spent zPNY</source>
+        <translation>zPNY Harca</translation>
+    </message>
+    <message>
+        <source>Received PNY from zPNY</source>
+        <translation>zPNY'den PNY olarak alınan</translation>
+    </message>
+    <message>
+        <source>Minted Change as zPNY from zPNY Spend</source>
+        <translation>zPNY harcamasından kaynaklanan zPNY mint farkı</translation>
+    </message>
+    <message>
+        <source>Converted zPNY to PNY</source>
+        <translation>zPNY'den PNY' dönüştürülen</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4524,6 +5281,18 @@ Emin misiniz?
         <source>Form</source>
         <translation>Form</translation>
     </message>
+    <message>
+        <source>Received from Bob</source>
+        <translation>Bob'tan geldi</translation>
+    </message>
+    <message>
+        <source>18/05/18</source>
+        <translation>18/05/18</translation>
+    </message>
+    <message>
+        <source>+0.000585 PNY</source>
+        <translation>+0.000585 PNY</translation>
+    </message>
 </context>
 <context>
     <name>WalletModel</name>
@@ -4531,7 +5300,11 @@ Emin misiniz?
         <source>Send Coins</source>
         <translation>Koinleri göder</translation>
     </message>
-    </context>
+    <message>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 PNY.</source>
+        <translation>SwiftX yüksek değerler göndermeyi desteklemiyor. İşlemler şu anda %1 PNY ile sınırlıdır.</translation>
+    </message>
+</context>
 <context>
     <name>WelcomeContentWidget</name>
     <message>
@@ -4602,6 +5375,49 @@ Hoşgeldiniz</translation>
     </message>
 </context>
 <context>
+    <name>ZPnyControlDialog</name>
+    <message>
+        <source>Select zPNY to Spend</source>
+        <translation>Harcanacak zPNY'leri seçin</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Koin kontrolü</translation>
+    </message>
+    <message>
+        <source>PushButton</source>
+        <translation>Butona Basın</translation>
+    </message>
+    <message>
+        <source>zPny</source>
+        <translation>zPny</translation>
+    </message>
+    <message>
+        <source>0.00 </source>
+        <translation>0.00 </translation>
+    </message>
+    <message>
+        <source>Quantity:</source>
+        <translation>Miktar</translation>
+    </message>
+    <message>
+        <source>Is Spendable</source>
+        <translation>Harcanabilir</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Select/Deselect All</source>
+        <translation>Seç/Çıkar Hepsini</translation>
+    </message>
+    <message>
+        <source>Select zPNY Denominations to Spend</source>
+        <translation>Harcanacak zPNY Bölümlerini Seçin</translation>
+    </message>
+</context>
+<context>
     <name>pny-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
@@ -4656,6 +5472,14 @@ Hoşgeldiniz</translation>
         <translation>Soğuk stakeleme fonksiyonunu etkinleştirin (0-1, varsayılan: %u). Staking=0 ise etkin değildir</translation>
     </message>
     <message>
+        <source>Enable or disable staking functionality for PNY inputs (0-1, default: %u)</source>
+        <translation>PNY girişleri için stake fonksiyonunu aç veya kapat (0-1, varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zPNY inputs (0-1, default: %u)</source>
+        <translation>zPNY girişleri için stake fonksiyonunu aç veya kapat (0-1, varsayılan: %u)</translation>
+    </message>
+    <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>Uygun private key ile Spork yönetim özelliğine izin verin.</translation>
     </message>
@@ -4688,6 +5512,14 @@ Hoşgeldiniz</translation>
         <translation>En iyi blok değiştirildiğinde komutu yürütün (cmd'deki %s yerine blok karması verilir)</translation>
     </message>
     <message>
+        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Bundan daha küçük ücretler (PNY / Kb cinsinden), aktarma için sıfır ücret olarak kabul edilir (varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Fees (in PNY/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Bundan daha küçük ücretler (PNY / Kb cinsinden), işlem yaratmada sıfır ücret olarak kabul edilir (varsayılan: %s)</translation>
+    </message>
+    <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>Bellek havuzundan disk günlüğüne her veritabanı aktivitesini temizle&lt;n&gt; megabytes (default: %u)</translation>
     </message>
@@ -4706,6 +5538,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
         <translation>Yetersiz miktar için -maxtxfee=&lt;amount&gt;: '%s' (sıkışmış işlemleri önlemek için en az %s'lik minrelay ücreti olmalıdır)</translation>
+    </message>
+    <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>Belirlenen tutarı her zaman harcamaya hazır durumda tut. (varsayılan:0)</translation>
     </message>
     <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
@@ -4738,6 +5574,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Output debugging information (default: %u, supplying &lt;category&gt; is optional)</source>
         <translation>Hata ayıklama bilgisini dışarı aktar (varsayılan: %u, sağlamak&lt;category&gt;  opsiyoneldir)</translation>
+    </message>
+    <message>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
+        <translation>Adresler azsa eş adreslerini DNS lookup yoluyla ara (varsayılan: 1 unless -connect)</translation>
     </message>
     <message>
         <source>Randomize credentials for every proxy connection. This enables Tor stream isolation (default: %u)</source>
@@ -4832,6 +5672,10 @@ Hoşgeldiniz</translation>
         <translation>Konfigürasyonda bir masternodeprivkey belirlemelisiniz.  Lütfen dokümantasyona bakınız.</translation>
     </message>
     <message>
+        <source>(16889 could be used only on mainnet)</source>
+        <translation>(16889 sadece mainnet üzerinde kullanılabilir)</translation>
+    </message>
+    <message>
         <source>(default: %s)</source>
         <translation>(default: %s)</translation>
     </message>
@@ -4840,8 +5684,16 @@ Hoşgeldiniz</translation>
         <translation>(default: 1)</translation>
     </message>
     <message>
+        <source>(must be 16889 for mainnet)</source>
+        <translation>(mainnet için 16889 olmalıdır)</translation>
+    </message>
+    <message>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>JSON-RPC ve komut satırı komutlarını kabul et</translation>
+    </message>
+    <message>
+        <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
+        <translation>Dış bağlantıları kabul et (varsayılan:1 eğer -proxy veya -connect yoksa)</translation>
     </message>
     <message>
         <source>Accept public REST requests (default: %u)</source>
@@ -4878,6 +5730,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Cannot downgrade wallet</source>
         <translation>Cüzdan alt versiyona düşürülemiyor</translation>
+    </message>
+    <message>
+        <source>Connect only to the specified node(s)</source>
+        <translation>Sadece belirtilmiş düğüm(lere) bağlan</translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
@@ -5020,6 +5876,14 @@ Hoşgeldiniz</translation>
         <translation>host:port string çözümlenemedi</translation>
     </message>
     <message>
+        <source>Failed to read block</source>
+        <translation>Blok okuma hatası</translation>
+    </message>
+    <message>
+        <source>Fee (in PNY/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gönderdiğiniz transfere (PNY/kb cinsinden) bir masraf ekleyin (varsayılan: %s) </translation>
+    </message>
+    <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Güvenli moda zorla (varsayılan: %u)</translation>
     </message>
@@ -5088,8 +5952,16 @@ Hoşgeldiniz</translation>
         <translation>Whitelist içinde belirtilen geçersiz netmask: '%s'</translation>
     </message>
     <message>
+        <source>Invalid port detected in masternode.conf</source>
+        <translation>masternode.conf dosyasında geçersiz port tespit edildi</translation>
+    </message>
+    <message>
         <source>Recalculating PNY supply...</source>
         <translation>PNY tedariği tekrar hesaplanıyor...</translation>
+    </message>
+    <message>
+        <source>Reindex the PNY and zPNY money supply statistics</source>
+        <translation>PNY ve zPNY para tedarik istatistiklerini tekrar endeksle</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5134,6 +6006,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>SwiftX'i etkinleştir, kilitli işlemler için doğrulamaları göster (bool, varsayılan: %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation>İşlem reddedildi! Bu, cüzdanındaki koinlerin bir kısmının harcanması durumunda olabilir; mesela, wallet.dat dosyasının bir kopyasını kullandıysanız ve koinlerinizi harcamış fakat cüzdana harcanmış olarak işaretlenmemişse ortaya çıkabilir.</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -checklevel found. Checklevel must be level 4.</source>
@@ -5230,6 +6106,10 @@ Hoşgeldiniz</translation>
     <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>Hafızada en fazla &lt;n&gt; bağlanamaz işlem tut (varsayılan: %u)</translation>
+    </message>
+    <message>
+        <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
+        <translation>İmza ön bellek büyüklüğü &lt;n&gt; girişle limitle (varsayılan: %u)</translation>
     </message>
     <message>
         <source>Line: %d</source>
@@ -5735,28 +6615,12 @@ Hoşgeldiniz</translation>
         <translation>Gönder</translation>
     </message>
     <message>
-        <source>Amount</source>
-        <translation>Miktar</translation>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Customize fee</source>
-        <translation>Masrafı değiştir</translation>
+        <source>PushButton</source>
+        <translation>Butona Basın</translation>
     </message>
-    <message>
-        <source>Clear all</source>
-        <translation>Hepsini temizle</translation>
-    </message>
-    <message>
-        <source>Add recipient</source>
-        <translation>Alıcı Ekle</translation>
-    </message>
-    <message>
-        <source>Total to send</source>
-        <translation>Gönderilecek toplam</translation>
-    </message>
-    <message>
-        <source>Reset to default</source>
-        <translation>Varsayılana konumlandır</translation>
-    </message>
-    </context>
+</context>
 </TS>

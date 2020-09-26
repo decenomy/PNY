@@ -37,7 +37,7 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(VARINT(nBlocks));
         READWRITE(VARINT(nSize));
@@ -88,7 +88,7 @@ struct CDiskBlockPos {
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         READWRITE(VARINT(nFile));
         READWRITE(VARINT(nPos));
@@ -141,7 +141,7 @@ enum BlockStatus {
      */
     BLOCK_VALID_TRANSACTIONS = 3,
 
-    //! Outputs do not overspend inputs, no double spends, coinbase output ok, immature coinbase spends.
+    //! Outputs do not overspend inputs, no double spends, coinbase output ok, immature coinbase spends, BIP30.
     //! Implies all parents are also at least CHAIN.
     BLOCK_VALID_CHAIN = 4,
 
@@ -296,10 +296,9 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nSerVersion)
     {
-        int nSerVersion = s.GetVersion();
-        if (!(s.GetType() & SER_GETHASH))
+        if (!(nType & SER_GETHASH))
             READWRITE(VARINT(nSerVersion));
 
         READWRITE(VARINT(nHeight));
@@ -351,7 +350,7 @@ public:
             READWRITE(nMint);
             READWRITE(nMoneySupply);
             READWRITE(nFlags);
-            if (!Params().GetConsensus().NetworkUpgradeActive(nHeight, Consensus::UPGRADE_V3_4)) {
+            if (nHeight < Params().GetConsensus().height_start_StakeModifierV2) {
                 uint64_t nStakeModifier = 0;
                 READWRITE(nStakeModifier);
                 this->SetStakeModifier(nStakeModifier, this->GeneratedStakeModifier());
@@ -401,10 +400,12 @@ public:
 
     std::string ToString() const
     {
-        return strprintf("CDiskBlockIndex(%s\n                hashBlock=%s, hashPrev=%s)",
-                CBlockIndex::ToString(),
-                GetBlockHash().ToString(),
-                hashPrev.ToString());
+        std::string str = "CDiskBlockIndex(";
+        str += CBlockIndex::ToString();
+        str += strprintf("\n                hashBlock=%s, hashPrev=%s)",
+            GetBlockHash().ToString(),
+            hashPrev.ToString());
+        return str;
     }
 };
 
@@ -428,10 +429,9 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nSerVersion)
     {
-        int nSerVersion = s.GetVersion();
-        if (!(s.GetType() & SER_GETHASH))
+        if (!(nType & SER_GETHASH))
             READWRITE(VARINT(nSerVersion));
 
         if (nSerVersion >= DBI_SER_VERSION_NO_ZC) {
@@ -475,7 +475,7 @@ public:
             READWRITE(nMint);
             READWRITE(nMoneySupply);
             READWRITE(nFlags);
-            if (!Params().GetConsensus().NetworkUpgradeActive(nHeight, Consensus::UPGRADE_V3_4)) {
+            if (nHeight < Params().GetConsensus().height_start_StakeModifierV2) {
                 READWRITE(nStakeModifier);
             } else {
                 READWRITE(nStakeModifierV2);
@@ -572,6 +572,9 @@ public:
 
     /** Find the last common block between this chain and a block index entry. */
     const CBlockIndex* FindFork(const CBlockIndex* pindex) const;
+
+    /** Check if new message signatures are active **/
+    bool NewSigsActive() { return Params().GetConsensus().IsMessSigV2(Height()); }
 };
 
 #endif // BITCOIN_CHAIN_H

@@ -101,7 +101,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Unlock Wallet</string>
+              <string/>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -133,7 +133,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Lock Wallet</string>
+              <string/>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -162,7 +162,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Staking Only</string>
+              <string/>
              </property>
              <property name="checkable">
               <bool>true</bool>

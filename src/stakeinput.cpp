@@ -15,7 +15,7 @@
 bool CPnyStake::InitFromTxIn(const CTxIn& txin)
 {
     if (txin.IsZerocoinSpend())
-        return error("%s: unable to initialize CPnyStake from zerocoin spend", __func__);
+        return error("%s: unable to initialize CPnyStake from zerocoin spend");
 
     // Find the previous transaction in database
     uint256 hashBlock;
@@ -71,7 +71,7 @@ CAmount CPnyStake::GetValue() const
     return txFrom.vout[nPosition].nValue;
 }
 
-bool CPnyStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal, const bool onlyP2PK)
+bool CPnyStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmount nTotal)
 {
     std::vector<valtype> vSolutions;
     txnouttype whichType;
@@ -84,18 +84,19 @@ bool CPnyStake::CreateTxOuts(CWallet* pwallet, std::vector<CTxOut>& vout, CAmoun
 
     CScript scriptPubKey;
     CKey key;
-    if (whichType == TX_PUBKEYHASH || whichType == TX_COLDSTAKE) {
-        // if P2PKH or P2CS check that we have the input private key
+    if (whichType == TX_PUBKEYHASH) {
+        // if P2PKH check that we have the input private key
         if (!pwallet->GetKey(CKeyID(uint160(vSolutions[0])), key))
             return error("%s: Unable to get staking private key", __func__);
-    }
 
-    // Consensus check: P2PKH block signatures were not accepted before v5 update.
-    // This can be removed after v5.0 enforcement
-    if (whichType == TX_PUBKEYHASH && onlyP2PK) {
         // convert to P2PK inputs
         scriptPubKey << key.GetPubKey() << OP_CHECKSIG;
+
     } else {
+        // if P2CS, check that we have the coldstaking private key
+        if ( whichType == TX_COLDSTAKE && !pwallet->GetKey(CKeyID(uint160(vSolutions[0])), key) )
+            return error("%s: Unable to get cold staking private key", __func__);
+
         // keep the same script
         scriptPubKey = scriptPubKeyKernel;
     }
@@ -156,12 +157,12 @@ bool CPnyStake::ContextCheck(int nHeight, uint32_t nTime)
     // Get Stake input block time/height
     CBlockIndex* pindexFrom = GetIndexFrom();
     if (!pindexFrom)
-        return error("%s: unable to get previous index for stake input", __func__);
+        return error("%s: unable to get previous index for stake input");
     const int nHeightBlockFrom = pindexFrom->nHeight;
     const uint32_t nTimeBlockFrom = pindexFrom->nTime;
 
     // Check that the stake has the required depth/age
-    if (consensus.NetworkUpgradeActive(nHeight + 1, Consensus::UPGRADE_V3_4) &&
+    if (nHeight >= consensus.height_start_ZC_PublicSpends - 1 &&
             !consensus.HasStakeMinAgeOrDepth(nHeight, nTime, nHeightBlockFrom, nTimeBlockFrom))
         return error("%s : min age violation - height=%d - time=%d, nHeightBlockFrom=%d, nTimeBlockFrom=%d",
                          __func__, nHeight, nTime, nHeightBlockFrom, nTimeBlockFrom);

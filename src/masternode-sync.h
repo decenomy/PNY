@@ -66,9 +66,9 @@ public:
 
     CMasternodeSync();
 
-    void AddedMasternodeList(const uint256& hash);
-    void AddedMasternodeWinner(const uint256& hash);
-    void AddedBudgetItem(const uint256& hash);
+    void AddedMasternodeList(uint256 hash);
+    void AddedMasternodeWinner(uint256 hash);
+    void AddedBudgetItem(uint256 hash);
     void GetNextAsset();
     std::string GetSyncStatus();
     void ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
@@ -77,12 +77,6 @@ public:
 
     void Reset();
     void Process();
-    /*
-     * Process sync with a single node.
-     * If it returns false, the Process() step is complete.
-     * Otherwise Process() calls it again for a different node.
-     */
-    bool SyncWithNode(CNode* pnode, bool isRegTestNet);
     bool IsSynced();
     bool NotCompleted();
     bool IsSporkListSynced();

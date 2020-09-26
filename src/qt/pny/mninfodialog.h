@@ -7,7 +7,7 @@
 #ifndef MNINFODIALOG_H
 #define MNINFODIALOG_H
 
-#include "qt/pny/focuseddialog.h"
+#include <QDialog>
 #include "qt/pny/snackbar.h"
 
 class WalletModel;
@@ -16,7 +16,7 @@ namespace Ui {
 class MnInfoDialog;
 }
 
-class MnInfoDialog : public FocusedDialog
+class MnInfoDialog : public QDialog
 {
     Q_OBJECT
 
@@ -29,7 +29,7 @@ public:
     void setData(QString privKey, QString name, QString address, QString txId, QString outputIndex, QString status);
 
 public Q_SLOTS:
-    void reject() override;
+    void closeDialog();
 
 private:
     Ui::MnInfoDialog *ui;

@@ -26,7 +26,7 @@
 class HTTPRPCTimer : public RPCTimerBase
 {
 public:
-    HTTPRPCTimer(struct event_base* eventBase, std::function<void(void)>& func, int64_t millis) :
+    HTTPRPCTimer(struct event_base* eventBase, boost::function<void(void)>& func, int64_t millis) :
         ev(eventBase, false, func)
     {
         struct timeval tv;
@@ -48,7 +48,7 @@ public:
     {
         return "HTTP";
     }
-    RPCTimerBase* NewTimer(std::function<void(void)>& func, int64_t millis)
+    RPCTimerBase* NewTimer(boost::function<void(void)>& func, int64_t millis)
     {
         return new HTTPRPCTimer(base, func, millis);
     }
@@ -79,7 +79,7 @@ static void JSONErrorReply(HTTPRequest* req, const UniValue& objError, const Uni
     req->WriteReply(nStatus, strReply);
 }
 
-static bool RPCAuthorized(const std::string& strAuth, std::string& strAuthUsernameOut)
+static bool RPCAuthorized(const std::string& strAuth)
 {
     if (strRPCUserColonPass.empty()) // Belt-and-suspenders measure if InitRPCAuthentication was not called
         return false;
@@ -88,10 +88,6 @@ static bool RPCAuthorized(const std::string& strAuth, std::string& strAuthUserna
     std::string strUserPass64 = strAuth.substr(6);
     boost::trim(strUserPass64);
     std::string strUserPass = DecodeBase64(strUserPass64);
-
-    if (strUserPass.find(":") != std::string::npos)
-        strAuthUsernameOut = strUserPass.substr(0, strUserPass.find(":"));
-
     return TimingResistantEqual(strUserPass, strRPCUserColonPass);
 }
 
@@ -109,8 +105,7 @@ static bool HTTPReq_JSONRPC(HTTPRequest* req, const std::string &)
         return false;
     }
 
-    JSONRPCRequest jreq;
-    if (!RPCAuthorized(authHeader.second, jreq.authUser)) {
+    if (!RPCAuthorized(authHeader.second)) {
         LogPrintf("ThreadRPCServer incorrect password attempt from %s\n", req->GetPeer().ToString());
 
         /* Deter brute-forcing
@@ -122,21 +117,19 @@ static bool HTTPReq_JSONRPC(HTTPRequest* req, const std::string &)
         return false;
     }
 
+    JSONRequest jreq;
     try {
         // Parse request
         UniValue valRequest;
         if (!valRequest.read(req->ReadBody()))
             throw JSONRPCError(RPC_PARSE_ERROR, "Parse error");
 
-        // Set the URI
-        jreq.URI = req->GetURI();
-
         std::string strReply;
         // singleton request
         if (valRequest.isObject()) {
             jreq.parse(valRequest);
 
-            UniValue result = tableRPC.execute(jreq);
+            UniValue result = tableRPC.execute(jreq.strMethod, jreq.params);
 
             // Send reply
             strReply = JSONRPCReply(result, NullUniValue, jreq.id);

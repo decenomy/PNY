@@ -592,25 +592,25 @@ BOOST_AUTO_TEST_CASE( methods ) // GetHex SetHex begin() end() size() GetLow64 G
     BOOST_CHECK(R1L.GetLow64()  == R1LLow64);
     BOOST_CHECK(HalfL.GetLow64() ==0x0000000000000000ULL);
     BOOST_CHECK(OneL.GetLow64() ==0x0000000000000001ULL);
-    BOOST_CHECK(GetSerializeSize(R1L, 0, PROTOCOL_VERSION) == 32);
-    BOOST_CHECK(GetSerializeSize(ZeroL, 0, PROTOCOL_VERSION) == 32);
+    BOOST_CHECK(R1L.GetSerializeSize(0,PROTOCOL_VERSION) == 32);
+    BOOST_CHECK(ZeroL.GetSerializeSize(0,PROTOCOL_VERSION) == 32);
 
-    CDataStream ss(0, PROTOCOL_VERSION);
-    ss << R1L;
+    std::stringstream ss;
+    R1L.Serialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ss.str() == std::string(R1Array,R1Array+32));
-    ss >> TmpL;
+    TmpL.Unserialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(R1L == TmpL);
-    ss.clear();
-    ss << ZeroL;
+    ss.str("");
+    ZeroL.Serialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ss.str() == std::string(ZeroArray,ZeroArray+32));
-    ss >> TmpL;
+    TmpL.Unserialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ZeroL == TmpL);
-    ss.clear();
-    ss << MaxL;
+    ss.str("");
+    MaxL.Serialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ss.str() == std::string(MaxArray,MaxArray+32));
-    ss >> TmpL;
+    TmpL.Unserialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(MaxL == TmpL);
-    ss.clear();
+    ss.str("");
 
     BOOST_CHECK(R1S.GetHex() == R1S.ToString());
     BOOST_CHECK(R2S.GetHex() == R2S.ToString());
@@ -640,24 +640,24 @@ BOOST_AUTO_TEST_CASE( methods ) // GetHex SetHex begin() end() size() GetLow64 G
     BOOST_CHECK(R1S.GetLow64()  == R1LLow64);
     BOOST_CHECK(HalfS.GetLow64() ==0x0000000000000000ULL);
     BOOST_CHECK(OneS.GetLow64() ==0x0000000000000001ULL);
-    BOOST_CHECK(GetSerializeSize(R1S, 0, PROTOCOL_VERSION) == 20);
-    BOOST_CHECK(GetSerializeSize(ZeroS, 0, PROTOCOL_VERSION) == 20);
+    BOOST_CHECK(R1S.GetSerializeSize(0,PROTOCOL_VERSION) == 20);
+    BOOST_CHECK(ZeroS.GetSerializeSize(0,PROTOCOL_VERSION) == 20);
 
-    ss << R1S;
+    R1S.Serialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ss.str() == std::string(R1Array,R1Array+20));
-    ss >> TmpS;
+    TmpS.Unserialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(R1S == TmpS);
-    ss.clear();
-    ss << ZeroS;
+    ss.str("");
+    ZeroS.Serialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ss.str() == std::string(ZeroArray,ZeroArray+20));
-    ss >> TmpS;
+    TmpS.Unserialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ZeroS == TmpS);
-    ss.clear();
-    ss << MaxS;
+    ss.str("");
+    MaxS.Serialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(ss.str() == std::string(MaxArray,MaxArray+20));
-    ss >> TmpS;
+    TmpS.Unserialize(ss,0,PROTOCOL_VERSION);
     BOOST_CHECK(MaxS == TmpS);
-    ss.clear();
+    ss.str("");
 
     for (unsigned int i = 0; i < 255; ++i)
     {

@@ -30,7 +30,6 @@
 #endif
 #include "masternodeconfig.h"
 
-#include "fs.h"
 #include "init.h"
 #include "main.h"
 #include "rpc/server.h"
@@ -43,6 +42,7 @@
 
 #include <stdint.h>
 
+#include <boost/filesystem/operations.hpp>
 #include <boost/thread.hpp>
 
 #include <QApplication>
@@ -517,7 +517,7 @@ void BitcoinApplication::shutdownResult(int retval)
 
 void BitcoinApplication::handleRunawayException(const QString& message)
 {
-    QMessageBox::critical(0, "Runaway exception", QObject::tr("A fatal error occurred. PNY can no longer continue safely and will quit.") + QString("\n\n") + message);
+    QMessageBox::critical(0, "Runaway exception", PNYGUI::tr("A fatal error occurred. PNY can no longer continue safely and will quit.") + QString("\n\n") + message);
     ::exit(1);
 }
 
@@ -589,7 +589,7 @@ int main(int argc, char* argv[])
 
     /// 6. Determine availability of data directory and parse pny.conf
     /// - Do not call GetDataDir(true) before this step finishes
-    if (!fs::is_directory(GetDataDir(false))) {
+    if (!boost::filesystem::is_directory(GetDataDir(false))) {
         QMessageBox::critical(0, QObject::tr("PNY Core"),
             QObject::tr("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
@@ -668,16 +668,15 @@ int main(int argc, char* argv[])
     bool ret = true;
 #ifdef ENABLE_WALLET
     // Check if the wallet exists or need to be created
-    std::string strWalletFile = GetArg("-wallet", DEFAULT_WALLET_DAT);
+    std::string strWalletFile = GetArg("-wallet", "wallet.dat");
     std::string strDataDir = GetDataDir().string();
     // Wallet file must be a plain filename without a directory
-    fs::path wallet_file_path(strWalletFile);
-    if (strWalletFile != wallet_file_path.filename().string()) {
+    if (strWalletFile != boost::filesystem::basename(strWalletFile) + boost::filesystem::extension(strWalletFile)){
         throw std::runtime_error(strprintf(_("Wallet %s resides outside data directory %s"), strWalletFile, strDataDir));
     }
 
-    fs::path pathBootstrap = GetDataDir() / strWalletFile;
-    if (!fs::exists(pathBootstrap)) {
+    boost::filesystem::path pathBootstrap = GetDataDir() / strWalletFile;
+    if (!boost::filesystem::exists(pathBootstrap)) {
         // wallet doesn't exist, popup tutorial screen.
         ret = app.createTutorialScreen();
     }

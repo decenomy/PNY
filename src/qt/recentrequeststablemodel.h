@@ -30,11 +30,12 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
         unsigned int nDate = date.toTime_t();
 
-        READWRITE(nVersion);
+        READWRITE(this->nVersion);
+        nVersion = this->nVersion;
         READWRITE(id);
         READWRITE(nDate);
         READWRITE(recipient);

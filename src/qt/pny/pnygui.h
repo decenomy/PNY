@@ -22,6 +22,7 @@
 #include "qt/pny/send.h"
 #include "qt/pny/receivewidget.h"
 #include "qt/pny/addresseswidget.h"
+#include "qt/pny/privacywidget.h"
 #include "qt/pny/coldstakingwidget.h"
 #include "qt/pny/masternodeswidget.h"
 #include "qt/pny/snackbar.h"
@@ -70,8 +71,6 @@ public Q_SLOTS:
     void goToMasterNodes();
     void goToColdStaking();
     void goToSettings();
-    void goToSettingsInfo();
-    void openNetworkMonitor();
 
     void connectActions();
 

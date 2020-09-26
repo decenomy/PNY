@@ -7,8 +7,8 @@
 #ifndef SENDCUSTOMFEEDIALOG_H
 #define SENDCUSTOMFEEDIALOG_H
 
+#include <QDialog>
 #include "amount.h"
-#include "qt/pny/focuseddialog.h"
 #include "qt/pny/snackbar.h"
 
 class PNYGUI;
@@ -18,7 +18,7 @@ namespace Ui {
 class SendCustomFeeDialog;
 }
 
-class SendCustomFeeDialog : public FocusedDialog
+class SendCustomFeeDialog : public QDialog
 {
     Q_OBJECT
 

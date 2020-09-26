@@ -105,14 +105,14 @@
               <item>
                <widget class="QLabel" name="labelTitle">
                 <property name="text">
-                 <string>Wallet Repair</string>
+                 <string>TextLabel</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QLabel" name="labelSubtitle1">
                 <property name="text">
-                 <string>The buttons below will restart the wallet with command-line options to repair this wallet, fix issues with corrupt blockchain files or missing/obsolete transactions</string>
+                 <string>TextLabel</string>
                 </property>
                 <property name="wordWrap">
                  <bool>true</bool>
@@ -167,7 +167,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Salvage wallet</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -176,7 +176,7 @@
             <item>
              <widget class="QLabel" name="labelMessageSalvage">
               <property name="text">
-               <string>Attempt to recover private keys from a corrupt wallet.dat</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -232,7 +232,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Rescan blockchain file</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -241,7 +241,7 @@
             <item>
              <widget class="QLabel" name="labelMessageRescan">
               <property name="text">
-               <string>Rescan the blockchain for missing wallet transactions</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -297,7 +297,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Recover transactions 1</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -306,7 +306,7 @@
             <item>
              <widget class="QLabel" name="labelMessageRecover1">
               <property name="text">
-               <string>Recover transactions from blockchain (keep-meta-data, e.g. account owner)</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -362,7 +362,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Recover transactions 2</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -371,7 +371,7 @@
             <item>
              <widget class="QLabel" name="labelMessageRecover2">
               <property name="text">
-               <string>Recover transactions from blockchain (drop meta-data)</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -427,7 +427,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Upgrade wallet format</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -436,7 +436,7 @@
             <item>
              <widget class="QLabel" name="labelMessageUpgrade">
               <property name="text">
-               <string>Upgrade wallet to latest format on startup. (Note: this is NOT an update of the wallet itself)</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -492,7 +492,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Rebuild index</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -501,7 +501,7 @@
             <item>
              <widget class="QLabel" name="labelMessageRebuild">
               <property name="text">
-               <string>Rebuild blockchain index from current blk000???.dat files</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -557,7 +557,7 @@
                  <enum>Qt::NoFocus</enum>
                 </property>
                 <property name="text">
-                 <string>Delete local blockchain</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -572,7 +572,7 @@
                </size>
               </property>
               <property name="text">
-               <string>Deletes all local blockchain folders so the wallet synchronizes from scratch</string>
+               <string>TextLabel</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

@@ -98,7 +98,7 @@
                <item>
                 <widget class="QLabel" name="labelTitle">
                  <property name="text">
-                  <string>Cold Staking</string>
+                  <string>Title</string>
                  </property>
                 </widget>
                </item>
@@ -111,8 +111,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>You can delegate your PNYs, letting a hot node (24/7 online node)
-stake on your behalf, while you keep the keys securely offline.</string>
+                  <string>TextLabel</string>
                  </property>
                 </widget>
                </item>
@@ -188,7 +187,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>Staker</string>
+                      <string/>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -216,7 +215,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                       <enum>Qt::NoFocus</enum>
                      </property>
                      <property name="text">
-                      <string>Delegation</string>
+                      <string/>
                      </property>
                      <property name="checkable">
                       <bool>true</bool>
@@ -235,7 +234,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                 <item alignment="Qt::AlignTop">
                  <widget class="QLabel" name="labelSubtitle2">
                   <property name="text">
-                   <string>Accept PNY delegation / Delegate PNY</string>
+                   <string>TextLabel</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -300,7 +299,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                 <string notr="true">padding-left:20px; padding-bottom:3px;</string>
                </property>
                <property name="text">
-                <string>Cold Staking address</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -372,9 +371,6 @@ stake on your behalf, while you keep the keys securely offline.</string>
                   </property>
                   <property name="styleSheet">
                    <string notr="true"/>
-                  </property>
-                  <property name="placeholderText">
-                   <string>Enter owner address</string>
                   </property>
                  </widget>
                 </item>
@@ -457,7 +453,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string>Clear All</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -495,7 +491,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                 <enum>Qt::NoFocus</enum>
                </property>
                <property name="text">
-                <string>Delegate</string>
+                <string/>
                </property>
               </widget>
              </item>
@@ -546,7 +542,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
               <item>
                <widget class="QLabel" name="labelListHistory">
                 <property name="text">
-                 <string>Delegated balance history</string>
+                 <string>List of delegated balance by address</string>
                 </property>
                </widget>
               </item>
@@ -714,7 +710,7 @@ stake on your behalf, while you keep the keys securely offline.</string>
                    <string notr="true"/>
                   </property>
                   <property name="text">
-                   <string>No delegations yet</string>
+                   <string>No balance delegated</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>

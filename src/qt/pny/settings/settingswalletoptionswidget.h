@@ -23,7 +23,6 @@ public:
     ~SettingsWalletOptionsWidget();
 
     void setMapper(QDataWidgetMapper *mapper);
-    void setSpinBoxStakeSplitThreshold(double val);
 
 Q_SIGNALS:
     void saveSettings();

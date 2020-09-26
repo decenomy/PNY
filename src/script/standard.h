@@ -16,8 +16,6 @@
 
 #include <stdint.h>
 
-static const bool DEFAULT_ACCEPT_DATACARRIER = true;
-
 class CKeyID;
 class CScript;
 
@@ -44,6 +42,21 @@ extern unsigned nMaxDatacarrierBytes;
  */
 static const unsigned int MANDATORY_SCRIPT_VERIFY_FLAGS = SCRIPT_VERIFY_P2SH;
 
+/**
+ * Standard script verification flags that standard transactions will comply
+ * with. However scripts violating these flags may still be present in valid
+ * blocks and we must accept those blocks.
+ */
+static const unsigned int STANDARD_SCRIPT_VERIFY_FLAGS = MANDATORY_SCRIPT_VERIFY_FLAGS |
+                                                         SCRIPT_VERIFY_DERSIG |
+                                                         SCRIPT_VERIFY_STRICTENC |
+                                                         SCRIPT_VERIFY_MINIMALDATA |
+                                                         SCRIPT_VERIFY_NULLDUMMY |
+                                                         SCRIPT_VERIFY_DISCOURAGE_UPGRADABLE_NOPS;
+
+/** For convenience, standard but not mandatory verify flags. */
+static const unsigned int STANDARD_NOT_MANDATORY_VERIFY_FLAGS = STANDARD_SCRIPT_VERIFY_FLAGS & ~MANDATORY_SCRIPT_VERIFY_FLAGS;
+
 enum txnouttype
 {
     TX_NONSTANDARD,
@@ -68,17 +81,15 @@ public:
  *  * CNoDestination: no destination set
  *  * CKeyID: TX_PUBKEYHASH destination
  *  * CScriptID: TX_SCRIPTHASH destination
- *  A CTxDestination is the internal data type encoded in a PNY address
+ *  A CTxDestination is the internal data type encoded in a CBitcoinAddress
  */
 typedef boost::variant<CNoDestination, CKeyID, CScriptID> CTxDestination;
-
-/** Check whether a CTxDestination is a CNoDestination. */
-bool IsValidDestination(const CTxDestination& dest);
 
 const char* GetTxnOutputType(txnouttype t);
 
 bool Solver(const CScript& scriptPubKey, txnouttype& typeRet, std::vector<std::vector<unsigned char> >& vSolutionsRet);
 int ScriptSigArgsExpected(txnouttype t, const std::vector<std::vector<unsigned char> >& vSolutions);
+bool IsStandard(const CScript& scriptPubKey, txnouttype& whichType);
 bool ExtractDestination(const CScript& scriptPubKey, CTxDestination& addressRet, bool fColdStake = false);
 bool ExtractDestinations(const CScript& scriptPubKey, txnouttype& typeRet, std::vector<CTxDestination>& addressRet, int& nRequiredRet);
 

@@ -23,12 +23,13 @@
 #include "init.h"
 #include "util.h"
 
+#include <QDesktopWidget>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 #include <QApplication>
 #include <QColor>
-#include <QHBoxLayout>
-#include <QKeySequence>
-#include <QScreen>
 #include <QShortcut>
+#include <QKeySequence>
 #include <QWindowStateChangeEvent>
 
 
@@ -50,7 +51,7 @@ PNYGUI::PNYGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 
     // Adapt screen size
-    QRect rec = QGuiApplication::primaryScreen()->geometry();
+    QRect rec = QApplication::desktop()->screenGeometry();
     int adaptedHeight = (rec.height() < BASE_WINDOW_HEIGHT) ?  BASE_WINDOW_MIN_HEIGHT : BASE_WINDOW_HEIGHT;
     int adaptedWidth = (rec.width() < BASE_WINDOW_WIDTH) ?  BASE_WINDOW_MIN_WIDTH : BASE_WINDOW_WIDTH;
     GUIUtil::restoreWindowGeometry(
@@ -79,7 +80,8 @@ PNYGUI::PNYGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 #ifdef ENABLE_WALLET
     // Create wallet frame
-    if (enableWallet) {
+    if(enableWallet){
+
         QFrame* centralWidget = new QFrame(this);
         this->setMinimumWidth(BASE_WINDOW_MIN_WIDTH);
         this->setMinimumHeight(BASE_WINDOW_MIN_HEIGHT);
@@ -167,8 +169,7 @@ PNYGUI::PNYGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 }
 
-void PNYGUI::createActions(const NetworkStyle* networkStyle)
-{
+void PNYGUI::createActions(const NetworkStyle* networkStyle){
     toggleHideAction = new QAction(networkStyle->getAppIcon(), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
@@ -184,8 +185,7 @@ void PNYGUI::createActions(const NetworkStyle* networkStyle)
 /**
  * Here add every event connection
  */
-void PNYGUI::connectActions()
-{
+void PNYGUI::connectActions() {
     QShortcut *consoleShort = new QShortcut(this);
     consoleShort->setKey(QKeySequence(SHORT_KEY + Qt::Key_C));
     connect(consoleShort, &QShortcut::activated, [this](){
@@ -208,8 +208,7 @@ void PNYGUI::connectActions()
 }
 
 
-void PNYGUI::createTrayIcon(const NetworkStyle* networkStyle)
-{
+void PNYGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
     QString toolTip = tr("PNY Core client") + " " + networkStyle->getTitleAddText();
@@ -220,8 +219,8 @@ void PNYGUI::createTrayIcon(const NetworkStyle* networkStyle)
     notificator = new Notificator(QApplication::applicationName(), trayIcon, this);
 }
 
-PNYGUI::~PNYGUI()
-{
+//
+PNYGUI::~PNYGUI() {
     // Unsubscribe from notifications from core
     unsubscribeFromCoreSignals();
 
@@ -235,17 +234,16 @@ PNYGUI::~PNYGUI()
 
 
 /** Get restart command-line parameters and request restart */
-void PNYGUI::handleRestart(QStringList args)
-{
+void PNYGUI::handleRestart(QStringList args){
     if (!ShutdownRequested())
         Q_EMIT requestedRestart(args);
 }
 
 
-void PNYGUI::setClientModel(ClientModel* clientModel)
-{
+void PNYGUI::setClientModel(ClientModel* clientModel) {
     this->clientModel = clientModel;
-    if (this->clientModel) {
+    if(this->clientModel) {
+
         // Create system tray menu (or setup the dock menu) that late to prevent users from calling actions,
         // while the client has not yet fully loaded
         createTrayIconMenu();
@@ -280,8 +278,7 @@ void PNYGUI::setClientModel(ClientModel* clientModel)
     }
 }
 
-void PNYGUI::createTrayIconMenu()
-{
+void PNYGUI::createTrayIconMenu() {
 #ifndef Q_OS_MAC
     // return if trayIcon is unset (only on non-macOSes)
     if (!trayIcon)
@@ -355,17 +352,15 @@ void PNYGUI::closeEvent(QCloseEvent* event)
 }
 
 
-void PNYGUI::messageInfo(const QString& text)
-{
-    if (!this->snackBar) this->snackBar = new SnackBar(this, this);
+void PNYGUI::messageInfo(const QString& text){
+    if(!this->snackBar) this->snackBar = new SnackBar(this, this);
     this->snackBar->setText(text);
     this->snackBar->resize(this->width(), snackBar->height());
     openDialog(this->snackBar, this);
 }
 
 
-void PNYGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
-{
+void PNYGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
     QString strTitle =  tr("PNY Core"); // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
@@ -404,18 +399,18 @@ void PNYGUI::message(const QString& title, const QString& message, unsigned int 
         // Check for buttons, use OK as default, if none was supplied
         int r = 0;
         showNormalIfMinimized();
-        if (style & CClientUIInterface::BTN_MASK) {
+        if(style & CClientUIInterface::BTN_MASK){
             r = openStandardDialog(
                     (title.isEmpty() ? strTitle : title), message, "OK", "CANCEL"
                 );
-        } else {
+        }else{
             r = openStandardDialog((title.isEmpty() ? strTitle : title), message, "OK");
         }
         if (ret != NULL)
             *ret = r;
-    } else if (style & CClientUIInterface::MSG_INFORMATION_SNACK) {
+    } else if(style & CClientUIInterface::MSG_INFORMATION_SNACK){
         messageInfo(message);
-    } else {
+    }else {
         // Append title to "PNY - "
         if (!msgType.isEmpty())
             strTitle += " - " + msgType;
@@ -423,8 +418,7 @@ void PNYGUI::message(const QString& title, const QString& message, unsigned int 
     }
 }
 
-bool PNYGUI::openStandardDialog(QString title, QString body, QString okBtn, QString cancelBtn)
-{
+bool PNYGUI::openStandardDialog(QString title, QString body, QString okBtn, QString cancelBtn){
     DefaultDialog *dialog;
     if (isVisible()) {
         showHide(true);
@@ -446,8 +440,7 @@ bool PNYGUI::openStandardDialog(QString title, QString body, QString okBtn, QStr
 }
 
 
-void PNYGUI::showNormalIfMinimized(bool fToggleHidden)
-{
+void PNYGUI::showNormalIfMinimized(bool fToggleHidden) {
     if (!clientModel)
         return;
     if (!isHidden() && !isMinimized() && !GUIUtil::isObscured(this) && fToggleHidden) {
@@ -457,13 +450,11 @@ void PNYGUI::showNormalIfMinimized(bool fToggleHidden)
     }
 }
 
-void PNYGUI::toggleHidden()
-{
+void PNYGUI::toggleHidden() {
     showNormalIfMinimized(true);
 }
 
-void PNYGUI::detectShutdown()
-{
+void PNYGUI::detectShutdown() {
     if (ShutdownRequested()) {
         if (rpcConsole)
             rpcConsole->hide();
@@ -471,31 +462,26 @@ void PNYGUI::detectShutdown()
     }
 }
 
-void PNYGUI::goToDashboard()
-{
-    if (stackedContainer->currentWidget() != dashboard) {
+void PNYGUI::goToDashboard(){
+    if(stackedContainer->currentWidget() != dashboard){
         stackedContainer->setCurrentWidget(dashboard);
         topBar->showBottom();
     }
 }
 
-void PNYGUI::goToSend()
-{
+void PNYGUI::goToSend(){
     showTop(sendWidget);
 }
 
-void PNYGUI::goToAddresses()
-{
+void PNYGUI::goToAddresses(){
     showTop(addressesWidget);
 }
 
-void PNYGUI::goToMasterNodes()
-{
+void PNYGUI::goToMasterNodes(){
     showTop(masterNodesWidget);
 }
 
-void PNYGUI::goToColdStaking()
-{
+void PNYGUI::goToColdStaking(){
     showTop(coldStakingWidget);
 }
 
@@ -503,33 +489,18 @@ void PNYGUI::goToSettings(){
     showTop(settingsWidget);
 }
 
-void PNYGUI::goToSettingsInfo()
-{
-    navMenu->selectSettings();
-    settingsWidget->showInformation();
-    goToSettings();
-}
-
-void PNYGUI::goToReceive()
-{
+void PNYGUI::goToReceive(){
     showTop(receiveWidget);
 }
 
-void PNYGUI::openNetworkMonitor()
-{
-    settingsWidget->openNetworkMonitor();
-}
-
-void PNYGUI::showTop(QWidget* view)
-{
-    if (stackedContainer->currentWidget() != view) {
+void PNYGUI::showTop(QWidget* view){
+    if(stackedContainer->currentWidget() != view){
         stackedContainer->setCurrentWidget(view);
         topBar->showTop();
     }
 }
 
-void PNYGUI::changeTheme(bool isLightTheme)
-{
+void PNYGUI::changeTheme(bool isLightTheme){
 
     QString css = GUIUtil::loadStyleSheet();
     this->setStyleSheet(css);
@@ -541,8 +512,7 @@ void PNYGUI::changeTheme(bool isLightTheme)
     updateStyle(this);
 }
 
-void PNYGUI::resizeEvent(QResizeEvent* event)
-{
+void PNYGUI::resizeEvent(QResizeEvent* event){
     // Parent..
     QMainWindow::resizeEvent(event);
     // background
@@ -551,21 +521,19 @@ void PNYGUI::resizeEvent(QResizeEvent* event)
     Q_EMIT windowResizeEvent(event);
 }
 
-bool PNYGUI::execDialog(QDialog *dialog, int xDiv, int yDiv)
-{
+bool PNYGUI::execDialog(QDialog *dialog, int xDiv, int yDiv){
     return openDialogWithOpaqueBackgroundY(dialog, this);
 }
 
-void PNYGUI::showHide(bool show)
-{
-    if (!op) op = new QLabel(this);
-    if (!show) {
+void PNYGUI::showHide(bool show){
+    if(!op) op = new QLabel(this);
+    if(!show){
         op->setVisible(false);
         opEnabled = false;
-    } else {
+    }else{
         QColor bg("#000000");
         bg.setAlpha(200);
-        if (!isLightTheme()) {
+        if(!isLightTheme()){
             bg = QColor("#00000000");
             bg.setAlpha(150);
         }
@@ -584,13 +552,11 @@ void PNYGUI::showHide(bool show)
     }
 }
 
-int PNYGUI::getNavWidth()
-{
+int PNYGUI::getNavWidth(){
     return this->navMenu->width();
 }
 
-void PNYGUI::openFAQ(int section)
-{
+void PNYGUI::openFAQ(int section){
     showHide(true);
     SettingsFaqWidget* dialog = new SettingsFaqWidget(this);
     if (section > 0) dialog->setSection(section);
@@ -603,7 +569,7 @@ void PNYGUI::openFAQ(int section)
 bool PNYGUI::addWallet(const QString& name, WalletModel* walletModel)
 {
     // Single wallet supported for now..
-    if (!stackedContainer || !clientModel || !walletModel)
+    if(!stackedContainer || !clientModel || !walletModel)
         return false;
 
     // set the model for every view
@@ -618,7 +584,6 @@ bool PNYGUI::addWallet(const QString& name, WalletModel* walletModel)
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
-    connect(walletModel, &WalletModel::message, this, &PNYGUI::message);
     connect(masterNodesWidget, &MasterNodesWidget::message, this, &PNYGUI::message);
     connect(coldStakingWidget, &ColdStakingWidget::message, this, &PNYGUI::message);
     connect(topBar, &TopBar::message, this, &PNYGUI::message);
@@ -633,21 +598,18 @@ bool PNYGUI::addWallet(const QString& name, WalletModel* walletModel)
     return true;
 }
 
-bool PNYGUI::setCurrentWallet(const QString& name)
-{
+bool PNYGUI::setCurrentWallet(const QString& name) {
     // Single wallet supported.
     return true;
 }
 
-void PNYGUI::removeAllWallets()
-{
+void PNYGUI::removeAllWallets() {
     // Single wallet supported.
 }
 
-void PNYGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address)
-{
+void PNYGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address) {
     // Only send notifications when not disabled
-    if (!bdisableSystemnotifications) {
+    if(!bdisableSystemnotifications){
         // On new transaction, make an info balloon
         message((amount) < 0 ? (pwalletMain->fMultiSendNotify == true ? tr("Sent MultiSend transaction") : tr("Sent transaction")) : tr("Incoming transaction"),
             tr("Date: %1\n"

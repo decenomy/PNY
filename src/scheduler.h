@@ -10,9 +10,10 @@
 
 //
 // NOTE:
-// boost::thread / boost::chrono should be ported to std::thread / std::chrono
-// when we support C++11.
+// boost::thread / boost::function / boost::chrono should be ported to
+// std::thread / std::function / std::chrono when we support C++11.
 //
+#include <boost/function.hpp>
 #include <boost/chrono/chrono.hpp>
 #include <boost/thread.hpp>
 #include <map>
@@ -41,7 +42,7 @@ public:
     CScheduler();
     ~CScheduler();
 
-    typedef std::function<void(void)> Function;
+    typedef boost::function<void(void)> Function;
 
     // Call func at/after time t
     void schedule(Function f, boost::chrono::system_clock::time_point t);

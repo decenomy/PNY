@@ -13,7 +13,7 @@
 #include <QDateTime>
 
 MnInfoDialog::MnInfoDialog(QWidget *parent) :
-    FocusedDialog(parent),
+    QDialog(parent),
     ui(new Ui::MnInfoDialog)
 {
     ui->setupUi(this);
@@ -25,9 +25,9 @@ MnInfoDialog::MnInfoDialog(QWidget *parent) :
     setCssTextBodyDialog({ui->textAmount, ui->textAddress, ui->textInputs, ui->textStatus, ui->textId, ui->textExport});
     setCssProperty({ui->pushCopy, ui->pushCopyId, ui->pushExport}, "ic-copy-big");
     setCssProperty(ui->btnEsc, "ic-close");
-    connect(ui->btnEsc, &QPushButton::clicked, this, &MnInfoDialog::close);
-    connect(ui->pushCopy, &QPushButton::clicked, [this](){ copyInform(pubKey, tr("Masternode public key copied")); });
-    connect(ui->pushCopyId, &QPushButton::clicked, [this](){ copyInform(txId, tr("Collateral tx id copied")); });
+    connect(ui->btnEsc, &QPushButton::clicked, this, &MnInfoDialog::closeDialog);
+    connect(ui->pushCopy, &QPushButton::clicked, [this](){ copyInform(pubKey, "Masternode public key copied"); });
+    connect(ui->pushCopyId, &QPushButton::clicked, [this](){ copyInform(txId, "Collateral tx id copied"); });
     connect(ui->pushExport, &QPushButton::clicked, [this](){ exportMN = true; accept(); });
 }
 
@@ -59,10 +59,10 @@ void MnInfoDialog::copyInform(QString& copyStr, QString message)
     openDialog(snackBar, this);
 }
 
-void MnInfoDialog::reject()
+void MnInfoDialog::closeDialog()
 {
     if (snackBar && snackBar->isVisible()) snackBar->hide();
-    QDialog::reject();
+    close();
 }
 
 MnInfoDialog::~MnInfoDialog()

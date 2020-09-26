@@ -13,7 +13,6 @@ from test_framework.authproxy import JSONRPCException
 from test_framework.test_framework import PnyTestFramework
 from test_framework.util import (
     sync_blocks,
-    sync_mempools,
     assert_equal,
     assert_raises_rpc_error,
     set_node_times,
@@ -72,7 +71,6 @@ class ZerocoinSpendTest(PnyTestFramework):
             return zpny_bal, pny_bal
 
         def stake_4_blocks(block_time):
-            sync_mempools(self.nodes)
             for peer in range(2):
                 for i in range(2):
                     block_time = self.generate_pos(peer, block_time)
@@ -143,7 +141,7 @@ class ZerocoinSpendTest(PnyTestFramework):
 
         # 7) Try to relay old v3 spend now (serial_1)
         self.log.info("Trying to send old v3 spend now...")
-        assert_raises_rpc_error(-26, "bad-zc-spend-version",
+        assert_raises_rpc_error(-26, "bad-txns-invalid-zpny",
                                 self.nodes[2].sendrawtransaction, old_spend_v3)
         self.log.info("GOOD: Old transaction not sent.")
 

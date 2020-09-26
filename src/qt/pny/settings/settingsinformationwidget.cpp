@@ -91,7 +91,7 @@ SettingsInformationWidget::SettingsInformationWidget(PNYGUI* _window,QWidget *pa
 #ifdef ENABLE_WALLET
     // Wallet data -- remove it with if it's needed
     ui->labelInfoBerkeley->setText(DbEnv::version(0, 0, 0));
-    ui->labelInfoDataDir->setText(QString::fromStdString(GetDataDir().string() + QDir::separator().toLatin1() + GetArg("-wallet", DEFAULT_WALLET_DAT)));
+    ui->labelInfoDataDir->setText(QString::fromStdString(GetDataDir().string() + QDir::separator().toLatin1() + GetArg("-wallet", "wallet.dat")));
 #else
     ui->labelInfoBerkeley->setText(tr("No information"));
 #endif
@@ -155,26 +155,11 @@ void SettingsInformationWidget::setMasternodeCount(const QString& strMasternodes
 
 void SettingsInformationWidget::openNetworkMonitor()
 {
-    if (!rpcConsole) {
+    if(!rpcConsole){
         rpcConsole = new RPCConsole(0);
         rpcConsole->setClientModel(clientModel);
     }
     rpcConsole->showNetwork();
-}
-
-void SettingsInformationWidget::showEvent(QShowEvent *event)
-{
-    QWidget::showEvent(event);
-    if (clientModel) {
-        clientModel->startMasternodesTimer();
-    }
-}
-
-void SettingsInformationWidget::hideEvent(QHideEvent *event) {
-    QWidget::hideEvent(event);
-    if (clientModel) {
-        clientModel->stopMasternodesTimer();
-    }
 }
 
 SettingsInformationWidget::~SettingsInformationWidget()

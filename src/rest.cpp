@@ -44,19 +44,16 @@ static const struct {
 };
 
 struct CCoin {
+    uint32_t nTxVer; // Don't call this nVersion, that name has a special meaning inside IMPLEMENT_SERIALIZE
     uint32_t nHeight;
     CTxOut out;
 
     ADD_SERIALIZE_METHODS;
 
-    CCoin() : nHeight(0) {}
-    CCoin(Coin&& in) : nHeight(in.nHeight), out(std::move(in.out)) {}
-
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
-        uint32_t nTxVerDummy = 0;
-        READWRITE(nTxVerDummy);
+        READWRITE(nTxVer);
         READWRITE(nHeight);
         READWRITE(out);
     }
@@ -278,9 +275,8 @@ static bool rest_chaininfo(HTTPRequest* req, const std::string& strURIPart)
 
     switch (rf) {
     case RF_JSON: {
-        JSONRPCRequest jsonRequest;
-        jsonRequest.params = UniValue(UniValue::VARR);
-        UniValue chainInfoObject = getblockchaininfo(jsonRequest);
+        UniValue rpcParams(UniValue::VARR);
+        UniValue chainInfoObject = getblockchaininfo(rpcParams, false);
         std::string strJSON = chainInfoObject.write() + "\n";
         req->WriteHeader("Content-Type", "application/json");
         req->WriteReply(HTTP_OK, strJSON);
@@ -510,15 +506,24 @@ static bool rest_getutxos(HTTPRequest* req, const std::string& strURIPart)
             view.SetBackend(viewMempool); // switch cache backend to db+mempool in case user likes to query mempool
 
         for (size_t i = 0; i < vOutPoints.size(); i++) {
-            bool hit = false;
-            Coin coin;
-            if (view.GetCoin(vOutPoints[i], coin) && !mempool.isSpent(vOutPoints[i])) {
-                hit = true;
-                outs.emplace_back(std::move(coin));
+            CCoins coins;
+            uint256 hash = vOutPoints[i].hash;
+            if (view.GetCoins(hash, coins)) {
+                mempool.pruneSpent(hash, coins);
+                if (coins.IsAvailable(vOutPoints[i].n)) {
+                    hits[i] = true;
+                    // Safe to index into vout here because IsAvailable checked if it's off the end of the array, or if
+                    // n is valid but points to an already spent output (IsNull).
+                    CCoin coin;
+                    coin.nTxVer = coins.nVersion;
+                    coin.nHeight = coins.nHeight;
+                    coin.out = coins.vout.at(vOutPoints[i].n);
+                    assert(!coin.out.IsNull());
+                    outs.push_back(coin);
+                }
             }
 
-            hits.push_back(hit);
-            bitmapStringRepresentation.append(hit ? "1" : "0"); // form a binary string representation (human-readable for json output)
+            bitmapStringRepresentation.append(hits[i] ? "1" : "0"); // form a binary string representation (human-readable for json output)
         }
     }
     boost::to_block_range(hits, std::back_inserter(bitmap));
@@ -558,6 +563,7 @@ static bool rest_getutxos(HTTPRequest* req, const std::string& strURIPart)
         UniValue utxos(UniValue::VARR);
         for (const CCoin& coin : outs) {
             UniValue utxo(UniValue::VOBJ);
+            utxo.push_back(Pair("txvers", (int32_t)coin.nTxVer));
             utxo.push_back(Pair("height", (int32_t)coin.nHeight));
             utxo.push_back(Pair("value", ValueFromAmount(coin.out.nValue)));
 

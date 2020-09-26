@@ -7,13 +7,13 @@
 #ifndef ADDNEWCONTACTDIALOG_H
 #define ADDNEWCONTACTDIALOG_H
 
-#include "qt/pny/focuseddialog.h"
+#include <QDialog>
 
 namespace Ui {
 class AddNewContactDialog;
 }
 
-class AddNewContactDialog : public FocusedDialog
+class AddNewContactDialog : public QDialog
 {
     Q_OBJECT
 
@@ -29,7 +29,7 @@ public:
     bool res = false;
 
 public Q_SLOTS:
-    void accept() override;
+    void ok();
 private:
     Ui::AddNewContactDialog *ui;
     const char* message = nullptr;

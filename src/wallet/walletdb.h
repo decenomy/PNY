@@ -26,10 +26,9 @@
 #include <utility>
 #include <vector>
 
-static const bool DEFAULT_FLUSHWALLET = true;
-
 class CAccount;
 class CAccountingEntry;
+class CBitcoinAddress;
 struct CBlockLocator;
 class CKeyPool;
 class CMasterKey;
@@ -79,9 +78,9 @@ public:
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>
-    inline void SerializationOp(Stream& s, Operation ser_action)
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion)
     {
-        READWRITE(nVersion);
+        READWRITE(this->nVersion);
         READWRITE(nCreateTime);
         if (HasKeyOrigin()) {
             READWRITE(hd_seed_id);
@@ -103,7 +102,7 @@ public:
     }
 };
 
-/** Access to the wallet database */
+/** Access to the wallet database (wallet.dat) */
 class CWalletDB : public CDB
 {
 public:
@@ -117,7 +116,7 @@ public:
     bool WritePurpose(const std::string& strAddress, const std::string& purpose);
     bool ErasePurpose(const std::string& strAddress);
 
-    bool WriteTx(const CWalletTx& wtx);
+    bool WriteTx(uint256 hash, const CWalletTx& wtx);
     bool EraseTx(uint256 hash);
 
     bool WriteKey(const CPubKey& vchPubKey, const CPrivKey& vchPrivKey, const CKeyMetadata& keyMeta);
@@ -159,22 +158,9 @@ public:
 
     bool ReadAccount(const std::string& strAccount, CAccount& account);
     bool WriteAccount(const std::string& strAccount, const CAccount& account);
-    bool EraseAccount(const std::string& strAccount);
 
     //! write the hdchain model (external/internal chain child index counter)
     bool WriteHDChain(const CHDChain& chain);
-
-    /// Write extended spending key to wallet database, where the key is the incoming viewing key
-    bool WriteSaplingZKey(const libzcash::SaplingIncomingViewingKey &ivk,
-                          const libzcash::SaplingExtendedSpendingKey &key,
-                          const CKeyMetadata  &keyMeta);
-
-    bool WriteSaplingPaymentAddress(const libzcash::SaplingPaymentAddress &addr,
-                                    const libzcash::SaplingIncomingViewingKey &ivk);
-
-    bool WriteCryptedSaplingZKey(const libzcash::SaplingExtendedFullViewingKey &extfvk,
-                                 const std::vector<unsigned char>& vchCryptedSecret,
-                                 const CKeyMetadata &keyMeta);
 
     /// Write destination data key,value tuple to database
     bool WriteDestData(const std::string& address, const std::string& key, const std::string& value);
@@ -224,8 +210,6 @@ public:
     std::map<uint256, std::vector<std::pair<uint256, uint32_t> > > MapMintPool();
     bool WriteMintPoolPair(const uint256& hashMasterSeed, const uint256& hashPubcoin, const uint32_t& nCount);
 
-    static void IncrementUpdateCounter();
-    static unsigned int GetUpdateCounter();
 private:
     CWalletDB(const CWalletDB&);
     void operator=(const CWalletDB&);
@@ -234,9 +218,8 @@ private:
 };
 
 void NotifyBacked(const CWallet& wallet, bool fSuccess, std::string strMessage);
-bool BackupWallet(const CWallet& wallet, const fs::path& strDest, bool fEnableCustom = true);
-bool AttemptBackupWallet(const CWallet& wallet, const fs::path& pathSrc, const fs::path& pathDest);
+bool BackupWallet(const CWallet& wallet, const boost::filesystem::path& strDest, bool fEnableCustom = true);
+bool AttemptBackupWallet(const CWallet& wallet, const boost::filesystem::path& pathSrc, const boost::filesystem::path& pathDest);
 
-void ThreadFlushWalletDB();
 
 #endif // BITCOIN_WALLETDB_H
