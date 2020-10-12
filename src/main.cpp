@@ -4024,11 +4024,13 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         CAmount operationsPayment = GetOperationsPayment(nHeight, blockValue);
         CAmount blockValue2 = GetBlockValue(nHeight-1);
         CAmount operationsPayment2 = GetOperationsPayment(nHeight-1, blockValue2);
-        if (operationsPayment > 0 && sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) {
+        if (operationsPayment > 0 && sporkManager.IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT) && !IsInitialBlockDownload()) {
           // Check the fund payments
           int s = block.vtx[1].vout.size();
           if (block.vtx[1].vout[s - 2].scriptPubKey != OpFundScriptPubKey() || (block.vtx[1].vout[s - 2].nValue != operationsPayment && block.vtx[1].vout[s - 2].nValue != operationsPayment2))
             return state.DoS(100, error("AcceptBlock() : incorrect developer fund payment"));
+        } else {
+            LogPrintf("%s: Developer fee checks skipped on sync\n", __func__);
         }
 
         // Blocks arrives in order, so if prev block is not the tip then we are on a fork.

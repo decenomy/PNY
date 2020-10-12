@@ -1,5 +1,5 @@
 ---
-name: "pny-osx-3.0.3"
+name: "pny-osx-3.0.4"
 enable_cache: true
 distro: "ubuntu"
 suites:
