@@ -596,7 +596,7 @@ for staking</source>
     </message>
     <message>
         <source>Lock unspent</source>
-        <translation>Заблокировать нестраченные</translation>
+        <translation>Заблокировать неистраченные</translation>
     </message>
     <message>
         <source>Unlock unspent</source>
