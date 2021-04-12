@@ -1209,16 +1209,16 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>versie</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About PNY Core</source>
-        <translation>Over PNY Core</translation>
+        <source>About Peony Core</source>
+        <translation>Over Peony Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1272,16 +1272,16 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Welkom</translation>
     </message>
     <message>
-        <source>Welcome to PNY Core.</source>
-        <translation>Welkom bij PNY Core.</translation>
+        <source>Welcome to Peony Core.</source>
+        <translation>Welkom bij Peony Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where PNY Core will store its data.</source>
-        <translation>Aangezien dit de eerste keer is dat het programma is gestart, kun je kiezen waar PNY Core zijn data opslaat.</translation>
+        <source>As this is the first time the program is launched, you can choose where Peony Core will store its data.</source>
+        <translation>Aangezien dit de eerste keer is dat het programma is gestart, kun je kiezen waar Peony Core zijn data opslaat.</translation>
     </message>
     <message>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>PNY Core zal een kopie van de PNY blockchain downloaden en opslaan. Tenminste %20MB aan data zal worden opgeslagen in deze map en het zal over de tijd groeien. De portemonnee zal ook in deze map worden opgeslagen.</translation>
+        <source>Peony Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Peony Core zal een kopie van de PNY blockchain downloaden en opslaan. Tenminste %20MB aan data zal worden opgeslagen in deze map en het zal over de tijd groeien. De portemonnee zal ook in deze map worden opgeslagen.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1300,8 +1300,8 @@ Het zal automatisch starten zodra de portemonnee voldoende bevestigingen heeft o
         <translation>Akkoord</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -2094,8 +2094,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
 <context>
     <name>PNYGUI</name>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -2122,8 +2122,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
         <translation>Programma afsluiten</translation>
     </message>
     <message>
-        <source>PNY Core client</source>
-        <translation>PNY Core client</translation>
+        <source>Peony Core client</source>
+        <translation>Peony Core client</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2452,8 +2452,8 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2472,8 +2472,8 @@ transactiegeschiedenis, waardoor transacties niet meer te traceren zijn</transla
         <translation>Fout bij het lezen van het masternode configuratiebestand: %1</translation>
     </message>
     <message>
-        <source>PNY Core didn't yet exit safely...</source>
-        <translation>PNY Core is nog niet veilig afgesloten...</translation>
+        <source>Peony Core didn't yet exit safely...</source>
+        <translation>Peony Core is nog niet veilig afgesloten...</translation>
     </message>
     <message>
         <source>Contact</source>
@@ -4383,7 +4383,7 @@ Er was een fout opgetreden tijdens het opslaan van deze adreslijst naar %1. Prob
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node PNY core wallet with a
+                           A masternode is a computer running a full node Peony Core wallet with a
                            requirement of 10,000 PNY secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
@@ -4425,7 +4425,7 @@ Er was een fout opgetreden tijdens het opslaan van deze adreslijst naar %1. Prob
                          </source>
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Een masternode is een computer met een volledige node PNY core portemonnee met een
+                           Een masternode is een computer met een volledige node Peony Core portemonnee met een
                            vereiste van 10.000 PNY onderpand om extra diensten te kunnen verlenen
                            aan het netwerk en in ruil daarvoor ontvangt u regelmatig een deel van de blokbeloning.
                            Deze diensten omvatten::
@@ -5264,8 +5264,8 @@ Weet je zeker dat?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PNY Core is shutting down...</source>
-        <translation>PNY Core is aan het afsluiten...</translation>
+        <source>Peony Core is shutting down...</source>
+        <translation>Peony Core is aan het afsluiten...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -5294,15 +5294,15 @@ Weet je zeker dat?
         <translation>Laden...</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -5317,7 +5317,7 @@ Weet je zeker dat?
         <translation>De Dash Kernontwikkelaars</translation>
     </message>
     <message>
-        <source>The PNY Core developers</source>
+        <source>The Peony Core developers</source>
         <translation>De PNY Kernontwikkelaars</translation>
     </message>
     <message>
@@ -6021,9 +6021,9 @@ nieuwe back-up aangemaakt worden.
     </message>
     <message>
         <source>Welcome to
-PNY Core Wallet</source>
+Peony Core Wallet</source>
         <translation>Welkom bij
-PNY Core Portemonnee</translation>
+Peony Core Portemonnee</translation>
     </message>
     <message>
         <source>PNY is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
@@ -6116,8 +6116,8 @@ PNY Core Portemonnee</translation>
         <translation>Bind naar het opgegeven adres om te luisteren naar JSON-RPC verbindingen. Gebruik [host]:poort notatie voor IPv6. Deze optie kan meerdere keren worden opgegeven (standaard: bind aan alle interfaces)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. PNY Core is probably already running.</source>
-        <translation>Kan geen vergrendeling op data directory %s verkrijgen. PNY Core loopt waarschijnlijk al.</translation>
+        <source>Cannot obtain a lock on data directory %s. Peony Core is probably already running.</source>
+        <translation>Kan geen vergrendeling op data directory %s verkrijgen. Peony Core loopt waarschijnlijk al.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -6304,8 +6304,8 @@ PNY Core Portemonnee</translation>
         <translation>De totale lengte van de netwerkversie (%i) overschrijdt de maximale lengte (%i). Verminder het aantal of de grootte van uacommentaren.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. PNY Core is probably already running.</source>
-        <translation>Niet mogelijk te binden aan %s op deze computer. PNY Core loopt waarschijnlijk al.</translation>
+        <source>Unable to bind to %s on this computer. Peony Core is probably already running.</source>
+        <translation>Niet mogelijk te binden aan %s op deze computer. Peony Core loopt waarschijnlijk al.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -6320,8 +6320,8 @@ PNY Core Portemonnee</translation>
         <translation>Waarschuwing: -paytxfee is zeer hoog ingesteld! Dit zijn de transactie kosten die je betaalt als je een transactie verstuurt.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
-        <translation>Waarschuwing: Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd staat, werkt PNY Core niet goed.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
+        <translation>Waarschuwing: Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd staat, werkt Peony Core niet goed.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -6436,7 +6436,7 @@ PNY Core Portemonnee</translation>
         <translation>Copyright (C) 2014-%i The Dash Kernontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The PNY Core Developers</source>
+        <source>Copyright (C) %i The Peony Core Developers</source>
         <translation>Copyright (C) 2015-%i The PNY Kernontwikkelaars</translation>
     </message>
     <message>
@@ -6512,8 +6512,8 @@ PNY Core Portemonnee</translation>
         <translation>Error tijdens het laden van wallet.dat: Portemonnee corrupt</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of PNY Core</source>
-        <translation>Fout bij het laden van wallet.dat: Portemonnee vereist een nieuwere versie van PNY Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Peony Core</source>
+        <translation>Fout bij het laden van wallet.dat: Portemonnee vereist een nieuwere versie van Peony Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -6604,8 +6604,8 @@ PNY Core Portemonnee</translation>
         <translation>Informatie</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. PNY Core is shutting down.</source>
-        <translation>Initialisatie saniteitscontrole mislukt. PNY Core wordt afgesloten.</translation>
+        <source>Initialization sanity check failed. Peony Core is shutting down.</source>
+        <translation>Initialisatie saniteitscontrole mislukt. Peony Core wordt afgesloten.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6944,8 +6944,8 @@ PNY Core Portemonnee</translation>
         <translation>Voorbereiden van hersynchronisatie...</translation>
     </message>
     <message>
-        <source>Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
-        <translation>Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd ingesteld staat, werkt PNY Core niet goed.</translation>
+        <source>Please check that your computer's date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
+        <translation>Controleer of de datum en tijd van je computer juist zijn! Als je klok verkeerd ingesteld staat, werkt Peony Core niet goed.</translation>
     </message>
     <message>
         <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
@@ -7276,8 +7276,8 @@ PNY Core Portemonnee</translation>
         <translation>Portemonnee %s verblijft buiten de data directory %s</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart PNY Core to complete</source>
-        <translation>Wallet moest worden herschreven: start PNY Core opnieuw om te voltooien</translation>
+        <source>Wallet needed to be rewritten: restart Peony Core to complete</source>
+        <translation>Wallet moest worden herschreven: start Peony Core opnieuw om te voltooien</translation>
     </message>
     <message>
         <source>Wallet options:</source>

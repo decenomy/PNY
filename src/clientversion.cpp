@@ -15,7 +15,7 @@
  * for both pnyd and pny-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("PNY Core");
+const std::string CLIENT_NAME("Peony Core");
 
 /**
  * Client version number

@@ -34,7 +34,7 @@ void InitLogging();
 void InitParameterInteraction();
 bool AppInit2();
 
-/** Initialize PNY core: Basic context setup.
+/** Initialize Peony Core: Basic context setup.
  *  @note This can be done before daemonization. Do not call Shutdown() if this function fails.
  *  @pre Parameters should be parsed and config file should be read.
  */

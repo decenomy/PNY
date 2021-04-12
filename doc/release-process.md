@@ -124,7 +124,7 @@ NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from 
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign PNY Core for Linux, Windows, and macOS:
+### Build and sign Peony Core for Linux, Windows, and macOS:
 
     pushd ./gitian-builder
     ./bin/gbuild --num-make 2 --memory 3000 --commit pny=v${VERSION} ../peony/contrib/gitian-descriptors/gitian-linux.yml

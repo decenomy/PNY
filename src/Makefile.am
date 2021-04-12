@@ -75,7 +75,7 @@ if BUILD_BITCOIN_UTILS
 endif
 
 .PHONY: FORCE check-symbols check-security
-# pny core #
+# Peony Core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \

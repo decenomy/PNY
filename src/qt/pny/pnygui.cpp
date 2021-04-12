@@ -69,7 +69,7 @@ PNYGUI::PNYGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
     QString windowTitle = QString::fromStdString(GetArg("-windowtitle", ""));
     if (windowTitle.isEmpty()) {
-        windowTitle = tr("PNY Core") + " - ";
+        windowTitle = tr("Peony Core") + " - ";
         windowTitle += ((enableWallet) ? tr("Wallet") : tr("Node"));
     }
     windowTitle += " " + networkStyle->getTitleAddText();
@@ -211,7 +211,7 @@ void PNYGUI::connectActions() {
 void PNYGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("PNY Core client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Peony Core client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->hide();
@@ -361,7 +361,7 @@ void PNYGUI::messageInfo(const QString& text){
 
 
 void PNYGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
-    QString strTitle =  tr("PNY Core"); // default title
+    QString strTitle =  tr("Peony Core"); // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
 
@@ -429,7 +429,7 @@ bool PNYGUI::openStandardDialog(QString title, QString body, QString okBtn, QStr
     } else {
         dialog = new DefaultDialog();
         dialog->setText(title, body, okBtn);
-        dialog->setWindowTitle(tr("PNY Core"));
+        dialog->setWindowTitle(tr("Peony Core"));
         dialog->adjustSize();
         dialog->raise();
         dialog->exec();

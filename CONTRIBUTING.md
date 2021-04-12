@@ -1,7 +1,7 @@
-Contributing to PNY Core
+Contributing to Peony Core
 ============================
 
-The PNY Core project operates an open contributor model where anyone is
+The Peony Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -203,10 +203,10 @@ workload on reviewing.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the PNY Core project, and is not to be
+The following applies to code changes to the Peony Core project, and is not to be
 confused with overall PNY Network Protocol consensus changes.
 
-Whether a pull request is merged into PNY Core rests with the project merge
+Whether a pull request is merged into Peony Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -303,7 +303,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each PNY Core release.
+The project leader is the release manager for each Peony Core release.
 
 Copyright
 ---------

@@ -1514,7 +1514,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location line="+0"/>
-        <source>PNY Core</source>
+        <source>Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1525,7 +1525,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location line="+6"/>
-        <source>About PNY Core</source>
+        <source>About Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1593,17 +1593,17 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location line="+90"/>
-        <source>Welcome to PNY Core.</source>
+        <source>Welcome to Peony Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+35"/>
-        <source>As this is the first time the program is launched, you can choose where PNY Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Peony Core will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Peony Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1628,7 +1628,7 @@ It will start automatically as soon as the wallet has enough confirmations on an
     </message>
     <message>
         <location filename="../intro.cpp" line="+101"/>
-        <source>PNY Core</source>
+        <source>Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2593,7 +2593,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
         <location filename="../pny/pnygui.cpp" line="+70"/>
         <location line="+292"/>
         <location line="+68"/>
-        <source>PNY Core</source>
+        <source>Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2628,7 +2628,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</source>
     </message>
     <message>
         <location line="+37"/>
-        <source>PNY Core client</source>
+        <source>Peony Core client</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3068,7 +3068,7 @@ transaction history, making transactions untraceable </source>
         <location line="+7"/>
         <location line="+13"/>
         <location line="+19"/>
-        <source>PNY Core</source>
+        <source>Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3093,7 +3093,7 @@ transaction history, making transactions untraceable </source>
     </message>
     <message>
         <location line="+63"/>
-        <source>PNY Core didn&apos;t yet exit safely...</source>
+        <source>Peony Core didn&apos;t yet exit safely...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5400,7 +5400,7 @@ There was an error trying to save the address list to %1. Please try again.</sou
         <location line="+44"/>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;
-                           A masternode is a computer running a full node PNY core wallet with a
+                           A masternode is a computer running a full node Peony Core wallet with a
                            requirement of 10,000 PNY secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
@@ -6461,7 +6461,7 @@ Are you sure?
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+71"/>
-        <source>PNY Core is shutting down...</source>
+        <source>Peony Core is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6497,7 +6497,7 @@ Are you sure?
     </message>
     <message>
         <location filename="../pny/splash.cpp" line="+29"/>
-        <source>PNY Core</source>
+        <source>Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6505,7 +6505,7 @@ Are you sure?
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+36"/>
-        <source>PNY Core</source>
+        <source>Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6525,7 +6525,7 @@ Are you sure?
     </message>
     <message>
         <location line="+1"/>
-        <source>The PNY Core developers</source>
+        <source>The Peony Core developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7442,7 +7442,7 @@ backup will be created.
     <message>
         <location line="+89"/>
         <source>Welcome to
-PNY Core Wallet</source>
+Peony Core Wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7558,7 +7558,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+4"/>
-        <source>Cannot obtain a lock on data directory %s. PNY Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Peony Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7793,7 +7793,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+3"/>
-        <source>Unable to bind to %s on this computer. PNY Core is probably already running.</source>
+        <source>Unable to bind to %s on this computer. Peony Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7813,7 +7813,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7958,7 +7958,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) %i The PNY Core Developers</source>
+        <source>Copyright (C) %i The Peony Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8053,7 +8053,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of PNY Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Peony Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8168,7 +8168,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Initialization sanity check failed. PNY Core is shutting down.</source>
+        <source>Initialization sanity check failed. Peony Core is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8590,7 +8590,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="-213"/>
-        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
+        <source>Please check that your computer&apos;s date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -9005,7 +9005,7 @@ PNY Core Wallet</source>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart PNY Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Peony Core to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

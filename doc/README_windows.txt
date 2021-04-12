@@ -1,4 +1,4 @@
-PNY Core
+Peony Core
 =====================
 
 Intro
@@ -13,7 +13,7 @@ Setup
 -----
 Unpack the files into a directory and run pny-qt.exe.
 
-PNY Core is the original PNY client and it builds the backbone of the network.
+Peony Core is the original PNY client and it builds the backbone of the network.
 However, it downloads and stores the entire history of PNY transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.

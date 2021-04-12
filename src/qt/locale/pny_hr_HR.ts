@@ -1208,16 +1208,16 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>verzija</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About PNY Core</source>
-        <translation>O PNY Core-u</translation>
+        <source>About Peony Core</source>
+        <translation>O Peony Core-u</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1271,16 +1271,16 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>Dobrodošli</translation>
     </message>
     <message>
-        <source>Welcome to PNY Core.</source>
-        <translation>Dobrodošli u PNY Core.</translation>
+        <source>Welcome to Peony Core.</source>
+        <translation>Dobrodošli u Peony Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where PNY Core will store its data.</source>
-        <translation>Budući da je prvi put pokrenut program, možete odabrati gdje će PNY Core pohraniti svoje podatke.</translation>
+        <source>As this is the first time the program is launched, you can choose where Peony Core will store its data.</source>
+        <translation>Budući da je prvi put pokrenut program, možete odabrati gdje će Peony Core pohraniti svoje podatke.</translation>
     </message>
     <message>
-        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>PNY Core preuzima i pohranjuje kopiju PNY blok-lanca. Barem će %20MB podataka biti pohranjeno u ovom direktoriju i to će s vremenom rasti. Novčanik će također biti pohranjena u ovom direktoriju.</translation>
+        <source>Peony Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Peony Core preuzima i pohranjuje kopiju PNY blok-lanca. Barem će %20MB podataka biti pohranjeno u ovom direktoriju i to će s vremenom rasti. Novčanik će također biti pohranjena u ovom direktoriju.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1299,8 +1299,8 @@ Automatski će se pokrenuti čim novčanik dobije dovoljno potvrda o neiskorišt
         <translation>OK</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -2093,8 +2093,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
 <context>
     <name>PNYGUI</name>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -2121,7 +2121,7 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
         <translation>Napusti aplikaciju</translation>
     </message>
     <message>
-        <source>PNY Core client</source>
+        <source>Peony Core client</source>
         <translation>PNYIX Core Klijent</translation>
     </message>
     <message>
@@ -2451,8 +2451,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2471,8 +2471,8 @@ povijest transakcija, čineći transakcije nepratljivima</translation>
         <translation>Greška pri čitanju masternode konfiguracijske datoteke: %1</translation>
     </message>
     <message>
-        <source>PNY Core didn't yet exit safely...</source>
-        <translation>PNY Core nije ugašen sigurno...</translation>
+        <source>Peony Core didn't yet exit safely...</source>
+        <translation>Peony Core nije ugašen sigurno...</translation>
     </message>
     <message>
         <source>Contact</source>
@@ -4385,7 +4385,7 @@ na našoj Freshdesk stranici za podršku&lt;/a&gt;.
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node PNY core wallet with a
+                           A masternode is a computer running a full node Peony Core wallet with a
                            requirement of 10,000 PNY secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
@@ -4427,7 +4427,7 @@ na našoj Freshdesk stranici za podršku&lt;/a&gt;.
                          </source>
         <translation>
 &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-Masternode je računalo koje pokreće full node PNY Core novčanik sa
+Masternode je računalo koje pokreće full node Peony Core novčanik sa
 zahtjevanih 10,000 PNY-a osiguranog zaloga da pruži dodatne usluge
 mreži, i zauzvrat redovito primi dio nagrade blokova.
 Te usluge uključuju:
@@ -5266,8 +5266,8 @@ Jeste li sigurni?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>PNY Core is shutting down...</source>
-        <translation>PNY Core se zatvara...</translation>
+        <source>Peony Core is shutting down...</source>
+        <translation>Peony Core se zatvara...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -5296,15 +5296,15 @@ Jeste li sigurni?
         <translation>Učitavanje...</translation>
     </message>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>PNY Core</source>
-        <translation>PNY Core</translation>
+        <source>Peony Core</source>
+        <translation>Peony Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -5319,8 +5319,8 @@ Jeste li sigurni?
         <translation>Dash Core programeri</translation>
     </message>
     <message>
-        <source>The PNY Core developers</source>
-        <translation>PNY Core programeri</translation>
+        <source>The Peony Core developers</source>
+        <translation>Peony Core programeri</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -6023,7 +6023,7 @@ se nova sigurnosna kopija.
     </message>
     <message>
         <source>Welcome to
-PNY Core Wallet</source>
+Peony Core Wallet</source>
         <translation>Dobrodošli u
 PNY temeljni novčanik</translation>
     </message>
@@ -6118,8 +6118,8 @@ PNY temeljni novčanik</translation>
         <translation>Pridržavajte se na navedenu adresu da biste slušali veze JSON-RPC. Koristite [host]: port notation za IPv6. Ova se opcija može odrediti više puta (zadano: vezati se na sva sučelja)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. PNY Core is probably already running.</source>
-        <translation>Nije moguće dobiti zaključavanje na direktoriju podataka %s. PNY Core vjerojatno već radi.</translation>
+        <source>Cannot obtain a lock on data directory %s. Peony Core is probably already running.</source>
+        <translation>Nije moguće dobiti zaključavanje na direktoriju podataka %s. Peony Core vjerojatno već radi.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -6306,8 +6306,8 @@ PNY temeljni novčanik</translation>
         <translation>Ukupna duljina teksta mrežne verzije (%i) prelazi maksimalnu duljinu (%i). Smanjite broj ili veličinu uacommentsa.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. PNY Core is probably already running.</source>
-        <translation>Nije moguće vezati se na %s na ovom računalu. PNY Core vjerojatno već radi.</translation>
+        <source>Unable to bind to %s on this computer. Peony Core is probably already running.</source>
+        <translation>Nije moguće vezati se na %s na ovom računalu. Peony Core vjerojatno već radi.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -6322,8 +6322,8 @@ PNY temeljni novčanik</translation>
         <translation>Upozorenje: -paytxfee je vrlo visoka! To je transakcijska naknada koju ćete platiti ako šaljete transakciju.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
-        <translation>Upozorenje: Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, PNY Core neće raditi ispravno.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
+        <translation>Upozorenje: Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, Peony Core neće raditi ispravno.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -6438,8 +6438,8 @@ PNY temeljni novčanik</translation>
         <translation>Autorska prava (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The PNY Core Developers</source>
-        <translation>Autorska prava (C) %i The PNY Core Developers</translation>
+        <source>Copyright (C) %i The Peony Core Developers</source>
+        <translation>Autorska prava (C) %i The Peony Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -6515,7 +6515,7 @@ PNY temeljni novčanik</translation>
         <translation>Pogreška pri učitavanju wallet.dat: Novčanik oštećen</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of PNY Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Peony Core</source>
         <translation>Pogreška prilikom učitavanja wallet.dat: Novčanik zahtijeva noviju verziju PNY jezgre</translation>
     </message>
     <message>
@@ -6607,8 +6607,8 @@ PNY temeljni novčanik</translation>
         <translation>Informacije</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. PNY Core is shutting down.</source>
-        <translation>Provjera ispravnosti inicijalizacije nije uspjela. PNY Core se zatvara.</translation>
+        <source>Initialization sanity check failed. Peony Core is shutting down.</source>
+        <translation>Provjera ispravnosti inicijalizacije nije uspjela. Peony Core se zatvara.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6947,8 +6947,8 @@ PNY temeljni novčanik</translation>
         <translation>Priprema za resinkronizaciju...</translation>
     </message>
     <message>
-        <source>Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
-        <translation>Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, PNY Core neće raditi ispravno.</translation>
+        <source>Please check that your computer's date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
+        <translation>Provjerite jesu li datum i vrijeme vašeg računala točni! Ako je vaš sat pogrešan, Peony Core neće raditi ispravno.</translation>
     </message>
     <message>
         <source>Specify location of debug log file: this can be an absolute path or a path relative to the data directory (default: %s)</source>
@@ -7279,8 +7279,8 @@ PNY temeljni novčanik</translation>
         <translation>Novčanik %s nalazi se izvan direktorija podataka %s</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart PNY Core to complete</source>
-        <translation>Potrebno je prepisati novčanik: ponovo pokrenite PNY Core</translation>
+        <source>Wallet needed to be rewritten: restart Peony Core to complete</source>
+        <translation>Potrebno je prepisati novčanik: ponovo pokrenite Peony Core</translation>
     </message>
     <message>
         <source>Wallet options:</source>
