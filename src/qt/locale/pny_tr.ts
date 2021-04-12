@@ -1182,16 +1182,16 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>versiyon</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About Peony Core</source>
-        <translation>Peony Core Hakkında </translation>
+        <source>About PNY Core</source>
+        <translation>PNY Core Hakkında </translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1241,16 +1241,16 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>Hoşgeldiniz</translation>
     </message>
     <message>
-        <source>Welcome to Peony Core.</source>
-        <translation>Peony Core'a hoşgeldiniz.</translation>
+        <source>Welcome to PNY Core.</source>
+        <translation>PNY Core'a hoşgeldiniz.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Peony Core will store its data.</source>
-        <translation>Program ilk başlatıldığında Peony Core'un verilerini nerede saklayacağını seçebilirsiniz.</translation>
+        <source>As this is the first time the program is launched, you can choose where PNY Core will store its data.</source>
+        <translation>Program ilk başlatıldığında PNY Core'un verilerini nerede saklayacağını seçebilirsiniz.</translation>
     </message>
     <message>
-        <source>Peony Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Peony Core, PNY blok zincirinin bir kopyasını indirecek ve depolayacaktır. Bu dizinde en az %20MB veri saklanacak ve zamanla büyüyecektir. Ayrıca cüzdanınız da bu dizinde saklanır.</translation>
+        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>PNY Core, PNY blok zincirinin bir kopyasını indirecek ve depolayacaktır. Bu dizinde en az %20MB veri saklanacak ve zamanla büyüyecektir. Ayrıca cüzdanınız da bu dizinde saklanır.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1269,8 +1269,8 @@ Cüzdanınız senkronize olduktan ve harcanmamış bakiyeniz yeterli miktarda on
         <translation>TAMAM</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1946,8 +1946,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
 <context>
     <name>PNYGUI</name>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1974,8 +1974,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
         <translation>Uygulamayı sonlandır</translation>
     </message>
     <message>
-        <source>Peony Core client</source>
-        <translation>Peony Core istemci</translation>
+        <source>PNY Core client</source>
+        <translation>PNY Core istemci</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2291,8 +2291,8 @@ transaction history, making transactions untraceable </source>
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2311,8 +2311,8 @@ transaction history, making transactions untraceable </source>
         <translation>Masternode konfigürasyon dosyası okuma hatası: %1</translation>
     </message>
     <message>
-        <source>Peony Core didn't yet exit safely...</source>
-        <translation>Peony Core henüz güvenle kapanmadı..</translation>
+        <source>PNY Core didn't yet exit safely...</source>
+        <translation>PNY Core henüz güvenle kapanmadı..</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -3911,7 +3911,7 @@ zPNY Protokolü ile anonimleştirilmiş olacaktır.
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node Peony Core wallet with a
+                           A masternode is a computer running a full node PNY Core wallet with a
                            requirement of 10,000 PNY secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
@@ -3953,7 +3953,7 @@ zPNY Protokolü ile anonimleştirilmiş olacaktır.
                          </source>
         <translation>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           Tam düğüm Peony Core cüzdanını çalıştıran, gereken 10,000 PNY
+                           Tam düğüm PNY Core cüzdanını çalıştıran, gereken 10,000 PNY
                            teminat bakiyesini barındırarak ağa ekstra hizmetler sunan ve
                            karşılığında da her blok ödülünden düzenli olarak pay alan bir
                            bilgisayardır.Bu hizmetler aşağıdaki gibidir:
@@ -4724,8 +4724,8 @@ Emin misiniz?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Peony Core is shutting down...</source>
-        <translation>Peony Core kapanıyor ...</translation>
+        <source>PNY Core is shutting down...</source>
+        <translation>PNY Core kapanıyor ...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4754,15 +4754,15 @@ Emin misiniz?
         <translation>Yükleniyor...</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4777,8 +4777,8 @@ Emin misiniz?
         <translation>The Dash Core developers</translation>
     </message>
     <message>
-        <source>The Peony Core developers</source>
-        <translation>The Peony Core developers</translation>
+        <source>The PNY Core developers</source>
+        <translation>The PNY Core developers</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -5345,8 +5345,8 @@ Emin misiniz?
     </message>
     <message>
         <source>Welcome to
-Peony Core Wallet</source>
-        <translation>Peony Core Cüzdanı'na
+PNY Core Wallet</source>
+        <translation>PNY Core Cüzdanı'na
 Hoşgeldiniz</translation>
     </message>
     <message>
@@ -5440,8 +5440,8 @@ Hoşgeldiniz</translation>
         <translation>JSON-RPC bağlantılarını dinlemek için verilen adrese bağlanın. IPv6 için [host]: port gösterimini kullanın. Bu seçenek birden çok kez belirtilebilir (varsayılan: tüm arabirimlere bağlanır)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Peony Core is probably already running.</source>
-        <translation>Veri dizini %s üzerinde bir kilit elde edemiyor. Peony Core muhtemelen zaten çalışıyor.</translation>
+        <source>Cannot obtain a lock on data directory %s. PNY Core is probably already running.</source>
+        <translation>Veri dizini %s üzerinde bir kilit elde edemiyor. PNY Core muhtemelen zaten çalışıyor.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -5624,8 +5624,8 @@ Hoşgeldiniz</translation>
         <translation>Ağ versiyon dizisi toplam uzunluğu(%i) maksimum uzunluğu aşıyor(%i). Yorumların büyüklüğünü veya sayısını azaltın.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Peony Core is probably already running.</source>
-        <translation>Bu bilgisayarda %s 'e bağlanılamıyor. Peony Core muhtemelen zaten çalışıyor.</translation>
+        <source>Unable to bind to %s on this computer. PNY Core is probably already running.</source>
+        <translation>Bu bilgisayarda %s 'e bağlanılamıyor. PNY Core muhtemelen zaten çalışıyor.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -5640,8 +5640,8 @@ Hoşgeldiniz</translation>
         <translation>Uyarı: paytxfee değeri çok yüksek ayarlanmış! Bu para gönderirken ödeyeceğiniz transfer ücretidir.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
-        <translation>Uyarı: Bilgisayarınızın tarih ve saat ayarlarının doğruluğunu kontrol edin! Saatiniz yanlış ise Peony Core düzgün çalışmayacaktır. </translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
+        <translation>Uyarı: Bilgisayarınızın tarih ve saat ayarlarının doğruluğunu kontrol edin! Saatiniz yanlış ise PNY Core düzgün çalışmayacaktır. </translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5756,8 +5756,8 @@ Hoşgeldiniz</translation>
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Peony Core Developers</source>
-        <translation>Copyright (C) %i The Peony Core Developers</translation>
+        <source>Copyright (C) %i The PNY Core Developers</source>
+        <translation>Copyright (C) %i The PNY Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5832,8 +5832,8 @@ Hoşgeldiniz</translation>
         <translation>Wallet.dat yüklenirken hata oluştu: Cüzdan dosyası bozuk</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Peony Core</source>
-        <translation>Wallet.dat yüklenirken hata oluştu: Cüzdan daha yeni bir Peony Core versiyonuna ihtiyaç duyuyor</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of PNY Core</source>
+        <translation>Wallet.dat yüklenirken hata oluştu: Cüzdan daha yeni bir PNY Core versiyonuna ihtiyaç duyuyor</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5920,8 +5920,8 @@ Hoşgeldiniz</translation>
         <translation>Bilgi</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Peony Core is shutting down.</source>
-        <translation>Sağlama kontrolü başlatımı başarısız. Peony Core kapatılıyor.</translation>
+        <source>Initialization sanity check failed. PNY Core is shutting down.</source>
+        <translation>Sağlama kontrolü başlatımı başarısız. PNY Core kapatılıyor.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6548,8 +6548,8 @@ Hoşgeldiniz</translation>
         <translation>Cüzdan %s bilgi dizini %s dışında bulunuyor</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Peony Core to complete</source>
-        <translation>Cüzdanın tekrar yazılması gerekiyor: tamamlamak için Peony Core uygulamasını tekrar başlatın.</translation>
+        <source>Wallet needed to be rewritten: restart PNY Core to complete</source>
+        <translation>Cüzdanın tekrar yazılması gerekiyor: tamamlamak için PNY Core uygulamasını tekrar başlatın.</translation>
     </message>
     <message>
         <source>Wallet options:</source>

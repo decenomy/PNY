@@ -101,7 +101,7 @@
                <string notr="true">QLabel { font-style:italic; }</string>
               </property>
               <property name="text">
-               <string>Welcome to Peony Core.</string>
+               <string>Welcome to PNY Core.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -136,7 +136,7 @@
                </size>
               </property>
               <property name="text">
-               <string>As this is the first time the program is launched, you can choose where Peony Core will store its data.</string>
+               <string>As this is the first time the program is launched, you can choose where PNY Core will store its data.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -154,7 +154,7 @@
 }</string>
               </property>
               <property name="text">
-               <string>Peony Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</string>
+               <string>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>

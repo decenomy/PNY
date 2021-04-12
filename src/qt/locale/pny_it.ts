@@ -1112,16 +1112,16 @@ Si avvierà automaticamente non appena il portafoglio avrà sufficienti conferme
         <translation>versione</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About Peony Core</source>
-        <translation>Informazioni su Peony Core</translation>
+        <source>About PNY Core</source>
+        <translation>Informazioni su PNY Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1171,16 +1171,16 @@ Si avvierà automaticamente non appena il portafoglio avrà sufficienti conferme
         <translation>Benvenuto</translation>
     </message>
     <message>
-        <source>Welcome to Peony Core.</source>
+        <source>Welcome to PNY Core.</source>
         <translation>Benvenuto in PNYIX Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Peony Core will store its data.</source>
-        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove Peony Core salverà i propri dati.</translation>
+        <source>As this is the first time the program is launched, you can choose where PNY Core will store its data.</source>
+        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove PNY Core salverà i propri dati.</translation>
     </message>
     <message>
-        <source>Peony Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Peony Core scaricherà e salverà una copia della blockchain PNY. Verranno salvati almeno %20MB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
+        <source>PNY Core will download and store a copy of the PNY block chain. At least %20MB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>PNY Core scaricherà e salverà una copia della blockchain PNY. Verranno salvati almeno %20MB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1199,8 +1199,8 @@ Si avvierà automaticamente non appena il portafoglio avrà sufficienti conferme
         <translation>OK</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1877,8 +1877,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
 <context>
     <name>PNYGUI</name>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1905,8 +1905,8 @@ https://www.transifex.com/PeonyTeam/PeonyTeam-translations</translation>
         <translation>Chiude l'applicazione</translation>
     </message>
     <message>
-        <source>Peony Core client</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core client</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2223,8 +2223,8 @@ cronologia delle transazioni, rendendo le transazioni non rintracciabili</transl
         <translation>%1 ms</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" does not exist.</source>
@@ -2243,8 +2243,8 @@ cronologia delle transazioni, rendendo le transazioni non rintracciabili</transl
         <translation>Errore durante la lettura del file di configurazione del Masternode: %1</translation>
     </message>
     <message>
-        <source>Peony Core didn't yet exit safely...</source>
-        <translation>Peony Core non è ancora uscito in modo sicuro...</translation>
+        <source>PNY Core didn't yet exit safely...</source>
+        <translation>PNY Core non è ancora uscito in modo sicuro...</translation>
     </message>
     <message>
         <source>Cold Staking</source>
@@ -3836,7 +3836,7 @@ Se desideri più zPNY, dovrai forgiare il saldo nella scheda "Privacy".
     <message>
         <source>
                            &lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="justify"&gt;
-                           A masternode is a computer running a full node Peony Core wallet with a
+                           A masternode is a computer running a full node PNY Core wallet with a
                            requirement of 10,000 PNY secured collateral to provide extra services
                            to the network and in return, receive a portion of the block reward
                            regularly.  These services include:
@@ -4649,8 +4649,8 @@ Sei sicuro?
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Peony Core is shutting down...</source>
-        <translation>Peony Core si sta spegnendo...</translation>
+        <source>PNY Core is shutting down...</source>
+        <translation>PNY Core si sta spegnendo...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4679,15 +4679,15 @@ Sei sicuro?
         <translation>Caricamento...</translation>
     </message>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
 </context>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Peony Core</source>
-        <translation>Peony Core</translation>
+        <source>PNY Core</source>
+        <translation>PNY Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4702,8 +4702,8 @@ Sei sicuro?
         <translation>Gli sviluppatori di Dash Core</translation>
     </message>
     <message>
-        <source>The Peony Core developers</source>
-        <translation>Gli sviluppatori di Peony Core</translation>
+        <source>The PNY Core developers</source>
+        <translation>Gli sviluppatori di PNY Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -5266,9 +5266,9 @@ Sei sicuro?
     </message>
     <message>
         <source>Welcome to
-Peony Core Wallet</source>
+PNY Core Wallet</source>
         <translation>Benvenuto in
-Portafoglio Peony Core.</translation>
+Portafoglio PNY Core.</translation>
     </message>
     <message>
         <source>PNY is the world’s most innovative Proof of Stake blockchain based technology. Developed by a team of highly experienced developers and cryptographers.</source>
@@ -5361,8 +5361,8 @@ Portafoglio Peony Core.</translation>
         <translation>Associa l'indirizzo indicato per ascoltare le connessioni JSON-RPC. Usa la notazione [host]:porta per IPv6. Questa opzione può essere specificata più volte (impostazione predefinita: associa a tutte le interfacce)</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Peony Core is probably already running.</source>
-        <translation>Impossibile allocare la directory di dati %s. Probabilmente Peony Core è già in esecuzione.</translation>
+        <source>Cannot obtain a lock on data directory %s. PNY Core is probably already running.</source>
+        <translation>Impossibile allocare la directory di dati %s. Probabilmente PNY Core è già in esecuzione.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -5545,8 +5545,8 @@ Portafoglio Peony Core.</translation>
         <translation>La lunghezza totale della stringa della versione di rete (%i) supera la lunghezza massima (%i). Ridurre il numero o la dimensione degli uacomments.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. Peony Core is probably already running.</source>
-        <translation>Impossibile associare %s su questo computer. Probabilmente Peony Core è già in esecuzione.</translation>
+        <source>Unable to bind to %s on this computer. PNY Core is probably already running.</source>
+        <translation>Impossibile associare %s su questo computer. Probabilmente PNY Core è già in esecuzione.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -5561,8 +5561,8 @@ Portafoglio Peony Core.</translation>
         <translation>Attenzione: -paytxfee è impostato molto alto! Questa è la commissione di transazione che dovrai pagare se invii una transazione.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Peony Core will not work properly.</source>
-        <translation>Avvertenza: verificare che la data e l'ora del computer siano corrette! Se l'orologio è sbagliato, Peony Core non funzionerà correttamente.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong PNY Core will not work properly.</source>
+        <translation>Avvertenza: verificare che la data e l'ora del computer siano corrette! Se l'orologio è sbagliato, PNY Core non funzionerà correttamente.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5677,8 +5677,8 @@ Portafoglio Peony Core.</translation>
         <translation>Copyright (C) 2014-%i Gli sviluppatori di Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) %i The Peony Core Developers</source>
-        <translation>Copyright (C) 2015-%i Gli sviluppatori di Peony Core</translation>
+        <source>Copyright (C) %i The PNY Core Developers</source>
+        <translation>Copyright (C) 2015-%i Gli sviluppatori di PNY Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5753,8 +5753,8 @@ Portafoglio Peony Core.</translation>
         <translation>Errore durante il caricamento di wallet.dat: portafoglio corrotto </translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Peony Core</source>
-        <translation>Errore durante il caricamento di wallet.dat: il portafoglio richiede una versione più recente di Peony Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of PNY Core</source>
+        <translation>Errore durante il caricamento di wallet.dat: il portafoglio richiede una versione più recente di PNY Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5841,8 +5841,8 @@ Portafoglio Peony Core.</translation>
         <translation>Informazioni</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Peony Core is shutting down.</source>
-        <translation>Verifica dell'integrità dell'inizializzazione non riuscita. Peony Core si sta spegnendo.</translation>
+        <source>Initialization sanity check failed. PNY Core is shutting down.</source>
+        <translation>Verifica dell'integrità dell'inizializzazione non riuscita. PNY Core si sta spegnendo.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -6469,8 +6469,8 @@ Portafoglio Peony Core.</translation>
         <translation>Il portafoglio %s risiede al di fuori della directory di dati %s</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart Peony Core to complete</source>
-        <translation>Il portafoglio doveva essere riscritto: riavviare Peony Core per completare</translation>
+        <source>Wallet needed to be rewritten: restart PNY Core to complete</source>
+        <translation>Il portafoglio doveva essere riscritto: riavviare PNY Core per completare</translation>
     </message>
     <message>
         <source>Wallet options:</source>
