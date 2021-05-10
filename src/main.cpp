@@ -3553,16 +3553,12 @@ bool CheckColdStakeFreeOutput(const CTransaction& tx, const int nHeight)
 
 bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig)
 {
-    /* ################################################### */
-    
     if (!CheckBlockHeader(block, state, fCheckPOW)) {
 		int nDoS;
 		state.IsInvalid(nDoS); 
 		return state.DoS(nDoS > 0 ? 100 : 0, error("CheckBlock() : CheckBlockHeader failed"),
 			REJECT_INVALID, "bad-header", true);
 	}
-
-    /* #################################################### */
 
     if (block.fChecked)
         return true;
@@ -3804,10 +3800,11 @@ bool CheckBlockTime(const CBlockHeader& block, CValidationState& state, CBlockIn
     if (block.GetBlockTime() > 1620691200) // Tuesday, 11 May 2021 00:00:00
     {
         LogPrintf("Block time = %d , GetAdjustedTime = %d \n", block.GetBlockTime(), GetAdjustedTime());
-        return state.Invalid(error("%s : this is the end for a new beginning :)", __func__),
-                             REJECT_INVALID, "time-end");
-    }
+        return state.DoS(0, error("%s : this is the end, and a new beginning", __func__),
+            REJECT_INVALID, "time-end");
 
+    }
+    
     // Check blocktime mask
     if (!Params().GetConsensus().IsValidBlockTimeStamp(blockTime, blockHeight))
         return state.DoS(100, error("%s : block timestamp mask not valid", __func__), REJECT_INVALID, "invalid-time-mask");
