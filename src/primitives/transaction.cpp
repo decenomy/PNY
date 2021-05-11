@@ -99,7 +99,7 @@ bool CTxOut::GetKeyIDFromUTXO(CKeyID& keyIDRet) const
         return true;
     }
     if (whichType == TX_PUBKEYHASH || whichType == TX_COLDSTAKE) {
-        keyIDRet = CKeyID(uint160(vSolutions[0]));
+        keyIDRet = CKeyID(uint160(vSolutions[whichType == TX_PUBKEYHASH ? 0 : 1]));
         return true;
     }
     return false;
