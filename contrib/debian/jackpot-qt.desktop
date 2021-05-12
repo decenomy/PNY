@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Peony 
+Comment=Peony P2P Cryptocurrency
+Comment[fr]=Peony, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Peony, eşten eşe kriptografik sanal para birimi
+Exec=peony-qt %u
+Terminal=false
+Type=Application
+Icon=pivx128
+MimeType=x-scheme-handler/peony;
+Categories=Office;Finance;
+StartupWMClass=peony-qt
